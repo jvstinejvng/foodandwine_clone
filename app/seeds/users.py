@@ -14,7 +14,7 @@ def seed_users():
     rachael = User(
         first_name='Rachael', last_name='Ray',username='RachaelRay', email='rachaelray@aa.io', password='password'),
     david = User(
-        first_name='David', last_name='Chang',username='UglyDelicious', email='uglydelicious@aa.io', password='password'),
+        first_name='David', last_name='Chang', username='UglyDelicious', email='uglydelicious@aa.io', password='password'),
     mark = User(
         first_name='Mark', last_name='Wahlberg', username='Wahlburgers', email='wahlburgers@aa.io', password='password'),
     betty = User(
@@ -27,6 +27,7 @@ def seed_users():
 
     db.session.add(demo)
     db.session.add(gordon)
+    db.session.add(wolfgang)
     db.session.add(guy)
     db.session.add(rachael)
     db.session.add(david)

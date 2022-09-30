@@ -15,8 +15,8 @@ class Recipe(db.Model, UserMixin):
     servings = db.Column(db.String(50), nullable=False)
     ingredients = db.Column(db.String(9000), nullable=False)
     directions = db.Column(db.String(9000), nullable=False)
-    # created_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
-    # updated_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+    created_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+    updated_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
 
     user = db.relationship('User', back_populates='recipes', foreign_keys=[user_id])
     reviews = db.relationship('Review', back_populates='recipe', cascade='all, delete')
@@ -35,7 +35,7 @@ class Recipe(db.Model, UserMixin):
             "total_time": self.total_time,
             "servings": self.servings,
             "ingredients": self.ingredients,
-            "directions": self.directions
-            # 'updated_at': self.updated_at,
-            # 'created_at': self.created_at,
+            "directions": self.directions,
+            'updated_at': self.updated_at,
+            'created_at': self.created_at,
         }
