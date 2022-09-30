@@ -10,8 +10,8 @@ class Review(db.Model):
     recipe_id = db.Column(db.Integer, db.ForeignKey('recipes.id'), nullable=False)
     stars = db.Column(db.Integer, nullable=False)
     comment = db.Column(db.String(1500), nullable=False)
-    # created_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
-    # updated_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+    created_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+    updated_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
 
     user = db.relationship('User', back_populates='reviews', foreign_keys=[user_id])
     recipe = db.relationship('Recipe', back_populates='reviews',)
@@ -28,6 +28,6 @@ class Review(db.Model):
             'recipe_id': self.recipe_id,
             'stars': self.stars,
             'comment': self.comment,
-            # 'updated_at': self.updated_at,
-            # 'created_at': self.created_at,
+            'updated_at': self.updated_at,
+            'created_at': self.created_at,
         }
