@@ -27,7 +27,6 @@ def upgrade():
     sa.UniqueConstraint('email'),
     sa.UniqueConstraint('username')
     )
-    # ### end Alembic commands ###qqqqqqqqq
 
 
 def downgrade():
