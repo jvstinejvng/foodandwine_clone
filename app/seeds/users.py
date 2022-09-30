@@ -10,7 +10,7 @@ def seed_users():
     wolfgang = User(
         first_name='Wolfgang', last_name='Puck', username='WolfgangPuck', email='wolfgangpuck@aa.io', password='password')
     guy = User(
-        first_name='Guy', last_name='Fieri', username='Flavortown', email='flavortown@aa.io', password='password'),
+        first_name='Guy', last_name='Fieri', username='Flavortown', email='flavortown@aa.io', password='password')
     rachael = User(
         first_name='Rachael', last_name='Ray',username='RachaelRay', email='rachaelray@aa.io', password='password')
     david = User(
