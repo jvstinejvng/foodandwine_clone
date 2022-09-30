@@ -1,12 +1,10 @@
 from .db import db
 from datetime import datetime
-from flask_login import UserMixin
 
-
-class Recipe(db.Model, UserMixin):
+class Recipe(db.Model):
     __tablename__ = 'recipes'
 
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True,  nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     title = db.Column(db.String(255), nullable=False)
     description = db.Column(db.String(5000), nullable=False)
@@ -18,12 +16,8 @@ class Recipe(db.Model, UserMixin):
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     updated_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
 
-    user = db.relationship('User', back_populates='recipes', foreign_keys=[user_id])
-    reviews = db.relationship('Review', back_populates='recipe', cascade='all, delete')
-
-    @property
-    def recipe_card(self):
-        return self.to_dict()
+    user = db.relationship('User',back_populates='recipes')
+    reviews = db.relationship('Review', back_populates='recipes',cascade='all, delete')
 
     def to_dict(self):
         return {

@@ -1,4 +1,4 @@
-from app.models import db, Recipe
+from app.models.recipe import db, Recipe
 
 def seed_recipes():
     r1 = Recipe(
