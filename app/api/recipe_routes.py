@@ -1,17 +1,16 @@
-from flask import Blueprint , request
+from flask import Blueprint, request
 from flask_login import login_required, current_user
-from app.models import db, Recipe, User
+from app.models import db, Recipe
 from app.forms import CreateRecipe
 from app.api.auth_routes import validation_errors_to_error_messages
 
 recipe_routes = Blueprint('recipes', __name__)
 
 # Get all recipes
-@recipe_routes.route('/')
-def all_recipes():
+@recipe_routes.route('')
+def get_recipes():
     recipes = Recipe.query.all()
-    recipes_dict = {recipe.id:recipe.to_dict() for recipe in recipes}
-    return recipes_dict
+    return {'recipes': [recipe.to_dict() for recipe in recipes]}
 
 @recipe_routes.route('/', methods=['POST'])
 @login_required
