@@ -4,16 +4,16 @@ from app.models import db, User
 # Adds a demo user, you can add other users here if you want
 def seed_users():
     demo_users = [
-    User(username='DemoChef', email='homechef@aa.io', first_name='Demo', last_name = 'User', password='password'),
-    User(username='MasterChef', email='masterchef@aa.io', first_name='Gordon', last_name = 'Ramsay', password='password'),
-    User(username='WolfgangPuck', email='wolfgangpuck@aa.io', first_name='Wolfgang', last_name = 'Puck', password='password'),
-    User(username='Flavortown', email='flavortown@aa.io', first_name='Guy', last_name = 'Fieri', password='password'),
-    User(username='RachaelRay', email='rachaelray@aa.io', first_name='Rachael', last_name = 'Ray', password='password'),
-    User(username='UglyDelicious', email='uglydelicious@aa.io', first_name='David', last_name = 'Chang', password='password'),
-    User(username='Wahlburgers', email='wahlburgers@aa.io', first_name='Mark', last_name = 'Wahlberg', password='password'),
-    User(username='BettyCrocker', email='bettycrocker@aa.io', first_name='Betty', last_name = 'Crocker', password='password'),
-    User(username='CakeBoss', email='cakeboss@aa.io', first_name='Buddy', last_name = 'Valastro', password='password'),
-    User(username='ThomasKeller', email='thomaskeller@aa.io', first_name='Thomas', last_name = 'Keller', password='password'),
+    User(first_name='Demo', last_name = 'User', username='DemoChef', email='homechef@aa.io', password='password'),
+    User(first_name='Gordon', last_name = 'Ramsay', username='MasterChef', email='masterchef@aa.io', password='password'),
+    User(first_name='Wolfgang', last_name = 'Puck', username='WolfgangPuck', email='wolfgangpuck@aa.io', password='password'),
+    User(first_name='Guy', last_name = 'Fieri', username='Flavortown', email='flavortown@aa.io', password='password'),
+    User(first_name='Rachael', last_name = 'Ray',username='RachaelRay', email='rachaelray@aa.io', password='password'),
+    User(first_name='David', last_name = 'Chang',username='UglyDelicious', email='uglydelicious@aa.io', password='password'),
+    User(first_name='Mark', last_name = 'Wahlberg', username='Wahlburgers', email='wahlburgers@aa.io', password='password'),
+    User(first_name='Betty', last_name = 'Crocker', username='BettyCrocker', email='bettycrocker@aa.io', password='password'),
+    User(first_name='Buddy', last_name = 'Valastro', username='CakeBoss', email='cakeboss@aa.io', password='password'),
+    User(first_name='Thomas', last_name = 'Keller', username='ThomasKeller', email='thomaskeller@aa.io', password='password'),
     ]
 
     for user in demo_users:
