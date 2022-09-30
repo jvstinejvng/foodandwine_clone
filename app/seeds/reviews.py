@@ -18,13 +18,13 @@ def seed_reviews():
         recipe_id=3,
         stars=5,
         comment='​This recipe is packed full of amazing flavor'
-    ),
+    )
     r4 = Review(
         user_id=1,
         recipe_id=4,
         stars=5,
         comment='I made this for the first time recently after a co-worker recommended it — it was delicious!'
-    ),
+    )
     r5 = Review(
         user_id=1,
         recipe_id=5,
