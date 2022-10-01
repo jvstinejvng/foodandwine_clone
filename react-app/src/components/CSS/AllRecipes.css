@@ -1,0 +1,46 @@
+.AllRecipeContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.AllRecipeCardGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+@media screen and (max-width: 800px) {
+    .AllRecipeCardGrid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr)
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .AllRecipeCardGrid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr)
+    }
+}
+
+@media screen and (max-width: 300px) {
+    .AllRecipeCardGrid {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr)
+    }
+}
+
+.RecipeContainer {
+    width: 257px;
+    height: 366px;
+}
+
+.RecipeCard {
+    width: 257px;
+    height: 366px;
+    border: 1px solid black;
+}
+
+.RecipeCardImage {
+    width: 257px;
+    height: 170px;
+    object-fit: cover;
+}

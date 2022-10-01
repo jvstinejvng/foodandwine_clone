@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { useDispatch, useSelector} from 'react-redux'
 import { NavLink } from 'react-router-dom';
 import { getAllRecipesThunk } from '../../store/recipes'
-
+import '../CSS/AllRecipes.css'
 
 function AllRecipes() {
     const dispatch = useDispatch()
@@ -19,26 +19,29 @@ function AllRecipes() {
         <div className='AllRecipeContainer'>
             <div className='AllRecipeHeader'>
                 <h1 className='RecipeText'>Recipes</h1>
-                <p>Let us break bread: recipes that bring us together.</p>
-                <span>Embracing the flavors of life while making time for what matters. Like butter spread on bread, spread love, joy, and laughter.</span>
+                <p className="BreakBreadText">Let us break bread: recipes that bring us together.</p>
+                <span className="BreakBreadSubText">Embracing the flavors of life while making time for what matters. Like butter spread on bread, spread love, joy, and laughter.</span>
             </div>
             <div className='AllRecipeCardContainer'>
+                <div className="AllRecipeCardGrid">
                 {recipes?.map((recipe) => (
-                    <div key={recipe.id}>
+                    <div className='RecipeContainer' key={recipe.id}>
                         <NavLink to={`/recipes/${recipe.id}`}>
-                            <div>
-                            <img src={recipe.img_url} alt='cover' />
+                            <div className="RecipeCard">
+                            <div className='RecipeCardImageContainer'>
+                                <img className="RecipeCardImage" src={recipe.img_url} alt={`${recipe.title} Recipe`} />
                             </div>
-                            <div>
+                            <div className='RecipeCardText'>
                                 <h3>{recipe.title}</h3>
                                 <p>{recipe.total_time}</p>   
+                            </div>
                             </div>
                         </NavLink>
                     </div>
                 ))}
+                </div>
             </div>
-        </div>
-       
+        </div> 
      </>
     )
 }
