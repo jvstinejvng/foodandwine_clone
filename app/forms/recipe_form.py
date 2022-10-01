@@ -1,9 +1,10 @@
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileAllowed
 from wtforms import StringField, IntegerField
-from wtforms.validators import DataRequired, Length, NumberRange
+from wtforms.validators import DataRequired, Length
 
 class CreateRecipe(FlaskForm):
+    user_id = IntegerField('User Id', validators=[DataRequired()])
     title = StringField('title', validators=[DataRequired(), Length(
         min=3, max=255, message='You have exceeded the maximum number of characters allowed.')])
     description = StringField('description', validators=[DataRequired(), Length(
