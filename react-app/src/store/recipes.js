@@ -35,11 +35,10 @@ const deleteRecipe = id => {
 
 // thunk
 export const getAllRecipesThunk = () => async (dispatch) => {
-    const response = await fetch('/api/recipes')
+    const response = await fetch('/api/recipes/')
     if (response.ok) {
-        const data = await response.json();
+        const data = await response.json()
         dispatch(getRecipes(data));
-        return JSON.stringify(data);
     };
 }
 
@@ -88,20 +87,20 @@ const initialState = {}
 export default function recipeReducer(state = initialState, action) {
     let newState = {...state}
     switch(action.type){
-        case LOAD_RECIPES: {
+        case LOAD_RECIPES: 
             newState = {};
             action.recipes.recipes.forEach(recipe => {
                 newState[recipe.id] = recipe;
             });
             return newState;
-        };
-        case ADD_RECIPE: {
+        
+        case ADD_RECIPE: 
             newState = {
                 ...state,
                 [action.recipe.id]: action.recipe
             };
             return newState;
-        }
+        
         case EDIT_RECIPE: {
             newState = {
                 ...state,

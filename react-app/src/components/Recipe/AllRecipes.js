@@ -23,16 +23,19 @@ function AllRecipes() {
                 <span>Embracing the flavors of life while making time for what matters. Like butter spread on bread, spread love, joy, and laughter.</span>
             </div>
             <div className='AllRecipeCardContainer'>
-                {recipes?.map((recipe) =>
+                {recipes?.map((recipe) => (
                     <div key={recipe.id}>
                         <NavLink to={`/recipes/${recipe.id}`}>
                             <div>
                             <img src={recipe.img_url} alt='cover' />
                             </div>
-                            <div>{recipe.title}</div>
+                            <div>
+                                <h3>{recipe.title}</h3>
+                                <p>{recipe.total_time}</p>   
+                            </div>
                         </NavLink>
                     </div>
-                )}
+                ))}
             </div>
         </div>
        
