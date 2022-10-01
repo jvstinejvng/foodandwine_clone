@@ -211,6 +211,116 @@ def seed_recipes():
         ingredients='1 everything bagel split, 2 tablespoons unsalted butter (softened), 2 large eggs, 1 tablespoon water, Kosher salt to taste, Black pepper to taste, 2 ounces cold-smoked salmon for serving, Caviar or sliced avocado for serving',
         directions='If needed, carefully widen holes in bagel halves to 1 3/4 inches in diameter using a paring knife. Spread bagel halves evenly on both sides with butter. Heat a 12-inch skillet over medium. Place bagel halves, cut sides up, in skillet. Cook until golden brown, 2 to 3 minutes .Flip bagel halves cut sides down. Reduce heat to low; crack eggs into bagel holes. Pour 1 tablespoon water around edge of skillet, and immediately cover skillet. Cook until egg whites are set and yolks are cooked to desired degree of doneness, 5 to 8 minutes. Transfer bagel halves to a plate; season with salt and pepper. Serve with smoked salmon and caviar or sliced avocado.',
     )
+    r22 = Recipe(
+        user_id=2,
+        title='Charred Shishito Peppers with Furikake',
+        description='Whether eaten as a snack or incorporated into a main dish, crunchy, sweet shishito peppers are delicious and occasionally pack a punch — one in ten are super spicy!',
+        img_url='https://www.foodandwine.com/thmb/G9jRJ_evJKG-Ogd_vvTLjJJ3TMw=/2250x0/filters:no_upscale():max_bytes(150000):strip_icc():gifv():format(webp)/charred-shishito-peppers-with-furikake-XL-RECIP0717_0-190ad594a07049f389b3da12a4d8a69b.jpg',
+        total_time='15 minutes',
+        servings='4 servings',
+        ingredients='2 teaspoons grapeseed or canola oil, 1 pound shishito peppers, 1 tablespoon furikake (see Note) plus more for garnish, 1 tablespoon fresh lime juice, 1 teaspoon shoyu or other soy sauce, Flaky sea salt, Lime wedges for serving',
+        directions='In a large cast-iron skillet, heat 1 teaspoon of the grapeseed oil. Add half of the peppers and cook over moderately high heat, turning occasionally, until charred and tender, about 4 minutes. Transfer to a large bowl. Repeat with the remaining oil and peppers. Add the 1 tablespoon of furikake, the lime juice and shoyu to the shishitos and toss to combine; season with flaky sea salt. Transfer to a platter; garnish with more furikake. Serve immediately with lime wedges.',
+    )
+    r23 = Recipe(
+        user_id=3,
+        title='Fig Jam',
+        description='This supersimple fig jam recipe—just figs, sugar and lemon juice—can be easily upgraded with white port and rosemary for an extra special treat.',
+        img_url='https://www.foodandwine.com/thmb/fEFCudK89VLOnrUqcSo5OG_cNik=/2250x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/fig-jam-FT-RECIPE0909-6c7a8cd04a8247e69b79398511173d92.jpg',
+        total_time='45 minutes',
+        servings='Makes three 1/2-pint jars',
+        ingredients='2 pounds green or purple figs, stemmed and cut into 1/2-inch pieces, 1 1/2 cups sugar, 1/4 cup plus 2 tablespoons fresh lemon juice, 1/2 cup water',
+        directions='In a large, nonreactive saucepan, toss the fig pieces with the sugar and let stand, stirring occasionally, for about 15 minutes, until the sugar is mostly dissolved and the figs are juicy. Add the lemon juice and water and bring to a boil, stirring until the sugar is completely dissolved. Simmer the fig jam over moderate heat, stirring occasionally, until the fruit is soft and the liquid runs off the side of a spoon in thick, heavy drops, about 20 minutes. Spoon the jam into three 1/2-pint jars, leaving 1/4 inch of space at the top. Close the jars and let cool to room temperature. Store the jam in the refrigerator for up to 3 months.',
+    )
+    r24 = Recipe(
+        user_id=4,
+        title='Sunflower-Seed Brittle',
+        description='Pair this delightful crunchy sunflower-seed brittle with 5 Spoke Creamery Tumbleweed cheese or other semi-firm cow\'s milk cheese, like sharp cheddar!',
+        img_url='https://www.foodandwine.com/thmb/BdIy-9AAQUiteT5OL5DO5myqu9A=/2250x0/filters:no_upscale():max_bytes(150000):strip_icc():gifv():format(webp)/200812-r-xl-sunflower-seed-brittle-1687040503e84dc1bb71ebdf894463c6.jpg',
+        total_time='30 minutes',
+        servings='1 pound',
+        ingredients='1 cup sugar, 1/2 cup water, 1/2 cup light corn syrup, 1 1/2 tablespoons unsalted butter (at room temperature), 1 teaspoon kosher salt, ½ teaspoon baking soda, 2 cups raw sunflower seeds',
+        directions='Line a large, rimmed baking sheet with parchment paper and lightly oil the paper. In a medium saucepan, combine the sugar, water and corn syrup and bring to a boil. Boil over moderate heat until the caramel is golden and registers 320° on a candy thermometer, about 10 minutes. Remove from the heat and stir in the butter, salt and baking soda. Stir in the sunflower seeds and quickly spread the mixture on the prepared baking sheet in a thin layer. Let the brittle stand until completely cool, then break into pieces.',
+    )
+    r25 = Recipe(
+        user_id=5,
+        title='Caramelized Broccoli with Garlic',
+        description='Slowly caramelizes broccoli to bring out its sweetness, then revitalizes it with a squeeze of lemon and a pinch of crushed red pepper. The resulting broccoli is tender, flavorful, and makes an easy side dish.',
+        img_url="https://www.foodandwine.com/thmb/s9UPydFVtFfy8nPJ2XhpNl4V1Vs=/2250x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/Caramelized-Broccoli-with-Garlic-FT-RECIPE0822-2000-926848df43b3456ba0d4aa6dfb6766e9.jpg",
+        total_time='35 minutes',
+        servings='4 servings',
+        ingredients='3 tablespoons extra-virgin olive oil, 2 heads of broccoli (1 1/4 pounds total) stems peeled and heads halved lengthwise, 1/2 cup water, 3 cloves garlic (thinly sliced), Pinch of crushed red pepper, 2 tablespoons fresh lemon juice, Salt and freshly ground black pepper',
+        directions='In a large, deep skillet, heat 2 tablespoons of the olive oil. Add the broccoli, cut side down, cover, and cook over moderate heat until richly browned on the bottom, about 8 minutes. Add the water, cover, and cook until the broccoli is just tender and the water has evaporated, about 7 minutes. Add the remaining 1 tablespoon of olive oil along with the garlic and the crushed red pepper and cook uncovered until the garlic is golden brown, about 3 minutes. Drizzle with the lemon juice, season the broccoli with salt and black pepper, and serve.',
+    )
+    r26 = Recipe(
+        user_id=6,
+        title='Thanksgiving Leftovers Nachos',
+        description='Make next-level nachos with leftovers from your Thanksgiving meal. These leftovers include diced turkey, chopped roasted vegetables, and whole cranberry sauce, but any leftovers you have can be used because gooey Monterey Jack cheese brings them all together.',
+        img_url='https://www.foodandwine.com/thmb/fWr9ev8VxVxbPnkaGicfBOySDAE=/2250x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/thanksgiving-leftover-nachos-ft-blog1119-1-17ca813a83ee4cc099a9f69a30888161.jpg',
+        total_time='30 mins',
+        servings='6 to 8 servings',
+        ingredients='Extra-virgin olive oil for brushing, 13 ounces thick tortillas chips, 2 pounds shredded Pepper Jack cheese, 3 cups diced roasted vegetables, 12 ounces shredded or diced roasted turkey, 3/4 cup whole cranberry sauce, Cilantro sprigs (thinly sliced), jalapeños and pickled red onion for topping, Sour cream and hot sauce for serving',
+        directions='Preheat the oven 400°. Brush a large rimmed baking sheet with olive oil. Spread half of the tortilla chips on the sheet and top with half each of the cheese, vegetables, turkey, and cranberry sauce. Repeat the layering with the remaining chips, cheese, vegetables, turkey, and cranberry sauce. Bake for 12 to 15 minutes, until the cheese is melted. Top the nachos with cilantro, jalapeños, and pickled red onion; serve right away with sour cream and hot sauce.',
+    )
+    r27 = Recipe(
+        user_id=7,
+        title='Garlic Confit',
+        description='Although garlic is available year-round, fresh summer garlic has large cloves that are especially sweet and juicy. To preserve it, just simmer the cloves with dried red chiles and fresh thyme in olive oil until tender then packs them in the oil. Mash the garlic confit in butter and spread it on bread or slip it under chicken skin before roasting.',
+        img_url='https://www.foodandwine.com/thmb/cJYRlmkRz92GQvHCbcqk6lKufwM=/2250x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/201110-xl-garlic-confit-36c97e3336bc44e496925b4f78cf2f3d.jpg',
+        total_time='1 hour',
+        servings='Makes 1 1/2 pints',
+        ingredients='6 heads of garlic, cloves peeled (2 cups), 6 thyme sprigs, 3 small bay leaves, 3 dried red chiles such as chiles de arbol, 2 cups pure olive oil',
+        directions='Combine all of the ingredients in a medium saucepan and simmer over low heat until the garlic is tender but not browned, about 30 minutes. Let cool. Using a slotted spoon, transfer the garlic, herbs and chiles to three 1/2-pint canning jars. Pour the cooking oil on top, seal and refrigerate for up to 4 months.',
+    )
+    r28 = Recipe(
+        user_id=8,
+        title='Apple-Pomegranate Cobbler',
+        description='This juicy and bright apple cobbler is just the right amount of sweet, with an irresistibly tender and crunchy crust on top',
+        img_url='https://www.foodandwine.com/thmb/BFk1o6eRsWwsH4B2n9MJNwPQOQM=/2250x0/filters:no_upscale():max_bytes(150000):strip_icc():gifv():format(webp)/apple-pomegranate-cobbler-XL-RECIPE1017-311bded52afb441d8a506b161eb86df6.jpg',
+        total_time='2 hrs',
+        servings='8 to 10 servings',
+        ingredients='2 cups pomegranate juice, 6 peeled Granny Smith apples (3 pounds) sliced 1/2 inch thick, 1 cup sugar plus more for sprinkling, 2 1/4 cups all-purpose flour, Kosher salt, 2 teaspoons baking powder, 1 stick cold unsalted butter cut into small pieces, 1 cup cold heavy cream plus more for brushing, Pomegranate seeds, Vanilla ice cream for serving',
+        directions='Preheat the oven to 375°. Place an 8-by-8-inch glass baking dish on a foil-lined rimmed baking sheet. In a small saucepan, bring the pomegranate juice to a boil over moderately high heat until reduced to 1/3 cup, about 15 minutes. Pour the juice into a large bowl and fold in the apples, 3/4 cup of the sugar, 1/4 cup of the flour and 1/2 teaspoon of salt. Scrape the mixture into the baking dish. In another large bowl, whisk the remaining 2 cups of flour with the remaining 1/4 cup of sugar, the baking powder and 1/2 teaspoon of salt. Add the butter and, using a pastry cutter or 2 knives, cut the butter into the dry ingredients until the mixture resembles very coarse crumbs, with some pieces the size of small peas. Gently stir in the 1 cup of cream just to combine. Gather the topping into small clumps and scatter over the apple filling. Brush the topping with cream and sprinkle generously with sugar. Bake the cobbler for 60 to 70 minutes, or until the filling is bubbling and the topping is golden. Tent with foil if the crust browns too quickly. Let cool for 20 minutes. Serve sprinkled with pomegranate seeds and topped with vanilla ice cream.',
+    )
+    r29 = Recipe(
+        user_id=9,
+        title='Carrot Cake Marmalade with Yogurt and Fresh Fruit',
+        description='Everyone is raving about this yogurt bowl topped with sunny roasted carrot marmalade. The marmalade gets a big flavor from stewing carrots and apple with cinnamon, cardamom, and star anise for a warmly spiced result.',
+        img_url='https://www.foodandwine.com/thmb/gae981F-9W4O3_NCudbSZMSvADM=/2250x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/carrot-cake-marmalade-with-yogurt-and-fresh-fruit-FT-RECIPE0221-1867851526da4613abbf4e863f51e224.jpg',
+        total_time='1 hours 40 minutes',
+        servings='Makes 2 1/3 Cups',
+        ingredients='1 pound carrots, shredded (about 3 1/2 cups or 12 ounces), 2 cups water plus more if needed, 1 medium-size peeled Honeycrisp apple (about 7 ounces),  1 cup shredded Honeycrisp apple, 1 cup granulated sugar, 2 teaspoons grated lemon zest plus 1/4 cup fresh lemon juice, 3 cardamom pods (lightly smashed), 2 whole star anise, 2 cinnamon sticks, 3/4 teaspoon kosher salt, 2 tablespoons honey, yogurt, blueberries, clementine segments, granola for serving',
+        directions='Place carrots, 2 cups water, apple, sugar, lemon zest and juice, cardamom pods, star anise, cinnamon sticks, and salt in a large heavy-bottomed saucepan; bring to a boil over medium-high, stirring occasionally. Cover and reduce heat to medium; cook, stirring occasionally, until carrots are crisp-tender, about 15 minutes. Uncover and cook, stirring occasionally, until carrots are tender and liquid has reduced to a thin, syrupy consistency, 20 to 25 minutes. Remove from heat, and discard whole spices. Transfer carrot mixture to a blender; add honey. Blend on low speed 1 minute. Continue blending, gradually increasing speed to medium-high, until smooth, about 1 minute, adding additional water, 1 tablespoon at a time, if necessary to keep puree moving. Transfer mixture to a small bowl; refrigerate 20 minutes.',
+    )
+    r30 = Recipe(
+        user_id=10,
+        title='',
+        description='',
+        img_url='',
+        total_time='',
+        servings='',
+        ingredients='',
+        directions='',
+    )
+    r31 = Recipe(
+        user_id=9,
+        title='',
+        description='',
+        total_time='',
+        servings='',
+        ingredients='',
+        directions='',
+    )
+    r32 = Recipe(
+        user_id=8,
+        title='',
+        description='',
+        total_time='',
+        servings='',
+        ingredients='',
+        directions='',
+    )
+
+
 
     db.session.add(r1)
     db.session.add(r2)
