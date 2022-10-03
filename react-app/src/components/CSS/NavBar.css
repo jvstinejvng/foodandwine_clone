@@ -36,7 +36,7 @@
     display: flex;
     position: relative;
     justify-content: space-evenly;
-    width: 200px;
+    width: 400px;
 }
 
 .NavBarLogIn {
@@ -55,9 +55,14 @@
     color: #000000F2
 }
 
+.LogInLink {
+    padding: 5px;
+}
+
 .NavBarLogInImage {
     width: 20px;
     height: 20px;
+    padding-left: 15px;
 }
 
 .NavBarBottomContainer {

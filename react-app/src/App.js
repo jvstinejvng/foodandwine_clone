@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import LoginForm from './components/auth/LoginForm';
-import SignUpForm from './components/auth/SignUpForm';
+import UserAccount from './components/UserAccount';
 import NavBar from './components/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
+import Homepage from './components/Homepage';
 import User from './components/User';
 import AllRecipes from './components/Recipe/AllRecipes';
 import { authenticate } from './store/session';
@@ -27,13 +27,13 @@ function App() {
 
   return (
     <BrowserRouter>
-      <NavBar />
+        <NavBar />
       <Switch>
-        <Route path='/login' exact={true}>
-          <LoginForm />
+        <Route path='/' exact={true} >
+          <Homepage />
         </Route>
-        <Route path='/sign-up' exact={true}>
-          <SignUpForm />
+        <Route path='/user-account' exact={true}>
+          <UserAccount />
         </Route>
         <ProtectedRoute path='/users' exact={true} >
           <UsersList/>
@@ -41,9 +41,6 @@ function App() {
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
-        {/* <Route path='/' exact={true} >
-              <HomePage />
-        </Route> */}
         <Route path='/recipes' exact={true} >
           <AllRecipes/>
         </Route>
