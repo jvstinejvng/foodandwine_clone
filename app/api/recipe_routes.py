@@ -13,7 +13,7 @@ def get_recipes():
     return {'recipes': [recipe.to_dict() for recipe in recipes]}
 
 # add a recipe
-@recipe_routes.route('/new-recipe', methods=['POST'])
+@recipe_routes.route('/new-recipe/', methods=['POST'])
 @login_required
 def add_recipe():
     form = CreateRecipe()

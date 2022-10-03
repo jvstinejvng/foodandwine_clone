@@ -8,9 +8,9 @@ class CreateRecipe(FlaskForm):
     title = StringField('title', validators=[DataRequired(), Length(
         min=3, max=255, message='You have exceeded the maximum number of characters allowed.')])
     description = StringField('description', validators=[DataRequired(), Length(
-        min=5, max=5000, message='You have exceeded the maximum number of characters allowed.')])
+        min=10, max=5000, message='You have exceeded the maximum number of characters allowed.')])
     img_url = StringField('img_url', validators=[DataRequired(), FileAllowed(['jpg', 'jpeg', 'png', 'tiff'])])
-    total_time = StringField('total_time', validators=[DataRequired(), Length(min=1, max=20)])
+    total_time = StringField('total_time', validators=[DataRequired(), Length(min=1, max=50)])
     servings = IntegerField('servings', validators=[DataRequired(), Length(
         min=1, max=50, message='You have exceeded the maximum number of characters allowed.')])
     ingredients = StringField('ingredients', validators=[DataRequired(), Length(

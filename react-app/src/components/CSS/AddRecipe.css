@@ -1,0 +1,12 @@
+.AddARecipeContainer {
+    background-color: aqua;
+    position: relative;
+    top: 200px;
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    height: auto;
+    margin: auto;
+    align-items: center;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 30%);
+}

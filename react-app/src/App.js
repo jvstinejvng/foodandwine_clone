@@ -9,6 +9,8 @@ import UsersList from './components/UsersList';
 import Homepage from './components/Homepage';
 import User from './components/User';
 import AllRecipes from './components/Recipe/AllRecipes';
+import RecipeForm from './components/Recipe/RecipeForm';
+import SingleRecipe from './components/Recipe/SingleRecipe';
 import { authenticate } from './store/session';
 
 function App() {
@@ -47,6 +49,12 @@ function App() {
         </ProtectedRoute>
         <Route path='/recipes' exact={true} >
           <AllRecipes/>
+        </Route>
+        <Route path='/new-recipe' exact={true}>
+          <RecipeForm />
+        </Route>
+        <Route path='/recipes/:recipeId' exact={true}>
+          <SingleRecipe />
         </Route>
       </Switch>
     </BrowserRouter>
