@@ -3,6 +3,9 @@ import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import breadandbutter from '../images/breadandbutterlogo.svg'
 import profileicon from '../images/profileicon.png'
+import pencilicon from '../images/pencilicon.svg'
+import forkandknife from '../images/forkandknife.png'
+
 
 import './CSS/NavBar.css';
 
@@ -26,16 +29,19 @@ const NavBar = () => {
             </div>
             <div className='NavBarLoginHome'>
                 <span className='NavBarLogIn'>
-                    <img className='NavBarLogInImage' alt="Profile Icon" src={profileicon}/>
+                      <img className='NavBarLogInImage' alt="Profile Icon" src={profileicon}/>
                       <NavLink className='LogInLink' to='/login' exact={true} activeClassName='active'>
                         Log In
-                      </NavLink>  
-                </span>   
-                <span className='NavBarHome'>
+                      </NavLink>
+                      <img className='NavBarLogInImage' alt="Profile Icon" src={pencilicon}/>  
+                      <NavLink className='LogInLink' to='/signup' exact={true} activeClassName='active'>
+                        Sign Up 
+                      </NavLink>
+                      <img className='NavBarLogInImage' alt="Profile Icon" src={forkandknife}/>  
                       <NavLink className='LogInLink' to='/' exact={true} activeClassName='active'>
-                        Home 
-                      </NavLink>  
-                </span>
+                        Demo User
+                      </NavLink>    
+                </span>   
             </div>
         </div>
         <div className='NavBarBottomContainer'>
