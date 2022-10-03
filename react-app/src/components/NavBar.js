@@ -1,24 +1,29 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { NavLink, Redirect } from 'react-router-dom';
+import * as sessionaction from '../store/session';
 import LogoutButton from './auth/LogoutButton';
 import breadandbutter from '../images/breadandbutterlogo.svg'
 import profileicon from '../images/profileicon.png'
 import pencilicon from '../images/pencilicon.svg'
 import forkandknife from '../images/forkandknife.png'
-
+import logout from '../images/logout.svg'
+import usericon from '../images/usericon.svg'
 
 import './CSS/NavBar.css';
 
 const NavBar = () => {
 
-  // const sessionUser = useSelector(state => state.session.user)
+  const dispatch = useDispatch();
+  const sessionUser = useSelector(state => state.session.user);
 
-  // const [ showDropdown, setShowDropdown ] = useState(false)
-
-  // const handleDropdown = () => {
-  //   if (showDropdown) return
-  //   setShowDropdown(true)
-  // }
+  const demoLogin = async e => {
+    e.preventDefault();
+    await dispatch(sessionaction.login(
+      'homechef@aa.io', 
+      'password'));
+    return <Redirect to='/' />
+}
 
   return (
   <>
@@ -28,6 +33,7 @@ const NavBar = () => {
                   <img alt="bread and butter logo" src={breadandbutter} />
             </div>
             <div className='NavBarLoginHome'>
+            {!sessionUser &&
                 <span className='NavBarLogIn'>
                       <img className='NavBarLogInImage' alt="Profile Icon" src={profileicon}/>
                       <NavLink className='LogInLink' to='/login' exact={true} activeClassName='active'>
@@ -38,10 +44,21 @@ const NavBar = () => {
                         Sign Up 
                       </NavLink>
                       <img className='NavBarLogInImage' alt="Profile Icon" src={forkandknife}/>  
-                      <NavLink className='LogInLink' to='/' exact={true} activeClassName='active'>
+                      <button className='LogInLink' onClick={demoLogin}>
                         Demo User
-                      </NavLink>    
+                      </button>   
                 </span>   
+            }
+            {sessionUser &&
+                <span className='NavBarLogIn'>
+                      <img className='NavBarLogInImage' alt="Profile Icon" src={usericon}/>
+                      <NavLink className='LogInLink' to='/' exact={true} activeClassName='active'>
+                       hello, {sessionUser.first_name}
+                      </NavLink>
+                      <img className='NavBarLogInImage' alt="Profile Icon" src={logout}/>  
+                      < LogoutButton />
+                </span>   
+            }
             </div>
         </div>
         <div className='NavBarBottomContainer'>
