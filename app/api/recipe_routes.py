@@ -1,16 +1,40 @@
 from flask import Blueprint, request
-from app.models import db, Recipe, User
 from flask_login import login_required, current_user
+from app.models import db, Recipe, User
 from app.forms import CreateRecipe
 from app.api.auth_routes import validation_errors_to_error_messages
 
 recipe_routes = Blueprint('recipes', __name__)
 
 # get all recipes
+# @recipe_routes.route('/')
+# def get_recipes():
+#     recipes = Recipe.query.all()
+#     return {'recipes': [recipe.to_dict() for recipe in recipes]}
 @recipe_routes.route('/')
 def get_recipes():
     recipes = Recipe.query.all()
-    return {'recipes': [recipe.to_dict() for recipe in recipes]}
+    all_recipes = list()
+    for recipe in recipes:
+        recipe_dict = recipe.to_dict()
+        user = User.query.get(recipe_dict['user_id']);
+        recipe_dict['user'] = user.to_dict()
+        all_recipes.append(recipe_dict)
+    return {"recipes": all_recipes}
+
+# get a recipe 
+@recipe_routes.route('/<int:id>/')
+def one_recipe(id):
+    recipe = (db.session.query(Recipe).get(id))
+    if recipe:
+        recipe_dict = recipe.to_dict()
+        user = User.query.get(recipe_dict['user_id'])
+        user_dict = user.to_dict()
+        recipe_dict['user'] = user_dict
+        return recipe_dict
+    else:
+        return {'errors': ['This recipe was sent back to the kitchen!']}, 404
+
 
 # add a recipe
 @recipe_routes.route('/new-recipe/', methods=['POST'])

@@ -1,5 +1,6 @@
 // action
 const LOAD_RECIPES = 'recipes/LOAD_RECIPES'
+const LOAD_ONE_RECIPE = 'recipes/LOAD_ONE_RECIPE'
 const ADD_RECIPE = 'recipes/ADD_RECIPE'
 const EDIT_RECIPE = 'recipes/EDIT_RECIPE'
 const DELETE_RECIPE ='recipes/DELETE_RECIPE'
@@ -11,6 +12,11 @@ const getRecipes = recipes => {
         recipes
     }
 }
+
+const getOneRecipe = recipe => ({
+    type: LOAD_ONE_RECIPE,
+    recipe
+});
 
 const addRecipe = recipe => {
     return {
@@ -34,7 +40,7 @@ const deleteRecipe = id => {
 }
 
 // thunk
-export const getAllRecipesThunk = () => async (dispatch) => {
+export const getAllRecipesThunk = () => async dispatch => {
     const response = await fetch('/api/recipes/')
     if (response.ok) {
         const data = await response.json()
@@ -42,7 +48,15 @@ export const getAllRecipesThunk = () => async (dispatch) => {
     };
 }
 
-export const addRecipeThunk = (recipe) => async (dispatch) => {
+export const getOneRecipeThunk = (id) => async dispatch => {
+    const response = await fetch(`/api/recipes/${id}/`);
+    if (response.ok) {
+        const recipe = await response.json();
+        dispatch(getOneRecipe(recipe));
+    };
+};
+
+export const addRecipeThunk = (recipe) => async dispatch => {
     const response = await fetch('/api/new-recipe/', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
@@ -56,7 +70,7 @@ export const addRecipeThunk = (recipe) => async (dispatch) => {
     };
 }
 
-export const editRecipeThunk = (recipe) => async (dispatch) => {
+export const editRecipeThunk = (recipe) => async dispatch => {
     const response = await fetch(`/api/recipes/${recipe.id}`, {
         method: 'PUT',
         headers: {'Content-Type': 'application/json'},
@@ -85,34 +99,35 @@ export const deleteRecipeThunk = (id) => async (dispatch) => {
 // reducer
 const initialState = {}
 export default function recipeReducer(state = initialState, action) {
-    let newState = {...state}
     switch(action.type){
-        case LOAD_RECIPES: 
-            newState = {};
+        case LOAD_RECIPES: {
+            const newState = {};
             action.recipes.recipes.forEach(recipe => {
-                newState[recipe.id] = recipe;
+            newState[recipe.id] = recipe;
             });
             return newState;
-        
-        case ADD_RECIPE: 
-            newState = {
-                ...state,
-                [action.recipe.id]: action.recipe
-            };
+        }
+        case LOAD_ONE_RECIPE: {
+            const newState = {};
+            newState[action.recipe.id] = action.recipe;
             return newState;
-        
+            };
+        case ADD_RECIPE: {
+            const newState = { ...state };
+            newState[action.recipe.id] = action.recipe;
+            return newState;
+        }  
         case EDIT_RECIPE: {
-            newState = {
+            return {
                 ...state,
                 [action.recipe.id]: action.recipe
-            };
-            return newState;
+            }
         }
         case DELETE_RECIPE: {
-            delete newState[action.id];
+            const newState = { ...state };
+            delete newState[action.recipeId];
             return newState;
         }
-
         default:
             return state;
     }

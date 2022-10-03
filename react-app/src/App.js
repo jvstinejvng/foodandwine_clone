@@ -50,12 +50,13 @@ function App() {
         <Route path='/recipes' exact={true} >
           <AllRecipes/>
         </Route>
+        <Route path='/recipes/:id' exact={true}>
+          <SingleRecipe />
+        </Route>
         <Route path='/new-recipe' exact={true}>
           <RecipeForm />
         </Route>
-        <Route path='/recipes/:recipeId' exact={true}>
-          <SingleRecipe />
-        </Route>
+
       </Switch>
     </BrowserRouter>
   );

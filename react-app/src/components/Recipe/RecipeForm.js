@@ -5,7 +5,7 @@ import { addRecipeThunk } from '../../store/recipes';
 import '../CSS/AddRecipe.css'
 
 
-export default function AddRecipe() {
+ function AddRecipe() {
 
     const sessionUser = useSelector(state => state.session.user);
     const dispatch = useDispatch();
@@ -198,3 +198,5 @@ export default function AddRecipe() {
     </>
     );
 }
+
+export default AddRecipe
