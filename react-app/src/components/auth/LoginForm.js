@@ -1,7 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { login } from '../../store/session';
+import mailicon from '../../images/mailicon.svg'
+import lockicon from '../../images/lockicon.svg'
+
+
 import '../CSS/LogIn.css';
 
 const LoginForm = () => {
@@ -43,7 +47,8 @@ const LoginForm = () => {
               <li key={ind}>{error}</li>
             ))}
           </ul>
-          <div>
+          <img className='LoginIcon' alt="Mail Icon" src={mailicon}/>
+          <div className='LoginInput'>
             <input
               name='email'
               type='text'
@@ -52,7 +57,8 @@ const LoginForm = () => {
               onChange={updateEmail}
             />
           </div>
-          <div>
+          <img className='LoginIcon' alt="Lock Icon" src={lockicon}/>
+          <div className='LoginInput'>
             <input
               name='password'
               type='password'
@@ -60,8 +66,8 @@ const LoginForm = () => {
               value={password}
               onChange={updatePassword}
             />
-            <button className='LoginButton' type='submit'>Login</button>
           </div>
+          <button className='LoginButton' type='submit'>LOG IN</button>
         </form>
       </div>
     </div>
