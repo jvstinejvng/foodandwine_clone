@@ -36,11 +36,11 @@ const NavBar = () => {
             {!sessionUser &&
                 <span className='NavBarLogIn'>
                       <img className='NavBarLogInImage' alt="Profile Icon" src={profileicon}/>
-                      <NavLink className='LogInLink' to='/login' exact={true} activeClassName='active'>
+                      <NavLink className='LogInLink' to='/log-in' exact={true} activeClassName='active'>
                         Log In
                       </NavLink>
                       <img className='NavBarLogInImage' alt="Profile Icon" src={pencilicon}/>  
-                      <NavLink className='LogInLink' to='/signup' exact={true} activeClassName='active'>
+                      <NavLink className='LogInLink' to='/sign-up' exact={true} activeClassName='active'>
                         Sign Up 
                       </NavLink>
                       <img className='NavBarLogInImage' alt="Profile Icon" src={forkandknife}/>  

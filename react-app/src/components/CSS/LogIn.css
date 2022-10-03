@@ -1,0 +1,42 @@
+.LoginMainContainer {
+    display: flex;
+    width: 100px;
+    height: 80vh;
+    position: relative;
+}
+
+.LoginFormDiv {
+    display: flex;
+    flex-direction: column;
+    max-width: 30vw;
+    width: 30vw;
+    justify-content: center;
+    align-items: center;
+    min-width: 400px;
+}
+.LoginFormDiv > form {
+    display: flex;
+    flex-direction: column;
+    width: 20vw;
+    margin: auto;
+}
+
+
+
+.LoginFormDiv > form > ul {
+    list-style: none;
+    padding-left: 0;
+    color: red;
+}
+
+.LoginButton {
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    height: 3vh;
+    width: 5vw;
+    min-height: fit-content;
+    min-width: fit-content;
+    margin-top: 1em;
+    cursor: pointer;
+}
