@@ -10,6 +10,7 @@ import Homepage from './components/Homepage';
 import User from './components/User';
 import AllRecipes from './components/Recipe/AllRecipes';
 import RecipeForm from './components/Recipe/RecipeForm';
+import MyRecipes from './components/Recipe/MyRecipes';
 import SingleRecipe from './components/Recipe/SingleRecipe';
 import { authenticate } from './store/session';
 
@@ -52,6 +53,9 @@ function App() {
         </Route>
         <Route path='/recipes/:id' exact={true}>
           <SingleRecipe />
+        </Route>
+        <Route path='/my-recipes' exact={true}>
+          <MyRecipes />
         </Route>
         <Route path='/new-recipe' exact={true}>
           <RecipeForm />
