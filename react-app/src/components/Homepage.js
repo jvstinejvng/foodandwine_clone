@@ -2,11 +2,12 @@ import { useEffect } from 'react'
 import { useDispatch, useSelector} from 'react-redux'
 import { NavLink } from 'react-router-dom';
 import { getAllRecipesThunk } from '../store/recipes'
-import './CSS/AllRecipes.css'
+import './CSS/Homepage.css'
 
-function AllRecipes() {
+function Homepage() {
     const dispatch = useDispatch()
-    const recipes = Object.values(useSelector(state => state.recipes));
+    const recipes = useSelector(state => Object.values(state.recipes).slice(0, 3))
+
 
     useEffect(() => {
         dispatch(getAllRecipesThunk())
@@ -16,34 +17,43 @@ function AllRecipes() {
 
     return (
      <>
-        <div className='AllRecipeContainer'>
-            <div className='AllRecipeHeader'>
-                <h1 className='RecipeText'>Recipes</h1>
-                <p className="BreakBreadText">Let us break bread: recipes that bring us together.</p>
-                <span className="BreakBreadSubText">Embracing the flavors of life while making time for what matters. Like butter spread on bread, spread love, joy, and laughter.</span>
+        <div className='HomepageMainDiv'>
+            <div className='HomepageTopHalf'>
+                <div className='HomepageMainRecipe-RightDiv'>
+
+                </div>
+                <div className='HomepageDevelopersPanel'>
+
+                </div>
             </div>
-            <div className='AllRecipeCardContainer'>
-                <div className="AllRecipeCardGrid">
-                {recipes?.map((recipe) => (
-                    <div className='RecipeContainer' key={recipe.id}>
-                        <NavLink to={`/recipes/${recipe.id}`}>
-                            <div className="RecipeCard">
-                            <div className='RecipeCardImageContainer'>
-                                <img className="RecipeCardImage" src={recipe.image_url} alt={`${recipe.title} Recipe`} />
+            <div className='HomepageMiddleRecipe'>
+
+            </div>
+            <div className='HomepageBottomHalf'>
+            <div className="HomepageRecipeCardGrid"> 
+                { recipes &&
+                    recipes?.map((recipe) => (
+                  <div className='HomepageRecipeCardDiv' key={recipe.id}>
+                        <NavLink className="HomepageRecipeCardLink" to={`/recipes/${recipe.id}`}>
+                            <div className="HomepageRecipeCard">
+                            <div className='HomepageRecipeCardImg'>
+                                <img className="HomepageRecipeCarmImgUrl" src={recipe.image_url} alt={`${recipe.title} Recipe`} />
                             </div>
-                            <div className='RecipeCardText'>
-                                <h3>{recipe.title}</h3>
-                                <p>{recipe.total_time}</p>   
+                            <div className='HomepageRecipeCardText'>
+                                <div className='HomepageRecipeCardTitle'>{recipe.title}</div>
+                                <div className='HomepageRecipeCardTime'>{recipe.total_time}</div>   
+                                <div className='HomepageRecipeCardUser'>By {recipe.user.first_name}</div>
                             </div>
                             </div>
                         </NavLink>
                     </div>
                 ))}
                 </div>
+
             </div>
-        </div> 
+        </div>
      </>
     )
 }
 
-export default AllRecipes
+export default Homepage
