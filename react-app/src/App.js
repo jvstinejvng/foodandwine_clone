@@ -57,7 +57,7 @@ function App() {
         <Route path='/my-recipes' exact={true}>
           <MyRecipes />
         </Route>
-        <Route path='/new-recipe' exact={true}>
+        <Route path='/new-recipe/' exact={true}>
           <RecipeForm />
         </Route>
 

@@ -25,7 +25,6 @@ function RecipePage(){
         directions_step = JSON.stringify(recipe.directions).split('.').slice(1,-1)
     }
 
-    console.log("THIS IS AN ARRAY", JSON.stringify(recipe.directions))
 
     return (
         <div className='SingleRecipeContainer'>

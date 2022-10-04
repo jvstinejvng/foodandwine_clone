@@ -37,31 +37,32 @@ def one_recipe(id):
 
 
 # add a recipe
-@recipe_routes.route('/new-recipe/', methods=['POST'])
+@recipe_routes.route('/', methods=['POST'])
 @login_required
 def add_recipe():
     form = CreateRecipe()
     form['csrf_token'].data = request.cookies['csrf_token']
     data = form.data
-
     if form.validate_on_submit():
         recipe = Recipe(
             user_id=current_user.id,
             title=data['title'],
             description=data['description'],
-            img_url=data['img_url'],
             total_time=data['total_time'],
             servings=data['servings'],
+            img_url=data['img_url'],
             ingredients=data['ingredients'],
             directions=data['directions']
         )
-
+        
         db.session.add(recipe)
         db.session.commit()
-
-        return recipe.to_dict()
-
+        recipe_dict = recipe.to_dict()
+        user = User.query.get(recipe.user_id)
+        recipe_dict['user'] = user.to_dict()
+        return recipe_dict
     return {'errors': validation_errors_to_error_messages(form.errors)}, 400
+
 
 # edit a recipe
 @recipe_routes.route('/<int:id>', methods=['PUT'])

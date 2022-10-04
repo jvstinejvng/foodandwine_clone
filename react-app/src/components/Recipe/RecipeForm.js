@@ -7,19 +7,20 @@ import '../CSS/AddRecipe.css'
 
  function AddRecipe() {
 
-    const sessionUser = useSelector(state => state.session.user);
+
     const dispatch = useDispatch();
     const history = useHistory();
+    const sessionUser = useSelector(state => state.session.user);
     const [errors, setErrors] = useState({
         title: "",
         description: "",
         imageUrl: "",
-        time: "",
+        timeTotal: "",
         servings: "",
         ingredients: "",
         directions: "",
-    });
-    const [submitted, setSubmitted] = useState(false);
+    }
+    );
     
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
@@ -58,7 +59,7 @@ import '../CSS/AddRecipe.css'
         if (description.length <= 0) {
             newErrors["description"] = "How would you describe this recipe?";
         } else if (description.length <= 5) {
-            newErrors["title"] = "Your recipe description must be 10 characters or more";
+            newErrors["description"] = "Your recipe description must be 10 characters or more";
         }
         if (!isValidImageUrl(imageUrl)) {
             newErrors["imageUrl"] = 'Your recipe\'s image URL must end in .jpg, .jpeg, .png, or .tiff';
@@ -88,37 +89,36 @@ import '../CSS/AddRecipe.css'
 
       const handleSubmit = async (e) => {
         e.preventDefault();
-        setSubmitted(true)
-
         const data = {
-          user_id: sessionUser.id,
           title,
           description,
           img_url: imageUrl,
           total_time: totalTime,
           servings,
           ingredients,
-          directions
+          directions,
+          user_id: sessionUser.id,
         };
+
+        const createRecipe = dispatch(addRecipeThunk(data));
+
+        console.log("createrecipe", createRecipe)
+
+
+        if (createRecipe) {
+          history.push("/");
+        }
     
-       await dispatch(addRecipeThunk(data));
-        history.push('/recipes/')
-      };
-    
+    };
+
+
+
 
     return (
     <>
         <div className='AddARecipeContainer'>
             <h1>Add a Recipe</h1>
-            {submitted &&
-                <div className='errors'>
-                    <ul>
-                        {errors.length > 0 && errors.map((error, i) => (
-                            <li style={{color: 'red'}} key={i}>{error}</li>
-                        ))}
-                    </ul>
-                </div>
-            }
+      
             <div className='RecipeFormContainer'>
             <form onSubmit={handleSubmit}>
                 <label>Recipe Title</label>
@@ -190,8 +190,16 @@ import '../CSS/AddRecipe.css'
                     value={directions}
                     onChange={updateDirections}
                     />
-                <div>{errors?.directions}</div>                
-                <button className='AddARecipeButton' type='submit'>Submit Recipe</button>
+                <div>{errors?.directions}</div>
+                <button
+                  className='AddARecipeButton' 
+                  type='submit'
+                  disabled={
+                    Object.values(errors).every((x) => x === "") ? false : true
+                  }
+                  >Submit Recipe
+                </button>
+                
             </form>
             </div>
         </div>
