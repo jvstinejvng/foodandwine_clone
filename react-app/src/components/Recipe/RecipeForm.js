@@ -7,6 +7,7 @@ import '../CSS/AddRecipe.css'
 
  function AddRecipe() {
 
+
     const dispatch = useDispatch();
     const history = useHistory();
     const sessionUser = useSelector(state => state.session.user);
@@ -84,10 +85,11 @@ import '../CSS/AddRecipe.css'
             newErrors["directions"] = "Your reciple directions must be 2 characters or more";
         }
         setErrors(newErrors);
-      }, [title, description, imageUrl, totalTime, servings, ingredients, directions, errors.length]);
+      }, [title, description, imageUrl, totalTime, servings, ingredients, directions]);
 
       const handleSubmit = async (e) => {
         e.preventDefault();
+
         const data = {
           title,
           description,
@@ -101,16 +103,16 @@ import '../CSS/AddRecipe.css'
 
         const createRecipe = dispatch(addRecipeThunk(data));
 
-        console.log("createrecipe", createRecipe)
-
-
         if (createRecipe) {
+          setErrors([]);
           history.push("/");
         }
+
+        console.log("LOOK HERE", createRecipe)
+
+
     
     };
-
-
 
 
     return (

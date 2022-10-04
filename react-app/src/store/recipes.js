@@ -56,15 +56,15 @@ export const getOneRecipeThunk = (id) => async dispatch => {
     };
 };
 
-export const addRecipeThunk = (recipe) => async dispatch => {
+export const addRecipeThunk = (data) => async dispatch => {
     const response = await fetch('/api/recipes/', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(recipe),
+        body: JSON.stringify(data),
     });
     if (response.ok) {
         const newRecipe = await response.json();
-         dispatch(addRecipe(newRecipe));
+         await dispatch(addRecipe(newRecipe));
         return newRecipe;
     }
 }
