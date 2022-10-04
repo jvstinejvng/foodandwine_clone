@@ -34,7 +34,7 @@ def upgrade():
     sa.Column('user_id', sa.Integer(), nullable=False),
     sa.Column('title', sa.String(length=255), nullable=False),
     sa.Column('description', sa.String(length=5000), nullable=False),
-    sa.Column('img_url', sa.String(length=2000), nullable=False),
+    sa.Column('image_url', sa.String(length=2000), nullable=False),
     sa.Column('total_time', sa.String(length=50), nullable=False),
     sa.Column('servings', sa.String(length=50), nullable=False),
     sa.Column('ingredients', sa.String(length=9000), nullable=False),

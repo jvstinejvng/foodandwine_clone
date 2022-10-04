@@ -28,7 +28,7 @@ function AllRecipes() {
                         <NavLink className="AllRecipeNavLink" to={`/recipes/${recipe.id}`}>
                             <div className="RecipeCard">
                             <div className='RecipeCardImageContainer'>
-                                <img className="RecipeCardImage" src={recipe.img_url} alt={`${recipe.title} Recipe`} />
+                                <img className="RecipeCardImage" src={recipe.image_url} alt={`${recipe.title} Recipe`} />
                             </div>
                             <div className='RecipeCardText'>
                                 <div className='RecipeCardTitle'>{recipe.title}</div>

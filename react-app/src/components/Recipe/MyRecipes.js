@@ -40,7 +40,7 @@ function MyRecipes() {
                 <div  key={index}>
                   <NavLink to={`/recipes/${userRecipes.id}`}>
                     <img
-                      src={userRecipes.img_url}
+                      src={userRecipes.image_url}
                       alt="bookcover"
                     />
                   </NavLink>

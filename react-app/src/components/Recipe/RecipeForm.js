@@ -93,7 +93,7 @@ import '../CSS/AddRecipe.css'
         const data = {
           title,
           description,
-          img_url: imageUrl,
+          image_url: imageUrl,
           total_time: totalTime,
           servings,
           ingredients,

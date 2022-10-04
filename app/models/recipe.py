@@ -8,7 +8,7 @@ class Recipe(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     title = db.Column(db.String(255), nullable=False)
     description = db.Column(db.String(5000), nullable=False)
-    img_url = db.Column(db.String(2000), nullable=False)
+    image_url = db.Column(db.String(2000), nullable=False)
     total_time = db.Column(db.String(50), nullable=False)
     servings = db.Column(db.String(50), nullable=False)
     ingredients = db.Column(db.String(9000), nullable=False)
@@ -25,7 +25,7 @@ class Recipe(db.Model):
             "user_id": self.user_id,
             "title": self.title,
             "description": self.description,
-            "img_url": self.img_url,
+            "image_url": self.image_url,
             "total_time": self.total_time,
             "servings": self.servings,
             "ingredients": self.ingredients,

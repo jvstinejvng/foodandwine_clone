@@ -38,30 +38,30 @@ function RecipePage(){
     return (
         <div className='SingleRecipeContainer'>
             <div className='SingleRecipeDiv'>
-                <h1 className='SingleRecipeHeader'>{recipe.title}</h1>
+                <h1 className='SingleRecipeHeader'>{recipe?.title}</h1>
             </div>
-            {sessionUser?.id === recipe.user_id && 
+            {sessionUser?.id === recipe?.user_id && 
                 <button 
                     className="SingleRecipeDelete" 
                      onClick={handleDelete}
                 >Delete Recipe
                 </button>}
             <div className='SingleRecipeSubHeader'>
-                <p className='SingleRecipeDescription'>{recipe.description}</p>
+                <p className='SingleRecipeDescription'>{recipe?.description}</p>
                 <span className='SingleRecipeBy'>By </span>
-                <span className='SingleRecipeUser'>{recipe.user.first_name} {recipe.user.last_name}</span>
+                <span className='SingleRecipeUser'>{recipe?.user.first_name} {recipe?.user.last_name}</span>
             </div> 
             <div className='SingleRecipeImage'>
-                <img className='SingleRecipeImageImg' src={recipe.img_url}/>
+                <img className='SingleRecipeImageImg' src={recipe?.image_url}/>
             </div>
             <div className='SingleRecipeTimeServing'>
                 <div className='TimeServingDiv'>
                    <h3 className='TimeServingHeader'>Total Time:</h3> 
-                    {recipe.total_time}
+                    {recipe?.total_time}
                 </div>
                 <div className='TimeServingDiv'>
                     <h3 className='TimeServingHeader'>Servings:</h3> 
-                    {recipe.servings}
+                    {recipe?.servings}
                 </div>
             </div>
             <div className='SingleRecipeIngredients'>

@@ -50,7 +50,7 @@ def add_recipe():
             description=data['description'],
             total_time=data['total_time'],
             servings=data['servings'],
-            img_url=data['img_url'],
+            image_url=data['image_url'],
             ingredients=data['ingredients'],
             directions=data['directions']
         )
@@ -76,7 +76,7 @@ def edit_recipe(id):
         recipe = Recipe.query.get(id)
         recipe.title=data['title']
         recipe.description=data['description']
-        recipe.img_url=data['img_url']
+        recipe.image_url=data['image_url']
         recipe.total_time=data['total_time']
         recipe.servings=data['servings']
         recipe.ingredients=data['ingredients']
