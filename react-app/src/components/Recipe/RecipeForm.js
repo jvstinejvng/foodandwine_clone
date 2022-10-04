@@ -7,7 +7,6 @@ import '../CSS/AddRecipe.css'
 
  function AddRecipe() {
 
-
     const dispatch = useDispatch();
     const history = useHistory();
     const sessionUser = useSelector(state => state.session.user);

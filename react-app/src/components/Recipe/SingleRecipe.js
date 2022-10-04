@@ -20,13 +20,14 @@ function RecipePage(){
 
     let ingredients_list
     if(recipe) {
-        ingredients_list = JSON.stringify(recipe.ingredients).split(',').slice(1,-1)
+        ingredients_list = (recipe.ingredients).split(',').slice(0,-1)
     }
 
     let directions_step
     if(recipe) {
-        directions_step = JSON.stringify(recipe.directions).split('.').slice(1,-1)
+        directions_step = (recipe.directions).split('.').slice(0,-1)
     }
+
 
     const handleDelete = async e => {
         e.preventDefault();
@@ -67,7 +68,7 @@ function RecipePage(){
             <div className='SingleRecipeIngredients'>
                 <h2 className='SingleRecipeIngredientHeader'>Ingredients</h2>
                 <ul>
-                {ingredients_list.map((ingredient)=>
+                {ingredients_list?.map((ingredient)=>
                  <li className='SingleRecipeIngredientList'>
                     {ingredient}
                  </li>
@@ -77,9 +78,9 @@ function RecipePage(){
             <div className='SingleRecipeDirections'>
                 <h2 className='SingleRecipeDirectionsHeader'>Directions</h2>
                 <ol>
-                {directions_step.map((steps)=>
+                {directions_step?.map((steps)=>
                  <li className='SingleRecipeDirectionsList' >
-                    {steps}
+                    {steps}.
                  </li>
                 )} 
                 </ol>
