@@ -19,21 +19,21 @@ function AllRecipes() {
         <div className='AllRecipeContainer'>
             <div className='AllRecipeHeader'>
                 <h1 className='RecipeText'>Recipes</h1>
-                <p className="BreakBreadText">Let us break bread: recipes that bring us together.</p>
-                <span className="BreakBreadSubText">Embracing the flavors of life while making time for what matters. Like butter spread on bread, spread love, joy, and laughter.</span>
+                <p className="BreakBreadText">Let us break bread: recipes that bring us together. Embracing the flavors of life while making time for what matters. Like butter spread on bread, spread love, joy, and laughter.</p>
             </div>
             <div className='AllRecipeCardContainer'>
                 <div className="AllRecipeCardGrid">
                 {recipes?.map((recipe) => (
                     <div className='RecipeContainer' key={recipe.id}>
-                        <NavLink to={`/recipes/${recipe.id}`}>
+                        <NavLink className="AllRecipeNavLink" to={`/recipes/${recipe.id}`}>
                             <div className="RecipeCard">
                             <div className='RecipeCardImageContainer'>
                                 <img className="RecipeCardImage" src={recipe.img_url} alt={`${recipe.title} Recipe`} />
                             </div>
                             <div className='RecipeCardText'>
-                                <h3>{recipe.title}</h3>
-                                <p>{recipe.total_time}</p>   
+                                <div className='RecipeCardTitle'>{recipe.title}</div>
+                                <div className='RecipeCardTime'>{recipe.total_time}</div>   
+                                <div className='RecipeCardUser'>By {recipe.user.first_name}</div>
                             </div>
                             </div>
                         </NavLink>
