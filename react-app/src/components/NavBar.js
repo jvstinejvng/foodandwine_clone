@@ -84,7 +84,7 @@ const NavBar = () => {
                         <NavLink className='NavBarBottomLink' to='/new-recipe' exact={true} activeClassName='active'>
                             ADD A RECIPE
                         </NavLink>
-                        <NavLink className='NavBarBottomLink' to='/my-recipe' exact={true} activeClassName='active'>
+                        <NavLink className='NavBarBottomLink' to='/my-recipes' exact={true} activeClassName='active'>
                             MY RECIPE
                         </NavLink>
                     </>

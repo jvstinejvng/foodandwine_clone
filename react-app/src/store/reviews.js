@@ -1,19 +1,19 @@
-const GET_ALL_REVIEWS = '/reviews/allReviews'
-const CREATE_REVIEW = '/reviews/createReview'
-const EDIT_REVIEW = '/reviews/editReview'
-const DELETE_ONE_REVIEW = '/reviews/deleteReview'
+// actions
+const LOAD_REVIEWS = '/reviews/all_reviews'
+const ADD_REVIEW = '/reviews/add_review'
+const EDIT_REVIEW = '/reviews/edit_review'
+const DELETE_REVIEW = '/reviews/delete_reviews'
 
-
-const deleteReviewById = (id) => {
+const loadReviews = (reviews) => {
     return {
-        type: DELETE_ONE_REVIEW,
-        id
+        type: LOAD_REVIEWS,
+        reviews
     }
 }
 
-const createReview = (review) => {
+const addReview = (review) => {
     return {
-        type: CREATE_REVIEW,
+        type: ADD_REVIEW,
         review
     }
 }
@@ -25,108 +25,100 @@ const editReview = (review) => {
     }
 }
 
-const loadReviews = (reviews) => {
+const deleteReview = (review) => {
     return {
-        type: GET_ALL_REVIEWS,
-        reviews
+        type: DELETE_REVIEW,
+        review
     }
 }
 
-//THUNK - ALL REVIEWS
-export const getAllReviewsThunk = () => async (dispatch) => {
-    console.log('ALL REVIEWS THUNK')
-    const response = await fetch(`/api/reviews/`);
+// thunks
+// load review 
+export const loadReviewThunk = () => async (dispatch) => {
+    const response = await fetch('/api/reviews/');
     if (response.ok) {
-        const data = await response.json();
-        dispatch(loadReviews(data));
-        return JSON.stringify(data);
+        const data = await response.json()
+        dispatch(loadReviews(data.reviews));
+    }
+    else {
+        const error = await response.json();
+        throw error;
     }
 }
 
-//THUNK - CREATE A REVIEW
-export const createReviewThunk = (data) => async (dispatch) => {
-    console.log('CREATE REVIEW  THUNK')
-    const response = await fetch(`/api/reviews/${data.id}`, {
+// add review 
+export const addReviewThunk = (review) => async (dispatch) => {
+    const response = await fetch('/api/reviews/', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-    });
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(review)
+    })
+
     if (response.ok) {
-        const review = await response.json();
-        await dispatch(createReview(review));
-        return review;
+        const data = await response.json()
+        if (data.errors) {
+            return
+        }
+        dispatch(addReview(data))
+        return data
     }
 }
 
-//THUNK - EDIT A REVIEW
-export const editReviewThunk = (data) => async (dispatch) => {
-    console.log('EDIT REVIEW THUNK')
-    console.log('DATA', data)
-    const response = await fetch(`/api/review/${data.id}`, {
+// edit review 
+export const editReviewThunk = (review) => async (dispatch) => {
+    const response = await fetch(`/api/comments/${review.id}`, {
         method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-    });
+        headers: { 'Content-Type': 'application/json'},
+        body: JSON.stringify(review)
+    })
     if (response.ok) {
-        const review = await response.json();
-        await dispatch(editReview(review));
-        return review;
+        const data = await response.json()
+        dispatch(editReview(data))
+        return data
+    } else {
+        const error = await response.json()
+        throw error
     }
 }
 
-//THUNK - DELETE A REVIEW
-export const deleteReviewThunk = (id) => async (dispatch) => {
-    console.log("INSIDE DELETE REVIEW THUNK")
-    const response = await fetch(`/api/reviews/${id}`, {
-        method: 'DELETE',
-        headers: { 'Content-Type': 'application/json' },
-    });
+export const deleteReviewThunk = (review) => async (dispatch) => {
+    const response = await fetch(`/api/comments/${review.id}`, {
+        method: 'DELETE'
+    })
     if (response.ok) {
-        const spot = await response.json();
-        dispatch(deleteReviewById(id));
-        return spot;
+        const data = await response.json()
+        if (data.message === "Review Deleted!") {
+            dispatch(deleteReview(review))
+        }
+        return review
+    } else {
+        const error = await response.json()
+        throw error
     }
 }
 
-//REDUCER
+// reducer
 const initialState = {}
-const reviewsReducer = (state = initialState, action) => {
-    let newState = state
+export default function review_reducer(state = initialState, action) {
+    let newState = {...state}
     switch (action.type) {
-        case GET_ALL_REVIEWS: {
-            console.log('ALL REVIEWS REDUCER')
-            const allReviews = action.reviews
-            let newState = { ...state, ...allReviews }
-            return newState
-        }
-
-        case CREATE_REVIEW: {
-            console.log('CREATE REVIEW REDUCER')
-            let newState = {
-                ...state,
-                [action.review.id]: action.review
-            };
-            return newState;
-        }
-
-        case EDIT_REVIEW: {
-            console.log('EDIT REVIEW REDUCER')
-            let newState = {
-                ...state,
-                [action.review.id]: action.review
-            };
-            return newState;
-        }
-
-        case DELETE_ONE_REVIEW: {
-            console.log('INSIDE DELETE REVIEW REDUCER');
-            delete newState[action.id]
-            return newState;
-        }
-
-        default:
-            return state
+      case LOAD_REVIEWS:
+          newState = { ...state }
+          action.reviews.forEach(review => newState[review.id] = review)
+          return newState
+      case ADD_REVIEW:
+          newState = { ...state }
+          newState[action.review.id] = action.review
+          return newState
+      case EDIT_REVIEW:
+          newState = { ...state, [action.review.id]: action.review }
+          return newState
+      case DELETE_REVIEW:
+          newState = { ...state }
+          delete newState[action.review.id]
+          return newState
+      default:
+        return state;
     }
-}
-
-export default reviewsReducer
+  }
+  

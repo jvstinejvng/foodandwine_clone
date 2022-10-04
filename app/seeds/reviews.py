@@ -1,35 +1,36 @@
 from app.models.review import db, Review
 
 def seed_reviews():
+    
     r1 = Review(
         user_id=1,
         recipe_id=1,
         stars=5,
-        comment='I love this recipe very much. Thanks for posting.'
+        review='I love this recipe very much. Thanks for posting.'
     )
     r2 = Review(
         user_id=1,
         recipe_id=2,
         stars=5,
-        comment='​​This recipe has so many layers of flavor.'
+        review='​​This recipe has so many layers of flavor.'
     )
     r3 = Review(
         user_id=1,
         recipe_id=3,
         stars=5,
-        comment='​This recipe is packed full of amazing flavor'
+        review='​This recipe is packed full of amazing flavor'
     )
     r4 = Review(
         user_id=1,
         recipe_id=4,
         stars=5,
-        comment='I made this for the first time recently after a co-worker recommended it — it was delicious!'
+        review='I made this for the first time recently after a co-worker recommended it — it was delicious!'
     )
     r5 = Review(
         user_id=1,
         recipe_id=5,
         stars=5,
-        comment='Great and easy recipe. The double frying makes perfect, restaurant-level potatoes.'
+        review='Great and easy recipe. The double frying makes perfect, restaurant-level potatoes.'
     )
     
     db.session.add(r1)

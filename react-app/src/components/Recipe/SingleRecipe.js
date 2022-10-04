@@ -2,6 +2,8 @@ import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams, useHistory } from 'react-router-dom'
 import { getOneRecipeThunk, deleteRecipeThunk } from "../../store/recipes";
+import { loadReviewThunk } from '../../store/reviews'
+import AddReview from '../Review/AddReview'
 import '../CSS/SingleRecipe.css'
 
 function RecipePage(){
@@ -9,7 +11,6 @@ function RecipePage(){
     const dispatch = useDispatch();
     const history = useHistory();
     const sessionUser = useSelector(state => state.session.user);
-
 
     const { id } = useParams();
     const recipe = useSelector(state => state.recipes)[id];
@@ -85,6 +86,16 @@ function RecipePage(){
                 )} 
                 </ol>
             </div>  
+            <div>
+                {/* <AddReview /> */}
+            {sessionUser ?
+                <AddReview recipe={recipe}/>
+                :
+                <h3>Login to leave a comment!</h3>
+            }
+            </div>
+            <div>
+            </div>
         </div>
     )
 

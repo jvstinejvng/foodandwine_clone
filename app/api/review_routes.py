@@ -1,68 +1,58 @@
-from flask import Blueprint, jsonify, request
-from flask_login import login_required, current_user
+from flask import Blueprint, request
 from app.api.auth_routes import validation_errors_to_error_messages
-from app.models import review
-from app.models.review import Review
-from app.models.db import db
-from app.forms.create_review import CreateReview
+from app.models import Review, db
+from app.forms import CreateReview
+from .auth_routes import validation_errors_to_error_messages
 
 reviews_route = Blueprint('reviews', __name__)
 
+# load all reviews
 @reviews_route.route('/')
-def get_all_reviews():
-    print('INSIDE REVIEWS "/reviews"')
+def get_reviews():
     reviews = Review.query.all()
-    reviews_dict = {review.id:review.to_dict() for review in reviews}
-    return reviews_dict
+    return {'reviews': [review.to_dict() for review in reviews]}
 
-@reviews_route.route('/<int:id>', methods=["POST"])
-@login_required
-def create_review(id):
+# create a review 
+@reviews_route.route('/', methods=['POST'])
+def add_review():
     form = CreateReview()
     form['csrf_token'].data = request.cookies['csrf_token']
-    data = form.data
-    print('BACKEND FORM DATA', data)
-    if form.validate_on_submit():
+    if (form.validate_on_submit()):
         review = Review(
-            comment=data['comment'],
-            stars=data['stars'],
-            recipe_id=id,
-            user_id=current_user.id,
+            user_id = form.data['user_id'],
+            recipe_id = form.data['recipe_id'],
+            stars = form.data['stars'],
+            review = form.data['review'],
         )
 
         db.session.add(review)
         db.session.commit()
         return review.to_dict()
+    return {'errors': [validation_errors_to_error_messages(form.errors)]}, 401
 
-    return {'errors': validation_errors_to_error_messages(form.errors)}, 400
-
-@reviews_route.route('/<int:id>/<int:reviewId>', methods=["PUT"])
-@login_required
-def edit_review(id, reviewId):
-    print(reviewId)
+@reviews_route.route('/<int:review_id>', methods=['PUT'])
+def edit_review(review_id):
+    review = Review.query.get(review_id)
     form = CreateReview()
     form['csrf_token'].data = request.cookies['csrf_token']
-    data = form.data
-    print('BACKEND FORM DATA', data)
     if form.validate_on_submit():
-            review = Review.query.get(reviewId)
-            review.comment=data['comment']
-            review.stars=data['stars']
-            review.review_id=id
-            review.user_id=current_user.id
+        user_id = form.data['user_id'],
+        recipe_id = form.data['recipe_id']
+        stars = form.data['stars'],
+        body = form.data['review'],
+  
+        review.user_id = user_id
+        review.recipe_id = recipe_id
+        review.stars = stars
+        review.review = body
 
-            db.session.commit()
-            return review.to_dict()
+        db.session.commit()
+        return review.to_dict()
+    return {'errors': [validation_errors_to_error_messages(form.errors)]}, 401
 
-    return {'errors': validation_errors_to_error_messages(form.errors)}, 400
-
-
-@reviews_route.route('/<int:id>', methods=["DELETE"])
-@login_required
-def delete_one_review(id):
-    review = Review.query.get(id)
+@reviews_route.route('/<int:review_id>', methods=['DELETE'])
+def delete_review(review_id):
+    review = Review.query.get(review_id)
     db.session.delete(review)
     db.session.commit()
-    reviews = Review.query.all()
-    reviews_dict = {review.id:review.to_dict() for review in reviews}
-    return reviews_dict
+    return { 'message': 'Review Deleted!' }
