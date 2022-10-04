@@ -1,12 +1,15 @@
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useParams } from 'react-router-dom'
-import { getOneRecipeThunk } from "../../store/recipes";
-
+import { useParams, useHistory } from 'react-router-dom'
+import { getOneRecipeThunk, deleteRecipeThunk } from "../../store/recipes";
+import '../CSS/SingleRecipe.css'
 
 function RecipePage(){
 
     const dispatch = useDispatch();
+    const history = useHistory();
+    const sessionUser = useSelector(state => state.session.user);
+
 
     const { id } = useParams();
     const recipe = useSelector(state => state.recipes)[id];
@@ -25,45 +28,57 @@ function RecipePage(){
         directions_step = JSON.stringify(recipe.directions).split('.').slice(1,-1)
     }
 
+    const handleDelete = async e => {
+        e.preventDefault();
+        await dispatch(deleteRecipeThunk(recipe.id));
+        history.push(`/`);
+    }
+
 
     return (
         <div className='SingleRecipeContainer'>
-            <div className='SingleRecipeContainer'>
+            <div className='SingleRecipeDiv'>
                 <h1 className='SingleRecipeHeader'>{recipe.title}</h1>
             </div>
+            {sessionUser?.id === recipe.user_id && 
+                <button 
+                    className="SingleRecipeDelete" 
+                     onClick={handleDelete}
+                >Delete Recipe
+                </button>}
             <div className='SingleRecipeSubHeader'>
-                <p>{recipe.description}</p>
-                <span>By</span>
-                <span>{recipe.user.first_name} {recipe.user.last_name}</span>
+                <p className='SingleRecipeDescription'>{recipe.description}</p>
+                <span className='SingleRecipeBy'>By </span>
+                <span className='SingleRecipeUser'>{recipe.user.first_name} {recipe.user.last_name}</span>
             </div> 
             <div className='SingleRecipeImage'>
-                <img className='recipe-image' src={recipe.img_url}/>
+                <img className='SingleRecipeImageImg' src={recipe.img_url}/>
             </div>
             <div className='SingleRecipeTimeServing'>
-                <div>
-                   <p>Total Time:</p> 
+                <div className='TimeServingDiv'>
+                   <h3 className='TimeServingHeader'>Total Time:</h3> 
                     {recipe.total_time}
                 </div>
-                <div>
-                    <p>Servings:</p> 
+                <div className='TimeServingDiv'>
+                    <h3 className='TimeServingHeader'>Servings:</h3> 
                     {recipe.servings}
                 </div>
             </div>
             <div className='SingleRecipeIngredients'>
-                <h3>Ingredients</h3>
+                <h2 className='SingleRecipeIngredientHeader'>Ingredients</h2>
                 <ul>
                 {ingredients_list.map((ingredient)=>
-                 <li>
+                 <li className='SingleRecipeIngredientList'>
                     {ingredient}
                  </li>
                 )} 
                 </ul>
             </div>    
             <div className='SingleRecipeDirections'>
-                <h3>Directions</h3>
+                <h2 className='SingleRecipeDirectionsHeader'>Directions</h2>
                 <ol>
                 {directions_step.map((steps)=>
-                 <li>
+                 <li className='SingleRecipeDirectionsList' >
                     {steps}
                  </li>
                 )} 
