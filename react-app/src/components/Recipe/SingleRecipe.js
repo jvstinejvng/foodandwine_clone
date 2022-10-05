@@ -25,7 +25,7 @@ function RecipePage(){
     recipeArray.map((recipes) => recipeIdArray.push(recipes.id))
 
     useEffect(() => {
-        dispatch(getAllRecipesThunk())
+        dispatch(getOneRecipeThunk())
         dispatch(getAllReviewsThunk())
     }, [dispatch])
 
@@ -61,7 +61,7 @@ function RecipePage(){
     const handleDelete = async e => {
         e.preventDefault();
         await dispatch(deleteRecipeThunk(recipe.id));
-        history.push(`/`);
+        history.push('/recipes');
     }
 
 

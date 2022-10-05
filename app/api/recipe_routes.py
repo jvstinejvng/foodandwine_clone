@@ -43,6 +43,7 @@ def add_recipe():
     form = CreateRecipe()
     form['csrf_token'].data = request.cookies['csrf_token']
     data = form.data
+
     if form.validate_on_submit():
         recipe = Recipe(
             user_id=current_user.id,
@@ -57,10 +58,12 @@ def add_recipe():
         
         db.session.add(recipe)
         db.session.commit()
-        recipe_dict = recipe.to_dict()
-        user = User.query.get(recipe.user_id)
-        recipe_dict['user'] = user.to_dict()
-        return recipe_dict
+
+        # recipe_dict = recipe.to_dict()
+        # user = User.query.get(recipe.user_id)
+        # recipe_dict['user'] = user.to_dict()
+        return recipe.to_dict()
+
     return {'errors': validation_errors_to_error_messages(form.errors)}, 400
 
 
