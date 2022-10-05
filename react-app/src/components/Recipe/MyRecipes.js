@@ -41,7 +41,7 @@ function MyRecipes() {
                   <NavLink to={`/recipes/${userRecipes.id}`}>
                     <img
                       src={userRecipes.image_url}
-                      alt="bookcover"
+                      alt="Recipecover"
                     />
                   </NavLink>
                   <div>

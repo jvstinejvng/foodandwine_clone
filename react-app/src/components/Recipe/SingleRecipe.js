@@ -1,23 +1,52 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams, useHistory } from 'react-router-dom'
 import { getOneRecipeThunk, deleteRecipeThunk } from "../../store/recipes";
-import { loadReviewThunk } from '../../store/reviews'
-import AddReview from '../Review/AddReview'
+import { getAllReviewsThunk } from '../../store/reviews'
+import Review from '../Review/Review'
 import '../CSS/SingleRecipe.css'
 
 function RecipePage(){
 
     const dispatch = useDispatch();
     const history = useHistory();
-    const sessionUser = useSelector(state => state.session.user);
+    const currentUser = useSelector((state) => (state?.session?.user))
+    const [dropToggle, setDropToggle] = useState(false)
 
     const { id } = useParams();
     const recipe = useSelector(state => state.recipes)[id];
+    const booksArray = useSelector((state) => Object.values(state?.recipes))
+
+    const reviewsArray = useSelector((state) => Object.values(state?.reviews))
+    const reviewsByBookId = reviewsArray.filter(review => review.recipe_id === Number(id))
+    const [display, setDisplay] = useState('landing')
+
+    const bookIdArray = []
+    booksArray.map((recipes) => bookIdArray.push(recipes.id))
+    console.log(bookIdArray.includes(Number(id)), 'TRUE OR FALSE>>')
 
     useEffect(() => {
-        dispatch(getOneRecipeThunk(id));
-    }, [dispatch, id]);
+        dispatch(getOneRecipeThunk())
+        dispatch(getAllReviewsThunk())
+    }, [dispatch])
+
+    let allStarRatings = [];
+    reviewsByBookId.forEach((review) => allStarRatings.push(review.stars))
+    const allStarsSum = allStarRatings.reduce((prev, curr) => prev + curr, 0);
+    let avgStarRating = parseFloat(allStarsSum / allStarRatings.length)
+
+    const currentUserId = currentUser.id
+    const reviewOfCurrentUser = reviewsByBookId.filter(review => review.user_id == currentUserId)
+    const currentUserRating = reviewOfCurrentUser[0]?.stars
+
+    function currentUserStarRating() {
+        if (currentUserRating > 0) {
+            return (
+                <div className='SingleRecipeRating'>Your Rating: {currentUserRating}/5</div>
+            )
+        }
+    }
+
 
     let ingredients_list
     if(recipe) {
@@ -42,7 +71,7 @@ function RecipePage(){
             <div className='SingleRecipeDiv'>
                 <h1 className='SingleRecipeHeader'>{recipe?.title}</h1>
             </div>
-            {sessionUser?.id === recipe?.user_id && 
+            {currentUser?.id === recipe?.user_id && 
                 <button 
                     className="SingleRecipeDelete" 
                      onClick={handleDelete}
@@ -87,12 +116,28 @@ function RecipePage(){
                 </ol>
             </div>  
             <div>
-                {/* <AddReview /> */}
-            {sessionUser ?
-                <AddReview recipe={recipe}/>
-                :
-                <h3>Login to leave a comment!</h3>
-            }
+            {reviewsByBookId.length > 0 ? (
+                <div>
+                  <div className="alex_merriweather_300 alex_font_16">
+                    Average Rating: {avgStarRating.toFixed(2)}/5
+                  </div>
+                  <div className="alex_merriweather_300 alex_font_16">
+                    {currentUserStarRating()}
+                  </div>
+                </div>
+              ) : (
+                <div className="alex_merriweather_300 alex_font_14">
+                  This book hasn't been rated yet
+                </div>
+              )}
+
+            <Review
+                display={display}
+                setDisplay={setDisplay}
+                dropToggle={dropToggle}
+                setDropToggle={setDropToggle}
+              />
+        
             </div>
             <div>
             </div>
