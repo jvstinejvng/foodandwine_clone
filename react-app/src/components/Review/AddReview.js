@@ -19,7 +19,7 @@ const CreateReview = ({ RecipeId, userId, displayLanding }) => {
   useEffect(() => {
     const newErrors = {};
 
-    if (!currentUser) newErrors.login = 'Please log in or sign up with BadReads to continue.';
+    if (!currentUser) newErrors.login = 'Please log in or sign up to continue.';
     if (stars <= 0 || stars > 5) newErrors.stars = 'Star rating must be between 1 and 5.';
     if (review.length <= 0) newErrors.review = 'Review is required.';
     if (review.length > 1000) newErrors.reviewLength = 'Review must be 1000 characters or less.';

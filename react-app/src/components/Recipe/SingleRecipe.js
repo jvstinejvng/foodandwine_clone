@@ -118,15 +118,15 @@ function RecipePage(){
             <div>
             {reviewsByBookId.length > 0 ? (
                 <div>
-                  <div className="alex_merriweather_300 alex_font_16">
+                  <div className="AverageStarRating">
                     Average Rating: {avgStarRating.toFixed(2)}/5
                   </div>
-                  <div className="alex_merriweather_300 alex_font_16">
+                  <div className="AverageStarRating">
                     {currentUserStarRating()}
                   </div>
                 </div>
               ) : (
-                <div className="alex_merriweather_300 alex_font_14">
+                <div className="AverageStarRatingText">
                   This book hasn't been rated yet
                 </div>
               )}
@@ -137,7 +137,6 @@ function RecipePage(){
                 dropToggle={dropToggle}
                 setDropToggle={setDropToggle}
               />
-        
             </div>
             <div>
             </div>

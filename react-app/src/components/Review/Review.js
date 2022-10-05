@@ -62,9 +62,7 @@ const Reviews = ({ display, setDisplay, displayLanding, dropToggle, setDropToggl
             const updated_at = reviewOfCurrentUser[0].updated_at
             const stars = reviewOfCurrentUser[0].stars
             const reviewId = reviewOfCurrentUser[0].id
-            //make an array of reviews with only the user id, find index of current user
             const reviewsUserIdArray = reviewsByRecipeId.map((review) => review.user_id)
-            //find index of current review, remove it from the reviews list
             const currentUserReviewIndex = reviewsUserIdArray.indexOf(currentUserId)
             reviewsByRecipeId.splice(currentUserReviewIndex, 1)
 
@@ -156,7 +154,7 @@ const Reviews = ({ display, setDisplay, displayLanding, dropToggle, setDropToggl
                                             }
                                         </div>
                                         <div>
-                                            <div className='ReviewDiv'>{updatedDate(review.updated_at)}</div>
+                                            {/* <div className='ReviewDiv'>{updatedDate(review.updated_at)}</div> */}
                                         </div>
                                     </div>
                                     <div className='ReviewDiv'></div>
@@ -168,7 +166,6 @@ const Reviews = ({ display, setDisplay, displayLanding, dropToggle, setDropToggl
                                 : null}
                         </div>
 
-
                     )}
                 </div>
             )
@@ -178,20 +175,20 @@ const Reviews = ({ display, setDisplay, displayLanding, dropToggle, setDropToggl
 
         else {
             return (
-                <div className='alex_merriweather_300 alex_font_14 alex_flex_column'>
+                <div className='ReviewDiv'>
                     {display === 'landing' ?
-                        <div className='alex_border_bottom_grey'>
-                            <div className='alex_flex_row alex_pad_bottom_5'>
-                                <div className='alex_merriweather_300 alex_font_14 alex_bold' >{currentUserUsername},</div>
-                                <div className='alex_margin_right_3'></div>
-                                <div className='alex_merriweather_300 alex_font_14'>start your review of</div>
-                                <div className='alex_margin_right_3'></div>
+                        <div className='ReviewDiv'>
+                            <div className='ReviewDiv alex_pad_bottom_5'>
+                                <div className='ReviewDiv' >{currentUserUsername},</div>
+                                <div className='ReviewDiv'></div>
+                                <div className='ReviewDiv alex_font_14'>start your review of</div>
+                                <div className='ReviewDiv'></div>
                                 {/* <div className='alex_merriweather_300 alex_font_14 alex_bold' >{singleRecipe.title}</div> */}
                             </div>
-                            <div className='alex_pad_bottom_10'>
+                            <div className='ReviewDiv'>
                                 <button
                                     onClick={displayCreate}
-                                    className='alex_gr-button'
+                                    className='ReviewDiv'
                                 >Write A Review
                                 </button>
                             </div>
@@ -199,7 +196,7 @@ const Reviews = ({ display, setDisplay, displayLanding, dropToggle, setDropToggl
 
                         : null}
 
-                    <div className='alex_pad_bottom_10'></div>
+                    <div className='ReviewDiv'></div>
 
 
                     {display === 'create' ?
@@ -211,31 +208,31 @@ const Reviews = ({ display, setDisplay, displayLanding, dropToggle, setDropToggl
 
 
                     {display === 'landing' ?
-                        <div className='alex_pad_bottom_10'>
+                        <div className='ReviewDiv'>
                             {reviewsByRecipeId.map((review) =>
-                                <div key={review.id} className='alex_pad_bottom_10 '>
-                                    <div className='alex_flex_row alex_justify_between'>
-                                        <div className='alex_flex_row'>
-                                            <div className='alex_merriweather_300 alex_font_14 alex_bold'>{review.user.username}</div>
-                                            <div className='alex_margin_right_3'></div>
-                                            <div className='alex_merriweather_300 alex_font_14'>rated it {review.stars}</div>
-                                            <div className='alex_margin_right_3'></div>
+                                <div key={review.id} className='ReviewDiv '>
+                                    <div className='ReviewDiv'>
+                                        <div className='ReviewDiv'>
+                                            <div className='ReviewDiv'>{review.user.username}</div>
+                                            <div className='ReviewDiv'></div>
+                                            <div className='ReviewDiv'>rated it {review.stars}</div>
+                                            <div className='ReviewDiv'></div>
                                             {review.stars > 1 ?
                                                 <div>
-                                                    <div className='alex_merriweather_300 alex_font_14'> stars</div>
+                                                    <div className='ReviewDiv'> stars</div>
                                                 </div>
                                                 :
                                                 <div>
-                                                    <div className='alex_merriweather_300 alex_font_14'> star</div>
+                                                    <div className='ReviewDiv'> star</div>
                                                 </div>
                                             }
                                         </div>
                                         <div>
-                                            <div className='alex_merriweather_300 alex_font_14'>{updatedDate(review.updated_at)}</div>
+                                            <div className='ReviewDiv'>{updatedDate(review.updated_at)}</div>
                                         </div>
                                     </div>
-                                    <div className='alex_margin_right_3'></div>
-                                    <div className='alex_merriweather_300 alex_font_14 alex_border_bottom_grey alex_pad_bottom_5 ben_overFlow_review'>"{review.review}"</div>
+                                    <div className='ReviewDiv'></div>
+                                    <div className='ReviewDiv'>"{review.review}"</div>
                                 </div>
                             )}
                         </div>
@@ -252,7 +249,6 @@ const Reviews = ({ display, setDisplay, displayLanding, dropToggle, setDropToggl
         </>
     );
 }
-// todo - user rated it 1 STARS => user rated it 1 STAR
 
 
 export default Reviews;
