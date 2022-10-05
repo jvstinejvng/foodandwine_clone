@@ -42,9 +42,9 @@ const EditReview = ({ recipeId, userId, userReview, userStars, displayLanding, r
       user_id: userId
     }
 
-    const editedBook = await dispatch(editReviewThunk(reviewData));
+    const editedRecipe = await dispatch(editReviewThunk(reviewData));
 
-    if (editedBook) {
+    if (editedRecipe) {
       setErrors([]);
       displayLanding();
       history.push(`/recipes/${recipeId}`);
@@ -67,7 +67,7 @@ const EditReview = ({ recipeId, userId, userReview, userStars, displayLanding, r
             className='EditRecipeFormInput'
           />
           <div className='EditRecipeFormTextError'>{errors.stars}</div>
-          <label className='EditRecipeFormText'>Edit</label>
+          <label className='EditRecipeFormText'></label>
           <textarea
             type="string"
             placeholder="Enter Your Review"

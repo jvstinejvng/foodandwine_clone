@@ -36,6 +36,7 @@ def create_review(id):
 @reviews_route.route('/<int:id>/<int:reviewId>', methods=["PUT"])
 @login_required
 def edit_review(id, reviewId):
+    print(reviewId)
     form = CreateReview()
     form['csrf_token'].data = request.cookies['csrf_token']
     data = form.data

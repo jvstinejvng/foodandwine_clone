@@ -15,15 +15,14 @@ function RecipePage(){
 
     const { id } = useParams();
     const recipe = useSelector(state => state.recipes)[id];
-    const booksArray = useSelector((state) => Object.values(state?.recipes))
+    const recipeArray = useSelector((state) => Object.values(state?.recipes))
 
     const reviewsArray = useSelector((state) => Object.values(state?.reviews))
-    const reviewsByBookId = reviewsArray.filter(review => review.recipe_id === Number(id))
+    const reviewsByRecipeId = reviewsArray.filter(review => review.recipe_id === Number(id))
     const [display, setDisplay] = useState('landing')
 
-    const bookIdArray = []
-    booksArray.map((recipes) => bookIdArray.push(recipes.id))
-    console.log(bookIdArray.includes(Number(id)), 'TRUE OR FALSE>>')
+    const recipeIdArray = []
+    recipeArray.map((recipes) => recipeIdArray.push(recipes.id))
 
     useEffect(() => {
         dispatch(getAllRecipesThunk())
@@ -31,12 +30,12 @@ function RecipePage(){
     }, [dispatch])
 
     let allStarRatings = [];
-    reviewsByBookId.forEach((review) => allStarRatings.push(review.stars))
+    reviewsByRecipeId.forEach((review) => allStarRatings.push(review.stars))
     const allStarsSum = allStarRatings.reduce((prev, curr) => prev + curr, 0);
     let avgStarRating = parseFloat(allStarsSum / allStarRatings.length)
 
     const currentUserId = currentUser.id
-    const reviewOfCurrentUser = reviewsByBookId.filter(review => review.user_id == currentUserId)
+    const reviewOfCurrentUser = reviewsByRecipeId.filter(review => review.user_id == currentUserId)
     const currentUserRating = reviewOfCurrentUser[0]?.stars
 
     function currentUserStarRating() {
@@ -116,7 +115,7 @@ function RecipePage(){
                 </ol>
             </div>  
             <div>
-            {reviewsByBookId.length > 0 ? (
+            {reviewsByRecipeId.length > 0 ? (
                 <div>
                   <div className="AverageStarRating">
                     Average Rating: {avgStarRating.toFixed(2)}/5
@@ -127,7 +126,7 @@ function RecipePage(){
                 </div>
               ) : (
                 <div className="AverageStarRatingText">
-                  This book hasn't been rated yet
+                  This Recipe hasn't been rated yet
                 </div>
               )}
 
