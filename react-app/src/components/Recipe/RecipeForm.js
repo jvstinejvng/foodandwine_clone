@@ -107,6 +107,8 @@ import '../CSS/AddRecipe.css'
           history.push("/");
         }
 
+        console.log("LOOK HERE", createRecipe)
+
 
     
     };
