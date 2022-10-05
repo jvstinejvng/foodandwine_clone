@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams, useHistory } from 'react-router-dom'
-import { getOneRecipeThunk, deleteRecipeThunk } from "../../store/recipes";
+import { getAllRecipesThunk, getOneRecipeThunk, deleteRecipeThunk } from "../../store/recipes";
 import { getAllReviewsThunk } from '../../store/reviews'
 import Review from '../Review/Review'
 import '../CSS/SingleRecipe.css'
@@ -26,7 +26,7 @@ function RecipePage(){
     console.log(bookIdArray.includes(Number(id)), 'TRUE OR FALSE>>')
 
     useEffect(() => {
-        dispatch(getOneRecipeThunk())
+        dispatch(getAllRecipesThunk())
         dispatch(getAllReviewsThunk())
     }, [dispatch])
 

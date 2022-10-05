@@ -7,11 +7,10 @@ import EditReview from './EditReview';
 
 
 const Reviews = ({ display, setDisplay, displayLanding, dropToggle, setDropToggle }) => {
-    const history = useHistory()
+
     const { id } = useParams()
     const dispatch = useDispatch();
-    const recipesDict = useSelector((state) => (state?.recipes))
-    const singleRecipe = recipesDict[id]
+    // const recipesDict = useSelector((state) => (state?.recipes))
     const reviewsArray = useSelector((state) => Object.values(state?.reviews))
     const reviewsByRecipeId = reviewsArray.filter(review => review.recipe_id == id)
     const currentUser = useSelector((state) => (state?.session?.user))
@@ -27,7 +26,6 @@ const Reviews = ({ display, setDisplay, displayLanding, dropToggle, setDropToggl
     }
 
     useEffect(() => {
-        console.log('REVIEWS USE EFFECT')
         dispatch(getAllReviewsThunk())
     }, [dispatch])
 
@@ -93,7 +91,6 @@ const Reviews = ({ display, setDisplay, displayLanding, dropToggle, setDropToggl
                                 <div className='ReviewDiv'>
                                     <div className='ReviewDiv'>You rated</div>
                                     <div className='ReviewDiv'></div>
-                                    {/* <div className='alex_merriweather_300 alex_font_14 alex_bold' > {singleRecipe.title} </div> */}
                                     <div className='ReviewDiv'></div>
                                     <div className='ReviewDiv'> {stars} </div>
                                     <div className='ReviewDiv'></div>
@@ -154,7 +151,6 @@ const Reviews = ({ display, setDisplay, displayLanding, dropToggle, setDropToggl
                                             }
                                         </div>
                                         <div>
-                                            {/* <div className='ReviewDiv'>{updatedDate(review.updated_at)}</div> */}
                                         </div>
                                     </div>
                                     <div className='ReviewDiv'></div>
@@ -171,7 +167,6 @@ const Reviews = ({ display, setDisplay, displayLanding, dropToggle, setDropToggl
             )
         }
 
-        //USER DOES NOT HAVE AN EXISTING REVIEW
 
         else {
             return (
@@ -183,7 +178,6 @@ const Reviews = ({ display, setDisplay, displayLanding, dropToggle, setDropToggl
                                 <div className='ReviewDiv'></div>
                                 <div className='ReviewDiv alex_font_14'>start your review of</div>
                                 <div className='ReviewDiv'></div>
-                                {/* <div className='alex_merriweather_300 alex_font_14 alex_bold' >{singleRecipe.title}</div> */}
                             </div>
                             <div className='ReviewDiv'>
                                 <button

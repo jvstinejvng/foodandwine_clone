@@ -85,14 +85,14 @@ const EditReview = ({ recipeId, userId, userReview, userStars, displayLanding, r
              <button
               type="submit"
               disabled={true}
-              className="EditRecipeFormButtonDisabled">Edit Review</button>
+              className="EditRecipeFormButtonDisabled">Submit</button>
             <button onClick={displayLanding} className='EditRecipeFormButtonCancel'>Cancel</button>
           </div>
           :
           <div className="EditRecipeFormButtonDiv">
             <button
               type="submit"
-              className="EditRecipeFormButtonSubmit">Edit Review</button>
+              className="EditRecipeFormButtonSubmit">Submit</button>
             <button onClick={displayLanding} className='EditRecipeFormButton'>Cancel</button>
           </div>
         }
