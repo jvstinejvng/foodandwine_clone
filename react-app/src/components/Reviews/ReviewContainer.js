@@ -5,7 +5,7 @@ import '../CSS/RecipePage.css'
 import CreateReview from './CreateReview'
 import UserReview from "./UserReview"
 
-function CommentSection({ recipe }) {
+function ReviewContainer( { recipe })  {
     const sessionUser = useSelector(state => state.session.user)
 
     return (
@@ -20,11 +20,11 @@ function CommentSection({ recipe }) {
                     <UserReview comment={comment} />
                 ))
                 :
-                <h3>Looks like no one has left a comment yet, be the first!</h3>
+                <h3>Be the first to review</h3>
             }
 
         </>
     )
 };
 
-export default CommentSection;
+export default ReviewContainer;

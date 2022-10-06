@@ -6,19 +6,19 @@ def seed_comments():
 
     c1 = Comment(
         rating = 5,
-        body = 'Loved this recipe! Came together very well, next time goin to coat with a seed mix for some extra crunch, yum.',
+        body = 'Good Recipe.',
         user_id = 2,
         recipe_id = 1
         )
     c2 = Comment(
         rating = 2,
-        body = 'Had a hard time following, turned into a disc. Back to the drawing board I guess :p',
+        body = 'Good Recipe',
         user_id = 3,
         recipe_id = 1
         )
     c3 = Comment(
         rating = 4,
-        body = 'Loved this recipe! Came together very well, next time goin to coat with a seed mix for some extra crunch, yum.',
+        body = 'Yum',
         user_id = 3,
         recipe_id = 2
         )

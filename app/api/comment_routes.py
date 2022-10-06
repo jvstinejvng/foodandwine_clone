@@ -1,6 +1,7 @@
 from flask import Blueprint, request
 from app.models import Comment, db
 from ..forms import CommentForm
+from flask_login import login_required, current_user
 from .auth_routes import validation_errors_to_error_messages
 
 comment_routes = Blueprint('comments', __name__)
@@ -38,6 +39,11 @@ def edit_comment(comment_id):
 
     form = CommentForm()
     form['csrf_token'].data = request.cookies['csrf_token']
+
+    if current_user.id != edit_comment.user_id:
+        return  {"message": "You need to be the ownwe of this review", "statusCode": 403}
+
+
     if form.validate_on_submit():
         rating = form.data['rating'],
         body = form.data['body'],
@@ -48,7 +54,6 @@ def edit_comment(comment_id):
         comment.body = body
         comment.user_id = user_id
         comment.recipe_id = recipe_id
-        # comment.updated_at = datetime.datetime.utcnow
 
         db.session.commit()
         return comment.to_dict()

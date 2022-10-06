@@ -40,9 +40,12 @@ def post_recipe():
 @recipe_routes.route('/<int:recipe_id>', methods=['PUT'])
 def edit_recipe(recipe_id):
     recipe = Recipe.query.get(recipe_id)
-
     form = RecipeForm()
     form['csrf_token'].data = request.cookies['csrf_token']
+
+    if current_user.id != edit_recipe.user_id:
+        return  {"message": "You need to be the ownwe of this recipe", "statusCode": 403}
+
     if form.validate_on_submit():
         user_id = form.data['user_id'],
         title = form.data['title'],
