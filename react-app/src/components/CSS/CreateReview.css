@@ -1,0 +1,29 @@
+.CreateReviewForm {
+    background-color: white;
+    padding: 20px;
+    border: 2px solid var(--dark-blue);
+    width: 75%;
+    margin-bottom: 30px;
+}
+
+.CreateReviewButton {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 95%;
+    margin-top: 10px;
+}
+
+
+.CreateReviewFormInput{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+
+.CreateReviewFormUserInfo {
+    display: flex;
+    align-items: center;
+}
+

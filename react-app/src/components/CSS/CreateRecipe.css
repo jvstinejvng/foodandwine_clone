@@ -1,0 +1,10 @@
+.CreateReviewDiv {
+    position: relative;
+    top: 175px;
+    margin: 0 20% 0 20%;
+}
+.EditRecipeFormInputDiv {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}

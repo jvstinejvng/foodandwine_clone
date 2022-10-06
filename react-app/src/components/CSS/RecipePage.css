@@ -1,0 +1,94 @@
+.RecipePageContainer {
+    position: relative;
+    top: 175px;
+    margin: 1% 20% 0 20%;
+}
+
+.RecipePageDiv {
+    display: flex;
+    flex-direction: column;
+}
+
+.RecipePageHeader {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.RecipePageHeaderText {
+    display: flex;
+    justify-content: flex-start;
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+
+.RecipePageAverageRatingDiv {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.RecipePageAverageRating {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    font-size: 20px;
+}
+
+.RecipePageDescription {
+    font-size: 24px;
+    font-family: Georgia, 'Times New Roman', Times, serif; 
+}
+
+.RecipePageUser {
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    text-decoration: underline;
+
+}
+
+.RecipePageImageDiv {
+    width: 100%;
+}
+
+
+.RecipePageRecipeCardEdit {
+    position: relative;
+    display: flex;
+    width: auto;
+    height: auto;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    line-height: 16px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 5px;
+}
+
+.RecipePageRecipeCardDelete {
+    position: relative;
+    display: flex;
+    width: auto;
+    height: auto;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    line-height: 16px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 5px;
+}
+
+.ReviewContainer {
+ position: static;
+ background-color: aliceblue;
+}

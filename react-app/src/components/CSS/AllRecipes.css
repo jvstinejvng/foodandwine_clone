@@ -11,99 +11,34 @@
     display: flex;
     flex-direction: column;
     text-align: center;
-    width: 50%;
+    width: 60%;
 }
 
-.RecipeText {
+.AllRecipeHeaderText {
     font-size: 50px;
     margin-bottom: 0px;
+    font-weight: 500;
 }
 
-.BreakBreadText {
+.AllRecipeSubText {
     font-size: 20px;
-    margin: 10px;
+    padding-bottom: 20px;
+    
+}
+
+
+.AllRecipeCardContainer {
+    display: flex;
+    justify-content: center;
 
 }
 
 .AllRecipeCardGrid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-}
-
-@media screen and (max-width: 800px) {
-    .AllRecipeCardGrid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr)
-    }
-}
-
-@media screen and (max-width: 600px) {
-    .AllRecipeCardGrid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr)
-    }
-}
-
-@media screen and (max-width: 300px) {
-    .AllRecipeCardContainer {
-        display: grid;
-        grid-template-columns: repeat(1, 1fr)
-    }
-}
-
-.RecipeContainer {
-    width: 100%;
-    height: auto;
-    margin: 15px;
-}
-
-.RecipeCard {
-    width: 285px;
-    height: 366px;
-    border: 1px solid rgba(0,0,0,.15);
-}
-
-.RecipeCardImage {
-    width: 285px;
-    height: 190px;
-    object-fit: cover;
-    margin-bottom: 0;
-}
-
-.RecipeCardTitle {
-    position: relative;
-    display: flex;
-    flex-wrap: wrap;
-    padding: 10px 10px 0 10px;
-    font-size: 22px;
-    font-weight: bold;
-    color: black;
-    text-decoration: none;
-
-}
-
-.RecipeCardTime {
-    position: relative;
-    display: flex;
-    flex-wrap: wrap;
+    column-gap: 30px;
+    row-gap: 30px;
     padding: 10px;
-    color: black;
-    font-size: 18px;
-    text-decoration: none;
-}
-
-.RecipeCardUser {
-    position: relative;
-    display: flex;
-    flex-wrap: wrap;
-    padding-left: 10px;
-    padding-right: 10px;
-    color: black;
-    font-size: 16px;
-    text-decoration: none;
 
 }
 
-.AllRecipeNavLink{
-    text-decoration: none;
-}

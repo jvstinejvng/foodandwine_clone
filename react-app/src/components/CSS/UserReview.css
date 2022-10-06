@@ -1,0 +1,97 @@
+.comment-body-container {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    padding: 5px;
+    margin-right: 20px;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    width: 95%;
+}
+
+.comment-body-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#delete:hover {
+    color: red;
+}
+
+.rated {
+    color: var(--red-orange);
+}
+
+.comment-header {
+    display: flex;
+    align-items: flex-start;
+    height: 50px;
+}
+
+.comment-header #dot {
+    color: var(--light-gray);
+    font-size: 12px;
+    margin-left: 5px;
+    margin-right: 5px;
+    /* margin-bottom: 10px; */
+
+}
+
+.comment-header h4 {
+    /* width: 50%; */
+    min-width: fit-content;
+    word-break:normal;
+    margin-right: 15px;
+}
+
+.posted-rating {
+    display: flex;
+    align-items: center;
+    width: 150%;
+    height: 100%;
+    padding-top: 7px;
+}
+
+.comment-text {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+.comment-edit-button-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 10px;
+    padding-right: 10px;
+    box-sizing: border-box;
+}
+
+.edit {
+    margin-right: 5px;
+}
+
+.edit:hover {
+    cursor: pointer;
+    color: var(--dark-blue);
+    /* font-size: 16px; */
+}
+
+.comment-wrapper {
+    display: flex;
+    background-color: white;
+    padding: 0 20px 20px 20px;
+    border: 1px solid var(--dark-blue);
+    width: 75%;
+    margin-bottom: 10px;
+    align-items: flex-start;
+}
+
+.comment-right {
+    width: 100%;
+    padding-right: 10px;
+    box-sizing: border-box;
+}

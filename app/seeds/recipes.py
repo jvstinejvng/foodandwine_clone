@@ -1,5 +1,7 @@
-from app.models.recipe import db, Recipe
+from app.models import db, Recipe
 
+
+# Adds a demo user, you can add other users here if you want
 def seed_recipes():
     r1 = Recipe(
         user_id=1,
@@ -234,11 +236,14 @@ def seed_recipes():
     db.session.add(r20)
     db.session.add(r21)
 
-    db.session.commit()
+    db.session.commit()    
 
 
-
+# Uses a raw SQL query to TRUNCATE the users table.
+# SQLAlchemy doesn't have a built in function to do this
+# TRUNCATE Removes all the data from the table, and RESET IDENTITY
+# resets the auto incrementing primary key, CASCADE deletes any
+# dependent entities
 def undo_recipes():
-    db.session.execute('TRUNCATE products RESTART IDENTITY CASCADE;')
+    db.session.execute('TRUNCATE recipes RESTART IDENTITY CASCADE;')
     db.session.commit()
-

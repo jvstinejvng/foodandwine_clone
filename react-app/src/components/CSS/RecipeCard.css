@@ -1,0 +1,50 @@
+.RecipeCardDiv {
+    display: flex;
+    flex-direction: column;
+    width: 285px;
+    height: 366px;
+    border: 1px solid rgba(0,0,0,.15);
+    background-color: #fff;
+    overflow: hidden;
+}
+
+.RecipeCardImage {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+
+.RecipeCardTitleText {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0px;
+    padding-bottom: 10px;
+    font-size: 24px;
+    font-weight: 700;
+    overflow: hidden;
+    text-decoration: none;
+}
+
+.RecipeCardInfo {
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+    padding: 16px;
+    color: black;
+}
+
+
+.RecipeCardUserName{
+    display: flex;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 0;
+    margin: 0;
+    color: grey;
+}
+
+
+

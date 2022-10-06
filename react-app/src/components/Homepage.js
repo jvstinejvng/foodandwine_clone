@@ -1,58 +1,45 @@
 import { useEffect } from 'react'
-import { useDispatch, useSelector} from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom';
-import { getAllRecipesThunk } from '../store/recipes'
+
+import RecipeCard from  './Recipes/RecipeCard'
+import { getRecipesThunk } from '../store/recipe'
+
 import './CSS/Homepage.css'
 
 function Homepage() {
     const dispatch = useDispatch()
-    const recipes = useSelector(state => Object.values(state.recipes).slice(0, 3))
-
+    const recipes = useSelector(state => Object.values(state.recipes).slice(0, 4))
+    const sessionUser = useSelector(state => state.session.user)
 
     useEffect(() => {
-        dispatch(getAllRecipesThunk())
+        const fetchRecipes = async () => {
+            await dispatch(getRecipesThunk())
+        }
+        fetchRecipes().catch(console.error)
     }, [dispatch])
 
-    if (!recipes) return null;
-
     return (
-     <>
-        <div className='HomepageMainDiv'>
-            <div className='HomepageTopHalf'>
-                <div className='HomepageMainRecipe-RightDiv'>
-
-                </div>
-                <div className='HomepageDevelopersPanel'>
-
-                </div>
+        <div className='HomepageContainer'>
+            <div className='HomepageMainRecipe'>
             </div>
-            <div className='HomepageMiddleRecipe'>
-
+            <div className='HomepageSecondRecipeBanner'>
             </div>
-            <div className='HomepageBottomHalf'>
-            <div className="HomepageRecipeCardGrid"> 
-                { recipes &&
-                    recipes?.map((recipe) => (
-                  <div className='HomepageRecipeCardDiv' key={recipe.id}>
-                        <NavLink className="HomepageRecipeCardLink" to={`/recipes/${recipe.id}`}>
-                            <div className="HomepageRecipeCard">
-                            <div className='HomepageRecipeCardImg'>
-                                <img className="HomepageRecipeCarmImgUrl" src={recipe.image_url} alt={`${recipe.title} Recipe`} />
-                            </div>
-                            <div className='HomepageRecipeCardText'>
-                                <div className='HomepageRecipeCardTitle'>{recipe.title}</div>
-                                <div className='HomepageRecipeCardTime'>{recipe.total_time}</div>   
-                                <div className='HomepageRecipeCardUser'>By {recipe.user.first_name}</div>
-                            </div>
-                            </div>
-                        </NavLink>
-                    </div>
-                ))}
-                </div>
-
+            <div className='HomepageTrioRecipe'>
+                <NavLink className="HomepageCookingLink" to='/recipes'>
+                <h2 className='HomepageCooking'>Cooking ➝</h2>
+                </NavLink>
+                        <div className='HomepageCookingRecipeDiv'>
+                            {recipes && (
+                                recipes.map(recipe => (
+                                        <RecipeCard key={recipe.id} recipe={recipe} />
+                            ))
+                            )}
+                        </div>
+            </div>
+            <div>
             </div>
         </div>
-     </>
     )
 }
 

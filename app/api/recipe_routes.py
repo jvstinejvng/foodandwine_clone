@@ -1,102 +1,77 @@
+from dis import Instruction
 from flask import Blueprint, request
 from flask_login import login_required, current_user
-from app.models import db, Recipe, User
-from app.forms import CreateRecipe
-from app.api.auth_routes import validation_errors_to_error_messages
+from app.models import User, Recipe, db
+from ..forms import RecipeForm
+from .auth_routes import validation_errors_to_error_messages
 
 recipe_routes = Blueprint('recipes', __name__)
 
-# get all recipes
-# @recipe_routes.route('/')
-# def get_recipes():
-#     recipes = Recipe.query.all()
-#     return {'recipes': [recipe.to_dict() for recipe in recipes]}
-@recipe_routes.route('/')
+# get recipes
+@recipe_routes.route('')
 def get_recipes():
     recipes = Recipe.query.all()
-    all_recipes = list()
-    for recipe in recipes:
-        recipe_dict = recipe.to_dict()
-        user = User.query.get(recipe_dict['user_id']);
-        recipe_dict['user'] = user.to_dict()
-        all_recipes.append(recipe_dict)
-    return {"recipes": all_recipes}
-
-# get a recipe 
-@recipe_routes.route('/<int:id>/')
-def one_recipe(id):
-    recipe = (db.session.query(Recipe).get(id))
-    if recipe:
-        recipe_dict = recipe.to_dict()
-        user = User.query.get(recipe_dict['user_id'])
-        user_dict = user.to_dict()
-        recipe_dict['user'] = user_dict
-        return recipe_dict
-    else:
-        return {'errors': ['This recipe was sent back to the kitchen!']}, 404
-
+    return {'recipes': [recipe.to_dict() for recipe in recipes]}
 
 # add a recipe
-@recipe_routes.route('/', methods=['POST'])
-@login_required
-def add_recipe():
-    form = CreateRecipe()
+@recipe_routes.route('', methods=['POST'])
+def post_recipe():
+    form = RecipeForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-    data = form.data
-
     if form.validate_on_submit():
         recipe = Recipe(
-            user_id=current_user.id,
-            title=data['title'],
-            description=data['description'],
-            total_time=data['total_time'],
-            servings=data['servings'],
-            image_url=data['image_url'],
-            ingredients=data['ingredients'],
-            directions=data['directions']
+            user_id = form.data['user_id'],
+            title = form.data['title'],
+            description = form.data['description'],
+            image_url = form.data['image_url'],
+            total_time = form.data['total_time'],
+            servings = form.data['servings'],
+            ingredients = form.data['ingredients'],
+            directions = form.data['directions']
         )
-        
+
         db.session.add(recipe)
         db.session.commit()
-
-        # recipe_dict = recipe.to_dict()
-        # user = User.query.get(recipe.user_id)
-        # recipe_dict['user'] = user.to_dict()
         return recipe.to_dict()
 
-    return {'errors': validation_errors_to_error_messages(form.errors)}, 400
-
+    return {'errors': [validation_errors_to_error_messages(form.errors)]}, 401
 
 # edit a recipe
-@recipe_routes.route('/<int:id>', methods=['PUT'])
-@login_required
-def edit_recipe(id):
-    form = CreateRecipe();
-    form['csrf_token'].data = request.cookies['csrf_token']
-    data = form.data
+@recipe_routes.route('/<int:recipe_id>', methods=['PUT'])
+def edit_recipe(recipe_id):
+    recipe = Recipe.query.get(recipe_id)
 
+    form = RecipeForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
-        recipe = Recipe.query.get(id)
-        recipe.title=data['title']
-        recipe.description=data['description']
-        recipe.image_url=data['image_url']
-        recipe.total_time=data['total_time']
-        recipe.servings=data['servings']
-        recipe.ingredients=data['ingredients']
-        recipe.directions=data['directions']
+        user_id = form.data['user_id'],
+        title = form.data['title'],
+        description = form.data['description'],
+        image_url = form.data['image_url'],
+        total_time = form.data['total_time'],
+        servings = form.data['servings'],
+        ingredients = form.data['ingredients'],
+        directions = form.data['directions']
+
+        recipe.user_id = user_id
+        recipe.title = title
+        recipe.description = description
+        recipe.image_url = image_url
+        recipe.total_time = total_time
+        recipe.servings = servings
+        recipe.ingredients = ingredients
+        recipe.directions = directions
 
         db.session.commit()
         return recipe.to_dict()
 
-    return {'errors': validation_errors_to_error_messages(form.errors)}, 400
+    return {'errors': [validation_errors_to_error_messages(form.errors)]}, 401
 
-# delete a recipes
-@recipe_routes.route('/<int:id>', methods=['DELETE'])
-@login_required
-def delete_recipe(id):
-    recipe = Recipe.query.get(id)
+# delete a recipe
+@recipe_routes.route('/<int:recipe_id>', methods=['DELETE'])
+def delete_recipe(recipe_id):
+    recipe = Recipe.query.get(recipe_id)
     db.session.delete(recipe)
     db.session.commit()
-    recipes = Recipe.query.all()
-    recipes_dict = {recipe.id: recipe.to_dict() for recipe in recipes}
-    return recipes_dict
+    return { "message": "Recipe Deleted!" }
+
