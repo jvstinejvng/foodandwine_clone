@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Link, NavLink,Redirect } from 'react-router-dom';
 import * as sessionaction from '../store/session';
@@ -20,7 +19,7 @@ const NavBar = () => {
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user)
 
-  const [searchBar, setSearchBar] = useState(false)
+  // const [searchBar, setSearchBar] = useState(false)
 
   const demoLogin = async e => {
     e.preventDefault();
