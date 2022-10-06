@@ -12,7 +12,7 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(40), nullable=False, unique=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
-    created_at = db.Column(db.DateTime, nullable=False, default=datetime.datetime.utcnow)
+    # created_at = db.Column(db.DateTime, nullable=False, default=datetime.datetime.utcnow)
 
     recipes = db.relationship('Recipe', back_populates='user', foreign_keys='[Recipe.user_id]')
     comments = db.relationship('Comment', back_populates='user', foreign_keys='[Comment.user_id]')

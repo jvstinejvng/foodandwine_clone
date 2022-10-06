@@ -40,10 +40,6 @@ def edit_comment(comment_id):
     form = CommentForm()
     form['csrf_token'].data = request.cookies['csrf_token']
 
-    if current_user.id != edit_comment.user_id:
-        return  {"message": "You need to be the ownwe of this review", "statusCode": 403}
-
-
     if form.validate_on_submit():
         rating = form.data['rating'],
         body = form.data['body'],

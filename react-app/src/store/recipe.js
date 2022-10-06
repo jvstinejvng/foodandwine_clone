@@ -1,11 +1,7 @@
 
-//Actions
 const GET_RECIPES = 'recipes/GET_RECIPES'
-
 const POST_RECIPE = 'recipes/POST_RECIPE'
-
 const EDIT_RECIPE = 'recipes/EDIT_RECIPE'
-
 const DELETE_RECIPE ='recipes/DELETE_RECIPE'
 
 const getRecipes = (recipes) => {
@@ -48,7 +44,7 @@ export const getRecipesThunk = () => async (dispatch) => {
 }
 
 export const postRecipeThunk = (recipe) => async (dispatch) => {
-    const res = await fetch('/api/recipes', {
+    const response = await fetch('/api/recipes', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -56,8 +52,8 @@ export const postRecipeThunk = (recipe) => async (dispatch) => {
         body: JSON.stringify(recipe)
     })
 
-    if (res.ok) {
-        const data = await res.json()
+    if (response.ok) {
+        const data = await response.json()
 
         if (data.errors) {
             return
@@ -98,8 +94,8 @@ export const deleteRecipeThunk = (recipe) => async (dispatch) => {
         }
         return recipe
     } else {
-        const err = await res.json()
-        throw err
+        const error = await res.json()
+        throw error
     }
 }
 
@@ -114,11 +110,11 @@ export default function recipe_reducer(state = initialState, action) {
             return newState
         case POST_RECIPE:
             newState = { ...state }
-            // console.log('heeere')
             newState[action.recipe.id] = action.recipe
             return newState
         case EDIT_RECIPE:
-            newState = { ...state, [action.recipe.id]: action.recipe }
+            newState = { ...state };
+            newState[action.recipe.id] = action.recipe;
             return newState
         case DELETE_RECIPE:
             newState = { ...state }

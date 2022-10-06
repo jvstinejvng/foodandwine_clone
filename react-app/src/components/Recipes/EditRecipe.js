@@ -9,6 +9,7 @@ function EditRecipe( {recipe, setShowEditForm} ) {
 
     const dispatch = useDispatch()
     const sessionUser = useSelector(state => state.session.user)
+
     const [validationErrors, setValidationErrors] = useState({
         title: "",
         description: "",
@@ -16,10 +17,10 @@ function EditRecipe( {recipe, setShowEditForm} ) {
         total_time: "",
         servings: "",
         ingredients: "",
-        directions: "",
+        directions: ""
     });
 
-  
+
     const [title, setTitle] = useState(recipe.title)
     const [description, setDescription] = useState(recipe.description)
     const [image_url, setImage_url] = useState(recipe.image_url)
@@ -29,7 +30,6 @@ function EditRecipe( {recipe, setShowEditForm} ) {
     const [servings, setServings] = useState(recipe.servings)
 
     const [submitted, setSubmitted] = useState(false)
-
 
     const updateTitle = (e) => setTitle(e.target.value);
     const updateDescription = (e) => setDescription(e.target.value);
@@ -88,7 +88,7 @@ function EditRecipe( {recipe, setShowEditForm} ) {
             newErrors["directions"] = "Your reciple directions must be 2 characters or more";
         }
         setValidationErrors(newErrors);
-      }, [title, description, image_url, total_time, servings, ingredients, directions]);
+      }, [title, description, image_url, total_time, servings, ingredients, directions, validationErrors.length]);
 
     
     const handleSubmit = async(e) => {
@@ -97,13 +97,13 @@ function EditRecipe( {recipe, setShowEditForm} ) {
         setSubmitted(true)
         if (!validationErrors) return
 
-
         const payload = {
             id: recipe.id,
             user_id: sessionUser.id,
             title,
             image_url,
             description,
+            total_time,
             servings,
             ingredients,
             directions
@@ -112,7 +112,7 @@ function EditRecipe( {recipe, setShowEditForm} ) {
             const data = await dispatch(editRecipeThunk(payload))
             if (data) setShowEditForm(false)
         } catch (e) {
-            setValidationErrors(e.errors)
+            // setValidationErrors(e.errors)
         }
     }
 
@@ -201,9 +201,9 @@ function EditRecipe( {recipe, setShowEditForm} ) {
                 <button
                   className='AddARecipeButton' 
                   type='submit'
-                //   disabled={
-                //     Object.values(validationErrors).every((x) => x === "") ? false : true
-                //   }
+                  disabled={
+                    Object.values(validationErrors).every((x) => x === "") ? false : true
+                  }
                   >Submit Recipe
                 </button>
                 
