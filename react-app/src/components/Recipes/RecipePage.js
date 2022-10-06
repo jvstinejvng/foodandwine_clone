@@ -90,6 +90,16 @@ function RecipePage() {
                                         currentTarget.src ='../../../../../static/buttertoast.png'
                                 }} alt={`recipe-${recipe.id}`} />
                         </div>
+                        <div className='SingleRecipeTimeServing'>
+                <div className='TimeServingDiv'>
+                   <h3 className='TimeServingHeader'>Total Time:</h3> 
+                    {recipe?.total_time}
+                </div>
+                <div className='TimeServingDiv'>
+                    <h3 className='TimeServingHeader'>Servings:</h3> 
+                    {recipe?.servings}
+                </div>
+            </div>
                         <div>
                                 <div className='RecipePageIngredients'>Ingredients</div>     
                                 <ul>

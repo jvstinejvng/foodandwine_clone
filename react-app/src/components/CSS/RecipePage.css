@@ -49,6 +49,7 @@
 .RecipePageRecipeCardButton {
     display: flex;
     flex-direction: row;
+    margin-bottom: 30px;
 }
 
 .RecipePageRecipeCardEdit {
@@ -84,8 +85,30 @@
 
 }
 
+.SingleRecipeTimeServing {
+    display: flex;
+    flex-direction: row;
+    background-color: #eeeef0;
+    width: 650px;
+    margin-bottom: 40px;
+}
+
+.TimeServingDiv {
+    margin-right: 50px;
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 20px 20px 30px 20px;
+}
+
+.TimeServingHeader {
+    font-size: 20px;
+    margin-bottom: 5px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+
 .RecipePageImage {
-    width: 700px;
+    width: 650px;
     height: 400px;
     object-fit: cover;
     margin-bottom: 30px;
