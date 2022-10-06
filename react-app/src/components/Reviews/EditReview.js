@@ -16,7 +16,6 @@ function EditCommentForm({ comment, sessionUser, showEdit, setShowEdit }) {
     const [hasSubmitted, setHasSubmitted] = useState(false)
     const [validationErrors, setValidationErrors] = useState([])
 
-    //validations
     useEffect(() => {
         let errors = []
 

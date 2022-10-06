@@ -10,7 +10,7 @@ const rootReducer = combineReducers({
   comments
 });
 
-/
+
 
 let enhancer;
 
