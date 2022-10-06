@@ -26,7 +26,7 @@ function EditRecipe( {recipe, setShowEditForm} ) {
     const [total_time, setTotal_time] = useState(recipe.total_time)
     const [ingredients, setIngredients] = useState(recipe.ingredients)
     const [directions, setDirections] = useState(recipe.directions)
-    const [servings, setServings] = useState('')
+    const [servings, setServings] = useState(recipe.servings)
 
     const [submitted, setSubmitted] = useState(false)
 
@@ -88,14 +88,14 @@ function EditRecipe( {recipe, setShowEditForm} ) {
             newErrors["directions"] = "Your reciple directions must be 2 characters or more";
         }
         setValidationErrors(newErrors);
-      }, [title, description, image_url, total_time, servings, ingredients, directions, validationErrors.length]);
+      }, [title, description, image_url, total_time, servings, ingredients, directions]);
 
     
     const handleSubmit = async(e) => {
         e.preventDefault()
 
         setSubmitted(true)
-        if (validationErrors.length) return
+        if (!validationErrors) return
 
 
         const payload = {
@@ -201,9 +201,9 @@ function EditRecipe( {recipe, setShowEditForm} ) {
                 <button
                   className='AddARecipeButton' 
                   type='submit'
-                  disabled={
-                    Object.values(validationErrors).every((x) => x === "") ? false : true
-                  }
+                //   disabled={
+                //     Object.values(validationErrors).every((x) => x === "") ? false : true
+                //   }
                   >Submit Recipe
                 </button>
                 

@@ -8,7 +8,6 @@ const EDIT_RECIPE = 'recipes/EDIT_RECIPE'
 
 const DELETE_RECIPE ='recipes/DELETE_RECIPE'
 
-//Action Creators
 const getRecipes = (recipes) => {
     return {
         type: GET_RECIPES,
@@ -37,7 +36,6 @@ const deleteRecipe = (recipe) => {
     }
 }
 
-//Thunks
 export const getRecipesThunk = () => async (dispatch) => {
     const res = await fetch('/api/recipes')
     if (res.ok) {
@@ -70,8 +68,7 @@ export const postRecipeThunk = (recipe) => async (dispatch) => {
 }
 
 export const editRecipeThunk = (recipe) => async (dispatch) => {
-    // console.log(recipe)
-    const res = await fetch(`/api/recipes/${recipe.id}`, {
+    const response = await fetch(`/api/recipes/${recipe.id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
@@ -79,13 +76,13 @@ export const editRecipeThunk = (recipe) => async (dispatch) => {
         body: JSON.stringify(recipe)
     })
 
-    if (res.ok) {
-        const data = await res.json()
+    if (response.ok) {
+        const data = await response.json()
         dispatch(editRecipe(data))
         return data
     } else {
-        const err = await res.json()
-        throw err
+        const error = await response.json()
+        throw error
     }
 }
 

@@ -101,21 +101,21 @@ function RecipePage() {
                 </div>
             </div>
                         <div>
-                                <div className='RecipePageIngredients'>Ingredients</div>     
+                                <div className='RecipePageIngredients' >Ingredients</div>     
                                 <ul>
                                     {ingredients_list?.map((ingredient)=>
-                                        <li className='RecipePageIngredientsText'>
+                                        <li  key={ingredient} className='RecipePageIngredientsText'>
                                             {ingredient}
                                         </li>
                                         )} 
                                 </ul>
                           
-                                <div className='RecipePageDirections'>Directions</div>
+                                <div  className='RecipePageDirections'>Directions</div>
                                      <ol>
                                             {directions_step?.map((steps)=>
-                                             <li className='RecipePageDirectionsStep' >
+                                             <li key={steps} className='RecipePageDirectionsStep' >
                                                 {steps}.
-                                            </li>
+                                            </li >
                                     )} 
                                     </ol>
                                 </div>
