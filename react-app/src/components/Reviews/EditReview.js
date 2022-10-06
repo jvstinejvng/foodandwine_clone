@@ -7,17 +7,19 @@ import { getRecipesThunk } from '../../store/recipe'
 
 import '../CSS/EditReview.css'
 
+
 function EditCommentForm({ comment, sessionUser, showEdit, setShowEdit }) {
     const dispatch = useDispatch()
 
     const [rating, setRating] = useState(comment.rating)
     const [body, setBody] = useState(comment.body)
-
-    const [submitted, setSubmitted] = useState(false)
+    const [hasSubmitted, setHasSubmitted] = useState(false)
     const [validationErrors, setValidationErrors] = useState([])
 
+    //validations
     useEffect(() => {
         let errors = []
+
         if (!rating) errors.push('Please leave a rating before submitting!')
         if (body.length > 750) errors.push('Please enter less than 750 characters!')
         setValidationErrors(errors)
@@ -26,10 +28,10 @@ function EditCommentForm({ comment, sessionUser, showEdit, setShowEdit }) {
     const handleSubmit = async(e) => {
         e.preventDefault()
 
-        setSubmitted(true)
+        setHasSubmitted(true)
         if (validationErrors.length) return
 
-        const data = {
+        const payload = {
             rating,
             body,
             user_id: sessionUser.id,
@@ -38,8 +40,9 @@ function EditCommentForm({ comment, sessionUser, showEdit, setShowEdit }) {
         }
 
         setShowEdit(!showEdit)
+
         try {
-            const updateReview = await dispatch(editCommentThunk(data))
+            const data = await dispatch(editCommentThunk(payload))
             await dispatch(getRecipesThunk())
 
         } catch (e) {
@@ -49,43 +52,42 @@ function EditCommentForm({ comment, sessionUser, showEdit, setShowEdit }) {
 
     return (
         <>
-        <div className='EditReviewDiv'>
-            {submitted && validationErrors.length > 0 &&
-                <ul className='EditReviewError'>
+            {hasSubmitted && validationErrors.length > 0 &&
+                <ul className='errors'>
                     {validationErrors.map(error => (
-                        <li className='EditReviewError' key={error}>{error}</li>
+                        <li className='error' key={error}>{error}</li>
                     ))}
                 </ul>
             }
-            <form onSubmit={handleSubmit} className='EditReviewForm'>
-                <div className='EditReviewFormUser'>
-                    <div>
-                        {comment.user.username}
+            <form onSubmit={handleSubmit} className='EditReviewDiv'>
+                <div className='ReviewUserName'>
+                    <div className="Reviewer">
+                    {comment.user.first_name} 
                     </div>
                 </div>
-                <div className='EditReviewFormInput'>
-                    <div className='EditReviewFormInputDiv'>
-                        <div className='EditReviewFormInputText'>
-                            <div>Edit review</div>
+                <div className='ReviewDivText'>
+                    <div className='ReviewInputDiv'>
+                        <div className='ReviewInputStars'>
+                                Your Rating
                             <StarRating rating={rating} setRating={setRating} />
                         </div>
-                        <div className='EditReviewFormInputMessage'>
+                        <div className='ReviewInputTextBox'>
+                            Your Review
                             <textarea
-                                className='EditReviewFormTextArea'
-                                placeholder='Write a review'
+                                className='EditReviewInputReview'
+                                placeholder='What did you think about this recipe? Did you make any changes or notes?'
                                 value={body}
                                 onChange={(e) => setBody(e.target.value)}
                                 >
                             </textarea>
                         </div>
                     </div>
-                    <div className='EditReviewFormButton'>
-                        <button onClick={() => setShowEdit(!showEdit)} className='EditReviewFormButtonCancel'>Cancel</button>
+                    <div className='EditReviewButton'>
+                        <button onClick={() => setShowEdit(!showEdit)} className='ReviewCancelButton'>Cancel</button>
                         <button>Submit</button>
                     </div>
                 </div>
             </form>
-            </div>
         </>
     )
 }

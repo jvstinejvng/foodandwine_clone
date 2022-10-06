@@ -58,15 +58,15 @@ function CreateRecipe() {
    
     useEffect(() => {
         const newErrors = {};
-        if (title.length <= 0) {
-            newErrors["title"] = "What's your recipe called?";
-        } else if (title.length >= 255) {
-            newErrors["title"] = "Your recipe title must be 255 characters or less";
+        if (title.length <= 5) {
+            newErrors["title"] = "What's your recipe called? Title must be more than 6 characters";
+        } else if (title.length >= 50) {
+            newErrors["title"] = "Your recipe title must be 50 characters or less";
         }
         if (description.length <= 0) {
             newErrors["description"] = "How would you describe this recipe?";
-        } else if (description.length <= 5) {
-            newErrors["description"] = "Your recipe description must be 10 characters or more";
+        } else if (description.length <= 10) {
+            newErrors["description"] = "Your recipe description must be more than 10 characters";
         }
         if (!isValidImageUrl(image_url)) {
             newErrors["image_url"] = 'Your recipe\'s image URL must end in .jpg, .jpeg, .png, or .tiff';
@@ -83,13 +83,13 @@ function CreateRecipe() {
         }
         if (ingredients.length <= 0) {
             newErrors["ingredients"] = "What ingredients do you need for this recipe? Please separate every ingredient with a comma. example: 1 cup flour, 1/3 cup sugar";
-        } else if (ingredients.length <= 2) {
-            newErrors["ingredients"] = "Your recipe ingredients must be 2 characters or more";
+        } else if (ingredients.length <= 5 ) {
+            newErrors["ingredients"] = "Your recipe ingredients must be more than 5 character";
         }
-        if (directions.length <= 0) {
-            newErrors["directions"] = "What are the steps for making this recipe? Please use end sentences with a period. example: Mix the flour and sugar together.";
-        } else if (directions.length <= 2) {
-            newErrors["directions"] = "Your reciple directions must be 2 characters or more";
+        if (directions.length <= 0 ) {
+            newErrors["directions"] = "What are the steps for making this recipe? Please end the sentences with a period. example: Mix the flour and sugar together.";
+        } else if (directions.length <= 5) {
+            newErrors["directions"] = "Your reciple directions must be more than 5 characters";
         }
         setValidationErrors(newErrors);
       }, [title, description, image_url, total_time, servings, ingredients, directions, validationErrors.length]);
@@ -141,7 +141,7 @@ function CreateRecipe() {
             <div className='RecipeFormContainer'>
             <form onSubmit={handleSubmit}>
                 <label>Recipe Title</label>
-                    <input
+                    <textarea
                     className="input"
                     type="string"
                     placeholder="Give your recipe a title"
@@ -151,7 +151,7 @@ function CreateRecipe() {
                     />
                 <div>{validationErrors?.title}</div>
                 <label>Description</label>
-                    <input
+                    <textarea
                     className="input"
                     type="string"
                     placeholder="Share the story behind your recipe and what makes it special"
@@ -161,7 +161,7 @@ function CreateRecipe() {
                     />
                 <div>{validationErrors?.description}</div>
                 <label>Recipe Image URL</label>
-                    <input
+                    <textarea
                     className="input"
                     type="string"
                     placeholder="Use JPG, JPEG, PNG, TIFF"
@@ -171,7 +171,7 @@ function CreateRecipe() {
                     />
                 <div>{validationErrors?.image_url}</div>
                 <label>Total Time</label>
-                    <input
+                    <textarea
                     className="input"
                     type="string"
                     placeholder="e.g. 2 hours"
@@ -181,7 +181,7 @@ function CreateRecipe() {
                     />
                 <div>{validationErrors?.total_time}</div>
                 <label>yield</label>
-                    <input
+                    <textarea
                     className="input"
                     type="string"
                     placeholder="e.g. 4 servings"
@@ -191,7 +191,7 @@ function CreateRecipe() {
                     />
                 <div>{validationErrors?.servings}</div>
                 <label>Ingredients</label>
-                    <input
+                    <textarea
                     className="input"
                     type="string"
                     placeholder="e.g. 2 tablespoon soften butter, 4 cups sifted flour"
@@ -201,7 +201,7 @@ function CreateRecipe() {
                     />
                 <div>{validationErrors?.ingredients}</div>
                 <label>Directions</label>
-                    <input
+                    <textarea
                     className="input"
                     type="string"
                     placeholder="e.g. Combine all dry ingredients in a large bowl. Mix soften butter into the large bowl."
