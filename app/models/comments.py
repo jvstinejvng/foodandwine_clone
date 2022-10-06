@@ -13,7 +13,6 @@ class Comment(db.Model):
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.datetime.utcnow)
     updated_at = db.Column(db.DateTime, nullable=False, default=datetime.datetime.utcnow, onupdate=func.now())
 
-    #relationships
     recipe = db.relationship('Recipe', back_populates='comments')
     user = db.relationship('User', back_populates='comments', foreign_keys=[user_id])
 

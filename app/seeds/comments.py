@@ -24,7 +24,7 @@ def seed_comments():
         )
     c4 = Comment(
         rating = 2,
-        body = 'Had a hard time following, turned into a disc. Back to the drawing board I guess :p',
+        body = 'no',
         user_id = 2,
         recipe_id = 2
         )
