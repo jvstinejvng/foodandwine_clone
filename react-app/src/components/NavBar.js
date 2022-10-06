@@ -34,7 +34,7 @@ const NavBar = () => {
     <>
       <div className='NavBarMainDiv'>
           <div className='NavBarTopContainer'>
-                  <Link to='/' class='NavBarLogo'>
+                  <Link to='/' className='NavBarLogo'>
                       <img alt="bread and butter logo" src={breadandbutter} />
                   </Link>
             <div className='NavBarLoginHome'>
