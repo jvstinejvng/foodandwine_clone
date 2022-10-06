@@ -6,12 +6,12 @@ import * as sessionaction from '../store/session';
 import LogoutButton from './auth/LogoutButton';
 // import SearchBar from '../Search/SearchBar';
 
-import breadandbutter from './images/breadandbutterlogo.svg'
-import profileicon from './images/profileicon.png'
-import pencilicon from './images/pencilicon.svg'
-import forkandknife from './images/forkandknife.png'
-import logout from './images/logout.svg'
-import usericon from './images/usericon.svg'
+import breadandbutter from '../images//breadandbutterlogo.svg'
+import profileicon from '../images//profileicon.png'
+import pencilicon from '../images/pencilicon.svg'
+import forkandknife from '../images/forkandknife.png'
+import logout from '../images/logout.svg'
+import usericon from '../images/usericon.svg'
 
 import './CSS/NavBar.css'
 

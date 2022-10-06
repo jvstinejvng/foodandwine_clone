@@ -77,7 +77,7 @@ function RecipePage() {
                         <div className='RecipePageImageDiv'>
                                 <img src={recipe.image_url} onError={({ currentTarget }) => {
                                         currentTarget.onerror = null;
-                                        // currentTarget.src ='../../../../../static/default-bread.jpg'
+                                        currentTarget.src ='../../../../../static/buttertoast.png'
                                 }} alt={`recipe-${recipe.id}`} />
                         </div>
                         <div>
