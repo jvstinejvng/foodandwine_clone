@@ -55,16 +55,6 @@ function CreateRecipe() {
         return false;
     };
 
-
-    // useEffect(() => {
-    //     const fetchRecipes = async () => {
-    //         await dispatch(getRecipesThunk())
-    //     }
-    //     fetchRecipes().catch(console.error)
-    // }, [dispatch])
-
-    // const filetypes_regex = /\.(gif|jpe?g|png|webp)$/
-
    
     useEffect(() => {
         const newErrors = {};

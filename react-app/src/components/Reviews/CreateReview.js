@@ -8,6 +8,8 @@ import { getRecipesThunk } from '../../store/recipe'
 import '../CSS/CreateReview.css'
 
 function CreateReview({ recipe }) {
+
+
     const dispatch = useDispatch()
     const sessionUser = useSelector(state => state.session.user)
 
@@ -17,12 +19,11 @@ function CreateReview({ recipe }) {
     const [submitted, setSubmitted] = useState(false)
     const [validationErrors, setValidationErrors] = useState([])
 
-    //validations
     useEffect(() => {
         let errors = []
 
-        if (!rating) errors.push('Please leave a rating before submitting!')
-        if (body.length > 750) errors.push('Please enter less than 750 characters!')
+        if (!rating) errors.push('Rating is require')
+        if (body.length > 750) errors.push('You have exceed the ')
         setValidationErrors(errors)
     }, [rating, body])
 
@@ -33,15 +34,15 @@ function CreateReview({ recipe }) {
         setSubmitted(true)
         if (validationErrors.length) return
 
-        const payload = {
+        const data = {
             rating,
             body,
             user_id: sessionUser.id,
             recipe_id: recipe.id
         }
         try {
-            const data = await dispatch(postCommentThunk(payload))
-            if (data) {
+            const newReview = await dispatch(postCommentThunk(data))
+            if (newReview) {
                 setSubmitted(false)
                 setRating(null)
                 setBody('')
@@ -53,16 +54,21 @@ function CreateReview({ recipe }) {
         }
     }
 
-    let reviewd = false
+    let reviewed = false
     for (let comment of recipe.comments) {
         if (comment.user.id === sessionUser.id) {
-            reviewd = true
+            reviewed = true
         }
     }
 
     return (
         <>
         <div className='CreateReviewDiv'>
+                     <div className='CreateReviewFormUserInfo'>
+                            <div>
+                            {sessionUser.first_name}    
+                            </div>   
+                        </div>
                 {submitted && validationErrors.length > 0 &&
                         <ul className='CreateReviewErrors'>
                             {validationErrors.map(error => (
@@ -71,20 +77,16 @@ function CreateReview({ recipe }) {
                         </ul>
                 }
             <form onSubmit={handleSubmit} className='CreateReviewForm'>
+
                     <div className='CreateReviewFormInput'>
                             <div className='CreateReviewFormStars'>
                                 <div>
                                     Rate and Review
                                 </div>
                         <StarRating rating={rating} setRating={setRating}/>
-                    </div>
+                            </div>
                     <div className='CreateReviewFormUser'>
-                        <div className='CreateReviewFormUserInfo'>
-                            <div>
-                            {sessionUser.username}    
-                            </div>   
-                        </div>
-                            {reviewd ?
+                            {reviewed ?
                                 <string
                                 className='CreateReviewDisabled'
                                 placeholder='Only one review'
@@ -103,7 +105,7 @@ function CreateReview({ recipe }) {
                     </div>
                 </div>
                 <div className='CreateReviewButton'>
-                        {reviewd ?
+                        {reviewed ?
                         <button className='CreateReviewButtonDisabled' disabled>One Review</button>
                         :
                         <button className='CreateReviewSubmit'>Submit</button>

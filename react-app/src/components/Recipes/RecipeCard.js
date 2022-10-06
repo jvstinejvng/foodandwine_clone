@@ -10,7 +10,7 @@ function RecipeCard( {recipe} ) {
         <Link to={`/recipes/${recipe.id}`}>
             <div
             className='RecipeCardDiv'>
-                <div className='RecipeCardImage'>
+                <div className='RecipeCardImageDiv'>
                     <img  className='RecipeCardImage' src={recipe.image_url} onError={({ currentTarget }) => {
                         currentTarget.onerror = null;
                         currentTarget.src ='../../../../../static/buttertoast.png'

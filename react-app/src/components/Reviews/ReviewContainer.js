@@ -6,7 +6,6 @@ import UserReview from "./UserReview"
 function ReviewContainer( {recipe} ) {
 
     const sessionUser = useSelector(state => state.session.user)
-
     return (
         <>
             {sessionUser ?
@@ -19,7 +18,7 @@ function ReviewContainer( {recipe} ) {
                     <UserReview comment={comment} />
                 ))
                 :
-                <h3>Looks like no one has left a review yet, be the first!</h3>
+                <h3>Be the first to review!</h3>
             }
 
         </>

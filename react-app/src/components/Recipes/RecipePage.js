@@ -75,7 +75,7 @@ function RecipePage() {
                                     </div>
                             }
                         <div className='RecipePageImageDiv'>
-                                <img src={recipe.image_url} onError={({ currentTarget }) => {
+                                <img className='RecipePageImage' src={recipe.image_url} onError={({ currentTarget }) => {
                                         currentTarget.onerror = null;
                                         currentTarget.src ='../../../../../static/buttertoast.png'
                                 }} alt={`recipe-${recipe.id}`} />
@@ -93,8 +93,12 @@ function RecipePage() {
                                 />
                     </div>
                 }
-                <div className='ReviewContainer' ref={reviewRef}>Reviews</div>
-                    <ReviewContainer recipe={recipe} />
+                    <h3 className='RecipeReviewDiv'>Reviews:  
+                        <ReviewContainer recipe={recipe} />
+                    </h3>
+
+                    <span className='ReviewContainerBox' ref={reviewRef}></span>
+
                 </>
                 :
                 <div className="404Page">This recipe was sent back to the kitchen!</div>

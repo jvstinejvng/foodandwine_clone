@@ -1,7 +1,6 @@
 .EditRecipeDiv {
     display: flex;
     flex-direction: column;
-    background-color: rgb(238, 238, 240);
 }
 
 .EditRecipeHeader {

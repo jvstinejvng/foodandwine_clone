@@ -1,29 +1,36 @@
-.CreateReviewForm {
-    background-color: white;
-    padding: 20px;
-    border: 2px solid var(--dark-blue);
-    width: 75%;
-    margin-bottom: 30px;
+.CreateReviewDiv {
+    position: relative;
+    width: 100%;
+}
+
+.CreateReviewFormUserInfo {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+}
+
+
+.CreateReviewErrors {
+    position: relative;
+
+    background-color: blue;
+}
+
+.CreateReviewFormInput{
+
+    display: flex;
+    flex-direction: column;
+}
+
+.CreateReviewFormStars {
+    display: flex;
+
 }
 
 .CreateReviewButton {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    width: 95%;
-    margin-top: 10px;
 }
 
-
-.CreateReviewFormInput{
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-
-.CreateReviewFormUserInfo {
-    display: flex;
-    align-items: center;
-}
 
