@@ -16,7 +16,6 @@ function RecipePage() {
     const sessionUser = useSelector(state => state.session.user)
     const recipe = useSelector(state => state.recipes[id])
     
-    const reviewRef = useRef()
 
     const [showEdit, setShowEdit] = useState(false)
 
@@ -26,6 +25,16 @@ function RecipePage() {
             sum += comment.rating
         })
         return Math.round(sum/recipe.comments.length * 10) / 10
+    }
+
+    let ingredients_list
+    if(recipe) {
+        ingredients_list = (recipe.ingredients).split(',').slice(0,-1)
+    }
+
+    let directions_step
+    if(recipe) {
+        directions_step = (recipe.directions).split('.').slice(0,-1)
     }
 
     const handleDelete = async(e) => {
@@ -58,7 +67,7 @@ function RecipePage() {
                         </div>
                     <p className='RecipePageDescription'>{recipe.description}</p>
                         <div className='RecipePageUser'>
-                            <div className='RecipePageUserName'>by {recipe.user.username}</div>
+                            <div className='RecipePageUserName'>By {recipe.user.username}</div>
                                 {recipe.created_at === recipe.updated_at ?
                                     <span className='RecipePageCreateAt'>Published on {recipe.created_at.split(' ').slice(1, 4).join(' ')}</span>
                                     :
@@ -66,6 +75,7 @@ function RecipePage() {
                                 }
                         </div>
                     </div>
+                <div className='RecipePageEdit'>
                 {!showEdit ?
                         <div className='RecipePageRecipeCard'>
                             {sessionUser && sessionUser.id === recipe.user.id &&
@@ -80,29 +90,51 @@ function RecipePage() {
                                         currentTarget.src ='../../../../../static/buttertoast.png'
                                 }} alt={`recipe-${recipe.id}`} />
                         </div>
+                        <div className='SingleRecipeTimeServing'>
+                <div className='TimeServingDiv'>
+                   <h3 className='TimeServingHeader'>Total Time:</h3> 
+                    {recipe?.total_time}
+                </div>
+                <div className='TimeServingDiv'>
+                    <h3 className='TimeServingHeader'>Servings:</h3> 
+                    {recipe?.servings}
+                </div>
+            </div>
                         <div>
                                 <div className='RecipePageIngredients'>Ingredients</div>     
-                                    {recipe.description}
+                                <ul>
+                                    {ingredients_list?.map((ingredient)=>
+                                        <li className='RecipePageIngredientsText'>
+                                            {ingredient}
+                                        </li>
+                                        )} 
+                                </ul>
+                          
+                                <div className='RecipePageDirections'>Directions</div>
+                                     <ol>
+                                            {directions_step?.map((steps)=>
+                                             <li className='RecipePageDirectionsStep' >
+                                                {steps}.
+                                            </li>
+                                    )} 
+                                    </ol>
                                 </div>
-                        </div>
+                            </div>
                     :
                         <div>
                             <EditRecipe
                                 recipe={recipe}
                                 setShowEditForm={setShowEdit}
                                 />
-                    </div>
+                            </div>
                 }
-                    <h3 className='RecipeReviewDiv'>Reviews:  
-                        <ReviewContainer recipe={recipe} />
-                    </h3>
-
-                    <span className='ReviewContainerBox' ref={reviewRef}></span>
-
+                </div>
+                <div className='RecipePageBottom'>
+                <ReviewContainer recipe={recipe} />
+                </div>
                 </>
                 :
-                <div className="404Page">This recipe was sent back to the kitchen!</div>
-                
+                <div className="404Page">This recipe was sent back to the kitchen!</div> 
             }
         </div>
         </div>

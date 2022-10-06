@@ -7,24 +7,22 @@ import { getRecipesThunk } from '../../store/recipe'
 
 import '../CSS/CreateReview.css'
 
-function CreateReview({ recipe }) {
-
+function CreateReview( {recipe} ) {
 
     const dispatch = useDispatch()
     const sessionUser = useSelector(state => state.session.user)
 
+    const [submitted, setSubmitted] = useState(false)
+    const [validError, setValidError] = useState([])
+
     const [rating, setRating] = useState(null)
     const [body, setBody] = useState('')
 
-    const [submitted, setSubmitted] = useState(false)
-    const [validationErrors, setValidationErrors] = useState([])
-
     useEffect(() => {
-        let errors = []
-
-        if (!rating) errors.push('Rating is require')
-        if (body.length > 750) errors.push('You have exceed the ')
-        setValidationErrors(errors)
+        let error = []
+        if (!rating) error.push('Your rating is required')
+        if (body.length > 1000) error.push('You\'ve exceeded the 1000 character limit')
+        setValidError(error)
     }, [rating, body])
 
 
@@ -32,7 +30,7 @@ function CreateReview({ recipe }) {
         e.preventDefault()
 
         setSubmitted(true)
-        if (validationErrors.length) return
+        if (validError.length) return
 
         const data = {
             rating,
@@ -40,9 +38,10 @@ function CreateReview({ recipe }) {
             user_id: sessionUser.id,
             recipe_id: recipe.id
         }
+
         try {
-            const newReview = await dispatch(postCommentThunk(data))
-            if (newReview) {
+            const newData = await dispatch(postCommentThunk(data))
+            if (newData) {
                 setSubmitted(false)
                 setRating(null)
                 setBody('')
@@ -50,7 +49,7 @@ function CreateReview({ recipe }) {
             await dispatch(getRecipesThunk())
 
         } catch (e) {
-            setValidationErrors(e.errors)
+            setValidError(e.errors)
         }
     }
 
@@ -63,56 +62,63 @@ function CreateReview({ recipe }) {
 
     return (
         <>
-        <div className='CreateReviewDiv'>
-                     <div className='CreateReviewFormUserInfo'>
-                            <div>
-                            {sessionUser.first_name}    
-                            </div>   
-                        </div>
-                {submitted && validationErrors.length > 0 &&
-                        <ul className='CreateReviewErrors'>
-                            {validationErrors.map(error => (
-                                <li className='error' key={error}>{error}</li>
-                            ))}
-                        </ul>
-                }
             <form onSubmit={handleSubmit} className='CreateReviewForm'>
-
-                    <div className='CreateReviewFormInput'>
-                            <div className='CreateReviewFormStars'>
-                                <div>
-                                    Rate and Review
-                                </div>
-                        <StarRating rating={rating} setRating={setRating}/>
+                <div className='ReviewInputDiv'>
+                    <div className='ReviewUserName'>
+                            <div>
+                              {recipe.title} 
                             </div>
-                    <div className='CreateReviewFormUser'>
-                            {reviewed ?
-                                <string
-                                className='CreateReviewDisabled'
-                                placeholder='Only one review'
-                                value={body}
-                                onChange={(e) => setBody(e.target.value)}
-                                disabled
-                                ></string>
-                            :
-                                <textarea
-                                className='CreateReviewEntry'
-                                placeholder='Write a review'
+                     
+                        </div>
+                        {submitted && validError.length > 0 &&
+                            <div className='CreateReviewError'>
+                                    {validError.map(error => (
+                                <div className='CreateReviewError' key={error}>{error}</div>
+                            ))}
+                            </div>
+                         }
+
+                    <div className='CreateReviewStars'>
+                        <div>
+                            Your Rating
+                        </div>
+                        <div>
+                        <StarRating rating={rating} setRating={setRating}/>
+                        </div>
+                    </div>
+                    <div className='ReviewInputTextBox'>
+                        <div>
+                        Your Review
+                        </div>
+                        <div>
+                        {reviewed ?
+                            <textarea
+                            className='CreateReviewDisabled'
+                            placeholder='You have already made a review for this recipe!'
+                            value={body}
+                            onChange={(e) => setBody(e.target.value)}
+                            disabled
+                            ></textarea>
+                        :
+                            <textarea
+                                className='CreateReviewText'
+                                placeholder='What did you think about this recipe? Did you make any changes or notes?'
                                 value={body}
                                 onChange={(e) => setBody(e.target.value)}
                                 ></textarea>
                         }
+                        </div>
+             
                     </div>
                 </div>
-                <div className='CreateReviewButton'>
-                        {reviewed ?
-                        <button className='CreateReviewButtonDisabled' disabled>One Review</button>
-                        :
-                        <button className='CreateReviewSubmit'>Submit</button>
-                        }
+                <div className='CreateReviewSubmit'>
+                    {reviewed ?
+                        <span id='CreateReviewSubmitDisabled' disabled></span>
+                    :
+                        <button>Submit</button>
+                    }
                 </div>
             </form>
-        </div>
         </>
     )
 }
