@@ -12,58 +12,62 @@ function UserReview( {comment} ) {
 
     const dispatch = useDispatch()
     const sessionUser = useSelector(state => state.session.user)
-
     const [showEdit, setShowEdit] = useState(false)
 
     const handleDelete = async(e) => {
         e.preventDefault()
-
         try {
             await dispatch(deleteCommentThunk(comment))
             await dispatch(getRecipesThunk())
 
         } catch (e) {
-            alert('Delete Failed!' + e)
+            alert('Failed to delete. Please try again!' + e)
         }
     }
 
     return (
+    
         (showEdit ?
-                <EditReview
-                    comment={comment}
-                    sessionUser={sessionUser}
-                    showEdit={showEdit}
-                    setShowEdit={setShowEdit}/>
-                :
-            <div className='UserReviewDiv'>
-                <div className='UserReviewUser'>
-                    <div>
-                        {comment.user.username}
-                    </div>
-                </div>
-                <div className='UserReviewInput'>
-                    <div className='UserReviewText'>
-                        {/* <div>{ comment.user.username }</div> */}
-                        <div className='UserReviewSubmit'>
-                            <span>Posted {comment.created_at.split(' ').slice(1, 4).join(' ')}</span>
-                            <p className='UserReviewStars'>{ [...Array(comment.rating)].map(star => <FaStar className='rated' />) }</p>
-                            <p className='UserReviewStars'>{ [...Array(5 - comment.rating)].map(star => <FaStar color='#DCDCDC' className='rated'/>) }</p>
-                        </div>
-                    </div>
-                    <div className='UserReviewBodyDiv'>
-                        <div className='UserReviewBody'>{ comment.body }</div>
-                                {sessionUser && sessionUser.id === comment.user.id &&
-                                        <div className='UserReviewButton'>
-                                                <button onClick={() => setShowEdit(!showEdit)} className='UserReviewButtonEdit'>edit</button>
-                                                <button onClick={handleDelete} className='UserReviewButtonDelete'>delete</button>
-                                        </div>
-                                }
+            <EditReview
+                comment={comment}
+                sessionUser={sessionUser}
+                showEdit={showEdit}
+                setShowEdit={setShowEdit}/>
+            :
+                <div className='ReviewDiv'>
+                        <div className='ReviewDivText'>
+                            <div className='ReviewUsernameDiv'>
+                                 <div className='ReviewUser'>{ comment.user.username }</div>
+                                        <div className='ReviewDivRating'>
+                                            <div>{ [...Array(comment.rating)].map(star => <FaStar className='StarRating' />) }</div>
+                                            <div>{ [...Array(5 - comment.rating)].map(star => <FaStar color='#DCDCDC' className='StarRating'/>) }</div>
+                                            <div> {comment.created_at.split(' ').slice(1, 4).join(' ')}</div>
                     
+                                </div>
+                        </div>
+                    <div className='ReviewUserDiv'>
+                        <div className='ReviewUserDivMessage'>
+                            <div className='ReviewText'>{ comment.body }</div>
+                            {sessionUser && sessionUser.id === comment.user.id &&
+                                <div className='ReviewButtonDiv'>
+                                    <div onClick={() => setShowEdit(!showEdit)}>
+                                        <span>
+                                        <button className='edit'>edit</button>
+                                        </span>
+                                    </div>
+                                    <div onClick={handleDelete} >
+                                        <span>
+                                        <button className='ReviewCancelButton'>delete</button>
+                                        </span>
+                                    </div>
+                                </div>
+                            }
+                        </div>
                     </div>
                 </div>
             </div>
-
         )
+        
     )
 }
 
