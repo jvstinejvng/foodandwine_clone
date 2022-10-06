@@ -1,0 +1,49 @@
+.LoginMainContainer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    top: 175px;
+}
+
+.LoginHeader {
+    font-size: 25px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.LoginFormDiv {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.LoginFormDiv > form {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.LoginInput {
+    display: flex;
+    flex-direction: row;
+    width: 200px;
+    height: 30px;
+}
+
+.LoginIcon {
+    width: 30px;
+    height: 30px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.LoginButton {
+    height: 30px;
+    position: relative;
+    display: flex;
+    margin-left: 0px;
+}

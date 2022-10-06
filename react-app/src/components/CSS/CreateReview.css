@@ -1,0 +1,36 @@
+.CreateReviewDiv {
+    position: relative;
+    width: 100%;
+}
+
+.CreateReviewFormUserInfo {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+}
+
+
+.CreateReviewErrors {
+    position: relative;
+
+    background-color: blue;
+}
+
+.CreateReviewFormInput{
+
+    display: flex;
+    flex-direction: column;
+}
+
+.CreateReviewFormStars {
+    display: flex;
+
+}
+
+.CreateReviewButton {
+    display: flex;
+    align-items: center;
+}
+
+

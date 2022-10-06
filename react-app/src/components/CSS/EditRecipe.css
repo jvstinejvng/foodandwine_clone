@@ -1,0 +1,22 @@
+.EditRecipeDiv {
+    display: flex;
+    flex-direction: column;
+}
+
+.EditRecipeHeader {
+    font-size: 24px;;
+}
+
+.EditRecipeFormDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+}
+
+.EditRecipeFormInputSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+}

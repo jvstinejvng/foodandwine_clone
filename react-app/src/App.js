@@ -1,14 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import UserAccount from './components/UserAccount';
-import NavBar from './components/NavBar';
+
+import LoginForm from './components/auth/LoginForm';
+import SignUpForm from './components/auth/SignUpForm';
+import UsersList from './components/UsersList.js';
+import User from './components/User.js';
+
+import NavBar from './components/NavBar.js';
+import Homepage from './components/Homepage.js';
+import AllRecipes from './components/Recipes/AllRecipes';
+import RecipePage from './components/Recipes/RecipePage';
+import CreateRecipe from './components/Recipes/CreateRecipe';
+import UserRecipes from './components/Recipes/UserRecipes';
+
 import ProtectedRoute from './components/auth/ProtectedRoute';
-import UsersList from './components/UsersList';
-import Homepage from './components/Homepage';
-import User from './components/User';
-import AllRecipes from './components/Recipe/AllRecipes';
 import { authenticate } from './store/session';
+
+import { getRecipesThunk } from './store/recipe';
+import SearchBarResults from './components/SearchBarResults';
+import Footer from './components/Footer.js';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -19,6 +30,10 @@ function App() {
       await dispatch(authenticate());
       setLoaded(true);
     })();
+    const fetchRecipes = async () => {
+      await dispatch(getRecipesThunk())
+    }
+    fetchRecipes().catch(console.error)
   }, [dispatch]);
 
   if (!loaded) {
@@ -27,24 +42,40 @@ function App() {
 
   return (
     <BrowserRouter>
-        <NavBar />
-      <Switch>
-        <Route path='/' exact={true} >
-          <Homepage />
-        </Route>
-        <Route path='/user-account' exact={true}>
-          <UserAccount />
-        </Route>
-        <ProtectedRoute path='/users' exact={true} >
-          <UsersList/>
-        </ProtectedRoute>
-        <ProtectedRoute path='/users/:userId' exact={true} >
-          <User />
-        </ProtectedRoute>
-        <Route path='/recipes' exact={true} >
-          <AllRecipes/>
-        </Route>
-      </Switch>
+      <NavBar />
+          <Switch>
+            <Route path='/log-in' exact={true}>
+              <LoginForm />
+            </Route>
+            <Route path='/sign-up' exact={true}>
+              <SignUpForm />
+            </Route>
+            <ProtectedRoute path='/users' exact={true} >
+              <UsersList/>
+            </ProtectedRoute>
+            <ProtectedRoute path='/users/:userId' exact={true} >
+              <User />
+            </ProtectedRoute>
+            <Route path='/' exact={true} >
+              <Homepage />
+            </Route>
+            <Route path='/recipes' exact={true}>
+              <AllRecipes />
+            </Route>
+            <Route path='/recipes/search/:term' exact={true}>
+              <SearchBarResults />
+            </Route>
+            <Route path='/new-recipe' exact={true} >
+              <CreateRecipe />
+            </Route>
+            <ProtectedRoute path='/my-recipes' exact={true} >
+              <UserRecipes />
+            </ProtectedRoute>
+            <Route path='/recipes/:id'>
+              <RecipePage/>
+            </Route>
+          </Switch>
+    {/* <Footer /> */}
     </BrowserRouter>
   );
 }

@@ -1,4 +1,5 @@
 from .db import db
+import datetime
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 
@@ -6,14 +7,15 @@ class User(db.Model, UserMixin):
     __tablename__ = 'users'
 
     id = db.Column(db.Integer, primary_key=True)
-    first_name = db.Column(db.String(60), nullable=False)
-    last_name = db.Column(db.String(60), nullable=False)
-    username = db.Column(db.String(60), nullable=False, unique=True)
+    first_name = db.Column(db.String(40), nullable=False)
+    last_name = db.Column(db.String(40), nullable=False)
+    username = db.Column(db.String(40), nullable=False, unique=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
+    created_at = db.Column(db.DateTime, nullable=False, default=datetime.datetime.utcnow)
 
-    recipes = db.relationship('Recipe', back_populates='user')
-    reviews = db.relationship('Review', back_populates='user')
+    recipes = db.relationship('Recipe', back_populates='user', foreign_keys='[Recipe.user_id]')
+    comments = db.relationship('Comment', back_populates='user', foreign_keys='[Comment.user_id]')
 
     @property
     def password(self):
@@ -34,3 +36,4 @@ class User(db.Model, UserMixin):
             'username': self.username,
             'email': self.email,
         }
+

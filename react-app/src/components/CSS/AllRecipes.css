@@ -1,49 +1,44 @@
 .AllRecipeContainer {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
-    height: auto;
+    top: 175px;
+}
+
+.AllRecipeHeader {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 60%;
+}
+
+.AllRecipeHeaderText {
+    font-size: 50px;
+    margin-bottom: 0px;
+    font-weight: 500;
+}
+
+.AllRecipeSubText {
+    font-size: 20px;
+    padding-bottom: 20px;
+    
+}
+
+
+.AllRecipeCardContainer {
+    display: flex;
+    justify-content: center;
+
 }
 
 .AllRecipeCardGrid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-}
-@media screen and (max-width: 800px) {
-    .AllRecipeCardGrid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr)
-    }
+    column-gap: 30px;
+    row-gap: 30px;
+    padding: 10px;
+
 }
 
-@media screen and (max-width: 600px) {
-    .AllRecipeCardGrid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr)
-    }
-}
-
-@media screen and (max-width: 300px) {
-    .AllRecipeCardContainer {
-        display: grid;
-        grid-template-columns: repeat(1, 1fr)
-    }
-}
-
-.RecipeContainer {
-    width: 257px;
-    height: 366px;
-}
-
-.RecipeCard {
-    width: 257px;
-    height: 366px;
-    border: 1px solid black;
-}
-
-.RecipeCardImage {
-    width: 257px;
-    height: 170px;
-    object-fit: cover;
-}
