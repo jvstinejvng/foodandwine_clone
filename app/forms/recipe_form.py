@@ -4,7 +4,7 @@ from wtforms.validators import DataRequired, Length
 
 class RecipeForm(FlaskForm):
     user_id = IntegerField('User Id', validators=[DataRequired()])
-    title = StringField('Title', validators=[DataRequired(), Length(min=5, max=50)])
+    title = StringField('Title', validators=[DataRequired(), Length(min=5, max=100)])
     description = StringField('Description', validators=[DataRequired(), Length(min=5, max=2000)])
     image_url = StringField("Image")
     total_time = StringField('Total Time', validators=[DataRequired()])
