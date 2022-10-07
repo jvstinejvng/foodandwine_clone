@@ -40,6 +40,7 @@ def post_recipe():
 @recipe_routes.route('/<int:recipe_id>', methods=['PUT'])
 @login_required
 def edit_recipe(recipe_id):
+    print(recipe_id)
     recipe = Recipe.query.get(recipe_id)
     form = RecipeForm()
     form['csrf_token'].data = request.cookies['csrf_token']
