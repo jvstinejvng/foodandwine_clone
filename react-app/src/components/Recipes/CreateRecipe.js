@@ -60,7 +60,7 @@ function CreateRecipe() {
         const newErrors = {};
         if (title.length <= 5) {
             newErrors["title"] = "What's your recipe called? Title must be more than 6 characters";
-        } else if (title.length >= 50) {
+        } else if (title.length >= 100) {
             newErrors["title"] = "Your recipe title must be 50 characters or less";
         }
         if (description.length <= 0) {
