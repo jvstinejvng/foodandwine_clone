@@ -3,25 +3,25 @@ from app.models.user import db, User
 
 def seed_users():
     demo = User(
-        first_name='Demo', last_name='User', username='DemoChef', email='homechef@aa.io', password='password')
+         username='DemoChef', email='homechef@aa.io', password='password')
     gordon = User(
-        first_name='Gordon', last_name='Ramsay', username='MasterChef', email='masterchef@aa.io', password='password')
+        username='MasterChef', email='masterchef@aa.io', password='password')
     wolfgang = User(
-        first_name='Wolfgang', last_name='Puck', username='WolfgangPuck', email='wolfgangpuck@aa.io', password='password')
+        username='WolfgangPuck', email='wolfgangpuck@aa.io', password='password')
     guy = User(
-        first_name='Guy', last_name='Fieri', username='Flavortown', email='flavortown@aa.io', password='password')
+        username='Flavortown', email='flavortown@aa.io', password='password')
     rachael = User(
-        first_name='Rachael', last_name='Ray',username='RachaelRay', email='rachaelray@aa.io', password='password')
+       username='RachaelRay', email='rachaelray@aa.io', password='password')
     david = User(
-        first_name='David', last_name='Chang', username='UglyDelicious', email='uglydelicious@aa.io', password='password')
+        username='UglyDelicious', email='uglydelicious@aa.io', password='password')
     mark = User(
-        first_name='Mark', last_name='Wahlberg', username='Wahlburgers', email='wahlburgers@aa.io', password='password')
+       username='Wahlburgers', email='wahlburgers@aa.io', password='password')
     betty = User(
-        first_name='Betty', last_name='Crocker', username='BettyCrocker', email='bettycrocker@aa.io', password='password')
+       username='BettyCrocker', email='bettycrocker@aa.io', password='password')
     buddy = User(
-        first_name='Buddy', last_name='Valastro', username='CakeBoss', email='cakeboss@aa.io', password='password')
+       username='CakeBoss', email='cakeboss@aa.io', password='password')
     thomas = User(
-        first_name='Thomas', last_name='Keller', username='ThomasKeller', email='thomaskeller@aa.io', password='password')
+       username='ThomasKeller', email='thomaskeller@aa.io', password='password')
     
 
     # db.session.add(demo)

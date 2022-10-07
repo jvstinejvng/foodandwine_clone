@@ -61,7 +61,7 @@ function EditCommentForm({ comment, sessionUser, showEdit, setShowEdit }) {
             <form onSubmit={handleSubmit} className='EditReviewDiv'>
                 <div className='ReviewUserName'>
                     <div className="Reviewer">
-                    {comment.user.first_name} 
+                    {comment.user.username} 
                     </div>
                 </div>
                 <div className='ReviewDivText'>
