@@ -23,7 +23,7 @@ function CreateRecipe() {
     });
 
 
-    const [title, setTitle] = useState('')
+    const [title, setTitle] = useState('') 
     const [description, setDescription] = useState('')
     const [image_url, setImage_url] = useState('')
     const [total_time, setTotal_time] = useState('')
