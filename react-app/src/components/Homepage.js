@@ -9,8 +9,7 @@ import './CSS/Homepage.css'
 
 function Homepage() {
     const dispatch = useDispatch()
-    const recipes = useSelector(state => Object.values(state.recipes).slice(0, 4))
-    // const sessionUser = useSelector(state => state.session.user)
+    const recipes = useSelector(state => Object.values(state.recipes).slice(0, 3))
 
     useEffect(() => {
         const fetchRecipes = async () => {

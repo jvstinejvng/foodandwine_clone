@@ -106,7 +106,6 @@
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-
 .RecipePageImage {
     width: 650px;
     height: 400px;
@@ -128,13 +127,15 @@
 .RecipePageDirections {
     font-size: 35px;
     font-weight: 600;
-
+    background-color: blanchedalmond;
+    width: 50%;
 }
 
 .RecipePageDirectionsStep {
     font-size: 18px;
     padding-bottom: 20px;
-    width: 60%;
+    background-color: blanchedalmond;
+    width: 48%;
 }
 
 .RecipeReviewLogin {

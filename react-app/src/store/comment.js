@@ -33,7 +33,7 @@ const deleteComment = (comment) => {
     }
 }
 
-//thunks
+// thunks
 export const getCommentsThunk = () => async (dispatch) => {
     const res = await fetch('/api/comments');
     if (res.ok) {

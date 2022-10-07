@@ -81,13 +81,13 @@ function CreateRecipe() {
         } else if (servings.length >= 50) {
             newErrors["servings"] = "Your input must be 50 characters or less";
         }
-        if (ingredients.length <= 0) {
-            newErrors["ingredients"] = "What ingredients do you need for this recipe? Please separate every ingredient with a comma. example: 1 cup flour, 1/3 cup sugar";
+        if (ingredients.indexOf(',') === 1 ) {
+            newErrors["ingredients"] = "You need to add a comma after an ingredient";
         } else if (ingredients.length <= 5 ) {
             newErrors["ingredients"] = "Your recipe ingredients must be more than 5 character";
         }
-        if (directions.length <= 0 ) {
-            newErrors["directions"] = "What are the steps for making this recipe? Please end the sentences with a period. example: Mix the flour and sugar together.";
+        if (directions.indexOf('.')  === 1 ) {
+            newErrors["directions"] = "Must include a period to your directions";
         } else if (directions.length <= 5) {
             newErrors["directions"] = "Your reciple directions must be more than 5 characters";
         }
@@ -141,6 +141,7 @@ function CreateRecipe() {
             <div className='RecipeFormContainer'>
             <form onSubmit={handleSubmit}>
                 <label>Recipe Title</label>
+
                     <textarea
                     className="input"
                     type="string"
@@ -191,6 +192,7 @@ function CreateRecipe() {
                     />
                 <div>{validationErrors?.servings}</div>
                 <label>Ingredients</label>
+                <div>What ingredients do you need for this recipe? Please separate every ingredient with a comma. example: 1 cup flour, 1/3 cup sugar</div>
                     <textarea
                     className="input"
                     type="string"
@@ -201,6 +203,7 @@ function CreateRecipe() {
                     />
                 <div>{validationErrors?.ingredients}</div>
                 <label>Directions</label>
+                <div>What are the steps for making this recipe? Please end the sentences with a period. example: Mix the flour and sugar together.</div>
                     <textarea
                     className="input"
                     type="string"
