@@ -2,11 +2,12 @@
 .CreateReviewForm {
     height: auto;
     padding: 20px;
-    border: 24px solid #eeeef0;
+    border: 24.1px solid blanchedalmond;
     margin-top: 40px;
     /* margin-bottom: 50px; */
     background-color: blanchedalmond;
     width: 44%;
+    background-color: blanchedalmond;
 }
 
 .CreateReviewSubmit {

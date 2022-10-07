@@ -81,13 +81,18 @@ function CreateRecipe() {
         } else if (servings.length >= 50) {
             newErrors["servings"] = "Your input must be 50 characters or less";
         }
-        if (ingredients.indexOf(',') === 1 ) {
+        if (ingredients.indexOf(',') <= 1) {
             newErrors["ingredients"] = "You need to add a comma after an ingredient";
-        } else if (ingredients.length <= 5 ) {
+        } if (ingredients.endsWith(',') <= 0){
+            newErrors["ingredients"] = "end with a comma";
+        }
+        else if (ingredients.length <= 5 ) {
             newErrors["ingredients"] = "Your recipe ingredients must be more than 5 character";
         }
-        if (directions.indexOf('.')  === 1 ) {
+        if (directions.indexOf('.') <= 1) {
             newErrors["directions"] = "Must include a period to your directions";
+        } if (directions.endsWith('.') <= 0){
+            newErrors["directions"] = "end with a period";
         } else if (directions.length <= 5) {
             newErrors["directions"] = "Your reciple directions must be more than 5 characters";
         }
