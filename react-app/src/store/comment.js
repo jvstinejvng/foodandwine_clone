@@ -4,7 +4,7 @@ const CREATE_COMMENT ='comments/create_comment'
 const EDIT_COMMENT ='comments/edit_comment'
 const DELETE_COMMENT ='comments/delete_comment'
 
-//action creators
+// action creators
 const getComments = (comments) => {
     return {
         type: GET_COMMENTS,
@@ -67,8 +67,7 @@ export const postCommentThunk = (comment) => async (dispatch) => {
 }
 
 export const editCommentThunk = (comment) => async (dispatch) => {
-    // console.log(comment)
-    const res = await fetch(`/api/comments/${comment.id}`, {
+    const response = await fetch(`/api/comments/${comment.id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
@@ -76,12 +75,12 @@ export const editCommentThunk = (comment) => async (dispatch) => {
         body: JSON.stringify(comment)
     })
 
-    if (res.ok) {
-        const data = await res.json()
-        dispatch(editComment(data))
+    if (response.ok) {
+        const data = await response.json()
+        await dispatch(editComment(data))
         return data
     } else {
-        const err = await res.json()
+        const err = await response.json()
         throw err
     }
 }

@@ -33,7 +33,7 @@ def seed_recipes():
     )
     r4 = Recipe(
         user_id=1,
-        title='rilled Apricots with Burrata, Country Ham and Arugula',
+        title='Grilled Apricots with Burrata, Country Ham and Arugula',
         description='Depending on the season, you can also make this salad with plums, peaches, and pears.',
         image_url='https://www.foodandwine.com/thmb/GlixT3MbhbFtQ2uLg-g9ImLDxBw=/2250x0/filters:no_upscale():max_bytes(150000):strip_icc():gifv():format(webp)/201109-xl-grilled-apricots-with-burrata-country-ham-and-arugula-ce006a480c0e417cac2190c981b72ab3.jpg',
         total_time='30 minutes',

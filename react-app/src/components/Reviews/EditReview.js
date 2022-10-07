@@ -42,7 +42,7 @@ function EditCommentForm({ comment, sessionUser, showEdit, setShowEdit }) {
 
         try {
             const data = await dispatch(editCommentThunk(payload))
-            await dispatch(getRecipesThunk())
+            await dispatch(getRecipesThunk(data))
 
         } catch (e) {
             setValidationErrors(e.errors)

@@ -93,10 +93,6 @@ function EditRecipe( {recipe, setShowEditForm} ) {
     
     const handleSubmit = async(e) => {
         e.preventDefault()
-
-        setSubmitted(true)
-        if (!validationErrors) return
-
         const payload = {
             id: recipe.id,
             user_id: sessionUser.id,
@@ -120,13 +116,6 @@ function EditRecipe( {recipe, setShowEditForm} ) {
         <>
         <div className='EditRecipeDiv'>
                 <div className='EditRecipeHeader' >Edit Recipe</div>
-                        {/* {validationErrors.length > 0 &&
-                            <ul className='EditRecipeErrors'>
-                            {validationErrors.map(error => (
-                                <li className='EditRecipeErrors' key={error}>{error}</li>
-                                ))}
-                            </ul>
-                        } */}
               <form onSubmit={handleSubmit}>
                 <label>Recipe Title</label>
                     <input
