@@ -6,14 +6,13 @@ from .auth_routes import validation_errors_to_error_messages
 
 comment_routes = Blueprint('comments', __name__)
 
-# ROUTES
-# get all comments
+# all comments
 @comment_routes.route('')
 def get_comments():
     comments = Comment.query.all()
     return {'comments': [comment.to_dict() for comment in comments]}
 
-# create a comment
+# add a comment
 @comment_routes.route('', methods=['POST'])
 def post_comment():
     form = CommentForm()

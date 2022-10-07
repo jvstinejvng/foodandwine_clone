@@ -6,7 +6,6 @@ import mailicon from '../../images/mailicon.svg'
 
 import lockicon from '../../images/lockicon.svg'
 
-
 import '../CSS/LogIn.css';
 
 const LoginForm = () => {

@@ -131,7 +131,7 @@ const SignUpForm = () => {
           <label className='formFieldInput'>
             <input
               type='password'
-              placeholder="At least 6 characters"
+              placeholder="At least 5 characters"
               name='password'
               onChange={updatePassword}
               value={password}

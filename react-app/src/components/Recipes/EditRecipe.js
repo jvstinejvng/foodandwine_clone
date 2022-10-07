@@ -79,12 +79,12 @@ function EditRecipe( {recipe, setShowEditForm} ) {
         }
         if (ingredients.length <= 0) {
             newErrors["ingredients"] = "What ingredients do you need for this recipe? Please separate every ingredient with a comma. example: 1 cup flour, 1/3 cup sugar";
-        } else if (ingredients.length <= 2) {
+        } else if (ingredients.length <= 3) {
             newErrors["ingredients"] = "Your recipe ingredients must be 2 characters or more";
         }
         if (directions.length <= 0) {
             newErrors["directions"] = "What are the steps for making this recipe? Please use end sentences with a period. example: Mix the flour and sugar together.";
-        } else if (directions.length <= 2) {
+        } else if (directions.length <= 3) {
             newErrors["directions"] = "Your reciple directions must be 2 characters or more";
         }
         setValidationErrors(newErrors);

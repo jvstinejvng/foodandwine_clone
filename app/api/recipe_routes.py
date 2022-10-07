@@ -6,7 +6,7 @@ from .auth_routes import validation_errors_to_error_messages
 
 recipe_routes = Blueprint('recipes', __name__)
 
-# get recipes
+# all recipes
 @recipe_routes.route('')
 def get_recipes():
     recipes = Recipe.query.all()

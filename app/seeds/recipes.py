@@ -1,7 +1,5 @@
 from app.models import db, Recipe
 
-
-# Adds a demo user, you can add other users here if you want
 def seed_recipes():
     r1 = Recipe(
         user_id=1,
@@ -293,34 +291,6 @@ def seed_recipes():
         ingredients='1 pound carrots, shredded (about 3 1/2 cups or 12 ounces), 2 cups water plus more if needed, 1 medium-size peeled Honeycrisp apple (about 7 ounces),  1 cup shredded Honeycrisp apple, 1 cup granulated sugar, 2 teaspoons grated lemon zest plus 1/4 cup fresh lemon juice, 3 cardamom pods (lightly smashed), 2 whole star anise, 2 cinnamon sticks, 3/4 teaspoon kosher salt, 2 tablespoons honey, yogurt, blueberries, clementine segments, granola for serving',
         directions='Place carrots, 2 cups water, apple, sugar, lemon zest and juice, cardamom pods, star anise, cinnamon sticks, and salt in a large heavy-bottomed saucepan; bring to a boil over medium-high, stirring occasionally. Cover and reduce heat to medium; cook, stirring occasionally, until carrots are crisp-tender, about 15 minutes. Uncover and cook, stirring occasionally, until carrots are tender and liquid has reduced to a thin, syrupy consistency, 20 to 25 minutes. Remove from heat, and discard whole spices. Transfer carrot mixture to a blender; add honey. Blend on low speed 1 minute. Continue blending, gradually increasing speed to medium-high, until smooth, about 1 minute, adding additional water, 1 tablespoon at a time, if necessary to keep puree moving. Transfer mixture to a small bowl; refrigerate 20 minutes.',
     )
-    r30 = Recipe(
-        user_id=10,
-        title='',
-        description='',
-        image_url='',
-        total_time='',
-        servings='',
-        ingredients='',
-        directions='',
-    )
-    r31 = Recipe(
-        user_id=9,
-        title='',
-        description='',
-        total_time='',
-        servings='',
-        ingredients='',
-        directions='',
-    )
-    r32 = Recipe(
-        user_id=8,
-        title='',
-        description='',
-        total_time='',
-        servings='',
-        ingredients='',
-        directions='',
-    )
 
 
 
@@ -345,6 +315,14 @@ def seed_recipes():
     db.session.add(r19)
     db.session.add(r20)
     db.session.add(r21)
+    db.session.add(r22)
+    db.session.add(r23)
+    db.session.add(r24)
+    db.session.add(r25)
+    db.session.add(r26)
+    db.session.add(r27)
+    db.session.add(r28)
+    db.session.add(r29)
 
     db.session.commit()    
 

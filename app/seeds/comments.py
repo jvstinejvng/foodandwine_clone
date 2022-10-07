@@ -1,7 +1,6 @@
 from app.models import db, Comment
 
 
-# Adds a demo user, you can add other users here if you want
 def seed_comments():
 
     c1 = Comment(
@@ -24,7 +23,7 @@ def seed_comments():
         )
     c4 = Comment(
         rating = 2,
-        body = 'no',
+        body = 'not for me',
         user_id = 2,
         recipe_id = 2
         )

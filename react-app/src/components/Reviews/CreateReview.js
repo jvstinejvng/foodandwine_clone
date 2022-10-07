@@ -20,8 +20,8 @@ function CreateReview( {recipe} ) {
 
     useEffect(() => {
         let error = []
-        if (!rating) error.push('Your rating is required')
-        if (body.length > 1000) error.push('You\'ve exceeded the 1000 character limit')
+        if (!rating) error.push('A rating is required before submitting.')
+        if (body.length > 1000) error.push('You\'ve exceeded the 1000 character limit.')
         setValidError(error)
     }, [rating, body])
 

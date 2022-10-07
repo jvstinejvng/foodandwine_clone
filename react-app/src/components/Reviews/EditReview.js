@@ -19,8 +19,8 @@ function EditCommentForm({ comment, sessionUser, showEdit, setShowEdit }) {
     useEffect(() => {
         let errors = []
 
-        if (!rating) errors.push('Please leave a rating before submitting!')
-        if (body.length > 750) errors.push('Please enter less than 750 characters!')
+        if (!rating) errors.push('A rating is required before submitting.')
+        if (body.length > 750) errors.push('You\'ve exceeded the 1000 character limit')
         setValidationErrors(errors)
     }, [rating, body])
 
