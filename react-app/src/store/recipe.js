@@ -76,12 +76,10 @@ export const editRecipeThunk = (recipe) => async (dispatch) => {
 
     if (response.ok) {
         const data = await response.json()
-        dispatch(editRecipe(data))
+        await dispatch(editRecipe(data))
+
         return data
-    } else {
-        const error = await response.json()
-        throw error
-    }
+    } 
 }
 
 export const deleteRecipeThunk = (recipe) => async (dispatch) => {
@@ -116,7 +114,7 @@ export default function recipe_reducer(state = initialState, action) {
             return newState
         case EDIT_RECIPE:
             newState = { ...state };
-            newState[action.recipe.id] = action.recipe;
+            newState[action.recipe.id] = action.recipe
             return newState
         case DELETE_RECIPE:
             newState = { ...state }

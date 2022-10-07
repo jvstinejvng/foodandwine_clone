@@ -38,30 +38,24 @@ def post_recipe():
 
 # edit a recipe
 @recipe_routes.route('/<int:recipe_id>', methods=['PUT'])
+@login_required
 def edit_recipe(recipe_id):
     recipe = Recipe.query.get(recipe_id)
-
     form = RecipeForm()
     form['csrf_token'].data = request.cookies['csrf_token']
+    print(recipe , "inside")
 
     if form.validate_on_submit():
-        user_id = form.data['user_id'],
-        title = form.data['title'],
-        description = form.data['description'],
-        image_url = form.data['image_url'],
-        total_time = form.data['total_time'],
-        servings = form.data['servings'],
-        ingredients = form.data['ingredients'],
-        directions = form.data['directions']
+        recipe.user_id = form.data['user_id'],
+        recipe.title = form.data['title'],
+        recipe.description = form.data['description'],
+        recipe.image_url = form.data['image_url'],
+        recipe.total_time = form.data['total_time'],
+        recipe.servings = form.data['servings'],
+        recipe.ingredients = form.data['ingredients'],
+        recipe.directions = form.data['directions']
 
-        recipe.user_id = user_id
-        recipe.title = title
-        recipe.description = description
-        recipe.image_url = image_url
-        recipe.total_time = total_time
-        recipe.servings = servings
-        recipe.ingredients = ingredients
-        recipe.directions = directions
+
 
         db.session.commit()
         return recipe.to_dict()

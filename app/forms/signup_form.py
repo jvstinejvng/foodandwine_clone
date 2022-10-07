@@ -31,7 +31,7 @@ class SignUpForm(FlaskForm):
         'email', 
         validators=[ DataRequired(message="Enter your email"), 
             user_exists, 
-            Email("Please provide a valid email"),
+            Email(message="Please provide a valid email"),
             ])
     password = StringField('password', validators=[
             DataRequired(message="Enter your password"),

@@ -79,7 +79,7 @@ function EditRecipe( {recipe, setShowEditForm} ) {
         }
         if (ingredients.length <= 0) {
             newErrors["ingredients"] = "What ingredients do you need for this recipe? Please separate every ingredient with a comma. example: 1 cup flour, 1/3 cup sugar";
-        } else if (ingredients.length <= 3) {
+        } else if (ingredients.length <= 2) {
             newErrors["ingredients"] = "Your recipe ingredients must be 2 characters or more";
         }
         if (directions.length <= 0) {
@@ -93,6 +93,10 @@ function EditRecipe( {recipe, setShowEditForm} ) {
     
     const handleSubmit = async(e) => {
         e.preventDefault()
+
+        setSubmitted(true)
+        if (!validationErrors) return
+
         const payload = {
             id: recipe.id,
             user_id: sessionUser.id,
@@ -116,6 +120,13 @@ function EditRecipe( {recipe, setShowEditForm} ) {
         <>
         <div className='EditRecipeDiv'>
                 <div className='EditRecipeHeader' >Edit Recipe</div>
+                        {/* {validationErrors.length > 0 &&
+                            <ul className='EditRecipeErrors'>
+                            {validationErrors.map(error => (
+                                <li className='EditRecipeErrors' key={error}>{error}</li>
+                                ))}
+                            </ul>
+                        } */}
               <form onSubmit={handleSubmit}>
                 <label>Recipe Title</label>
                     <input
