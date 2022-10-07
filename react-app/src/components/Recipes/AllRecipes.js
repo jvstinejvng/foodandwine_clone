@@ -7,7 +7,7 @@ import '../CSS/AllRecipes.css'
 
 function AllRecipes() {
 
-    //hello
+    
 
     const dispatch = useDispatch()
     const recipes = useSelector(state => state.recipes)
