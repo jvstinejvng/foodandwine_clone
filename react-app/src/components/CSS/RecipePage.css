@@ -24,15 +24,22 @@
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
     line-height: 1.50rem;
+    font-weight: 700;
 }
 
 /* recipe with no reviews */
 .RecipePageNoReview {
     margin-bottom: 1rem;
-    text-decoration-line: underline;
     text-underline-offset: 0.1875rem;
+    /* text-decoration-line: underline; */
     letter-spacing: 0.5px;
+    /* cursor: pointer; */
 }
+
+/* .RecipePageNoReview:hover {
+    text-decoration-line: underline;
+    text-decoration-thickness: 2px; 
+} */
 
 /* recipe with reviews */
 .RecipePageWithReview {

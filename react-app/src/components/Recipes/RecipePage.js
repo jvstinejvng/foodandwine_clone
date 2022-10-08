@@ -14,6 +14,8 @@ function RecipePage() {
     const dispatch = useDispatch()
     const history = useHistory()
     const { id } = useParams()
+    // const scrollToReview = useRef()
+
 
     const sessionUser = useSelector(state => state.session.user)
     const recipe = useSelector(state => state.recipes[id])
@@ -62,11 +64,14 @@ function RecipePage() {
                             <div className='RecipePageAverageRatingDiv'>
                                 <div className='RecipePageAverageRating'>
                                     {isNaN(average_rating(recipe)) ?
-                                        <div className='RecipePageNoReview'> 
-                                            Be the first to rate & review 
+                                        <div className='RecipePageNoReview'>
+                                            {/* title='See Reviews'
+                                            onClick={() => scrollToReview.current.scrollIntoView({ behavior: 'smooth' })} */}
+                                            {/* Be the first to rate & review */}
+                                            No Review Yet
                                         </div>
                                         :
-                                        <div className='RecipePageWithReview' >
+                                        <div className='RecipePageWithReview'>
                                             {average_rating(recipe)}
                                             <span className='RecipePageDividerChar'> | </span>
                                             {recipe.comments.length} reviews 
@@ -137,6 +142,7 @@ function RecipePage() {
                             </div>
                         }
                     </div>
+                            {/* <div className='ScrollToReview' ref={scrollToReview}></div> */}
                             <div className='RecipePageBottom'>
                                 <ReviewContainer recipe={recipe} />
                             </div>
