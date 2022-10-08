@@ -36,7 +36,7 @@ const NavBar = () => {
                   <Link to='/' className='NavBarLogo'>
                       <img alt="bread and butter logo" src={breadandbutter} />
                   </Link>
-            <div className='NavBarLoginHome'>
+            <div className='NavBarTopRight'>
               <div>
                 {/* <div className='NavSearchBar'>
                   <img
@@ -51,28 +51,28 @@ const NavBar = () => {
                 </div> */}
               </div>
               {!sessionUser &&
-                    <span className='NavBarLogIn'>
-                        <img className='NavBarLogInImage' alt="Profile Icon" src={profileicon}/>
-                              <NavLink className='LogInLink' to='/log-in' exact={true} activeClassName='active'>
+                    <span className='NavBarUserBar'>
+                        <img className='NavBarUserBarImage' alt="Profile Icon" src={profileicon}/>
+                              <NavLink className='NavBarUserLogLinks' to='/log-in' exact={true} activeClassName='active'>
                                 Log In
                               </NavLink>
-                          <img className='NavBarLogInImage' alt="Profile Icon" src={pencilicon}/>  
-                              <NavLink className='LogInLink' to='/sign-up' exact={true} activeClassName='active'>
+                          <img className='NavBarUserBarImage' alt="Profile Icon" src={pencilicon}/>  
+                              <NavLink className='NavBarUserLogLinks' to='/sign-up' exact={true} activeClassName='active'>
                               Sign Up 
                             </NavLink>
-                          <img className='NavBarLogInImage' alt="Profile Icon" src={forkandknife}/>  
-                        <button className='LogInLink' onClick={demoLogin}>
+                          <img className='NavBarUserBarImage' alt="Profile Icon" src={forkandknife}/>  
+                        <button className='NavBarUserDemo' onClick={demoLogin}>
                             Demo User
                         </button>  
                       </span>   
               }
               {sessionUser &&
-                    <span className='NavBarLogIn'>
-                        <img className='NavBarLogInImage' alt="Profile Icon" src={usericon}/>
-                            <NavLink className='LogInLink' to='/' exact={true} activeClassName='active'>
+                    <span className='NavBarUserBar'>
+                        <img className='NavBarUserBarImage' alt="Profile Icon" src={usericon}/>
+                            <div className='NavBarHelloUser'>
                                 hello, {sessionUser.username}
-                            </NavLink>
-                        <img className='NavBarLogInImage' alt="Profile Icon" src={logout}/>  
+                            </div>
+                        <img className='NavBarUserBarImage' alt="Profile Icon" src={logout}/>  
                             < LogoutButton />
                     </span>   
               }
