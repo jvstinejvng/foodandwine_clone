@@ -32,15 +32,12 @@
     padding-bottom: 20px; 
 }
 
-.UserRecipeContainer {
-    display: flex;
-    justify-content: center;
-}
-
+/* user recipe grid */
 .UserRecipeCardGrid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     column-gap: 30px;
     row-gap: 30px;
     padding: 10px;
+    align-content: center;
 }
