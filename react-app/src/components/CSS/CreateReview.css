@@ -1,13 +1,11 @@
 
+
+/* create review form container */
 .CreateReviewForm {
     height: auto;
     padding: 20px;
-    border: 24.1px solid blanchedalmond;
-    margin-top: 40px;
-    /* margin-bottom: 50px; */
-    background-color: blanchedalmond;
-    width: 44%;
-    background-color: blanchedalmond;
+    border: 24.1px solid lightslategray;
+    /* margin-top: 40px; */
 }
 
 .CreateReviewSubmit {
@@ -33,14 +31,14 @@
     display: flex;
     flex-direction: column;
     margin-bottom: 20px;
-    font-size: 20px;
+    font-size: 22px;
 }
 
 .CreateReviewStars {
     display: flex;
     flex-direction: column;
     margin-bottom: 20px;
-    font-size: 20px;
+    font-size: 22px;
 
 }
 

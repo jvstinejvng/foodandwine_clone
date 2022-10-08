@@ -61,6 +61,7 @@ function CreateReview( {recipe} ) {
     }
 
     return (
+        <div className='CreateFormDiv'>
         <>
             <form onSubmit={handleSubmit} className='CreateReviewForm'>
                 <div className='ReviewInputDiv'>
@@ -120,6 +121,7 @@ function CreateReview( {recipe} ) {
                 </div>
             </form>
         </>
+        </div>
     )
 }
 

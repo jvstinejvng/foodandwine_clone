@@ -19,6 +19,7 @@ import { authenticate } from './store/session';
 
 import { getRecipesThunk } from './store/recipe';
 import SearchBarResults from './components/SearchBarResults';
+// import NotFound from './components/NotFound';
 // import Footer from './components/Footer.js';
 
 function App() {
@@ -74,6 +75,9 @@ function App() {
             <Route path='/recipes/:id'>
               <RecipePage/>
             </Route>
+            {/* <Route>
+              <NotFound/>
+            </Route> */}
           </Switch>
     {/* <Footer /> */}
     </BrowserRouter>
