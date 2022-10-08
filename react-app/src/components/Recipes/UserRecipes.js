@@ -15,13 +15,12 @@ function UserRecipes() {
 
     const [myRecipesState, setMyRecipesState] = useState(1)
 
-
-    let sorted_recipes
+    let recipe_sort
     if (recipes && sessionUser) {
         let my_recipes = Object.values(recipes).filter(recipe => {
             return recipe.user.id === sessionUser.id
         })
-        sorted_recipes = my_recipes.sort(((a, b) => b.id - a.id))
+        recipe_sort = my_recipes.sort(((a, b) => b.id - a.id))
     }
 
       useEffect(() => {
@@ -31,15 +30,14 @@ function UserRecipes() {
         fetchRecipes().catch(console.error)
     }, [dispatch])
 
-
     return (
         <div className='UserRecipeDiv'>
             <h1>My Recipes</h1>
             <div className='UserRecipeContainer'>
             {sessionUser &&
                 <div className='UserRecipeCards'>
-                    {sorted_recipes && sorted_recipes.length > 0 ?
-                        Object.values(sorted_recipes).map(recipe => (
+                    {recipe_sort && recipe_sort.length > 0 ?
+                        Object.values(recipe_sort).map(recipe => (
                             <RecipeCard key={recipe.id} recipe={recipe} />
                         ))
                     :

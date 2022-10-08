@@ -140,9 +140,10 @@ function CreateRecipe() {
 
     return (
         <div className='CreateReviewDiv'>
-          <div className='AddARecipeContainer'>
-            <h1>Add a Recipe</h1>
-      
+            <div className='AddARecipeContainer'>
+                <div className='AddARecipeHeader'>
+                    <h1>Add a Recipe</h1>
+                </div>
             <div className='RecipeFormContainer'>
             <form onSubmit={handleSubmit}>
                 <label>Recipe Title</label>
