@@ -14,8 +14,7 @@
 
 /* edit your recipe header */
 .EditRecipeFormHeader {
-    font-family:'Times New Roman', Times, serif;
-    font-size: 22px;
+    font-family: Georgia, 'Times New Roman', Times, serif;    font-size: 22px;
     font-weight: 700;
     line-height: 1.625rem;
     letter-spacing: 0.5px;

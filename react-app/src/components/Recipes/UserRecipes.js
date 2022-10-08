@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-
 import { getRecipesThunk } from '../../store/recipe'
 import RecipeCard from './RecipeCard'
 import CreateRecipe from './CreateRecipe'
@@ -12,8 +11,9 @@ function UserRecipes() {
     const dispatch = useDispatch()
     const recipes = useSelector(state => state.recipes)
     const sessionUser = useSelector(state => state.session.user)
+    const [isLoaded, setIsLoaded] = useState(false);
 
-    const [myRecipesState, setMyRecipesState] = useState(1)
+
 
     let recipe_sort
     if (recipes && sessionUser) {
@@ -24,28 +24,46 @@ function UserRecipes() {
     }
 
       useEffect(() => {
-        const fetchRecipes = async () => {
+        const getUserRecipes = async () => {
             await dispatch(getRecipesThunk())
+            .then(() => setIsLoaded(true))
         }
-        fetchRecipes().catch(console.error)
+        getUserRecipes().catch(console.error)
     }, [dispatch])
 
     return (
         <div className='UserRecipeDiv'>
-            <h1>My Recipes</h1>
-            <div className='UserRecipeContainer'>
-            {sessionUser &&
-                <div className='UserRecipeCards'>
-                    {recipe_sort && recipe_sort.length > 0 ?
-                        Object.values(recipe_sort).map(recipe => (
-                            <RecipeCard key={recipe.id} recipe={recipe} />
-                        ))
-                    :
-                    <h3 className='UserRecipeNoRecide'>You have no recipes</h3>
-                    }
+                <div className='UserRecipeHeaderDiv' >
+                    <h1 className='UserRecipeHeaderText'>Personal Recipes</h1>
+                        <p className="UserRecipeSubText">Recipes you have created on Bread & Butter.</p>
                 </div>
-            }
-            </div>
+            <div className='UserRecipeContainer'>
+                    {isLoaded && sessionUser &&
+                        <div className='UserRecipeCardGrid'>
+                            {recipe_sort && recipe_sort.length > 0 &&
+                                Object.values(recipe_sort).map(recipe => (
+                                    <RecipeCard key={recipe.id} recipe={recipe} />
+                                ))
+                            }
+                        </div>
+                    }
+                    
+                    {isLoaded &&  sessionUser &&
+                       <div className='UserRecipeCardGrid'>
+                            {recipe_sort && !recipe_sort.length  && 
+                                ( 
+                                    <div className='UserNoRecipesDiv'>
+                                        <div className='UserNoRecipes'>You have no recipes</div>
+                                        <div className='UserNoRecipesSubtext'> To add a recipe click the button below </div>
+                                        <button className='UserNoRecipesButton'>Add A Recipe</button>
+                                    </div>
+                                )
+                            
+                            }
+                        </div>
+                    }
+            </div>        
+        
         </div>
     )
 }

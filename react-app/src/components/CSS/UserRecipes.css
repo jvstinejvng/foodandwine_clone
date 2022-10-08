@@ -1,6 +1,43 @@
-/* user recipe div */
+/* top page space */ 
 .UserRecipeDiv {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     top: 175px;
-    margin: 0 20% 0 20%;
+}
+
+/* page header container */
+.UserRecipeHeaderDiv {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 50%;
+}
+
+/* page header: Personal recipes */
+.UserRecipeHeaderText {
+    font-size: 50px;
+    margin-bottom: 0px;
+    font-weight: 600;
+    justify-content: flex-start;
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+/* page subheader: Recipes you have created */
+.UserRecipeSubText {
+    font-size: 22px;
+    padding-bottom: 20px; 
+}
+
+/* user recipe grid */
+.UserRecipeCardGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 30px;
+    row-gap: 30px;
+    padding: 10px;
+    align-content: center;
 }
