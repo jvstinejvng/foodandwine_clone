@@ -1,10 +1,8 @@
-
-
 /* create review form container */
 .CreateReviewForm {
     height: auto;
     padding: 20px;
-    border: 24.1px solid lightslategray;
+    border: 24px solid #eeeef0;
     /* margin-top: 40px; */
 }
 

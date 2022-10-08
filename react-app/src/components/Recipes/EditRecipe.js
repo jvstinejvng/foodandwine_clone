@@ -20,7 +20,6 @@ function EditRecipe( {recipe, setShowEditForm} ) {
         directions: ""
     });
 
-
     const [title, setTitle] = useState(recipe.title)
     const [description, setDescription] = useState(recipe.description)
     const [image_url, setImage_url] = useState(recipe.image_url)
@@ -39,7 +38,6 @@ function EditRecipe( {recipe, setShowEditForm} ) {
     const updateIngredients = (e) => setIngredients(e.target.value);
     const updateDirections = (e) => setDirections(e.target.value);
 
-
     const isValidImageUrl = (string) => {
         const ValidImage = [".jpg", ".jpeg", ".png", ".tiff"];
             for (let i = 0; i < ValidImage.length; i++) {
@@ -51,7 +49,6 @@ function EditRecipe( {recipe, setShowEditForm} ) {
         return false;
     };
 
-       
     useEffect(() => {
         const newErrors = {};
         if (title.length <= 0) {
@@ -70,12 +67,12 @@ function EditRecipe( {recipe, setShowEditForm} ) {
         if (total_time.length <= 0) {
             newErrors["total_time"] = "How long does it take to make your recipe?";
         } else if (total_time.length >= 50) {
-            newErrors["total_time"] = "Your input must be 50 characters or less";
+            newErrors["total_time"] = "Your textarea must be 50 characters or less";
         }
         if (servings.length <= 0) {
             newErrors["servings"] = "How many servings does your recipe yield?";
         } else if (servings.length >= 50) {
-            newErrors["servings"] = "Your input must be 50 characters or less";
+            newErrors["servings"] = "Your textarea must be 50 characters or less";
         }
         if (ingredients.length <= 0) {
             newErrors["ingredients"] = "What ingredients do you need for this recipe? Please separate every ingredient with a comma. example: 1 cup flour, 1/3 cup sugar";
@@ -119,96 +116,90 @@ function EditRecipe( {recipe, setShowEditForm} ) {
     return (
         <>
         <div className='EditRecipeDiv'>
-                <div className='EditRecipeHeader' >Edit Recipe</div>
-                        {/* {validationErrors.length > 0 &&
-                            <ul className='EditRecipeErrors'>
-                            {validationErrors.map(error => (
-                                <li className='EditRecipeErrors' key={error}>{error}</li>
-                                ))}
-                            </ul>
-                        } */}
-              <form onSubmit={handleSubmit}>
-                <label>Recipe Title</label>
-                    <input
-                    className="input"
-                    type="string"
-                    placeholder="Give your recipe a title"
-                    required
-                    value={title}
-                    onChange={updateTitle}
-                    />
-                <div>{validationErrors?.title}</div>
-                <label>Description</label>
-                    <input
-                    className="input"
-                    type="string"
-                    placeholder="Share the story behind your recipe and what makes it special"
-                    required
-                    value={description}
-                    onChange={updateDescription}
-                    />
-                <div>{validationErrors?.description}</div>
-                <label>Recipe Image URL</label>
-                    <input
-                    className="input"
-                    type="string"
-                    placeholder="Use JPG, JPEG, PNG, TIFF"
-                    required
-                    value={image_url}
-                    onChange={updateImageUrl}
-                    />
-                <div>{validationErrors?.image_url}</div>
-                <label>Total Time</label>
-                    <input
-                    className="input"
-                    type="string"
-                    placeholder="e.g. 2 hours"
-                    required
-                    value={total_time}
-                    onChange={updateTotalTime}
-                    />
-                <div>{validationErrors?.total_time}</div>
-                <label>yield</label>
-                    <input
-                    className="input"
-                    type="string"
-                    placeholder="e.g. 4 servings"
-                    required
-                    value={servings}
-                    onChange={updateServings}
-                    />
-                <div>{validationErrors?.servings}</div>
-                <label>Ingredients</label>
-                    <input
-                    className="input"
-                    type="string"
-                    placeholder="e.g. 2 tablespoon soften butter, 4 cups sifted flour"
-                    required
-                    value={ingredients}
-                    onChange={updateIngredients}
-                    />
-                <div>{validationErrors?.ingredients}</div>
-                <label>Directions</label>
-                    <input
-                    className="input"
-                    type="string"
-                    placeholder="e.g. Combine all dry ingredients in a large bowl. Mix soften butter into the large bowl."
-                    required
-                    value={directions}
-                    onChange={updateDirections}
-                    />
-                <div>{validationErrors?.directions}</div>
-                <button
-                  className='AddARecipeButton' 
-                  type='submit'
-                  disabled={
-                    Object.values(validationErrors).every((x) => x === "") ? false : true
-                  }
-                  >Submit Recipe
-                </button>
-                
-            </form>
+            <div className="EditRecipeForm">
+                <div className='EditRecipeFormHeader'>Edit Your Recipe:</div>            
+                <form className='EditRecipeFormDiv' onSubmit={handleSubmit}>
+                    <label className="EditRecipeFormLabel">Recipe Title</label>
+                        <input
+                            className="EditRecipeString"
+                            required
+                            type="string"
+                            placeholder="Give your recipe a title"
+                            value={title}
+                            onChange={updateTitle}
+                        />
+                                <div className='RecipeValidationError'>{validationErrors?.title}</div>
+                    <label className="EditRecipeFormLabel">Description</label>
+                        <textarea
+                            className="EditRecipetextarea"
+                            required
+                            type="string"
+                            placeholder="Share the story behind your recipe and what makes it special."
+                            value={description}
+                            onChange={updateDescription}
+                        />
+                                <div className='RecipeValidationError'>{validationErrors?.description}</div>
+                    <label className="EditRecipeFormLabel">Recipe Image URL</label>
+                        <input
+                            className="EditRecipeString"
+                            required
+                            type="string"
+                            placeholder="Supports image URLs ending with JPG, JPEG, PNG, TIFF"
+                            value={image_url}
+                            onChange={updateImageUrl}
+                            />
+                                <div className='RecipeValidationError'>{validationErrors?.image_url}</div>
+                    <label className="EditRecipeFormLabel">Total Time</label>
+                        <input
+                            className="EditRecipeString"
+                            required
+                            type="string"
+                            placeholder="e.g. 2 hours"
+                            value={total_time}
+                            onChange={updateTotalTime}
+                        />
+                                <div className='RecipeValidationError'>{validationErrors?.total_time}</div>
+                <div className='EditRecipeSpace'></div>
+                <label className="EditRecipeFormLabel">Yield</label>
+                        <input
+                            className="EditRecipeString"
+                            required
+                            placeholder="e.g. 4 servings"
+                            value={servings}
+                            onChange={updateServings}
+                        />
+                                <div className='RecipeValidationError'>{validationErrors?.servings}</div>
+                <label className="EditRecipeFormLabel">Ingredients</label>
+                        <textarea
+                            className="EditRecipetextarea"
+                            required
+                            type="string"
+                            placeholder="e.g. 2 tablespoon soften butter, 4 cups sifted flour,"
+                            value={ingredients}
+                            onChange={updateIngredients}
+                        />
+                         <div className='RecipeValidationError'>{validationErrors?.ingredients}</div>
+                <label className="EditRecipeFormLabel" >Directions</label>
+                        <textarea
+                            className="EditRecipetextarea"
+                            required
+                            type="string"
+                            placeholder="e.g. Combine all the dry ingredients in a large bowl. Mix the soften butter into the cake batter."
+                            value={directions}
+                            onChange={updateDirections}
+                        />
+                            <div className='RecipeValidationError'>{validationErrors?.directions}</div>
+                <div className='EditButtonDiv'>
+                <button className='EditRecipeButton' 
+                        type='submit'
+                        disabled={
+                        Object.values(validationErrors).every((x) => x === "") ? false : true
+                        }
+                >Submit Recipe</button> 
+                </div> 
+                </form>
             </div>
+        </div>
         </>
     )
 }
