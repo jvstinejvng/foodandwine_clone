@@ -13,7 +13,6 @@ function UserRecipes() {
     const recipes = useSelector(state => state.recipes)
     const sessionUser = useSelector(state => state.session.user)
 
-    const [myRecipesState, setMyRecipesState] = useState(1)
 
     let recipe_sort
     if (recipes && sessionUser) {
@@ -32,20 +31,24 @@ function UserRecipes() {
 
     return (
         <div className='UserRecipeDiv'>
-            <h1>My Recipes</h1>
+                <div className='UserRecipeHeaderDiv' >
+                    <h1 className='UserRecipeHeaderText'>Personal Recipes</h1>
+                        <p className="UserRecipeSubText">Recipes you have created on Bread & Butter.</p>
+                </div>
             <div className='UserRecipeContainer'>
-            {sessionUser &&
-                <div className='UserRecipeCards'>
-                    {recipe_sort && recipe_sort.length > 0 ?
-                        Object.values(recipe_sort).map(recipe => (
-                            <RecipeCard key={recipe.id} recipe={recipe} />
-                        ))
-                    :
-                    <h3 className='UserRecipeNoRecide'>You have no recipes</h3>
-                    }
+                    {sessionUser &&
+                        <div className='UserRecipeCardGrid'>
+                            {recipe_sort && recipe_sort.length > 0 ?
+                                Object.values(recipe_sort).map(recipe => (
+                                    <RecipeCard key={recipe.id} recipe={recipe} />
+                            ))
+                            :
+                            <h3 className='UserRecipeNoRecipe'>You have no recipes</h3>
+                            }
                 </div>
             }
             </div>
+        
         </div>
     )
 }
