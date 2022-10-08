@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-
 import { getRecipesThunk } from '../../store/recipe'
 import RecipeCard from './RecipeCard'
 import CreateRecipe from './CreateRecipe'
@@ -12,6 +11,8 @@ function UserRecipes() {
     const dispatch = useDispatch()
     const recipes = useSelector(state => state.recipes)
     const sessionUser = useSelector(state => state.session.user)
+    const [isLoaded, setIsLoaded] = useState(false);
+
 
 
     let recipe_sort
@@ -23,10 +24,11 @@ function UserRecipes() {
     }
 
       useEffect(() => {
-        const fetchRecipes = async () => {
+        const getUserRecipes = async () => {
             await dispatch(getRecipesThunk())
+            .then(() => setIsLoaded(true))
         }
-        fetchRecipes().catch(console.error)
+        getUserRecipes().catch(console.error)
     }, [dispatch])
 
     return (
@@ -36,18 +38,27 @@ function UserRecipes() {
                         <p className="UserRecipeSubText">Recipes you have created on Bread & Butter.</p>
                 </div>
             <div className='UserRecipeContainer'>
-                    {sessionUser &&
+                    {isLoaded && sessionUser &&
                         <div className='UserRecipeCardGrid'>
-                            {recipe_sort && recipe_sort.length > 0 ?
+                            {recipe_sort && recipe_sort.length > 0 &&
                                 Object.values(recipe_sort).map(recipe => (
                                     <RecipeCard key={recipe.id} recipe={recipe} />
-                            ))
-                            :
-                            <h3 className='UserRecipeNoRecipe'>You have no recipes</h3>
+                                ))
                             }
-                </div>
-            }
-            </div>
+                        </div>
+                    }
+                    
+                    {isLoaded &&  sessionUser &&
+                       <div className='UserRecipeCardGrid'>
+                            {recipe_sort && !recipe_sort.length  && 
+                                ( 
+                                    <h3 className='UserRecipeNoRecipe'>You have no recipes</h3>
+                                )
+                            
+                            }
+                        </div>
+                    }
+            </div>        
         
         </div>
     )
