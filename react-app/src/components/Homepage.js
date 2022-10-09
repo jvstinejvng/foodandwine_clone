@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 
 import RecipeCard from  './Recipes/RecipeCard'
 import { getRecipesThunk } from '../store/recipe'
-import defaultimg from '../images/breadcrumb.png'
+import bannerdefault from '../images/homepagedefault.jpg'
 
 import './CSS/Homepage.css'
 
@@ -30,18 +30,23 @@ function Homepage() {
 
     const month = ["January","February","March","April","May","June","July","August","September","October","November","December"]; 
     const current = new Date();
-    let monthName = month[current.getMonth()+1];
-    const date = `${month[current.getMonth()]}/${current.getDate()}/${current.getFullYear()}`;
+    const date = `${month[current.getMonth()]} ${current.getDate()}, ${current.getFullYear()}`;
   
 
     return (
         <div className='HomepageContainer'>
-                { sessionUser && 
+                { !sessionUser && 
                     <div className="HomepageSessionUser">
-                        <h1 className='HomepageHeaderText'>Today is {date}</h1>
-                        <p className="AllRecipeSubText"></p>
+                        <div className='HomepageHeaderText' >Bread, butter and everything in between.</div>
+                        <div className="HomepageSessionUserSub">Recipes for the chef in  us </div>
                     </div>
 
+                }
+                { sessionUser && 
+                    <div className="HomepageSessionUser">
+                        <div className='HomepageHeaderText'>Today is {date}</div>
+                        <div className="HomepageSessionUserSub">What’s on the menu?</div>
+                    </div>
                 }
             <div className='HomepageMainRecipe'>
                 <div className='HomepageFirstDiv'>
@@ -62,16 +67,16 @@ function Homepage() {
             </div>
             <div className='HomepageBanner'>
                         <NavLink to={bannerRecipes.length > 0 && `/recipes/${bannerRecipes[randomRecipe].id}`}>
-                    <div className='HomepageBannerInfo'>
+                    <div className='HomepageBannerDiv'>
                         <div className='HomepageBannerImageDiv'>
                                 <img 
-                                    onError={e => e.currentTarget.src=defaultimg} 
+                                    onError={e => e.currentTarget.src=bannerdefault} 
                                     className='HomepageBannerImage' 
                                     src={bannerRecipes.length > 0 && bannerRecipes[randomRecipe].image_url } />
                         </div>
                             <div className='HomepageBannerInfo'>
-                                    {bannerRecipes.length > 0 && <h2 id='1'>{bannerRecipes[randomRecipe].title}</h2>}
-                                    {bannerRecipes.length > 0 && <h4 id='2'>{bannerRecipes[randomRecipe].user.username}&nbsp;{bannerRecipes[randomRecipe].user.last_name}</h4>}
+                                    {bannerRecipes.length > 0 && <div className='HomeBannerTitle'>{bannerRecipes[randomRecipe].title}</div>}
+                                    {bannerRecipes.length > 0 && <div className='HomeBannerUser'>{bannerRecipes[randomRecipe].user.username}&nbsp;{bannerRecipes[randomRecipe].user.last_name}</div>}
                             </div>
                     </div>
                         </NavLink>

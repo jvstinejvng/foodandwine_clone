@@ -74,12 +74,12 @@ function CreateRecipe() {
         if (total_time.length <= 0) {
             newErrors["total_time"] = "How long does it take to make your recipe?";
         } else if (total_time.length >= 50) {
-            newErrors["total_time"] = "Your input must be 50 characters or less";
+            newErrors["total_time"] = "Your CreateRecipeFormInputDiv must be 50 characters or less";
         }
         if (servings.length <= 0) {
             newErrors["servings"] = "How many servings does your recipe yield?";
         } else if (servings.length >= 50) {
-            newErrors["servings"] = "Your input must be 50 characters or less";
+            newErrors["servings"] = "Your CreateRecipeFormInputDiv must be 50 characters or less";
         }
         if (ingredients.indexOf(',') <= 1) {
             newErrors["ingredients"] = "You need to add a comma after an ingredient";
@@ -141,15 +141,15 @@ function CreateRecipe() {
     return (
         <div className='CreateReviewDiv'>
             <div className='AddARecipeContainer'>
-                <div className='AddARecipeHeader'>
-                    <h1>Add a Recipe</h1>
+                <div className='AddARecipeHeaderDiv'>
+                    <h1 className='AddARecipeHeader'>Add a Recipe</h1>
+                    <p  className='AddARecipeHeaderSub' >Uploading personal recipes is easy! Add yours to your favorites, share with friends, family, or the Allrecipes community.</p>
                 </div>
             <div className='RecipeFormContainer'>
-            <form onSubmit={handleSubmit}>
+            <form  className='RecipeFormContainerForm' onSubmit={handleSubmit}>
                 <label>Recipe Title</label>
-
                     <textarea
-                    className="input"
+                    className="CreateRecipeFormInputDiv"
                     type="string"
                     placeholder="Give your recipe a title"
                     required
@@ -157,9 +157,10 @@ function CreateRecipe() {
                     onChange={updateTitle}
                     />
                 <div>{validationErrors?.title}</div>
+                <div className='CreateFormGap'></div>
                 <label>Description</label>
                     <textarea
-                    className="input"
+                    className="CreateRecipeFormInputDiv"
                     type="string"
                     placeholder="Share the story behind your recipe and what makes it special"
                     required
@@ -167,9 +168,10 @@ function CreateRecipe() {
                     onChange={updateDescription}
                     />
                 <div>{validationErrors?.description}</div>
+                <div className='CreateFormGap'></div>
                 <label>Recipe Image URL</label>
-                    <textarea
-                    className="input"
+                    <input
+                    className="CreateRecipeFormInputDiv"
                     type="string"
                     placeholder="Use JPG, JPEG, PNG, TIFF"
                     required
@@ -177,9 +179,10 @@ function CreateRecipe() {
                     onChange={updateImageUrl}
                     />
                 <div>{validationErrors?.image_url}</div>
+                <div className='CreateFormGap'></div>
                 <label>Total Time</label>
-                    <textarea
-                    className="input"
+                    <input
+                    className="CreateRecipeFormInputDiv"
                     type="string"
                     placeholder="e.g. 2 hours"
                     required
@@ -187,9 +190,10 @@ function CreateRecipe() {
                     onChange={updateTotalTime}
                     />
                 <div>{validationErrors?.total_time}</div>
-                <label>yield</label>
-                    <textarea
-                    className="input"
+                <div className='CreateFormGap'></div>
+                <label>Yield</label>
+                    <input
+                    className="CreateRecipeFormInputDiv"
                     type="string"
                     placeholder="e.g. 4 servings"
                     required
@@ -197,10 +201,10 @@ function CreateRecipe() {
                     onChange={updateServings}
                     />
                 <div>{validationErrors?.servings}</div>
+                <div className='CreateFormGap'></div>
                 <label>Ingredients</label>
-                <div>What ingredients do you need for this recipe? Please separate every ingredient with a comma. example: 1 cup flour, 1/3 cup sugar</div>
                     <textarea
-                    className="input"
+                    className="CreateRecipeFormInputDiv"
                     type="string"
                     placeholder="e.g. 2 tablespoon soften butter, 4 cups sifted flour"
                     required
@@ -208,10 +212,10 @@ function CreateRecipe() {
                     onChange={updateIngredients}
                     />
                 <div>{validationErrors?.ingredients}</div>
+                <div className='CreateFormGap'></div>
                 <label>Directions</label>
-                <div>What are the steps for making this recipe? Please end the sentences with a period. example: Mix the flour and sugar together.</div>
                     <textarea
-                    className="input"
+                    className="CreateRecipeFormInputDiv"
                     type="string"
                     placeholder="e.g. Combine all dry ingredients in a large bowl. Mix soften butter into the large bowl."
                     required
@@ -219,6 +223,7 @@ function CreateRecipe() {
                     onChange={updateDirections}
                     />
                 <div>{validationErrors?.directions}</div>
+                <div className='CreateFormGap'></div>
                 <button
                   className='AddARecipeButton' 
                   type='submit'

@@ -2,25 +2,25 @@ import { Link } from 'react-router-dom'
 
 import '../CSS/RecipeCard.css'
 
-function RecipeCard( {recipe} ) {
+function FeaturedRecipe( {recipe} ) {
 
     if(!recipe) return null
     
     return (
         <Link to={`/recipes/${recipe.id}`}>
             <div
-            className='RecipeCardDiv'>
-                <div className='RecipeCardImageDiv'>
-                    <img  className='RecipeCardImage' src={recipe.image_url} onError={({ currentTarget }) => {
+            className='FeaturedRecipeDiv'>
+                <div className='FeaturedRecipeCard'>
+                    <img  className='FeaturedRecipeImage' src={recipe.image_url} onError={({ currentTarget }) => {
                         currentTarget.onerror = null;
                         currentTarget.src ='../../../../../static/buttertoast.png'
                     }} alt={`recipe-${recipe.id}`} />
                 </div>
-                <div className='RecipeCardInfo'>
-                    <div className='RecipeCardTitle'>
-                        <h3 className='RecipeCardTitleText'>{recipe.title}</h3>
-                        <div className='RecipeCardUser'>
-                            <h4 className='RecipeCardUserName'>by {recipe.user.username}</h4>
+                <div className='FeaturedRecipeInfo'>
+                    <div className='FeaturedRecipeTitle'>
+                        <div className='FeaturedRecipeText'>{recipe.title}</div>
+                        <div className='FeaturedRecipeDescription'>
+                            <div className='FeaturedRecipeDescriptiontext'>by {recipe.description}</div>
                         </div>
                     </div>
                 </div>
@@ -29,4 +29,4 @@ function RecipeCard( {recipe} ) {
     )
 }
 
-export default RecipeCard
+export default FeaturedRecipe
