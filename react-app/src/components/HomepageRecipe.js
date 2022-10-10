@@ -22,7 +22,7 @@ function FeaturedRecipe( {recipe} ) {
                             <div className='FeaturedRecipeDescriptiontext'>{recipe.description}</div>
                         </div>
                         <div className='FeaturedRecipeUser'>
-                            <div className='FeaturedRecipeUsertext'>By {recipe.user.firstName} {recipe.user.lastName}</div>
+                            <div className='FeaturedRecipeUsertext'>By {recipe.user.username}</div>
                         </div>
                     </div>
                 </div>
