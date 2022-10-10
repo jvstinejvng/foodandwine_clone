@@ -49,45 +49,58 @@ function EditRecipe( {recipe, setShowEditForm} ) {
         return false;
     };
 
+   
     useEffect(() => {
         const newErrors = {};
-        if (title.length <= 0) {
-            newErrors["title"] = "What's your recipe called?";
-        } else if (title.length >= 255) {
-            newErrors["title"] = "Your recipe title must be 255 characters or less";
+        if (title.length <= 5) {
+            newErrors["title"] = "❗ What's your recipe called? Your title input must be more than 5 characters.";
+        } else if (title.length > 150) {
+            newErrors["title"] = "❗ Uh oh, you have exceeded the 150 character limit.";
         }
-        if (description.length <= 0) {
-            newErrors["description"] = "How would you describe this recipe?";
-        } else if (description.length <= 5) {
-            newErrors["description"] = "Your recipe description must be 10 characters or more";
+        if (description.length <= 10) {
+            newErrors["description"] = "❗ How would you describe this recipe? Your description input must be more than 10 characters.";
+        } else if (description.length > 1000) {
+            newErrors["description"] = "❗ Uh oh, you have exceeded the 1000 character limit.";
         }
         if (!isValidImageUrl(image_url)) {
-            newErrors["image_url"] = 'Your recipe\'s image URL must end in .jpg, .jpeg, .png, or .tiff';
+            newErrors["image_url"] = '❗ Your recipe\'s image URL input must end in .jpg, .jpeg, .png, or .tiff';
         }
-        if (total_time.length <= 0) {
-            newErrors["total_time"] = "How long does it take to make your recipe?";
-        } else if (total_time.length >= 50) {
-            newErrors["total_time"] = "Your textarea must be 50 characters or less";
+        if (total_time.length <= 5) {
+            newErrors["total_time"] = "❗ How long does it take to make your recipe? Your total time input must be more than 5 characters.";
+        } else if (total_time.length > 50) {
+            newErrors["total_time"] = "❗ Uh oh, you have exceeded the 50 character limit.";
         }
-        if (servings.length <= 0) {
-            newErrors["servings"] = "How many servings does your recipe yield?";
-        } else if (servings.length >= 50) {
-            newErrors["servings"] = "Your textarea must be 50 characters or less";
+        if (servings.length <= 5) {
+            newErrors["servings"] = "❗ How many servings does your recipe yield? Your servings input must be more than 5 characters.";
+        } else if (servings.length > 50) {
+            newErrors["servings"] = "❗ Uh oh, you have exceeded the 50 character limit.";
         }
-        if (ingredients.length <= 0) {
-            newErrors["ingredients"] = "What ingredients do you need for this recipe? Please separate every ingredient with a comma. example: 1 cup flour, 1/3 cup sugar";
-        } else if (ingredients.length <= 2) {
-            newErrors["ingredients"] = "Your recipe ingredients must be 2 characters or more";
+        if (ingredients.length <= 1) {
+            newErrors["ingredients"] = "❗ What ingredients do you need for this recipe? Please separate each ingredient with a comma. e.g. 1 cup flour, 1/3 cup sugar";
+        } else if (ingredients.length <= 3) {
+            newErrors["ingredients"] = "❗ Your ingredeints input must be more than 3 characters.";
+        } else if (ingredients.indexOf(',') <= 1) {
+            newErrors["ingredients"] = "❗ Please include a comma after your ingredient.";
+        } else if (ingredients.length > 10000) {
+            newErrors["ingredients"] = "❗ Uh oh, you have exceeded the 10,000 character limit.";
+        } else if (ingredients.endsWith(',') <= 0) {
+            newErrors["ingredients"] = "❗ Finished with adding all your recipe's ingredients? Please add a comma to the end of your input.";
         }
-        if (directions.length <= 0) {
-            newErrors["directions"] = "What are the steps for making this recipe? Please use end sentences with a period. example: Mix the flour and sugar together.";
-        } else if (directions.length <= 3) {
-            newErrors["directions"] = "Your reciple directions must be 2 characters or more";
+        if (directions.length <= 1) {
+            newErrors["directions"] = "❗ What are the steps for making this recipe? Please end every step with a period. e.g. Preheat oven to 350 degrees fahrenheit. Mix the flour and sugar together.";
+        } else if (directions.length <= 10) {
+            newErrors["directions"] = "❗ Your directions input must be more than 10 characters.";
+        } else if (directions.indexOf('.') <= 1){
+            newErrors["directions"] = "❗ Please include a period after your instructional step.";
+        } else if (directions.length > 10000) {
+            newErrors["directions"] = "❗ Uh oh, you have exceeded the 10,000 character limit.";
+        }
+        else if (directions.endsWith('.') <= 0){
+            newErrors["directions"] = "❗ Finished with adding all your directions for your recipe? Please add a period to the end of your input.";
         }
         setValidationErrors(newErrors);
       }, [title, description, image_url, total_time, servings, ingredients, directions, validationErrors.length]);
 
-    
     const handleSubmit = async(e) => {
         e.preventDefault()
 

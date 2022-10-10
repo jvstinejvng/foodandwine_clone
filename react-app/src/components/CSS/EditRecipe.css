@@ -18,7 +18,8 @@
     font-weight: 700;
     line-height: 1.625rem;
     letter-spacing: 0.5px;
-    padding-bottom: 10px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(113, 116, 118, 0.256);
 }
 
 /* form container */
@@ -35,7 +36,8 @@
     line-height: 1.50rem;
     letter-spacing: 0.5px;
     padding-right: 10px;
-    margin-top: 20px;
+    margin-top: 30px;
+    font-weight: 700;
 }
 
 /* description, ingredients, direction */
@@ -52,6 +54,8 @@
     font-size: 14px;
     line-height: 1.50rem;
     cursor: text;
+    margin-top: 5px;
+    margin-bottom: 3px;
 }
 
 .EditRecipetextarea::placeholder {
@@ -75,6 +79,8 @@
     font-size: 14px;
     line-height: 1.50rem;
     cursor: text;
+    margin-top: px;
+    margin-bottom: 3px;
 }
 
 .EditRecipeString::placeholder {
@@ -92,8 +98,8 @@
     font-weight: 700;
     text-transform: uppercase;
     text-underline-offset: 0.25rem;
-    border: none;
     background-color: black;
+    border: none;
     color:white;
     display: flex;
     flex-direction: row;
@@ -104,9 +110,33 @@
     width: 35%;
 }
 
+.EditRecipeButton:disabled {
+    color: rgba(255, 255, 255, 0.536);
+    background-color: grey;
+    border: none;
+}
+
 .EditButtonDiv {
     display: flex;
     justify-content: flex-end;
-    margin: 2%;
+    margin-right: 2%;
+    margin-bottom: 20px;
+    padding-bottom: 30px;
+    margin-top: 30px;
+    border-bottom: 1px solid rgba(113, 116, 118, 0.256);
 }
 
+
+.RecipeValidationError {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 1.25rem;
+    letter-spacing: 1px;
+    font-weight: 700;  
+    color: black; 
+    background-color: #fae6e6;
+    padding-left: 8px;
+    display: flex;
+    width: 97%;
+    align-items: center;
+}
