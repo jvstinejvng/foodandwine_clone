@@ -1,4 +1,6 @@
-#Bread and Butter
+# Welcome to Bread & Butter!
+ > Bread & Butter is a full-stack site inspired by foodandwine.com. From creating to plating, share and discover recipes from a community of food lovers. All your recipes, all in one place.
+
 
 
 ### Languages
@@ -16,7 +18,7 @@
 
 
 
-## Steps to clone locally:
+## Local Setup:
 1. Clone this repository:
 ```bash
 git clone https://github.com/samanthaweglinski/Buzzer.git
