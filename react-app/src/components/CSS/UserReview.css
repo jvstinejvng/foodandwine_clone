@@ -1,39 +1,105 @@
 /* review container */
 .ReviewDiv {
     display: flex;
-    padding: 20px 10px 20px 10px;
-    border-bottom: 1px solid black;
+    flex-direction: column;
+    margin: 20px 0px 20px 0px;
+    border-bottom: 1px solid rgba(0,0,0,.15);
+    padding-bottom: 2rem;
 }
 
-.ReviewDivText {
+
+.ReviewIndividual {
     display: flex;
     flex-direction: column;
 }
 
+/* reviewer */
+.ReviewUsernameDiv {
+    display: flex;
+    flex-direction: column;
+}
+
+.ReviewUser {
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.65rem;
+    letter-spacing: 0.5px;
+    padding-bottom: 10px;
+    overflow-wrap: break-word;
+    font-weight: 700;
+}
+
+.ReviewDivRating{
+    width: 100%;
+    padding-bottom: 15px;
+    justify-content: center;
+    justify-self: center;
+    align-content: center;
+}
+
+.ReviewStarRatingDiv {
+    display: inline-flex;
+    align-items: center;
+    height: 100%;
+}
+
+.ReviewStarRatingGrayStars {
+    display: inline-flex;
+}
+
+.ReviewCreated {
+    display: inline-flex;
+    padding-left: 20px;
+    font-size: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.65rem;
+    letter-spacing: 0.5px;
+    overflow-wrap: break-word;
+    color: gray;
+}
 
 .ReviewUserDiv {
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
-
 }
 
 .ReviewUserDivMessage {
     display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    width: 50%;
-
+    flex-direction: column;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.65rem;
+    letter-spacing: 0.5px;
+    overflow-wrap: break-word;
 }
 
-.ReviewUsernameDiv {
+.ReviewButtonDiv {
     display: flex;
     flex-direction: row;
-    height: 60px;
-    width: 100%;
+    justify-content: flex-end;
 }
 
+.ReviewButton {
+    cursor: pointer;
+    width: 100px;
+    color: black;
+    border: 0.1875rem solid black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    text-transform: uppercase;
+    background-color: white;
+    letter-spacing: 1px;
+    font-weight: 700;
+    margin-left: 20px;
+    padding: 5px 5px 5px 5px;
+    margin-top: 20px;
+}
+
+.ReviewButton:hover {
+    background-color: black;
+    color: white;
+}
 
 
 

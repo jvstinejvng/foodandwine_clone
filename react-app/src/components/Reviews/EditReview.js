@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import StarRating from './StarRating'
 
 import { editCommentThunk } from '../../store/comment'
@@ -8,27 +8,38 @@ import { getRecipesThunk } from '../../store/recipe'
 import '../CSS/EditReview.css'
 
 
-function EditCommentForm({ comment, sessionUser, showEdit, setShowEdit }) {
+function EditCommentForm({ comment, showEdit, setShowEdit }) {
+
     const dispatch = useDispatch()
+
+    const [submitted, setSubmitted] = useState(false)
+
+    const sessionUser = useSelector(state => state.session.user)
+    const [validError, setValidError] = useState({
+        rating: null,
+        body: ""
+    })
+
 
     const [rating, setRating] = useState(comment.rating)
     const [body, setBody] = useState(comment.body)
-    const [hasSubmitted, setHasSubmitted] = useState(false)
-    const [validationErrors, setValidationErrors] = useState([])
 
     useEffect(() => {
-        let errors = []
-
-        if (!rating) errors.push('A rating is required before submitting.')
-        if (body.length > 750) errors.push('You\'ve exceeded the 1000 character limit')
-        setValidationErrors(errors)
-    }, [rating, body])
+        const newErrors = {};
+        if (!rating) {
+            newErrors["rating"] = "❗ Please rate the recipe.";
+        } 
+        if (body.length  > 1000) {
+            newErrors["body"] = "❗You\'ve exceeded the 1000 character limit.";
+        } 
+        setValidError(newErrors);
+    }, [rating, body, validError.length]);
 
     const handleSubmit = async(e) => {
         e.preventDefault()
 
-        setHasSubmitted(true)
-        if (validationErrors.length) return
+        setSubmitted(true)
+        if (validError.length) return
 
         const payload = {
             rating,
@@ -38,26 +49,28 @@ function EditCommentForm({ comment, sessionUser, showEdit, setShowEdit }) {
             id: comment.id
         }
 
-        setShowEdit(!showEdit)
+        // setShowEdit(!showEdit)
 
         try {
             const data = await dispatch(editCommentThunk(payload))
+            if(data) (setShowEdit(!showEdit))
             await dispatch(getRecipesThunk(data))
+        
 
         } catch (e) {
-            setValidationErrors(e.errors)
+            // setValidationErrors(e.errors)
         }
     }
 
     return (
         <>
-            {hasSubmitted && validationErrors.length > 0 &&
+            {/* {hasSubmitted && validationErrors.length > 0 &&
                 <ul className='errors'>
                     {validationErrors.map(error => (
                         <li className='error' key={error}>{error}</li>
                     ))}
                 </ul>
-            }
+            } */}
             <form onSubmit={handleSubmit} className='EditReviewDiv'>
                 <div className='ReviewUserName'>
                     <div className="Reviewer">
@@ -69,6 +82,7 @@ function EditCommentForm({ comment, sessionUser, showEdit, setShowEdit }) {
                         <div className='ReviewInputStars'>
                                 Your Rating
                             <StarRating rating={rating} setRating={setRating} />
+                            <div >{validError?.rating}</div>
                         </div>
                         <div className='ReviewInputTextBox'>
                             Your Review
@@ -79,11 +93,16 @@ function EditCommentForm({ comment, sessionUser, showEdit, setShowEdit }) {
                                 onChange={(e) => setBody(e.target.value)}
                                 >
                             </textarea>
+                            <div >{validError?.body}</div>
                         </div>
                     </div>
                     <div className='EditReviewButton'>
                         <button onClick={() => setShowEdit(!showEdit)} className='ReviewCancelButton'>Cancel</button>
-                        <button>Submit</button>
+                        <button 
+                         disabled={
+                            Object.values(validError).every((x) => x === "") ? false : true
+                          }
+                        >Submit</button>
                     </div>
                 </div>
             </form>

@@ -26,7 +26,6 @@ function UserReview( {comment} ) {
     }
 
     return (
-    
         (showEdit ?
             <EditReview
                 comment={comment}
@@ -34,40 +33,37 @@ function UserReview( {comment} ) {
                 showEdit={showEdit}
                 setShowEdit={setShowEdit}/>
             :
-                <div className='ReviewDiv'>
+            <div className='ReviewDiv'>
+                <div className='ReviewIndividual'>
                         <div className='ReviewDivText'>
                             <div className='ReviewUsernameDiv'>
                                  <div className='ReviewUser'>{ comment.user.username }</div>
                                         <div className='ReviewDivRating'>
-                                            <div>{ [...Array(comment.rating)].map(star => <FaStar className='StarRating' />) }</div>
-                                            <div>{ [...Array(5 - comment.rating)].map(star => <FaStar color='#DCDCDC' className='StarRating'/>) }</div>
-                                            <div> {comment.created_at.split(' ').slice(1, 4).join(' ')}</div>
+                                            <div className='ReviewStarRatingDiv'>{ [...Array(comment.rating)].map(star => <FaStar className='ReviewStarRating' />) }</div>
+                                            <span className='ReviewStarRatingGrayStars'>{ [...Array(5 - comment.rating)].map(star => <FaStar color='#DCDCDC' className='ReviewStarRating'/>) }</span>
+                                            <span className="ReviewCreated"> {comment.created_at.split(' ').slice(1, 4).join(' ')}</span>
                     
                                 </div>
-                        </div>
-                    <div className='ReviewUserDiv'>
-                        <div className='ReviewUserDivMessage'>
-                            <div className='ReviewText'>{ comment.body }</div>
-                            {sessionUser && sessionUser.id === comment.user.id &&
-                                <div className='ReviewButtonDiv'>
-                                    <div onClick={() => setShowEdit(!showEdit)}>
-                                        <span>
-                                        <button className='edit'>edit</button>
-                                        </span>
-                                    </div>
-                                    <div onClick={handleDelete} >
-                                        <span>
-                                        <button className='ReviewCancelButton'>delete</button>
-                                        </span>
-                                    </div>
+                            </div>
+                        <div className='ReviewUserDiv'>
+                                <div className='ReviewUserDivMessage'>
+                                        <div className='ReviewText'>{ comment.body }</div>
+                                            {sessionUser && sessionUser.id === comment.user.id &&
+                                            <div className='ReviewButtonDiv'>
+                                                        <div onClick={() => setShowEdit(!showEdit)}>
+                                                            <button className='ReviewButton'>edit</button>
+                                                        </div>
+                                                        <div onClick={handleDelete}>
+                                                                 <button className='ReviewButton'>delete</button>
+                                                        </div>
+                                            </div>
+                                            }
                                 </div>
-                            }
+                        </div>
                         </div>
                     </div>
                 </div>
-            </div>
         )
-        
     )
 }
 

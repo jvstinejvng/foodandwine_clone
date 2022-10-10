@@ -8,3 +8,8 @@ input[type='radio'] {
     height: 25px;
     width: 25px;
 }
+
+.ReviewStarRating {
+    display: flex;
+    flex-direction: row;
+}
