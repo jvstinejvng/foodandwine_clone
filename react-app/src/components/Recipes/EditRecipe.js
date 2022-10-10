@@ -130,7 +130,7 @@ function EditRecipe( {recipe, setShowEditForm} ) {
         <>
         <div className='EditRecipeDiv'>
             <div className="EditRecipeForm">
-                <div className='EditRecipeFormHeader'>Edit Your Recipe:</div>            
+                <div className='EditRecipeFormHeader'>Edit Your Recipe</div>            
                 <form className='EditRecipeFormDiv' onSubmit={handleSubmit}>
                     <label className="EditRecipeFormLabel">Recipe Title</label>
                         <input

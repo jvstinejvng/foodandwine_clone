@@ -86,7 +86,7 @@ function CreateReview( {recipe} ) {
                                 <span className="CreateReviewStarDivText">Your Rating</span>
                                 <small className="ReviewRequired">&nbsp;(required)</small>
                                         <StarRating rating={rating} setRating={setRating}/>
-                                <div className="CreateRecipeError">{validError?.rating}</div>
+                                <div className="CreateReviewError">{validError?.rating}</div>
                                 </div>
                             }
                         </div>

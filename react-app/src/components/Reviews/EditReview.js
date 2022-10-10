@@ -64,41 +64,36 @@ function EditCommentForm({ comment, showEdit, setShowEdit }) {
 
     return (
         <>
-            {/* {hasSubmitted && validationErrors.length > 0 &&
-                <ul className='errors'>
-                    {validationErrors.map(error => (
-                        <li className='error' key={error}>{error}</li>
-                    ))}
-                </ul>
-            } */}
             <form onSubmit={handleSubmit} className='EditReviewDiv'>
                 <div className='ReviewUserName'>
-                    <div className="Reviewer">
-                    {comment.user.username} 
-                    </div>
+                    <div className="Reviewer">{comment.user.username}</div>
                 </div>
-                <div className='ReviewDivText'>
-                    <div className='ReviewInputDiv'>
-                        <div className='ReviewInputStars'>
-                                Your Rating
-                            <StarRating rating={rating} setRating={setRating} />
-                            <div >{validError?.rating}</div>
+                <div className='EditReviewBox'>
+                    <div className='EditReviewTitle'>Edit Your Review</div>
+                    <div className='EditReviewInputDiv'>
+                        <div className='EditReviewStars'>
+                            <span className='EditReviewYourStars'>Your Rating</span>
+                                <small className="ReviewRequired">&nbsp;(required)</small>
+                                      <StarRating rating={rating} setRating={setRating} />
+
+                                <div className="EditReviewError">{validError?.rating}</div>
                         </div>
-                        <div className='ReviewInputTextBox'>
-                            Your Review
-                            <textarea
-                                className='EditReviewInputReview'
-                                placeholder='What did you think about this recipe? Did you make any changes or notes?'
-                                value={body}
-                                onChange={(e) => setBody(e.target.value)}
-                                >
-                            </textarea>
-                            <div >{validError?.body}</div>
+                        <div className='EditReviewBoxDiv'>
+                                <span className='EditReviewYourReview'> Your Review</span>
+                                <small className="ReviewOptional">&nbsp;(optional)</small>
+                                <textarea
+                                    className='EditReviewInputReview'
+                                    placeholder='What did you think about this recipe? Did you make any changes or notes?'
+                                    value={body}
+                                    onChange={(e) => setBody(e.target.value)}
+                                ></textarea>
+                                <div className="EditReviewError">{validError?.body}</div>
                         </div>
                     </div>
-                    <div className='EditReviewButton'>
-                        <button onClick={() => setShowEdit(!showEdit)} className='ReviewCancelButton'>Cancel</button>
+                    <div className='EditReviewButtonDiv'>
+                        <button onClick={() => setShowEdit(!showEdit)} className='EditReviewButton'>Cancel</button>
                         <button 
+                         className='EditReviewButton'
                          disabled={
                             Object.values(validError).every((x) => x === "") ? false : true
                           }
