@@ -9,7 +9,7 @@ def user_exists(form, field):
     email = field.data
     user = User.query.filter(User.email == email).first()
     if user:
-        raise ValidationError('* This email address is already exists. Please use another.')
+        raise ValidationError('This email address is already exists. Please use another.')
 
 
 def username_exists(form, field):
@@ -17,7 +17,7 @@ def username_exists(form, field):
     username = field.data
     user = User.query.filter(User.username == username).first()
     if user:
-        raise ValidationError('* This username is already exists. Please use another.')
+        raise ValidationError('This username is already exists. Please use another.')
 
 def password_length(form, field):
     password = field.data
@@ -27,7 +27,7 @@ def password_length(form, field):
 
 class SignUpForm(FlaskForm):
     username = StringField(
-        'username', validators=[DataRequired(message='* Please enter a username'), username_exists])
-    email = StringField('email', validators=[DataRequired(message='* Please enter your email'), Email(message='* Please enter a valid email address'), user_exists])
+        'username', validators=[DataRequired(message='Please enter a username'), username_exists])
+    email = StringField('email', validators=[DataRequired(message='Please enter your email'), Email(message='* Please enter a valid email address'), user_exists])
     password = StringField('password', validators=[
                            DataRequired('Password is required.'), password_length, Length(max=200, message='Password length cannot exceed 200 characters.')])

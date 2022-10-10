@@ -41,3 +41,13 @@
     padding: 10px;
     align-content: center;
 }
+
+.UserNoRecipes {
+    font-size: 20px;
+    margin-bottom: 0px;
+    font-weight: 600;
+    justify-content: flex-start;
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+
+}

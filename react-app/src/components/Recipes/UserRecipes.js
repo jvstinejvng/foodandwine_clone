@@ -54,8 +54,8 @@ function UserRecipes() {
                                 ( 
                                     <div className='UserNoRecipesDiv'>
                                         <div className='UserNoRecipes'>You have no recipes</div>
-                                        <div className='UserNoRecipesSubtext'> To add a recipe click the button below </div>
-                                        <button className='UserNoRecipesButton'>Add A Recipe</button>
+                                        {/* <div className='UserNoRecipesSubtext'> To add a recipe click the button below </div>
+                                        <button className='UserNoRecipesButton'>Add A Recipe</button> */}
                                     </div>
                                 )
                             
