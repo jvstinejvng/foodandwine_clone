@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom';
 
 import RecipeCard from  './Recipes/RecipeCard'
+import FeaturedRecipe from './HomepageRecipe'
 import { getRecipesThunk } from '../store/recipe'
 import bannerdefault from '../images/homepagedefault.jpg'
 
@@ -50,21 +51,19 @@ function Homepage() {
                 }
             <div className='HomepageMainRecipe'>
                 <div className='HomepageFirstDiv'>
-                        <div className='HomepageNewestRecipeDiv'>
-                                <div className='HomepageNewestRecipeLeft'>
-                                    <div className='HomepageNewestRecipeFeature'>
-                                            <div className='HomepageCookingRecipeDiv'>
+                    <div className='HomepageNewRecipeAlert'>Our newest recipe</div>
+                            <div className='HomepageNewestRecipeFeature'>
+                                            <div className='HomepageNewRecipeDiv'>
                                                 {newestRecipe && (
                                                     newestRecipe.map(recipe => (
-                                                        <RecipeCard key={recipe.id} recipe={recipe} />
+                                                        <FeaturedRecipe key={recipe.id} recipe={recipe} />
                                                     ))
                                                 )}
                                             </div>
-                                    </div>       
-                                </div>
-                        </div>
-                </div>
+                            </div> 
+                </div>        
             </div>
+
             <div className='HomepageBanner'>
                         <NavLink to={bannerRecipes.length > 0 && `/recipes/${bannerRecipes[randomRecipe].id}`}>
                     <div className='HomepageBannerDiv'>

@@ -1,15 +1,14 @@
 import { Link } from 'react-router-dom'
 
-import '../CSS/RecipeCard.css'
+import './CSS/FeatureRecipe.css'
 
 function FeaturedRecipe( {recipe} ) {
 
     if(!recipe) return null
     
     return (
-        <Link to={`/recipes/${recipe.id}`}>
-            <div
-            className='FeaturedRecipeDiv'>
+        <Link to={`/recipes/${recipe.id}`}  style={{textDecoration: 'none'}}>
+            <div className='FeaturedRecipeDiv'>
                 <div className='FeaturedRecipeCard'>
                     <img  className='FeaturedRecipeImage' src={recipe.image_url} onError={({ currentTarget }) => {
                         currentTarget.onerror = null;
@@ -20,7 +19,10 @@ function FeaturedRecipe( {recipe} ) {
                     <div className='FeaturedRecipeTitle'>
                         <div className='FeaturedRecipeText'>{recipe.title}</div>
                         <div className='FeaturedRecipeDescription'>
-                            <div className='FeaturedRecipeDescriptiontext'>by {recipe.description}</div>
+                            <div className='FeaturedRecipeDescriptiontext'>{recipe.description}</div>
+                        </div>
+                        <div className='FeaturedRecipeUser'>
+                            <div className='FeaturedRecipeUsertext'>By {recipe.user.username}</div>
                         </div>
                     </div>
                 </div>

@@ -1,0 +1,70 @@
+.FeaturedRecipeDiv {
+    width: 700px;
+    height: auto;
+    margin-bottom: 40px;
+}
+
+.FeaturedRecipeCard {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.FeaturedRecipeImage {
+    width: 600px;
+    height: 400px;
+    object-fit: cover;
+}
+
+.FeaturedRecipeInfo {
+    width: 600px;
+    height: auto;
+    overflow-wrap: break-word;
+}
+
+.FeaturedRecipeText {
+    font-size: 40px;
+    font-weight: 700;
+    font-family: Georgia, 'Times New Roman', Times, serif;    
+    line-height: 1.65rem;
+    overflow-wrap: break-word;
+    text-decoration: none;
+    color: black
+}
+
+
+
+.FeaturedRecipeDescription {
+    overflow-wrap: break-word;
+    text-decoration: none;
+    margin-top: 20px;
+    color: black;
+}
+
+.FeaturedRecipeDescriptiontext {
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;    
+    letter-spacing: 0.5px;
+    line-height: 1.65rem;
+    color: black;
+    overflow-wrap: break-word;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    /* white-space: wrap; */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.FeaturedRecipeUsertext {
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;    
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    line-height: 1.65rem;
+    color: grey;
+}
+
+.FeaturedRecipeUser {
+    margin-top: 5px;
+}
