@@ -35,11 +35,10 @@
 ------------
 1. Sign up, log in & demo user 
 2. Homepage
-3. Listing detail page
-4. Create and edit a listing 
-5. All user's reviews
-6. All user's listings
-7. Create a review 
+3. Recipe detail page
+4. Create and edit a Recipe 
+5. All user's recipes
+7. Create, edit and delete a review 
 
 
 ## **Local Server Setup**
