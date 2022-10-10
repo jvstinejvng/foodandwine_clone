@@ -281,8 +281,8 @@ ol li:before {
 .BackHomeButtonDiv {
     display: flex;
     justify-content: center;
-
 }
+
 .BackHomeButton {
     cursor: pointer;
     width: 300px;

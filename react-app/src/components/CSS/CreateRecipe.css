@@ -4,6 +4,7 @@
     flex-direction: column;
     align-items: center;
     top: 175px;
+    background-color: #fff;
 }
 
 /* add a recipe page contianer */
@@ -11,7 +12,10 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    width: 60%;
+    width: 40%;
+    margin: 32px 20% 100px 20%;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 30%);
+    padding: 50px;
 }
 
 .AddARecipeHeaderDiv {
@@ -21,10 +25,12 @@
     margin-bottom: 10px;
 }
 
+/* add recipe sub header */
 .AddARecipeHeader {
     font-size: 50px;
     margin-bottom: 0px;
     font-weight: 600;
+    letter-spacing: 0.5px;
     justify-content: flex-start;
     text-align: flex-start;
     font-family: Georgia, 'Times New Roman', Times, serif;
@@ -32,10 +38,11 @@
 
 .AddARecipeHeaderSub {
     font-size: 22px;
-    padding-bottom: 10px; 
+    line-height: 1.75rem;
+    letter-spacing: 0.5px;
+    padding-bottom: 20px; 
+    border-bottom: 1px solid rgba(113, 116, 118, 0.256);
 }
-
-
 
 .RecipeFormContainerForm label {
     font-family: Arial, Helvetica, sans-serif;
@@ -50,7 +57,6 @@
     padding: 10px;
     width: 95%;
     min-height: 20px;
-    overflow-y: scroll;
     letter-spacing: 0.5px;
     height: auto;
     border: 1px solid rgba(0,0,0,.3);
@@ -58,6 +64,8 @@
     font-size: 14px;
     line-height: 1.50rem;
     cursor: text;
+    margin-top: 8px;
+    margin-bottom: 3px;
 }
 
 .RecipeFormContainer textarea {
@@ -65,7 +73,7 @@
     overflow-y: scroll;
     padding: 10px;
     width: 95%;
-    min-height: 120px;
+    min-height: 150px;
     letter-spacing: 0.5px;
     height: auto;
     border: 1px solid rgba(0,0,0,0.3);
@@ -73,28 +81,66 @@
     font-size: 14px;
     line-height: 1.50rem;
     cursor: text;
+    margin-top: 8px;
 }
 
 .CreateFormGap {
     padding-top: 35px;
 }
 
+/* add recipe button div */
+.AddARecipeButtonDiv {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid rgba(113, 116, 118, 0.256);
+}
+
 .AddARecipeButton {
-    align-items: center;
-    text-align: center;
-    font-size: small;
+    font-size: 14px;
+    line-height: 1.25rem;
+    letter-spacing: 0.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-underline-offset: 0.25rem;
+    background-color: black;
+    border: none;
+    color:white;
+    display: flex;
+    flex-direction: row;
     justify-content: center;
-    color: rgba(0, 0, 0, 0.7);
-    margin-top: 10px;
-    margin-right: 10px;
-    border: 1px solid rgba(170, 170, 170, 0.3);
-    border-radius: 5px;
-    background-color: #F4F1EA;
-    width: 100px;
-    height: 23px;
+    align-items: center;
+    cursor: pointer;
+    padding:10px 28px;
+    width: 35%;
 }
 
 .AddARecipeButton:disabled {
-    color: #A9A9A9;
+    color: rgba(255, 255, 255, 0.536);
+    background-color: grey;
+    border: none;
 }
 
+
+.CreateRecipeError {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 1.25rem;
+    letter-spacing: 1px;
+    font-weight: 700;  
+    color: black; 
+    background-color: #fae6e6;
+    padding-left: 8px;
+    display: flex;
+    width: 97%;
+    align-items: center;
+}
+
+/* .exclamation {
+    width: 25px;
+    height: 25px;
+    object-fit: fill;
+    padding: 5px;
+
+} */
