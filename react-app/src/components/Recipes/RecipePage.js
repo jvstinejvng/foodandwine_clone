@@ -78,7 +78,8 @@ function RecipePage() {
                                             <span>
                                             <FaStar/>
                                             </span>
-                                            <span className='RecipePageDividerChar'> | </span>
+                                            <span
+                                             className='RecipePageDividerChar'> | </span>
                                             {recipe.comments.length} reviews 
                                         </div>
                                     }
