@@ -358,3 +358,19 @@ ol li:before {
 }
 
 
+.LeaveAReview {
+    font-size: 26px;
+    margin-bottom: 30px;
+    font-weight: 600;
+    line-height: 1rem;
+    letter-spacing: 0.5px;
+    justify-content: flex-start;
+    text-align: flex-start;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    border: 24px solid #eeeef0;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    padding: 30px;
+
+}
+

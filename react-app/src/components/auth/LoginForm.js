@@ -84,7 +84,7 @@ const LoginForm = () => {
                     <span className='SignUpLogInOptionText'>Not a member yet?</span>
                     <span className='SignUpLogInOptionText'>Create your account here!</span>
                     <div className="LogInLinkButton">
-                      <Link style={{textDecoration: 'none'}} className='SignInLogLink' to="/log-in">Join Now</Link>
+                      <Link style={{textDecoration: 'none'}} className='SignInLogLink' to="/sign-up">Join Now</Link>
                     </div>
                   </div>
               </div>

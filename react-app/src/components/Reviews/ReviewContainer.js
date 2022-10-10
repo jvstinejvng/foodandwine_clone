@@ -14,7 +14,9 @@ function ReviewContainer( { recipe })  {
             {sessionUser ?
                 <CreateReview recipe={recipe}/>
                 :
-                <h3>Log in to leave a review!</h3>
+                <div className='LeaveAReview'>
+                    Log in to leave a review!
+                </div>
             }
             </div>
             {recipe.comments.length > 0 ?
