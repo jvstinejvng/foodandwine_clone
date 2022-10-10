@@ -10,7 +10,7 @@ class User(db.Model, UserMixin):
     # first_name = db.Column(db.String(100), nullable=False)
     # last_name = db.Column(db.String(100), nullable=False)
     username = db.Column(db.String(50), nullable=False, unique=True)
-    email = db.Column(db.String(255), nullable=False, unique=True)
+    email = db.Column(db.String(200), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
  
     recipes = db.relationship('Recipe', back_populates='user', foreign_keys='[Recipe.user_id]')
