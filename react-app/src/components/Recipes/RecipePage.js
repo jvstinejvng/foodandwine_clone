@@ -93,8 +93,7 @@ function RecipePage() {
                                     {recipe.created_at === recipe.updated_at ?
                                         <span className='RecipePageCreateAt'>Published on {recipe.created_at.split(' ').slice(1, 4).join(' ')}</span>
                                         :
-                                        <span className='RecipePageCreateAt'>Updated on 
-                                        {recipe.updated_at.split(' ').slice(1, 4).join(' ')}
+                                        <span className='RecipePageCreateAt'>Updated on {recipe.updated_at.split(' ').slice(1, 4).join(' ')}
                                         </span>
                                     }
                                 </div>
