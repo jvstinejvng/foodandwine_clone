@@ -75,7 +75,7 @@ function Homepage() {
                         </div>
                             <div className='HomepageBannerInfo'>
                                     {bannerRecipes.length > 0 && <div className='HomeBannerTitle'>{bannerRecipes[randomRecipe].title}</div>}
-                                    {bannerRecipes.length > 0 && <div className='HomeBannerUser'>{bannerRecipes[randomRecipe].user.firstName}&nbsp;{bannerRecipes[randomRecipe].user.lastName}</div>}
+                                    {bannerRecipes.length > 0 && <div className='HomeBannerUser'>{bannerRecipes[randomRecipe].user.username}</div>}
                             </div>
                     </div>
                         </NavLink>

@@ -70,7 +70,7 @@ const NavBar = () => {
                     <span className='NavBarUserBar'>
                         <img className='NavBarUserBarImage' alt="Profile Icon" src={usericon}/>
                             <div className='NavBarHelloUser'>
-                                hello, {sessionUser.firstName} {sessionUser.lastName}
+                                hello, {sessionUser.username}
                             </div>
                         <img className='NavBarUserBarImage' alt="Profile Icon" src={logout}/>  
                             < LogoutButton />

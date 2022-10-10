@@ -13,9 +13,9 @@ const SignUpForm = () => {
     const dispatch = useDispatch();
 
     const [errors, setErrors] = useState([]);
-    const [firstName, setFirstName] = useState("");
+    // const [firstName, setFirstName] = useState("");
     const [username, setUsername] = useState('');
-    const [lastName, setLastName] = useState("");
+    // const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [repeatPassword, setRepeatPassword] = useState('');
@@ -23,7 +23,7 @@ const SignUpForm = () => {
     const onSignUp = async (e) => {
       e.preventDefault();
       if (password === repeatPassword) {
-        const data = await dispatch(signUp(firstName.trim(), lastName.trim(), username.trim(),  email.trim(), password));
+        const data = await dispatch(signUp( username.trim(),  email.trim(), password));
         if (data) {
           setErrors(data);
         }
@@ -51,7 +51,7 @@ const SignUpForm = () => {
                       <div key={ind} className='SignUpFormError'>{error}</div>
                     ))}
                     </div>
-            <div className='SignUpFormInput'>
+            {/* <div className='SignUpFormInput'>
                   <label>First Name</label>
                     <small className='SignUpFormSmall'>&nbsp;(required)</small>
                   <input
@@ -63,8 +63,8 @@ const SignUpForm = () => {
                       required
                     placeholder="First Name"
                   ></input>
-            </div>
-            <div className='SignUpFormInput'>
+            </div> */}
+            {/* <div className='SignUpFormInput'>
                 <label>Last Name</label>
                   <small className='SignUpFormSmall'>&nbsp;(required)</small>
                 <input
@@ -76,7 +76,7 @@ const SignUpForm = () => {
                   value={lastName}
                   placeholder="Last Name"
                 ></input>
-            </div>
+            </div> */}
             <div className='SignUpFormInput'>
                 <label>Username</label>
                     <small className='SignUpFormSmall'>&nbsp;(required)</small>

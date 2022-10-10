@@ -20,7 +20,7 @@ function RecipeCard( {recipe} ) {
                     <div className='RecipeCardTitle'>
                         <h3 className='RecipeCardTitleText'>{recipe.title}</h3>
                         <div className='RecipeCardUser'>
-                            <h4 className='RecipeCardUserName'>by {recipe.user.firstName} {recipe.user.lastName}</h4>
+                            <h4 className='RecipeCardUserName'>by {recipe.user.username} </h4>
                         </div>
                     </div>
                 </div>
