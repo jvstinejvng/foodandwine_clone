@@ -65,7 +65,7 @@ function Homepage() {
             </div>
 
             <div className='HomepageBanner'>
-                        <NavLink to={bannerRecipes.length > 0 && `/recipes/${bannerRecipes[randomRecipe].id}`}>
+                        <NavLink to={bannerRecipes.length > 0 && `/recipes/${bannerRecipes[randomRecipe].id}`}  style={{textDecoration: 'none'}}>
                     <div className='HomepageBannerDiv'>
                         <div className='HomepageBannerImageDiv'>
                                 <img 
