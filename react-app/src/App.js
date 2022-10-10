@@ -20,7 +20,7 @@ import { authenticate } from './store/session';
 import { getRecipesThunk } from './store/recipe';
 import SearchBarResults from './components/SearchBarResults';
 // import NotFound from './components/NotFound';
-// import Footer from './components/Footer.js';
+import Footer from './components/Footer.js';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -79,7 +79,7 @@ function App() {
               <NotFound/>
             </Route> */}
           </Switch>
-    {/* <Footer /> */}
+    <Footer />
     </BrowserRouter>
   );
 }
