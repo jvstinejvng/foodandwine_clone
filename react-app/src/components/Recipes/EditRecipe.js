@@ -55,12 +55,12 @@ function EditRecipe( {recipe, setShowEditForm} ) {
         if (title.length <= 5) {
             newErrors["title"] = "❗ What's your recipe called? Your title input must be more than 5 characters.";
         } else if (title.length > 200) {
-            newErrors["title"] = "❗ Uh oh, you have exceeded the 150 character limit.";
+            newErrors["title"] = "❗ Uh oh, you have exceeded the 200 character limit.";
         }
         if (description.length <= 10) {
             newErrors["description"] = "❗ How would you describe this recipe? Your description input must be more than 10 characters.";
         } else if (description.length > 2000) {
-            newErrors["description"] = "❗ Uh oh, you have exceeded the 1000 character limit.";
+            newErrors["description"] = "❗ Uh oh, you have exceeded the 2000 character limit.";
         }
         if (!isValidImageUrl(image_url)) {
             newErrors["image_url"] = '❗ Your recipe\'s image URL input must end in .jpg, .jpeg, .png, or .tiff';
@@ -206,7 +206,7 @@ function EditRecipe( {recipe, setShowEditForm} ) {
                 <button className='EditRecipeButton' 
                         type='submit'
                         disabled={
-                        Object.values(validationErrors).every((x) => x === "") ? false : true
+                            Object.values(validationErrors).every((x) => x === "") ? false : true
                         }
                 >Submit Recipe</button> 
                 </div> 
