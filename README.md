@@ -1,8 +1,7 @@
 # Welcome to Bread & Butter!
  > Bread & Butter is a full-stack site inspired by the American magazine and website, Food & Wine. From creating to plating, share and discover recipes to a world of culinary enthusiasts and food lovers. All your recipes, all in one place.
 
-## Live Link:
-## [Bread & Butter](hhttps://breadandbutter.herokuapp.com/)
+## Live Link: [Bread & Butter](https://breadandbutter.herokuapp.com/)
 ###### [Inspired by Food & Wine](https://www.foodandwine.com/)
 ----
 ![Homepage](/read-me/homepageimg.png)
@@ -37,11 +36,11 @@
 ![Sign up](/read-me/SignUpPage.png)
 3. Recipe detail page
 ![Recipe Page](/read-me/recipecard.png)
-4. Create and edit a Recipe 
+4. Create a Recipe 
 ![Add a Recipe](/read-me/addrecipe.png)
-5. All user's recipes
+5. User's recipes
 ![User Recipes](/read-me/personalrecipes.png)
-7. Create, edit and delete a review 
+7. Create, edit and delete your reviews 
 ![Review](/read-me/review.png)
 
 ## **Local Server Setup**
