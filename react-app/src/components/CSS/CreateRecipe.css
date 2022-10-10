@@ -28,7 +28,7 @@
 /* add recipe sub header */
 .AddARecipeHeader {
     font-size: 50px;
-    margin-bottom: 0px;
+    margin-bottom: 10px;
     font-weight: 600;
     line-height: 1rem;
     letter-spacing: 0.5px;
