@@ -1,27 +1,12 @@
 # Welcome to Bread & Butter!
  > Bread & Butter is a full-stack site inspired by the American magazine and website, Food & Wine. From creating to plating, share and discover recipes to a world of culinary enthusiasts and food lovers. All your recipes, all in one place.
 
-## Live Link: [Bread & Butter!](hhttps://breadandbutter.herokuapp.com/)
 ###### [Inspired by Food & Wine](https://www.foodandwine.com/)
- 
- 
- 
-## **Wiki Links**
-------------
-### [• Database Schema](https://github.com/jvstinejvng/foodandwine_clone/wiki/Database-Schema) 
-### [• Features](https://github.com/jvstinejvng/foodandwine_clone/wiki/Features) 
-### [• Users Stories](https://github.com/jvstinejvng/foodandwine_clone/wiki/Users-Stories) 
 
-## **Features**
-------------
-1. Sign up, log in & demo user 
-2. Homepage
-3. Listing detail page
-4. Create and edit a listing 
-5. All user's reviews
-6. All user's listings
-7. Create a review 
-
+## Live Link: [Bread & Butter!](hhttps://breadandbutter.herokuapp.com/)
+----
+![Homepage](/read-me/homepageimg.png)
+ 
 ## **Technologies Used**
 ------------
  ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
@@ -38,7 +23,23 @@
 ![Heroku](https://img.shields.io/badge/heroku-%23430098.svg?style=for-the-badge&logo=heroku&logoColor=white) 
 ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
 
+ 
+## **Wiki Links**
+------------
+### [• Database Schema](https://github.com/jvstinejvng/foodandwine_clone/wiki/Database-Schema) 
+### [• Features](https://github.com/jvstinejvng/foodandwine_clone/wiki/Features) 
+### [• Users Stories](https://github.com/jvstinejvng/foodandwine_clone/wiki/Users-Stories) 
 
+
+## **Features**
+------------
+1. Sign up, log in & demo user 
+2. Homepage
+3. Listing detail page
+4. Create and edit a listing 
+5. All user's reviews
+6. All user's listings
+7. Create a review 
 
 
 ## **Local Server Setup**
