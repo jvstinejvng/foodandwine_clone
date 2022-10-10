@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory, useParams, NavLink } from 'react-router-dom'
+import { FaStar } from 'react-icons/fa'
+
 
 import { deleteRecipeThunk } from '../../store/recipe'
 import EditRecipe from './EditRecipe'
@@ -73,6 +75,9 @@ function RecipePage() {
                                         :
                                         <div className='RecipePageWithReview'>
                                             {average_rating(recipe)}
+                                            <span>
+                                            <FaStar/>
+                                            </span>
                                             <span className='RecipePageDividerChar'> | </span>
                                             {recipe.comments.length} reviews 
                                         </div>
