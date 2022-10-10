@@ -54,12 +54,12 @@ function EditRecipe( {recipe, setShowEditForm} ) {
         const newErrors = {};
         if (title.length <= 5) {
             newErrors["title"] = "❗ What's your recipe called? Your title input must be more than 5 characters.";
-        } else if (title.length > 150) {
+        } else if (title.length > 200) {
             newErrors["title"] = "❗ Uh oh, you have exceeded the 150 character limit.";
         }
         if (description.length <= 10) {
             newErrors["description"] = "❗ How would you describe this recipe? Your description input must be more than 10 characters.";
-        } else if (description.length > 1000) {
+        } else if (description.length > 2000) {
             newErrors["description"] = "❗ Uh oh, you have exceeded the 1000 character limit.";
         }
         if (!isValidImageUrl(image_url)) {

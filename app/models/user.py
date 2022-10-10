@@ -10,8 +10,8 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(50), nullable=False, unique=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
-    first_name = db.Column(db.String(50), nullable=False)
-    last_name = db.Column(db.String(50), nullable=False)
+    first_name = db.Column(db.String(100), nullable=False)
+    last_name = db.Column(db.String(100), nullable=False)
 
     recipes = db.relationship('Recipe', back_populates='user', foreign_keys='[Recipe.user_id]')
     comments = db.relationship('Comment', back_populates='user', foreign_keys='[Comment.user_id]')
@@ -31,7 +31,7 @@ class User(db.Model, UserMixin):
         return {
             'id': self.id,
             'firstName': self.first_name,
-            'lastLast': self.last_name,
+            'lastName': self.last_name,
             'username': self.username,
             'email': self.email,
         }

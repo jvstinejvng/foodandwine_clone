@@ -9,19 +9,19 @@ def seed_users():
     wolfgang = User(
         username='WolfgangPuck', email='wolfgangpuck@aa.io', first_name='Wolfgang ', last_name = 'Puck', password='password')
     guy = User(
-        username='Flavortown', email='flavortown@aa.io', first_name='Wolfgang ', last_name = 'Puck',  password='password')
+        username='Flavortown', email='flavortown@aa.io', first_name= 'Guy', last_name = 'Fieri',  password='password')
     rachael = User(
-       username='RachaelRay', email='rachaelray@aa.io', first_name='Wolfgang ', last_name = 'Puck', password='password')
+       username='RachaelRay', email='rachaelray@aa.io', first_name='Rachel', last_name = 'Ray', password='password')
     david = User(
-        username='UglyDelicious', email='uglydelicious@aa.io',  first_name='Wolfgang ', last_name = 'Puck', password='password')
+        username='UglyDelicious', email='uglydelicious@aa.io',  first_name='David', last_name = 'Chang', password='password')
     mark = User(
-       username='Wahlburgers', email='wahlburgers@aa.io',  first_name='Wolfgang ', last_name = 'Puck', password='password')
+       username='Wahlburgers', email='wahlburgers@aa.io',  first_name='Mark', last_name = 'Wahlberg', password='password')
     betty = User(
-       username='BettyCrocker', email='bettycrocker@aa.io',  first_name='Wolfgang ', last_name = 'Puck', password='password')
+       username='BettyCrocker', email='bettycrocker@aa.io',  first_name='Betty', last_name = 'Crocker', password='password')
     buddy = User(
-       username='CakeBoss', email='cakeboss@aa.io',  first_name='Wolfgang ', last_name = 'Puck', password='password')
+       username='CakeBoss', email='cakeboss@aa.io',  first_name='Buddy', last_name = 'Valastro', password='password')
     thomas = User(
-       username='ThomasKeller', email='thomaskeller@aa.io',  first_name='Wolfgang ', last_name = 'Puck', password='password')
+       username='ThomasKeller', email='thomaskeller@aa.io',  first_name='Thomas ', last_name = 'Keller', password='password')
     
 
     # db.session.add(demo)

@@ -19,13 +19,16 @@
     width: 600px;
     height: auto;
     overflow-wrap: break-word;
+    line-height: 1.75rem;
+
 }
 
 .FeaturedRecipeText {
     font-size: 40px;
     font-weight: 700;
     font-family: Georgia, 'Times New Roman', Times, serif;    
-    line-height: 1.65rem;
+    line-height: 3rem;
+    letter-spacing: 0.5px;
     overflow-wrap: break-word;
     text-decoration: none;
     color: black

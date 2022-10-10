@@ -7,7 +7,7 @@ function RecipeCard( {recipe} ) {
     if(!recipe) return null
     
     return (
-        <Link to={`/recipes/${recipe.id}`}>
+        <Link to={`/recipes/${recipe.id}`} style={{textDecoration: 'none'}}>
             <div
             className='RecipeCardDiv'>
                 <div className='RecipeCardImageDiv'>
@@ -20,7 +20,7 @@ function RecipeCard( {recipe} ) {
                     <div className='RecipeCardTitle'>
                         <h3 className='RecipeCardTitleText'>{recipe.title}</h3>
                         <div className='RecipeCardUser'>
-                            <h4 className='RecipeCardUserName'>by {recipe.user.username}</h4>
+                            <h4 className='RecipeCardUserName'>by {recipe.user.firstName} {recipe.user.lastName}</h4>
                         </div>
                     </div>
                 </div>

@@ -82,7 +82,7 @@ function RecipePage() {
                         <p className='RecipePageDescription'>{recipe.description}</p>
                             <div className='RecipePageUser'>
                                 By 
-                                <div className='RecipePageUserName'>{recipe.user.username}</div>
+                                <div className='RecipePageUserName'>{recipe.user.firstName} {recipe.user.lastName}</div>
                                     <span className='RecipePageDividerChar2'> | </span>
                                     {recipe.created_at === recipe.updated_at ?
                                         <span className='RecipePageCreateAt'>Published on {recipe.created_at.split(' ').slice(1, 4).join(' ')}</span>
