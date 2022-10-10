@@ -66,9 +66,9 @@ function App() {
             {/* <Route path='/recipes/search/:term' exact={true}>
               <SearchBarResults />
             </Route> */}
-            <Route path='/new-recipe' exact={true} >
+            <ProtectedRoute path='/new-recipe' exact={true} >
               <CreateRecipe />
-            </Route>
+            </ProtectedRoute>
             <ProtectedRoute path='/my-recipes' exact={true} >
               <UserRecipes />
             </ProtectedRoute>
