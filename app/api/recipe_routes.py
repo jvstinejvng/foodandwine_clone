@@ -19,7 +19,7 @@ def post_recipe():
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         recipe = Recipe(
-            
+           
             user_id = form.data['user_id'],
             title = form.data['title'],
             description = form.data['description'],

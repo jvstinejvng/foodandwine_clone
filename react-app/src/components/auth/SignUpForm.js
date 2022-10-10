@@ -51,32 +51,7 @@ const SignUpForm = () => {
                       <div key={ind} className='SignUpFormError'>{error}</div>
                     ))}
                     </div>
-            {/* <div className='SignUpFormInput'>
-                  <label>First Name</label>
-                    <small className='SignUpFormSmall'>&nbsp;(required)</small>
-                  <input
-                      className='InputSignUpField'
-                      type='text'
-                      name='firstName'
-                      onChange={(e) => setFirstName(e.target.value)}
-                      value={firstName}
-                      required
-                    placeholder="First Name"
-                  ></input>
-            </div> */}
-            {/* <div className='SignUpFormInput'>
-                <label>Last Name</label>
-                  <small className='SignUpFormSmall'>&nbsp;(required)</small>
-                <input
-                  className='InputSignUpField'
-                  type='text'
-                  name='lastName'
-                  required
-                  onChange={(e) => setLastName(e.target.value)}
-                  value={lastName}
-                  placeholder="Last Name"
-                ></input>
-            </div> */}
+    
             <div className='SignUpFormInput'>
                 <label>Username</label>
                     <small className='SignUpFormSmall'>&nbsp;(required)</small>
