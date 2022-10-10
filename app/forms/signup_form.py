@@ -19,10 +19,15 @@ def username_exists(form, field):
     if user:
         raise ValidationError('* This username is already exists. Please use another.')
 
+def password_length(form, field):
+    password = field.data
+    if len(password) < 6:
+        raise ValidationError("Password must be 6 characters or more.")
+
 
 class SignUpForm(FlaskForm):
     username = StringField(
         'username', validators=[DataRequired(message='* Please enter a username'), username_exists])
-
     email = StringField('email', validators=[DataRequired(message='* Please enter your email'), Email(message='* Please enter a valid email address'), user_exists])
-    password = StringField('password', validators=[DataRequired(message='* Please create a password')])
+    password = StringField('password', validators=[
+                           DataRequired('Password is required.'), password_length, Length(max=200, message='Password length cannot exceed 200 characters.')])
