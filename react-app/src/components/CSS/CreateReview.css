@@ -6,38 +6,128 @@
     /* margin-top: 40px; */
 }
 
+/* create review inside container */
+.ReviewInputDiv {
+    padding: 20px;
+}
+
+/* submit button div */
 .CreateReviewSubmit {
     display: flex;
     justify-content: flex-end;
-    padding: 10px;
+    width: 96%;
+    margin-right: 10px;
 }
 
+.ReviewSubmitButton {
+    font-size: 14px;
+    line-height: 1.25rem;
+    letter-spacing: 0.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-underline-offset: 0.25rem;
+    background-color: black;
+    border: none;
+    color:white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    padding:10px 28px;
+    width: 20%;
+}
+
+.ReviewSubmitButton:disabled {
+    color: rgba(255, 255, 255, 0.536);
+    background-color: grey;
+    border: none;
+}
+
+/* user review text box */
 .ReviewInputTextBox textarea {
-    padding: 6px ;
-    width: 95%;
-    height: auto;
-    min-height: 90px;
-    border: 1px solid rgba(113, 116, 118, 0.256);
-    font-size: 13px;
-    cursor: text;
     resize: none;
     overflow-y: scroll;
-    overflow-y: hidden;
+    padding: 10px;
+    width: 95%;
+    min-height: 150px;
+    letter-spacing: 0.5px;
+    height: auto;
+    border: 1px solid rgba(0,0,0,0.3);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 1.50rem;
+    cursor: text;
+    margin-top: 10px;
 }
 
-.ReviewUserName {
+/* recipe title for review */
+.ReviewTitle {
     display: flex;
     flex-direction: column;
-    margin-bottom: 20px;
-    font-size: 22px;
+    margin-bottom: 30px;
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1.75rem;
+    letter-spacing: 0.5px;
+    overflow-wrap: break-word;
 }
 
+/* stars div  */
 .CreateReviewStars {
     display: flex;
     flex-direction: column;
-    margin-bottom: 20px;
-    font-size: 22px;
-
+    margin-bottom: 30px;
 }
 
+/* your rating */
+.CreateReviewStarDivText {
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    line-height: 1.65rem;
+    letter-spacing: 0.5px;
+    overflow-wrap: break-word;
+}
 
+.ReviewRequired {
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 0.5px;
+    color: grey
+}
+
+/* you've already review */
+.CreateReviewStarDivReviewed {
+    font-size: 24px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    line-height: 1.65rem;
+    letter-spacing: 0.5px;
+    overflow-wrap: break-word;
+}
+
+.ReviewCommentPost {
+    margin-top: 0px;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.65rem;
+    letter-spacing: 0.5px;
+    overflow-wrap: break-word;
+    font-style: italic;
+}
+
+.ReviewCommentText {
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    line-height: 1.65rem;
+    letter-spacing: 0.5px;
+    overflow-wrap: break-word;
+}
+
+.ReviewOptional {
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 0.5px;
+    color: grey
+
+}

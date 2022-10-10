@@ -13,18 +13,27 @@ function CreateReview( {recipe} ) {
     const sessionUser = useSelector(state => state.session.user)
 
     const [submitted, setSubmitted] = useState(false)
-    const [validError, setValidError] = useState([])
+    const [validError, setValidError] = useState({
+        rating: null,
+        body: ""
+    })
 
     const [rating, setRating] = useState(null)
     const [body, setBody] = useState('')
 
-    useEffect(() => {
-        let error = []
-        if (!rating) error.push('A rating is required before submitting.')
-        if (body.length > 1000) error.push('You\'ve exceeded the 1000 character limit.')
-        setValidError(error)
-    }, [rating, body])
+    // const updateRating = (e) => setRating(e.target.value);
+    // const updateBody = (e) => setBody(e.target.value);
 
+    useEffect(() => {
+        const newErrors = {};
+        if (!rating) {
+            newErrors["rating"] = "❗ Please rate the recipe.";
+        } 
+        if (body.length  > 1000) {
+            newErrors["body"] = "❗You\'ve exceeded the 1000 character limit.";
+        } 
+        setValidError(newErrors);
+    }, [rating, body, validError.length]);
 
     const handleSubmit = async(e) => {
         e.preventDefault()
@@ -65,61 +74,57 @@ function CreateReview( {recipe} ) {
         <>
             <form onSubmit={handleSubmit} className='CreateReviewForm'>
                 <div className='ReviewInputDiv'>
-                    <div className='ReviewUserName'>
-                            <div>
-                              {recipe.title} 
-                            </div>
-                     
-                        </div>
-                        {submitted && validError.length > 0 &&
-                            <div className='CreateReviewError'>
-                                    {validError.map(error => (
-                                <div className='CreateReviewError' key={error}>{error}</div>
-                            ))}
-                            </div>
-                         }
-
-                    <div className='CreateReviewStars'>
+                    <div className='ReviewTitle'>
+                            <div className="ReviewTitleText">{recipe.title}</div>
+                     </div>
+                    <div className='CreateReviewStars'>     
                         <div>
-                            Your Rating
-                        </div>
-                        <div>
-                        <StarRating rating={rating} setRating={setRating}/>
+                            {reviewed ?
+                                <div className="CreateReviewStarDivReviewed"> You've already added a review for this recipe. </div>
+                                : 
+                                <div>
+                                <span className="CreateReviewStarDivText">Your Rating</span>
+                                <small className="ReviewRequired">&nbsp;(required)</small>
+                                        <StarRating rating={rating} setRating={setRating}/>
+                                <div className="CreateRecipeError">{validError?.rating}</div>
+                                </div>
+                            }
                         </div>
                     </div>
-                    <div className='ReviewInputTextBox'>
-                        <div>
-                        Your Review
+                        <div className='ReviewInputTextBox'>
+                            <div className='ReviewCommentDiv'>
+                                {reviewed ?
+                                    <div className='ReviewCommentPost'>
+                                        See your your review post below to edit or delete your review. 
+                                    </div>  
+                                    : 
+                                    <div>
+                                        <span className='ReviewCommentText'>Your Review</span> 
+                                        <small  className="ReviewOptional">&nbsp;(optional)</small>
+                                         <textarea
+                                            className='CreateReviewText'
+                                            placeholder='What did you think about this recipe? Did you make any changes or notes?'
+                                            value={body}
+                                            onChange={(e) => setBody(e.target.value)}
+                                        ></textarea>  
+                                    <div className="CreateRecipeError">{validError?.body}</div>
+                                    </div>   
+                                }
+                            </div>
                         </div>
-                        <div>
-                        {reviewed ?
-                            <textarea
-                            className='CreateReviewDisabled'
-                            placeholder='You have already made a review for this recipe!'
-                            value={body}
-                            onChange={(e) => setBody(e.target.value)}
-                            disabled
-                            ></textarea>
-                        :
-                            <textarea
-                                className='CreateReviewText'
-                                placeholder='What did you think about this recipe? Did you make any changes or notes?'
-                                value={body}
-                                onChange={(e) => setBody(e.target.value)}
-                                ></textarea>
-                        }
-                        </div>
-             
-                    </div>
                 </div>
                 <div className='CreateReviewSubmit'>
-                    {reviewed ?
-                        <span id='CreateReviewSubmitDisabled' disabled></span>
-                    :
-                        <button>Submit</button>
-                    }
+                        {reviewed ?
+                            <span className='CreateReviewSubmitDisabled' disabled></span>
+                            :
+                            <button className="ReviewSubmitButton" 
+                            disabled={
+                                Object.values(validError).every((x) => x === "") ? false : true
+                            }
+                            >Submit</button>
+                        }
                 </div>
-            </form>
+                </form>
         </>
         </div>
     )

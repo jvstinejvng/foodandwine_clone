@@ -103,7 +103,8 @@
     color: white;
     font-family: Georgia, 'Times New Roman', Times, serif;    font-size: 22px;
     font-weight: 700;
-    line-height: 1.625rem;
+    line-height: 1.65rem;
+
     letter-spacing: 0.5px;
     font-size: 18px;
     text-decoration: none;
@@ -112,7 +113,8 @@
 .HomeBannerUser {
     color: white;
     font-family: Georgia, 'Times New Roman', Times, serif;    font-size: 22px;
-    line-height: 1.625rem;
+    line-height: 1.65rem;
+
     letter-spacing: 0.5px;
     padding-bottom: 10px;
     font-size: 16px;
