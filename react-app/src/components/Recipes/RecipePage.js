@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory, useParams, NavLink } from 'react-router-dom'
 import { FaStar } from 'react-icons/fa'
-
+import NotFound from '../NotFound.js'
 
 import { deleteRecipeThunk } from '../../store/recipe'
 import EditRecipe from './EditRecipe'
@@ -152,6 +152,7 @@ function RecipePage() {
                             <div className='RecipePageBottom'>
                                 <ReviewContainer recipe={recipe} />
                             </div>
+
                     </>
             
                     // :
@@ -168,8 +169,12 @@ function RecipePage() {
                         //     </div>
                         // </div>
                         
+                  
                 }
+                                      
             </div>
+
+        
         </div>
     )
 }

@@ -19,7 +19,7 @@ import { authenticate } from './store/session';
 
 import { getRecipesThunk } from './store/recipe';
 import SearchBarResults from './components/SearchBarResults';
-// import NotFound from './components/NotFound';
+import NotFound from './components/NotFound.js';
 import Footer from './components/Footer.js';
 
 function App() {
@@ -75,11 +75,11 @@ function App() {
             <Route path='/recipes/:id'>
               <RecipePage/>
             </Route>
-            {/* <Route>
+            <Route>
               <NotFound/>
-            </Route> */}
+            </Route>
           </Switch>
-    <Footer />
+          <Footer />
     </BrowserRouter>
   );
 }
