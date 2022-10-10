@@ -34,12 +34,15 @@
 ## **Features**
 ------------
 1. Sign up, log in & demo user 
-2. Homepage
+![Sign up](/read-me/SignUpPage.png)
 3. Recipe detail page
+![Recipe Page](/read-me/recipecard.png)
 4. Create and edit a Recipe 
+![Add a Recipe](/read-me/addrecipe.png)
 5. All user's recipes
+![User Recipes](/read-me/personalrecipes.png)
 7. Create, edit and delete a review 
-
+![Review](/read-me/review.png)
 
 ## **Local Server Setup**
 ------------
