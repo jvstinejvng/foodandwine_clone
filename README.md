@@ -1,9 +1,9 @@
 # Welcome to Bread & Butter!
  > Bread & Butter is a full-stack site inspired by the American magazine and website, Food & Wine. From creating to plating, share and discover recipes to a world of culinary enthusiasts and food lovers. All your recipes, all in one place.
 
+## Live Link:
+## [Bread & Butter](hhttps://breadandbutter.herokuapp.com/)
 ###### [Inspired by Food & Wine](https://www.foodandwine.com/)
-
-## Live Link: [Bread & Butter!](hhttps://breadandbutter.herokuapp.com/)
 ----
 ![Homepage](/read-me/homepageimg.png)
  
