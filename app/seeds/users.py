@@ -3,25 +3,25 @@ from app.models.user import db, User
 
 def seed_users():
     demo = User(
-         username='DemoChef', email='homechef@aa.io', password='password')
+         username='DemoChef', email='homechef@aa.io', first_name='Demo', last_name = 'Chef', password='password')
     gordon = User(
-        username='MasterChef', email='masterchef@aa.io', password='password')
+        username='MasterChef', email='masterchef@aa.io', first_name='Gordon', last_name = 'Ramsay',  password='password')
     wolfgang = User(
-        username='WolfgangPuck', email='wolfgangpuck@aa.io', password='password')
+        username='WolfgangPuck', email='wolfgangpuck@aa.io', first_name='Wolfgang ', last_name = 'Puck', password='password')
     guy = User(
-        username='Flavortown', email='flavortown@aa.io', password='password')
+        username='Flavortown', email='flavortown@aa.io', first_name='Wolfgang ', last_name = 'Puck',  password='password')
     rachael = User(
-       username='RachaelRay', email='rachaelray@aa.io', password='password')
+       username='RachaelRay', email='rachaelray@aa.io', first_name='Wolfgang ', last_name = 'Puck', password='password')
     david = User(
-        username='UglyDelicious', email='uglydelicious@aa.io', password='password')
+        username='UglyDelicious', email='uglydelicious@aa.io',  first_name='Wolfgang ', last_name = 'Puck', password='password')
     mark = User(
-       username='Wahlburgers', email='wahlburgers@aa.io', password='password')
+       username='Wahlburgers', email='wahlburgers@aa.io',  first_name='Wolfgang ', last_name = 'Puck', password='password')
     betty = User(
-       username='BettyCrocker', email='bettycrocker@aa.io', password='password')
+       username='BettyCrocker', email='bettycrocker@aa.io',  first_name='Wolfgang ', last_name = 'Puck', password='password')
     buddy = User(
-       username='CakeBoss', email='cakeboss@aa.io', password='password')
+       username='CakeBoss', email='cakeboss@aa.io',  first_name='Wolfgang ', last_name = 'Puck', password='password')
     thomas = User(
-       username='ThomasKeller', email='thomaskeller@aa.io', password='password')
+       username='ThomasKeller', email='thomaskeller@aa.io',  first_name='Wolfgang ', last_name = 'Puck', password='password')
     
 
     # db.session.add(demo)

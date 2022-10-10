@@ -9,7 +9,7 @@ def user_exists(form, field):
     email = field.data
     user = User.query.filter(User.email == email).first()
     if user:
-        raise ValidationError('Email address is already in use.')
+        raise ValidationError('* This email address is already exists. Please use another.')
 
 
 def username_exists(form, field):
@@ -17,24 +17,15 @@ def username_exists(form, field):
     username = field.data
     user = User.query.filter(User.username == username).first()
     if user:
-        raise ValidationError('Username is already in use.')
+        raise ValidationError('* This username is already exists. Please use another.')
 
 
 class SignUpForm(FlaskForm):
     username = StringField(
-        'username', validators=[
-            DataRequired(message="Enter your username"), 
-            username_exists,
-            Length(min=2, max=40, message="Username must be between 2 to 40 characters")
-            ])
-    email = StringField(
-        'email', 
-        validators=[ DataRequired(message="Enter your email"), 
-            user_exists, 
-            Email(message="Please provide a valid email"),
-            ])
-    password = StringField('password', validators=[
-            DataRequired(message="Enter your password"),
-            Length(min=6, message="Password must be at least 6 characters")
-            ])
-
+        'username', validators=[DataRequired(message='* Please enter a username'), username_exists])
+    first_name = StringField(
+        'first_name', validators=[DataRequired('First name is required.'), Length(max=50, message='First name cannot exceed 50 characters.')])
+    last_name = StringField(
+        'last_name', validators=[DataRequired('Last name is required.'), Length(max=50, message='First name cannot exceed 50 characters.')])
+    email = StringField('email', validators=[DataRequired(message='* Please enter your email'), Email(message='* Please enter a valid email address'), user_exists])
+    password = StringField('password', validators=[DataRequired(message='* Please create a password')])

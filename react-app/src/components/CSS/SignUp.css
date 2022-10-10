@@ -1,7 +1,157 @@
-.signUpForm {
+.SignUpFormDiv {
     position: relative;
     display: flex;
     flex-direction: column;
+    align-items: center;
     top: 175px;
+}
 
+.SignUpFormContainer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 30%;
+}
+
+.SignUpFormTitleText {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    font-size: 50px;
+    margin-bottom: 0px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-align: flex-start;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.SignUpFormTitleSubText {
+    font-size: 22px;
+    line-height: 1.75rem;
+    letter-spacing: 0.5px;
+    padding-bottom: 20px; 
+    width: 100%;
+    border-bottom: 1px solid rgba(113, 116, 118, 0.256);
+}
+
+.SignUpForm {
+    display: flex;
+    flex-direction: column;   
+}
+
+.SignUpFormError {
+    color: red;
+    font-size: 14px;
+    margin-bottom: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.50rem;
+    letter-spacing: 0.5px;
+}
+
+.SignUpFormInput {
+    font-size: 14px;
+    color: #222;
+    margin: 20px 0 0 0;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 0.5px;
+}
+
+.InputSignUpField {
+    display: flex;
+    height: 30px;
+    width: 97%;
+    outline: none;
+    border: 1px solid rgba(0,0,0,0.3);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 1.50rem;
+    cursor: text;
+    margin-top: 5px;
+    margin-bottom: 3px;
+    padding: 10px;
+}
+
+.SignUpLogInOption {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0px 30px 0px;
+    font-size: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 200px;
+    line-height: 1.25rem;
+    letter-spacing: 0.5px;
+    color: black;
+
+}
+
+.SignUpLogInOptionText {
+    display: flex;
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+
+}
+
+.SignUpFormInput label{
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5rem;
+    letter-spacing: 0.5px;
+    font-weight: 700;
+}
+
+.SignUpFormButtonDiv {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    padding-top: 30px;
+}
+
+.SignUpFormButton {
+    font-size: 18px;
+    line-height: 1.25rem;
+    letter-spacing: 0.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-underline-offset: 0.25rem;
+    background-color: black;
+    border: none;
+    color:white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px 5px 10px 5px;
+    width: 200px;
+}
+
+.SignUpBottomDiv {
+    display: flex;
+    justify-content: flex-end;
+    border-bottom: 1px solid rgba(113, 116, 118, 0.256);
+    margin-bottom: 50px;
+}
+
+.LogInLinkButton {
+    cursor: pointer;
+    width: 30%;
+    color: black;
+    border: 0.1875rem solid black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    text-transform: uppercase;
+    background-color: white;
+    letter-spacing: 1px;
+    font-weight: 700;
+    padding: 1px;
+    text-align: center;
+    margin-top: 5px;
+    text-decoration: none;
+}
+
+
+.SignInLogLink {
+    color: black;
 }
