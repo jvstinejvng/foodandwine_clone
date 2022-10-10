@@ -4,8 +4,8 @@ import { useDispatch } from 'react-redux';
 
 import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
-import UsersList from './components/UsersList.js';
-import User from './components/User.js';
+// import UsersList from './components/UsersList.js';
+// import User from './components/User.js';
 
 import NavBar from './components/NavBar.js';
 import Homepage from './components/Homepage.js';
@@ -51,21 +51,21 @@ function App() {
             <Route path='/sign-up' exact={true}>
               <SignUpForm />
             </Route>
-            <ProtectedRoute path='/users' exact={true} >
+            {/* <ProtectedRoute path='/users' exact={true} >
               <UsersList/>
-            </ProtectedRoute>
-            <ProtectedRoute path='/users/:userId' exact={true} >
+            </ProtectedRoute> */}
+            {/* <ProtectedRoute path='/users/:userId' exact={true} >
               <User />
-            </ProtectedRoute>
+            </ProtectedRoute> */}
             <Route path='/' exact={true} >
               <Homepage />
             </Route>
             <Route path='/recipes' exact={true}>
               <AllRecipes />
             </Route>
-            <Route path='/recipes/search/:term' exact={true}>
+            {/* <Route path='/recipes/search/:term' exact={true}>
               <SearchBarResults />
-            </Route>
+            </Route> */}
             <Route path='/new-recipe' exact={true} >
               <CreateRecipe />
             </Route>
