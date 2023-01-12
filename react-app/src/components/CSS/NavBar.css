@@ -40,7 +40,7 @@
     display: flex;
     position: relative;
     justify-content: space-evenly;
-    width: 400px;
+    width: auto;
 }
 
 /* log in, sign in and demo container */
