@@ -20,8 +20,9 @@ const NavBar = () => {
 
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user)
-
+  
   const [searchBar, setSearchBar] = useState(false)
+
 
   const demoLogin = async e => {
     e.preventDefault();
@@ -31,6 +32,12 @@ const NavBar = () => {
     return <Redirect to='/' />
   }
 
+
+  const searchbutton = () => {
+    setSearchBar(!searchBar)
+  }
+
+
   return (
       <div className='NavBarMainDiv'>
           <div className='NavBarTopContainer'>
@@ -38,18 +45,23 @@ const NavBar = () => {
                       <img alt="bread and butter logo" src={breadandbutter} />
                   </Link>
             <div className='NavBarTopRight'>
-                <span className='NavBarUserBar'>
+                  <span className='NavBarUserBarSearch'>
                   <img
                       src={MagnifyingGlassIcon}
-                      alt='Magnifying Glass Icon'
-                      className='MagnifyingGlassIcon'
-                      onClick={() => setSearchBar(!searchBar)}
-                      title='Search'/>
-                    {searchBar && (
+                      alt='Search'
+                      id='MagnifyingGlassIcon'
+                      onClick={searchbutton}
+                      title='search'/>
+                      <p id="help"></p>
+                    {searchBar && sessionUser && (
                       <SearchBar setShowSearch={setSearchBar}/>
-                    )}       
-                </span>
-              {!sessionUser &&
+                      
+                    )}  
+                     {searchBar && !sessionUser && (
+                      <SearchBar setShowSearch={setSearchBar}/>
+                    )}    
+                  </span>
+              {!sessionUser && !searchBar &&
                     <span className='NavBarUserBar'>
                         <img className='NavBarUserBarImage' alt="Profile Icon" src={profileicon}/>
                               <NavLink className='NavBarUserLogLinks' to='/log-in' exact={true} activeClassName='active'>
@@ -66,7 +78,7 @@ const NavBar = () => {
                       </span>   
                       
               }
-              {sessionUser &&
+              {sessionUser && !searchBar &&
                     <span className='NavBarUserBar'>
                         <img className='NavBarUserBarImage' alt="Profile Icon" src={usericon}/>
                             <div className='NavBarHelloUser'>

@@ -13,10 +13,10 @@ function SearchBarResults() {
     const recipes = useSelector(state => state.recipes)
 
     useEffect(() => {
-        const fetchRecipes = async () => {
+        const searchRecipes = async () => {
             await dispatch(getRecipesThunk())
         }
-        fetchRecipes().catch(console.error)
+        searchRecipes().catch(console.error)
     }, [dispatch])
 
     let searchResults

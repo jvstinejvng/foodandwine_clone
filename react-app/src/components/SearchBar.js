@@ -6,6 +6,7 @@ import { getRecipesThunk } from '../store/recipe'
 import './CSS/SearchBar.css'
 
 function SearchBar({ setShowSearch }) {
+
     const dispatch = useDispatch()
     const history = useHistory()
     const [searchTerm, setSearchTerm] = useState('')
@@ -14,10 +15,10 @@ function SearchBar({ setShowSearch }) {
     const recipes = useSelector(state => state.recipes)
 
     useEffect(() => {
-        const fetchRecipes = async () => {
+        const searchRecipes = async () => {
             await dispatch(getRecipesThunk())
         }
-        fetchRecipes().catch(console.error)
+        searchRecipes().catch(console.error)
     }, [dispatch])
 
     const handleFilter = (e) => {
@@ -26,7 +27,6 @@ function SearchBar({ setShowSearch }) {
         const newFilter = Object.values(recipes).filter(recipe => {
             return recipe.title.toLowerCase().includes(searchWord.toLowerCase())
         })
-
         if (searchWord === '') {
             setFilteredResults([])
         } else {
@@ -46,25 +46,26 @@ function SearchBar({ setShowSearch }) {
         setShowSearch(false)
     }
 
-
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
+        <div className='SearchBar'>
+            <form onSubmit={handleSubmit} className='searchBoxForm'>
                 <input
+                    className='SearchBarInput'
                     type='text'
                     value={searchTerm}
                     onChange={handleFilter}
                     placeholder='Search recipes'/>
                 <div >
-                    <div
+                    <div 
                         onClick={searchTerm.length ? clearInput : () => setShowSearch(false)}
-                        title={searchTerm.length ? 'Clear Search' : 'Close Search'}></div>
+                        title={searchTerm.length ? 'Clear Search' : 'Close Search'}>
+                    </div>
                 </div>
             </form>
             {filteredResults.length > 0 && (
                 <div >
                     {filteredResults && (
-                        filteredResults.slice(0, 4).map((result, idx) => (
+                        filteredResults.slice(0, 3).map((result, idx) => (
                             <Link
                                 to={`/recipes/${result.id}`}>
                                 <div
