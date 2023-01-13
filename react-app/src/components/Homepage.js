@@ -22,10 +22,10 @@ function Homepage() {
     const cookingRecipes = useSelector(state => Object.values(state.recipes).slice(0, 3))
 
     useEffect(() => {
-        const fetchRecipes = async () => {
+        const searchRecipes = async () => {
             await dispatch(getRecipesThunk())
         }
-        fetchRecipes().catch(console.error)
+        searchRecipes().catch(console.error)
     }, [dispatch])
 
 

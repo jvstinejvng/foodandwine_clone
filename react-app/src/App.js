@@ -31,10 +31,10 @@ function App() {
       await dispatch(authenticate());
       setLoaded(true);
     })();
-    const fetchRecipes = async () => {
+    const searchRecipes = async () => {
       await dispatch(getRecipesThunk())
     }
-    fetchRecipes().catch(console.error)
+    searchRecipes().catch(console.error)
   }, [dispatch]);
 
   if (!loaded) {
