@@ -22,6 +22,10 @@ def seed_users():
        username='CakeBoss', email='cakeboss@aa.io', password='password')
     thomas = User(
        username='ThomasKeller', email='thomaskeller@aa.io', password='password')
+    bobby = User(
+       username='IronChefFlay', email='bobbyflay@aa.io', password='password')
+    martin = User(
+       username='YanCanCook', email='martinyan@aa.io', password='password')
     
 
     # db.session.add(demo)
@@ -36,7 +40,7 @@ def seed_users():
     # db.session.add(thomas)
 
 
-    users = [demo, gordon, wolfgang, guy, rachael, david, mark, betty, buddy, thomas]
+    users = [demo, gordon, wolfgang, guy, rachael, david, mark, betty, buddy, thomas, bobby, martin]
     for user in users:
         db.session.add(user)
     
