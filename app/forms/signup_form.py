@@ -26,8 +26,9 @@ def password_length(form, field):
 
 
 class SignUpForm(FlaskForm):
-    username = StringField(
-        'username', validators=[DataRequired(message='Please enter a username'), username_exists, Length(max=50, message='Username length cannot exceed 50 characters.')])
+    username = StringField('username', validators=[DataRequired(message='Please enter a username'), username_exists, Length(max=50, message='Username length cannot exceed 50 characters.')])
+    first_name = StringField('First Name', validators=[DataRequired(message='Please enter your first name')])
+    last_name = StringField('Last Name', validators=[DataRequired(message='Please enter your last name')])
     email = StringField('email', validators=[DataRequired(message='Please enter your email'), Email(message='Please enter a valid email address'), user_exists])
     password = StringField('password', validators=[
                            DataRequired('Password is required.'), password_length, Length(max=244, message='Password length cannot exceed 244 characters.')])

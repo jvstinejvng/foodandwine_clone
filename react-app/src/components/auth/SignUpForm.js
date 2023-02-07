@@ -2,8 +2,6 @@ import React, {useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect , useHistory, Link} from 'react-router-dom';
 import { signUp } from '../../store/session';
-import * as sessionActions from "../../store/session";
-
 
 import '../CSS/SignUp.css'
 
@@ -13,9 +11,9 @@ const SignUpForm = () => {
     const dispatch = useDispatch();
 
     const [errors, setErrors] = useState([]);
-    // const [firstName, setFirstName] = useState("");
     const [username, setUsername] = useState('');
-    // const [lastName, setLastName] = useState("");
+    const [first_name, setFirstName] = useState('');
+    const [last_name, setLastName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [repeatPassword, setRepeatPassword] = useState('');
@@ -23,7 +21,7 @@ const SignUpForm = () => {
     const onSignUp = async (e) => {
       e.preventDefault();
       if (password === repeatPassword) {
-        const data = await dispatch(signUp( username.trim(),  email.trim(), password));
+        const data = await dispatch(signUp( username, first_name, last_name, email, password));
         if (data) {
           setErrors(data);
         }
@@ -33,7 +31,31 @@ const SignUpForm = () => {
     };
 
 
-  
+    const updateUsername = (e) => {
+      setUsername(e.target.value);
+    };
+
+    const updateFirstName = (e) => {
+      setFirstName(e.target.value);
+    };
+
+    const updateLastName = (e) => {
+      setLastName(e.target.value);
+    };
+
+    const updateEmail = (e) => {
+      setEmail(e.target.value);
+    };
+
+    const updatePassword = (e) => {
+      setPassword(e.target.value);
+    };
+
+    const updateRepeatPassword = (e) => {
+      setRepeatPassword(e.target.value);
+    };
+
+
     if (user) {
       return <Redirect to='/' />;
     }
@@ -46,11 +68,20 @@ const SignUpForm = () => {
               <p className='SignUpFormTitleSubText'>Create an account to start building and customizing your own recipes.</p>
           </div>
                 <form className="SignUpForm" onSubmit={onSignUp}>
-                    <div>
+                    {/* <div>
                       {errors.map((error, ind) => (
                       <div key={ind} className='SignUpFormError'>{error}</div>
                     ))}
-                    </div>
+                    </div> */}
+                     <div>
+       {errors.length > 0 && (
+          <ul className='errors'>
+            {errors.map(error => (
+                <li className='error' key={error}>{error}</li>
+            ))}
+          </ul>
+        )}
+      </div>
     
             <div className='SignUpFormInput'>
                 <label>Username</label>
@@ -60,9 +91,35 @@ const SignUpForm = () => {
                   type='text'
                   name='username'
                   required
-                  onChange={(e) => setUsername(e.target.value)}
+                  onChange={updateUsername}
                   value={username}
                   placeholder="Username"
+                ></input>
+            </div>
+            <div className='SignUpFormInput'>
+                <label>First Name</label>
+                    <small className='SignUpFormSmall'>&nbsp;(required)</small>
+                <input
+                  className='InputSignUpField'
+                  type='text'
+                  name='first_name'
+                  required
+                  onChange={updateFirstName}
+                  value={first_name}
+                  placeholder="First Name"
+                ></input>
+            </div>
+            <div className='SignUpFormInput'>
+                <label>Last Name</label>
+                    <small className='SignUpFormSmall'>&nbsp;(required)</small>
+                <input
+                  className='InputSignUpField'
+                  type='text'
+                  name='last_name'
+                  required
+                  onChange={updateLastName}
+                  value={last_name}
+                  placeholder="Last Name"
                 ></input>
             </div>
             <div className='SignUpFormInput'>
@@ -73,7 +130,7 @@ const SignUpForm = () => {
                   type='text'
                   name='email'
                   required
-                  onChange={(e) => setEmail(e.target.value)}
+                  onChange={updateEmail}
                   value={email}
                   placeholder="Email"
                 ></input>
@@ -86,7 +143,7 @@ const SignUpForm = () => {
                     type='password'
                     name='password'
                     required
-                    onChange={(e) => setPassword(e.target.value)}
+                    onChange={updatePassword}
                     value={password}
                     placeholder="Password"
                   ></input>
@@ -98,7 +155,7 @@ const SignUpForm = () => {
                   className='InputSignUpField'
                   type='password'
                   name='repeat_password'
-                  onChange={(e) => setRepeatPassword(e.target.value)}
+                  onChange={updateRepeatPassword}
                   value={repeatPassword}
                   required={true}
                   placeholder="Confirm Password"

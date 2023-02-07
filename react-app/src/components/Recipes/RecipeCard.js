@@ -25,7 +25,7 @@ function RecipeCard( {recipe} ) {
                             <h3  className='RecipeCardTitleText'>{recipe.title} </h3>
                                 {/* <div className='RecipeCardTime'>{recipe.total_time}</div> */}
                             <div className='RecipeCardUser'>
-                                <h4 className='RecipeCardUserName'>by {recipe.user.username} </h4>
+                                <h4 className='RecipeCardUserName'>by {recipe.user.first_name} {recipe.user.last_name}</h4>
                             </div>
                         </div>
                     </div>

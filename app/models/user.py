@@ -15,9 +15,9 @@ class User(db.Model, UserMixin):
     __tablename__ = 'users'
 
     id = db.Column(db.Integer, primary_key=True)
-    # first_name = db.Column(db.String(100), nullable=False)
-    # last_name = db.Column(db.String(100), nullable=False)
     username = db.Column(db.String(50), nullable=False, unique=True)
+    first_name = db.Column(db.String(100), nullable=False)
+    last_name = db.Column(db.String(100), nullable=False)
     email = db.Column(db.String(200), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.datetime.utcnow)
@@ -41,6 +41,8 @@ class User(db.Model, UserMixin):
         return {
             'id': self.id,
             'username': self.username,
+            'first_name': self.first_name,
+            'last_name': self.last_name,
             'email': self.email,
         }
 
@@ -48,6 +50,8 @@ class User(db.Model, UserMixin):
         return {
             'id': self.id,
             'username': self.username,
+            'first_name': self.first_name,
+            'last_name': self.last_name,
             'email': self.email,
             'saved_recipes': self.saved_recipes
         }
