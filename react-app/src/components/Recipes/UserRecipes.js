@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { NavLink } from "react-router-dom"
 import { useDispatch, useSelector } from 'react-redux'
 import { getRecipesThunk } from '../../store/recipe'
 
@@ -66,13 +67,18 @@ function UserRecipes() {
             <div className='UserRecipeContainer'>
                 { myRecipesState === 1 && 
                     <div className='UserRecipeGridDiv'> 
-                        <p className="UserRecipeSubText">Recipes you have published on Bread & Butter.</p>
+                        <p className="UserRecipeSubText">Recipes you have created on Bread & Butter.</p>
                         <div className='UserRecipeCardGrid'>
                             {recipe_sort && recipe_sort.length > 0 &&
                                 Object.values(recipe_sort).map(recipe => (
                                     <RecipeCard key={recipe.id} recipe={recipe} />
                                 ))
                             }
+                        </div>
+                        <div>
+                            <NavLink to='/new-recipe'>
+                                <button>Add A Recipe</button>
+                            </NavLink>
                         </div>
                     </div>
                 }
@@ -100,7 +106,14 @@ function UserRecipes() {
                                 <h3>You don't have anything saved yet. Get cooking!</h3>
                             }
                         </div>
+                        <div>
+                            Hungry for More?
+                            <NavLink  to='/recipes'>
+                                <button>Find More Recipes</button>
+                            </NavLink>
+                        </div>
                     </div>
+                    
                 }
             </div>        
         </div>
