@@ -13,10 +13,9 @@ function UserRecipes() {
     const recipes = useSelector(state => state.recipes)
 
     const dispatch = useDispatch()
+
     const [isLoaded, setIsLoaded] = useState(false);
-
     const [myRecipesState, setMyRecipesState] = useState(1)
-
 
     // user's published recipes
     let recipe_sort
@@ -52,20 +51,22 @@ function UserRecipes() {
                     <h1 className='UserRecipeHeaderText'>Personal Recipes</h1>
                         <p className="UserRecipeSubText">Recipes you have published on Bread & Butter.</p>
                 </div> */}
-                <div className='my-recipe-tabs'>
+            <div className='RecipePages'>
                 <div className={myRecipesState === 1 ? 'active-tab': 'inactive'}>
-                    <h2 onClick={() => setMyRecipesState(1)}>My recipes</h2>
+                    <h2 className='RecipePageTexts' onClick={() => setMyRecipesState(1)}>Personal Recipes</h2>
                 </div>
                 <div className={myRecipesState === 2 ? 'active-tab': 'inactive'}>
-                    <h2 onClick={() => setMyRecipesState(2)}>Saved Recipes</h2>
+                    <h2 className='RecipePageTexts' onClick={() => setMyRecipesState(2)}>Saved Recipes</h2>
                 </div>
                 <div className={myRecipesState === 3 ? 'active-tab': 'inactive'}>
-                    <h2 onClick={() => setMyRecipesState(3)}>Favorite Recipes</h2>
+                    <h2 className='RecipePageTexts' onClick={() => setMyRecipesState(3)}>Recipe Reviews</h2>
                 </div>
             </div>
                 
             <div className='UserRecipeContainer'>
-                    {myRecipesState === 1 && 
+                { myRecipesState === 1 && 
+                    <div className='UserRecipeGridDiv'> 
+                        <p className="UserRecipeSubText">Recipes you have published on Bread & Butter.</p>
                         <div className='UserRecipeCardGrid'>
                             {recipe_sort && recipe_sort.length > 0 &&
                                 Object.values(recipe_sort).map(recipe => (
@@ -73,38 +74,35 @@ function UserRecipes() {
                                 ))
                             }
                         </div>
-                    }
-                    
-                    {myRecipesState === 1 && 
-                       <div className='UserRecipeCardGrid'>
-                            {recipe_sort && !recipe_sort.length  && 
-                                ( 
-                                    <div className='UserNoRecipesDiv'>
-                                        <div className='UserNoRecipes'>You have no recipes</div>
-                                        {/* <div className='UserNoRecipesSubtext'> To add a recipe click the button below </div>
+                    </div>
+                }
+                { myRecipesState === 1 && 
+                    <div className='UserRecipeCardGrid'>
+                        {recipe_sort && !recipe_sort.length  && 
+                            ( <div className='UserNoRecipesDiv'>
+                                <div className='UserNoRecipes'>You have no recipes</div>
+                                    {/* <div className='UserNoRecipesSubtext'> To add a recipe click the button below </div>
                                         <button className='UserNoRecipesButton'>Add A Recipe</button> */}
-                                    </div>
-                                )
-                            
+                                </div>
+                            )   
+                        }
+                    </div>
+                }
+                { myRecipesState === 2 &&
+                    <div className='UserRecipeGridDiv'> 
+                        <p className="UserRecipeSubText">All Saved Recipes</p>
+                        <div className='UserRecipeCardGrid'>
+                            {saved_recipes && saved_recipes.length > 0 ?
+                                Object.values(saved_recipes).map(recipe => (
+                                    <RecipeCard key={recipe.id} recipe={recipe} />
+                                ))
+                                :
+                                <h3>You don't have anything saved yet. Get cooking!</h3>
                             }
                         </div>
-                    }
-
-            {myRecipesState === 2 &&
-                <div className='recipes-container'>
-                    {saved_recipes && saved_recipes.length > 0 ?
-                        Object.values(saved_recipes).map(recipe => (
-                            <RecipeCard key={recipe.id} recipe={recipe} />
-                        ))
-                    :
-                    <h3 id='no-recipes'>Looks like you haven't saved any recipes!</h3>
-                    }
-                </div>
-            }
-
-
+                    </div>
+                }
             </div>        
-        
         </div>
     )
 }

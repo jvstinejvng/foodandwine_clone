@@ -29,7 +29,7 @@ function AllSavedRecipes() {
                     <RecipeCard key={recipe.id} recipe={recipe} />
             ))
             :
-            <h3 id='NoRecipes'>You haven't saved any recipes, yet</h3>
+            <h3 id='NoRecipes'>You don't have anything saved yet. Get cooking!</h3>
             }
         </div>
     )

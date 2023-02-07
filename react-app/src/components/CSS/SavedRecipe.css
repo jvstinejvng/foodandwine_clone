@@ -19,6 +19,26 @@
     padding-top: 10px
 }
 
+#RecipeOwner {
+    display: flex;
+    width: fit-content;
+    flex-direction: row-reverse;
+    text-align: space-between;
+    margin: 0;
+    font-size: 28px;
+    padding: 0px 28px 14px 28px;
+    color: black;
+}
+
+.RecipeOwnerText {
+    font-weight: 600;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 14px;
+    padding-right: 10px;
+    color: black;
+    padding-top: 10px
+}
+
 #BookmarkIcon {
     color: black;
     padding: 0px 28px 14px 28px;

@@ -88,9 +88,9 @@ function SaveRecipe( {recipe} ) {
 
     if (owner) {
         return (
-            <div>
-                <div id="RecipeOwner" class="fa-solid fa-pen">You published this recipe</div>
-            </div>
+                <div id="RecipeOwner" class="fa-solid fa-pen">
+                    <span className="RecipeOwnerText" >You published this recipe</span>
+                </div>
         )
     }
   
