@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { NavLink } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 import RecipeCard from './RecipeCard.js'
 
@@ -23,14 +24,23 @@ function AllSavedRecipes() {
     }
 
     return (
-        <div className='AllRecipeContainer'>
-            {saved_recipes && saved_recipes.length > 0 ?
-                Object.values(saved_recipes).map(recipe => (
-                    <RecipeCard key={recipe.id} recipe={recipe} />
-            ))
-            :
-            <h3 id='NoRecipes'>You don't have anything saved yet. Get cooking!</h3>
-            }
+        <div className='SaveRecipeGridDiv'>
+             <p className="SaveRecipeSubText">All Saved Recipes</p>
+                <div className='SaveRecipeCardGrid'>
+                    {saved_recipes && saved_recipes.length > 0 ?
+                    Object.values(saved_recipes).map(recipe => (
+                        <RecipeCard key={recipe.id} recipe={recipe} />
+                    ))
+                    :
+                    <h3 id='NoRecipes'>You don't have anything saved yet. Get cooking!</h3>
+                    }
+                </div>
+                <div>
+                    Hungry for More?
+                        <NavLink  to='/recipes'>
+                             <button>Find More Recipes</button>
+                        </NavLink>
+                </div>
         </div>
     )
 }

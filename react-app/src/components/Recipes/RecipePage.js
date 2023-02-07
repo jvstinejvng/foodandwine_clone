@@ -28,6 +28,7 @@ function RecipePage() {
         return Math.round(sum/recipe.comments.length * 10) / 10
     }
 
+    
     let ingredients_list
         if(recipe) { ingredients_list = (recipe.ingredients).split(',').slice(0,-1)}
 
@@ -62,8 +63,8 @@ function RecipePage() {
                                 </div>
                                 :
                                 <div className='RecipePageWithReview'>
-                                    {average_rating(recipe)}
                                     <span><FaStar/></span>
+                                    {average_rating(recipe)} 
                                     <span className='RecipePageDividerChar'> | </span>
                                     {recipe.comments.length} reviews 
                                 </div>

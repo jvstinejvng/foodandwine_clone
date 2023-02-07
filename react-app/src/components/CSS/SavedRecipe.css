@@ -44,3 +44,31 @@
     padding: 0px 28px 14px 28px;
     font-size: 28px;
 }
+
+.SaveRecipeGridDiv {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 0px 10%;
+    top: 175px;
+    margin: 0px 5%;
+}
+
+.SaveRecipeSubText {
+    font-size: 30px;
+    margin: 10px; 
+    text-align: center;
+}
+
+.SaveRecipeCardGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 10px;
+    row-gap: 30px;
+}
+
+
+
+
+
+

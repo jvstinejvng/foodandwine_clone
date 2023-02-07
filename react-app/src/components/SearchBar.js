@@ -5,7 +5,7 @@ import { getRecipesThunk } from '../store/recipe'
 
 import './CSS/SearchBar.css'
 
-function SearchBar({ setShowSearch }) {
+function SearchBar( {setShowSearch} ) {
 
     const dispatch = useDispatch()
     const history = useHistory()
@@ -25,7 +25,7 @@ function SearchBar({ setShowSearch }) {
         const searchWord = e.target.value
         setSearchTerm(searchWord)
         const newFilter = Object.values(recipes).filter(recipe => {
-            return recipe.title.toLowerCase().includes(searchWord.toLowerCase())
+            return recipe.title.match(/\b\w/g).join('').toLowerCase().includes(searchWord.toLowerCase())
         })
         if (searchWord === '') {
             setFilteredResults([])

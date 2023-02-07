@@ -3,14 +3,15 @@
     position: relative;
     display: flex;
     flex-direction: column;
+    align-items: center;
     top: 175px;
     margin: 0px 5%;
 }
 
-.UserRecipeContainer {
+/* .UserRecipeContainer {
     display: flex;
-    justify-content: flex-end;
-}
+    justify-content: center;
+} */
 
 /* page header container */
 .UserRecipeHeaderDiv {
@@ -19,6 +20,8 @@
     flex-direction: column;
     text-align: center;
     width: 100%;
+    background-color: green;
+
 }
 
 /* page header: Personal recipes */
@@ -58,16 +61,19 @@
 
 .RecipePages {
     display: flex;
-    flex-direction: column;
-    position: absolute;
-    justify-content: left;
+    flex-direction: row;
+    justify-content: center;
     margin-top: 20px;
 }
 
-#RecipePageTexts {
-    padding: 20px 60px;
-    margin: 0;
+.RecipePageTexts {
+    margin: 10px;
+    padding: 10px;
+    background-color: black;
+    color: white;
 }
+
+
 
 .RecipePageTexts:hover {
     text-decoration: underline;

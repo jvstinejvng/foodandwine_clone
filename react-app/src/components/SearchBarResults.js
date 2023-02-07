@@ -4,19 +4,20 @@ import { useParams } from 'react-router-dom'
 import { getRecipesThunk } from '../store/recipe'
 import RecipeCard from "./Recipes/RecipeCard";
 
+import './CSS/SearchBar.css'
 
-function SearchBarResults() {
+function SearchResults() {
 
     const { term } = useParams()
-    const searchTerm = term.slice(4)
+    const searchTerm = term.slice(6) 
     const dispatch = useDispatch()
     const recipes = useSelector(state => state.recipes)
 
     useEffect(() => {
-        const searchRecipes = async () => {
+        const fetchRecipes = async () => {
             await dispatch(getRecipesThunk())
         }
-        searchRecipes().catch(console.error)
+        fetchRecipes().catch(console.error)
     }, [dispatch])
 
     let searchResults
@@ -29,24 +30,24 @@ function SearchBarResults() {
     return (
         <>
             <h1>Results for '{searchTerm}'</h1>
-            <div>
-                <div>
+            <div className='SearchBarResultDiv'>
+                <div className='SearchBarResult'>
 
                 </div>
             </div>
             {searchResults.length > 0 ?
-                    <div >
-                        <div>
+                    <div className='SearchBarResultDiv'>
+                        <div className='SearchBarResult'>
                             {searchResults.map(recipe => (
                                 <RecipeCard key={recipe.id} recipe={recipe} />
                             ))}
                         </div>
                     </div>
             :
-                <p>No recipes that match your search</p>
+                <p>No titles that match that search :</p>
             }
         </>
     )
 }
 
-export default SearchBarResults;
+export default SearchResults;
