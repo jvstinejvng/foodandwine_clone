@@ -71,7 +71,7 @@ def delete_recipe(recipe_id):
     return { "message": "Recipe Deleted!" }
 
 #SAVES
-#save a recipe
+# save a recipe
 @recipe_routes.route('/<int:recipe_id>/save', methods=['PUT'])
 def save_a_recipe(recipe_id):
     data = request.json
@@ -85,7 +85,7 @@ def save_a_recipe(recipe_id):
 
     return recipe.to_dict()
 
-#forget a recipe
+# forget a recipe
 @recipe_routes.route('/<int:recipe_id>/unsave', methods=['PUT'])
 def forget_a_recipe(recipe_id):
     data = request.json
