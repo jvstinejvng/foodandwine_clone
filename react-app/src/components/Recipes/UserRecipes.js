@@ -35,7 +35,7 @@ function UserRecipes() {
         <div className='UserRecipeDiv'>
                 <div className='UserRecipeHeaderDiv' >
                     <h1 className='UserRecipeHeaderText'>Personal Recipes</h1>
-                        <p className="UserRecipeSubText">Recipes you have created on Bread & Butter.</p>
+                        <p className="UserRecipeSubText">Recipes you have published on Bread & Butter.</p>
                 </div>
             <div className='UserRecipeContainer'>
                     {isLoaded && sessionUser &&

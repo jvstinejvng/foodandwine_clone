@@ -1,4 +1,3 @@
-
 const GET_RECIPES = 'recipes/GET_RECIPES'
 const POST_RECIPE = 'recipes/POST_RECIPE'
 const EDIT_RECIPE = 'recipes/EDIT_RECIPE'
@@ -63,8 +62,6 @@ export const postRecipeThunk = (recipe) => async (dispatch) => {
     }
 }
 
-// hello
-
 export const editRecipeThunk = (recipe) => async (dispatch) => {
     const response = await fetch(`/api/recipes/${recipe.id}`, {
         method: 'PUT',
@@ -99,7 +96,6 @@ export const deleteRecipeThunk = (recipe) => async (dispatch) => {
     }
 }
 
-//Reducer
 let initialState = {}
 export default function recipe_reducer(state = initialState, action) {
     let newState = {}

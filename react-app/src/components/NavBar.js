@@ -5,6 +5,7 @@ import { useState } from 'react'
 
 import LogoutButton from './auth/LogoutButton';
 import SearchBar from './SearchBar';
+import FavoriteRecipePage from './Recipes/SavedRecipesPage';
 
 import breadandbutter from '../images//breadandbutterlogo.svg'
 import profileicon from '../images//profileicon.png'
@@ -46,12 +47,19 @@ const NavBar = () => {
                   </Link>
             <div className='NavBarTopRight'>
                   <span className='NavBarUserBarSearch'>
-                  <img
+                  {/* <img
                       src={MagnifyingGlassIcon}
                       alt='Search'
                       id='MagnifyingGlassIcon'
                       onClick={searchbutton}
-                      title='search'/>
+                      title='search'/> */}
+                      <i class="fa-solid fa-magnifying-glass"
+                       src={MagnifyingGlassIcon}
+                       alt='Search'
+                      //  id='MagnifyingGlassIcon'
+                       onClick={searchbutton}
+                       title='search'>
+                      </i>
                       <p id="help"></p>
                     {searchBar && sessionUser && (
                       <SearchBar setShowSearch={setSearchBar}/>
@@ -80,12 +88,25 @@ const NavBar = () => {
               }
               {sessionUser && !searchBar &&
                     <span className='NavBarUserBar'>
-                        <img className='NavBarUserBarImage' alt="Profile Icon" src={usericon}/>
+                        {/* <img className='NavBarUserBarImage' alt="Profile Icon" src={usericon}/>
                             <div className='NavBarHelloUser'>
                                 hello, {sessionUser.username}
-                            </div>
-                        <img className='NavBarUserBarImage' alt="Profile Icon" src={logout}/>  
-                            < LogoutButton />
+                            </div> */}
+                        {/* <img className='NavBarUserBarImage' alt="Profile Icon" src={logout}/>  
+                            < LogoutButton /> */}
+                       
+                          <NavLink className='NavBarBottomLink' to='/saved-recipes' exact={true} activeClassName='active'>
+                          <i class="fa-solid fa-bookmark"> </i>
+                          </NavLink>
+                        <i class="fa-solid fa-face-laugh">
+                            <span className='NavBarHelloUser'>
+                                hello, {sessionUser.username}
+                            </span>
+                        </i>
+
+                        <i class="fa-solid fa-circle-right">
+                          <LogoutButton />
+                        </i>
                     </span>   
               }
             </div>
@@ -96,7 +117,7 @@ const NavBar = () => {
                       HOME 
                 </NavLink>
                 <NavLink className='NavBarBottomLink' to='/recipes' exact={true} activeClassName='active'>
-                      RECIPES
+                      ALL RECIPES
                 </NavLink>
                   { sessionUser &&
                     <>
@@ -104,7 +125,7 @@ const NavBar = () => {
                             ADD A RECIPE
                         </NavLink>
                         <NavLink className='NavBarBottomLink' to='/my-recipes' exact={true} activeClassName='active'>
-                            MY RECIPE
+                            MY RECIPES
                         </NavLink>
                     </>
                   }

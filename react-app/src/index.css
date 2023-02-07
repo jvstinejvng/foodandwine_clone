@@ -1,3 +1,20 @@
+/* TODO Add site wide styles */
 
+i:not(
+    .fa-heart,
+    ) {
+    font-size: 10px;
+}
 
+i:hover:not(
+    .fa-heart,
+    ) {
+    cursor: pointer;
+    font-size: 10px;
+}
+
+label {
+    color: var(--off-black);
+    height: fit-content;
+}
 

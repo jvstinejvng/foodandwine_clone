@@ -1,0 +1,36 @@
+#Saved, #NotSaved {
+    font-size: 20px;
+    align-self: flex-end;
+    margin-right: 2px;
+    margin-bottom: 1px;
+    margin-top: 1px;
+
+}
+
+#LoggedOutSave {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    /* padding-left: 10px; */
+}
+
+#LoggedOutSaveText {
+    margin: 0;
+    font-size: 14px;
+    width: 100%;
+    padding-top: 0;
+    padding-left: 1px;
+    padding-right: 1px;
+    padding-bottom: 1px;
+}
+
+
+#NoRecipes {
+    position: absolute;
+    width: fit-content;
+    /* left: 50%; */
+    right: 40vw;
+    /* padding-right: 300px; */
+    /* right: 10%; */
+}

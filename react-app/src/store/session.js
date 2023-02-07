@@ -1,4 +1,3 @@
-// constants
 const SET_USER = 'session/SET_USER';
 const REMOVE_USER = 'session/REMOVE_USER';
 
@@ -95,7 +94,6 @@ export const logout = () => async (dispatch) => {
     dispatch(removeUser());
   }
 };
-
 
 export const signUp = ( username, email, password ) => async (dispatch) => {
   const response = await fetch('/api/auth/signup', {

@@ -13,6 +13,7 @@ import AllRecipes from './components/Recipes/AllRecipes';
 import RecipePage from './components/Recipes/RecipePage';
 import CreateRecipe from './components/Recipes/CreateRecipe';
 import UserRecipes from './components/Recipes/UserRecipes';
+import SavedRecipes from './components/Recipes/SavedRecipesPage';
 
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import { authenticate } from './store/session';
@@ -71,6 +72,9 @@ function App() {
             </ProtectedRoute>
             <ProtectedRoute path='/my-recipes' exact={true} >
               <UserRecipes />
+            </ProtectedRoute>
+            <ProtectedRoute path='/saved-recipes' exact={true} >
+              <SavedRecipes />
             </ProtectedRoute>
             <Route path='/recipes/:id'>
               <RecipePage/>

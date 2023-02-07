@@ -1,10 +1,8 @@
-//actions
 const GET_COMMENTS ='comments/get_comments'
 const CREATE_COMMENT ='comments/create_comment'
 const EDIT_COMMENT ='comments/edit_comment'
 const DELETE_COMMENT ='comments/delete_comment'
 
-// action creators
 const getComments = (comments) => {
     return {
         type: GET_COMMENTS,
@@ -33,7 +31,6 @@ const deleteComment = (comment) => {
     }
 }
 
-// thunks
 export const getCommentsThunk = () => async (dispatch) => {
     const res = await fetch('/api/comments');
     if (res.ok) {
@@ -102,7 +99,6 @@ export const deleteCommentThunk = (comment) => async (dispatch) => {
     }
 }
 
-//reducer
 const initialState = {}
 
 export default function comment_reducer(state = initialState, action) {
