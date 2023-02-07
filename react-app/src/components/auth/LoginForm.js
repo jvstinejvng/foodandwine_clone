@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect, Link } from 'react-router-dom';
 import { login } from '../../store/session';
-import mailicon from '../../images/mailicon.svg'
 
+import mailicon from '../../images/mailicon.svg'
 import lockicon from '../../images/lockicon.svg'
 
 import '../CSS/LogIn.css';
