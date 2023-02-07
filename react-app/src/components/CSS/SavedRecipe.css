@@ -1,36 +1,26 @@
-#Saved, #NotSaved {
-    font-size: 20px;
-    align-self: flex-end;
-    margin-right: 2px;
-    margin-bottom: 1px;
-    margin-top: 1px;
-
-}
-
-#LoggedOutSave {
+/* Login to save this recipe div */
+#NotUserSave {
     display: flex;
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
-    /* padding-left: 10px; */
-}
-
-#LoggedOutSaveText {
-    margin: 0;
-    font-size: 14px;
-    width: 100%;
-    padding-top: 0;
-    padding-left: 1px;
-    padding-right: 1px;
-    padding-bottom: 1px;
-}
-
-
-#NoRecipes {
-    position: absolute;
     width: fit-content;
-    /* left: 50%; */
-    right: 40vw;
-    /* padding-right: 300px; */
-    /* right: 10%; */
+    flex-direction: row-reverse;
+    text-align: space-between;
+    margin: 0;
+    font-size: 28px;
+    padding: 0px 28px 14px 28px;
+    color: black;
+}
+
+.NotUserSaveText {
+    font-weight: 600;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 14px;
+    padding-right: 10px;
+    color: black;
+    padding-top: 10px
+}
+
+#BookmarkIcon {
+    color: black;
+    padding: 0px 28px 14px 28px;
+    font-size: 28px;
 }

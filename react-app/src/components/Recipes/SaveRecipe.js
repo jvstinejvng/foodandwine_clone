@@ -72,15 +72,15 @@ function SaveRecipe( {recipe} ) {
 
     if (!sessionUser) {
         return (
-            <div id='LoggedOutSave'>
-                <Link to='/log-in' className='' >
-                    
-                <i id='NotSaved'
+            <div>
+                <Link to='/log-in'>          
+                <div
+                    id='NotUserSave'
                     className={`${hover ? 'fa-solid' : 'fa-regular'} fa-bookmark`}
                     onMouseEnter={() => setHover(true)}
                     onMouseLeave={() => setHover(false)}> 
-                    Login to save this Recipe!
-                </i>
+                    <span className='NotUserSaveText'>Login to save this Recipe!</span>
+                </div>
                 </Link>
             </div>
         )
@@ -88,28 +88,28 @@ function SaveRecipe( {recipe} ) {
 
     if (owner) {
         return (
-            <div id='LoggedOutSave'>
-                <i id='NotSaved' class=" fa-solid fa-pen">You published this recipe</i>
+            <div>
+                <div id="RecipeOwner" class="fa-solid fa-pen">You published this recipe</div>
             </div>
         )
     }
-
+  
     return (
         <>
             { save ?
-                <i id='liked'
+                <div
+                    id="BookmarkIcon"
                     className="fa-solid fa-bookmark"
-                    title='Save this recipe!'
                     onClick={handleUnSave}>
-                </i>
+                </div>
                 :
-                <i id='NotSaved'
+                <div
+                    id="BookmarkIcon"
                     className={`${hover ? 'fa-solid' : 'fa-regular'} fa-bookmark`}
-                    title='Save this recipe!'
                     onMouseEnter={() => setHover(true)}
                     onMouseLeave={() => setHover(false)}
                     onClick={handleSave}> 
-                </i>
+                </div>
             }
         </>
     )

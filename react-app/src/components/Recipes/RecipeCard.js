@@ -29,12 +29,13 @@ function RecipeCard( {recipe} ) {
                             </div>
                         </div>
                     </div>
-                    <SaveRecipe recipe={recipe}/>
             </div>
 
+            <div className='SaveRecipeDiv'>
+                <SaveRecipe recipe={recipe}/>
+            </div>
         </Link>
     )
 }
-// className='RecipeCardTitleText' 
 
 export default RecipeCard
