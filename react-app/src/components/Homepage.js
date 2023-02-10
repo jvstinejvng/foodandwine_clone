@@ -15,10 +15,8 @@ function Homepage() {
     const sessionUser = useSelector(state => state.session.user)
     
     const newestRecipe = useSelector(state => Object.values(state.recipes).slice(-1))
-    
     const bannerRecipes = Object.values(useSelector(state => state.recipes))
     const randomRecipe = Math.floor(Math.random() * bannerRecipes.length)
-
     const cookingRecipes = useSelector(state => Object.values(state.recipes).slice(0, 3))
 
     useEffect(() => {
@@ -36,31 +34,29 @@ function Homepage() {
 
     return (
         <div className='HomepageContainer'>
-                { !sessionUser && 
-                    <div className="HomepageSessionUser">
-                        <div className='HomepageHeaderText' >Bread, butter and everything in between.</div>
-                        <div className="HomepageSessionUserSub">Recipes for the chef in  us </div>
-                    </div>
-
+            { !sessionUser && 
+                <div className="HomepageSessionUser">
+                    <div className='HomepageHeaderText' >Bread, butter and everything after.</div>
+                    <div className="HomepageSessionUserSub">Recipes for the chef in  us</div>
+                </div>
+            }
+            { sessionUser && 
+                <div className="HomepageSessionUser">
+                    <div className='HomepageHeaderText'>Today is {date}</div>
+                    <div className="HomepageSessionUserSub">What’s on the menu?</div>
+                </div>
                 }
-                { sessionUser && 
-                    <div className="HomepageSessionUser">
-                        <div className='HomepageHeaderText'>Today is {date}</div>
-                        <div className="HomepageSessionUserSub">What’s on the menu?</div>
-                    </div>
-                }
-            <div className='HomepageMainRecipe'>
-                <div className='HomepageFirstDiv'>
-                    <div className='HomepageNewRecipeAlert'>Our newest recipe</div>
-                            <div className='HomepageNewestRecipeFeature'>
-                                            <div className='HomepageNewRecipeDiv'>
-                                                {newestRecipe && (
-                                                    newestRecipe.map(recipe => (
-                                                        <FeaturedRecipe key={recipe.id} recipe={recipe} />
-                                                    ))
-                                                )}
-                                            </div>
-                            </div> 
+        <div className='HomepageMainRecipe'>
+            <div className='HomepageFirstDiv'>
+                <div className='HomepageNewRecipeAlert'>Our newest recipe</div>
+                    <div className='HomepageNewestRecipeFeature'>
+                        <div className='HomepageNewRecipeDiv'>
+                            {newestRecipe && (
+                                newestRecipe.map(recipe => (
+                                    <FeaturedRecipe key={recipe.id} recipe={recipe} />
+                            )))}
+                        </div>
+                    </div> 
                 </div>        
             </div>
 
@@ -75,7 +71,7 @@ function Homepage() {
                         </div>
                             <div className='HomepageBannerInfo'>
                                     {bannerRecipes.length > 0 && <div className='HomeBannerTitle'>{bannerRecipes[randomRecipe].title}</div>}
-                                    {bannerRecipes.length > 0 && <div className='HomeBannerUser'>{bannerRecipes[randomRecipe].user.username}</div>}
+                                    {bannerRecipes.length > 0 && <div className='HomeBannerUser'>{bannerRecipes[randomRecipe].user.first_name}</div>}
                             </div>
                     </div>
                         </NavLink>

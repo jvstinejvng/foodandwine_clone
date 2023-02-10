@@ -65,7 +65,7 @@ function SearchBar( {setShowSearch} ) {
             {filteredResults.length > 0 && (
                 <div >
                     {filteredResults && (
-                        filteredResults.slice(0, 3).map((result, idx) => (
+                        filteredResults.slice(0, 5).map((result, idx) => (
                             <Link
                                 to={`/recipes/${result.id}`}>
                                 <div
