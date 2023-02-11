@@ -49,15 +49,15 @@ const NavBar = () => {
           </span>
           {!sessionUser && !searchBar &&
             <span className='NavBarUserBar'>
-              <NavLink className='NavBarUserLogLinks' to='/log-in' exact={true} activeClassName='active'>
+              <NavLink className='NavBarUserTopRight' to='/log-in' exact={true} activeClassName='active'>
                 <i id='NavBarIcon' class="fa-solid fa-circle-user"></i>
                 Log In
               </NavLink>
-              <NavLink className='NavBarUserLogLinks' to='/sign-up' exact={true} activeClassName='active'>
+              <NavLink className='NavBarUserTopRight' to='/sign-up' exact={true} activeClassName='active'>
                 <i id='NavBarIcon' class="fas fa-plus-circle"></i>
                 Sign Up 
               </NavLink>
-              <button className='NavBarUserLogLinks' onClick={demoLogin}>
+              <button className='NavBarUserTopRight' onClick={demoLogin}>
                 <i id='NavBarIcon' class="fas fa-adjust"></i>
                 Demo User
               </button>  
@@ -65,8 +65,8 @@ const NavBar = () => {
           }
           {sessionUser && !searchBar &&
             <span className='NavBarUserBar'>
-              <NavLink className='NavBarUserLogLinks' to='/saved-recipes' exact={true} activeClassName='active'>
-                <i id='NavBarIcon' class="fa-solid fa-bookmark"></i>
+              <NavLink className='NavBarUserTopRight' to='/saved-recipes' exact={true} activeClassName='active'>
+                <i id='NavBarBookmark' class="fa-solid fa-bookmark"></i>
               </NavLink>
               <i id='NavBarIcon' class="fa-solid fa-circle-user">
               <span className='NavBarHelloUser'>hello, {sessionUser.first_name}</span>
