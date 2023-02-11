@@ -83,7 +83,7 @@ function App() {
               <NotFound/>
             </Route>
           </Switch>
-          <Footer />
+          {/* <Footer /> */}
     </BrowserRouter>
   );
 }

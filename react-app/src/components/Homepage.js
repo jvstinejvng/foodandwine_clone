@@ -31,7 +31,6 @@ function Homepage() {
     const current = new Date();
     const date = `${month[current.getMonth()]} ${current.getDate()}, ${current.getFullYear()}`;
   
-
     return (
         <div className='HomepageContainer'>
             { !sessionUser && 

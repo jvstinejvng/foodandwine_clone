@@ -5,7 +5,7 @@ import { getRecipesThunk } from '../store/recipe'
 
 import './CSS/SearchBar.css'
 
-function SearchBar( {setSearchBar} ) {
+function SearchBar( {setShowSearch} ) {
 
     const dispatch = useDispatch()
     const history = useHistory()
@@ -43,13 +43,13 @@ function SearchBar( {setSearchBar} ) {
         history.push(`/recipes/search/title=${searchTerm}`)
         setFilteredResults([])
         setSearchTerm('')
-        setSearchBar(false)
-
+        setShowSearch(false)
     }
 
     return (
-        <div className='SearchBar'>
-            <form onSubmit={handleSubmit} className='searchBoxForm'>
+        <div className='SearchBarDiv'>
+            <form className='SearchBarResult' onSubmit={handleSubmit} >
+                <div className='SearchText'>Search</div>
                 <input
                     className='SearchBarInput'
                     type='text'
@@ -58,20 +58,20 @@ function SearchBar( {setSearchBar} ) {
                     placeholder='Search recipes'/>
                 <div >  
                     <i className="fa-solid fa-xmark clear-search"
-                        onClick={searchTerm.length ? clearInput : () => setSearchBar(false)}
+                        onClick={searchTerm.length ? clearInput : () => setShowSearch(false)}
                         title={searchTerm.length ? 'Clear Search' : 'Close Search'}></i>
                 </div>
             </form>
             {filteredResults.length > 0 && (
-                <div >
+                <div className="SearchBarResultDiv">
                     {filteredResults && (
-                        filteredResults.slice(0,5).map((result, idx) => (
+                        filteredResults.slice(0, 5).map((result, idx) => (
                             <Link
                                 to={`/recipes/${result.id}`}>
                                 <div
                                     key={idx}
-                                    className='search-result'
-                                    onClick={() => setSearchBar(false)}>
+                                    className='SearchBarResultDisplay'
+                                    onClick={() => setShowSearch(false)}>
                                     {result.title}
                                 </div>
                             </Link>

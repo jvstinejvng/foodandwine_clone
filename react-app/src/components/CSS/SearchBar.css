@@ -1,4 +1,54 @@
-/* search result gray header */
+/* Search Bar */
+.SearchBarDiv {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+}
+
+.SearchBarResult {
+    width: auto;
+    display: flex;
+    align-items: center;
+}
+
+.SearchText {
+    font-family: Arial, Helvetica, sans-serif;
+    padding-right: 8px;
+    font-weight: bold;
+}
+
+.SearchBarInput {
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid black;
+    width: 400px;
+}
+
+.SearchBarResultDiv {
+    display: flex;
+    flex-direction: column;
+    padding: 0px 18%;
+}
+
+.SearchBarResultDisplay {
+    /* position: absolute; */
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: white;
+    color: black;
+    height: auto;
+}
+
+/* .SearchBarResultDisplay {
+    background-color: bisque;
+    display: flex;
+    flex-direction: row;
+} */
+
+
+
+/* Search Page */
 .SearchPageResultHeaderDiv {
     position: relative;
     display: flex;
@@ -7,7 +57,6 @@
     top: 140px;
 }
 
-/* search result text container */
 .SearchPageResultHeader {
     display: flex;
     flex-direction: column;
@@ -17,23 +66,92 @@
     margin: 40px 10% 35px 10%;
 }
 
-/* search result for  */
+/* search result for text */
 .SearchPageResulth3 {
     color: black;
     font-family: Arial, Helvetica, sans-serif;
     padding-bottom: 8px;
 }
 
+/* text box */
 .SearchPageResultText {
     color: black;
     font-family: Arial, Helvetica, sans-serif;
     border: 1px solid black;
     background-color: white;
     width: 50%;
+    padding: 2px;
+    margin-bottom: 3px;
 }
 
+/* search text box input  */
 .SearchPageResultInput {
     border: none;
-    padding: 15px;
+    padding: 13px;
+    width: 80%;
+    font-size: 16px;
+}
+
+
+#SPMagnifyingGlass {
+    padding: 5px;
+    margin-left: 5px;
+}
+
+ /* clear search function */
+#SPXMark {
+    display: flex;
+    justify-content: flex-end;
+    width: 50%;
+}
+
+#ClearSearch {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 100;
+    padding-left: 5px;
+}
+
+/* recipe results */
+.SearchBarResultContainer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top: 175px;
+}
+
+.SearchBarPageResult {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 30px;
+    row-gap: 30px;
+    padding: 10px;
+}
+
+.SearchResultPageBlank {
+    width: 100%;
+}
+
+.SearchAllRecipeh2 {
+    margin: 0px 10% 15px 10%;
+    font-size: 50px;
+}
+
+.RandomRecipeGenerator {
+    margin: 10px 10% 10px 10%;
+}
+
+.SearchResultText {
+    font-size: 50px;
+    margin-bottom: 40px;
+    font-weight: 600;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    line-height: 3rem;
+    margin: 0px 10% 15px 10%;
+}
+
+.SearchResultSub {
+    font-size: 22px;
+    padding-bottom: 20px; 
 }
 

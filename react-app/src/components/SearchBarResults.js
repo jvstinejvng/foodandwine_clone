@@ -11,7 +11,10 @@ function SearchResults( {setSearchBar} ) {
     const { term } = useParams()
     const history = useHistory()
     const dispatch = useDispatch()
+
     const recipes = useSelector(state => state.recipes)
+    const AllRecipeSearch = Object.values(useSelector(state => state.recipes))
+    const randomRecipe = Math.floor(Math.random() * AllRecipeSearch.length)
 
     const [searchTerm, setSearchTerm] = useState(term.slice(6))
     const updateSearchTerm = (e) => setSearchTerm(e.target.value)
@@ -48,15 +51,22 @@ function SearchResults( {setSearchBar} ) {
             <div className='SearchPageResultHeader'>
                 <h3 className='SearchPageResulth3'>Search Results For</h3>
                     <form className='SearchPageResultText'  onSubmit={handleSubmit}>
-                        <input className='SearchPageResultInput'
+                        <i id='SPMagnifyingGlass' class="fa-solid fa-magnifying-glass"></i>
+                            <input className='SearchPageResultInput'
                             type='text'
                             value={searchTerm}
                             onChange={updateSearchTerm}
-                            placeholder='Search recipes'/>
-                            <i className="fa-solid fa-xmark clear-search"
-                            onClick={searchTerm.length ? clearInput : () => setSearchBar(false)}
-                            title={searchTerm.length ? 'Clear Search' : 'Close Search'}></i>
-                    </form> 
+                            placeholder='Search'/>
+                    </form>
+                    { searchTerm ? 
+                        <i id='SPXMark' 
+                            className="fa-solid fa-xmark" 
+                            onClick={searchTerm.length ? clearInput : () => setSearchBar(false)}>
+                            <p id='ClearSearch'>clear search</p>
+                        </i>
+                        :
+                        <div></div>
+                    }
             </div>
             </div>
             <div className='SearchBarResultContainer'> 
@@ -68,13 +78,21 @@ function SearchResults( {setSearchBar} ) {
                     </div>
                 }
 
-                {!searchTerm && 
-                    <div> Search For  Recipe</div>
+                {!searchTerm &&  
+                    <div className="SearchResultPageBlank">
+                        <h2 className="SearchAllRecipeh2">Search All Recipes</h2>
+                        <div className="RandomRecipeGenerator">Don't know what to cook? 
+                            <Link to={AllRecipeSearch.length > 0 && `/recipes/${AllRecipeSearch[randomRecipe].id}`}>
+                            <button>Find Me A Recipe</button>
+                            </Link>
+                        </div>
+                    </div> 
                 }   
 
                 {!searchResults.length && 
-                    <div>0 results found for your search.
-                        <p>Please try another search term</p>
+                    <div className="SearchResultText" >
+                        Uh oh. We didn't find the search term "{searchTerm}" that you were looking for.
+                        <p className="SearchResultSub" >Please try another search term</p>
                     </div>
                 }
 
@@ -91,7 +109,6 @@ function SearchResults( {setSearchBar} ) {
             } */}   
             </div>    
         </div>
-
         </>
     )
 }

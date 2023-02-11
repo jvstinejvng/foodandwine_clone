@@ -5,7 +5,6 @@ import { useState } from 'react'
 
 import LogoutButton from './auth/LogoutButton';
 import SearchBar from './SearchBar';
-import FavoriteRecipePage from './Recipes/SavedRecipesPage';
 
 import breadandbutter from '../images//breadandbutterlogo.svg'
 import profileicon from '../images//profileicon.png'
@@ -21,9 +20,7 @@ const NavBar = () => {
 
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user)
-  
   const [searchBar, setSearchBar] = useState(false)
-
 
   const demoLogin = async e => {
     e.preventDefault();
@@ -33,42 +30,33 @@ const NavBar = () => {
     return <Redirect to='/' />
   }
 
-
   const searchbutton = () => {
     setSearchBar(!searchBar)
   }
 
-
   return (
       <div className='NavBarMainDiv'>
-          <div className='NavBarTopContainer'>
-                  <Link to='/' className='NavBarLogo'>
-                      <img alt="bread and butter logo" src={breadandbutter} />
-                  </Link>
-            <div className='NavBarTopRight'>
-                  <span className='NavBarUserBarSearch'>
-                  {/* <img
-                      src={MagnifyingGlassIcon}
-                      alt='Search'
-                      id='MagnifyingGlassIcon'
-                      onClick={searchbutton}
-                      title='search'/> */}
-                      <i class="fa-solid fa-magnifying-glass"
-                       src={MagnifyingGlassIcon}
+        <div className='NavBarTopContainer'>
+          <Link to='/' className='NavBarLogo'>
+            <img alt="bread and butter logo" src={breadandbutter} />
+          </Link>
+        <div className='NavBarTopRight'>
+          <span className='NavBarUserBarSearch'> 
+            <p id="help"></p>
+              {searchBar && sessionUser && ( <SearchBar setShowSearch={setSearchBar}/> )}  
+              {searchBar && !sessionUser && ( <SearchBar setShowSearch={setSearchBar}/> )} 
+              { searchBar ?
+                <i class="fa-solid fa-mark"src={MagnifyingGlassIcon}
                        alt='Search'
-                      //  id='MagnifyingGlassIcon'
                        onClick={searchbutton}
                        title='search'>
                       </i>
-                      <p id="help"></p>
-                    {searchBar && sessionUser && (
-                      <SearchBar setShowSearch={setSearchBar}/>
-                      
-                    )}  
-                     {searchBar && !sessionUser && (
-                      <SearchBar setShowSearch={setSearchBar}/>
-                    )}    
-                  </span>
+                  :
+                  <i class="fa-solid fa-magnifying-glass" onClick={searchbutton}
+                  title='search'></i>
+              }
+              </span>
+
               {!sessionUser && !searchBar &&
                     <span className='NavBarUserBar'>
                         <img className='NavBarUserBarImage' alt="Profile Icon" src={profileicon}/>

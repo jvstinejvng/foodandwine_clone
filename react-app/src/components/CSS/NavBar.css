@@ -11,7 +11,7 @@
     box-shadow: 0 0.125rem 0.375rem rgb(0 0 0 / 15%);
     z-index: 12;
     display: block;
-    background-color: #fff;
+    background-color: white;
 }
 
 /* navbar logo and user access login sign demo user  */
@@ -122,7 +122,7 @@
     text-decoration: none;
     letter-spacing: 1px;
     border: none;
-    background-color: #fff;
+    background-color: white;
 }
 
 .NavBarLogoutButton:hover {
@@ -140,7 +140,7 @@
     text-decoration: none;
     letter-spacing: 1px;
     border: none;
-    background-color: #fff;
+    background-color: white;
 }
 
 .NavBarUserDemo:hover {
@@ -160,6 +160,7 @@
     color: #000000F2;
     font-family: Arial, Helvetica, sans-serif;
     text-transform: uppercase;
+
 }
 
 .NavBarBottomLink:hover {
@@ -168,3 +169,9 @@
 }
 
 
+#NavbarX {
+    display: flex;
+    flex-direction: row;
+    background-color: black;
+    color: white
+}
