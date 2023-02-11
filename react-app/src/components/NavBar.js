@@ -67,7 +67,7 @@ const NavBar = () => {
                 <i id='NavBarBookmark' class="fa-solid fa-bookmark"></i>
               </NavLink>
               <i id='NavBarIcon' class="fa-solid fa-circle-user">
-                <span className='NavBarHelloUser'>{sessionUser.first_name}</span>
+                <span className='NavBarHelloUser' >{sessionUser.first_name}</span>
               </i>
               <LogoutButton />
             </span>
