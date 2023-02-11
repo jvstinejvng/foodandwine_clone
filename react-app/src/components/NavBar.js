@@ -5,7 +5,6 @@ import { useState } from 'react'
 
 import LogoutButton from './auth/LogoutButton';
 import SearchBar from './SearchBar';
-
 import breadandbutter from '../images//breadandbutterlogo.svg'
 
 import './CSS/NavBar.css'
@@ -35,28 +34,28 @@ const NavBar = () => {
             {searchBar && sessionUser && ( <SearchBar setShowSearch={setSearchBar}/> )}  
             {searchBar && !sessionUser && ( <SearchBar setShowSearch={setSearchBar}/> )} 
               {searchBar ?
-                <i 
+                <i id='NavBarIcon'
                   class="fa-solid fa-mark"
                   alt='Search'
                   onClick={searchbutton}
                 ></i>
                 :
-                <i class="fa-solid fa-magnifying-glass" onClick={searchbutton}
+                <i id='NavBarIcon' class="fa-solid fa-magnifying-glass" onClick={searchbutton}
                 title='search'></i>
               }
           </span>
           {!sessionUser && !searchBar &&
             <span className='NavBarUserBar'>
               <NavLink className='NavBarUserLogLinks' to='/log-in' exact={true} activeClassName='active'>
-                <i class="fa-solid fa-circle-user"></i>
+                <i id='NavBarIcon' class="fa-solid fa-circle-user"></i>
                 Log In
               </NavLink>
               <NavLink className='NavBarUserLogLinks' to='/sign-up' exact={true} activeClassName='active'>
-                <i class="fas fa-plus-circle"></i>
+                <i id='NavBarIcon' class="fas fa-plus-circle"></i>
                 Sign Up 
               </NavLink>
               <button className='NavBarUserDemo' onClick={demoLogin}>
-                <i class="fas fa-adjust"></i>
+                <i id='NavBarIcon' class="fas fa-adjust"></i>
                 Demo User
               </button>  
             </span>
@@ -64,12 +63,12 @@ const NavBar = () => {
           {sessionUser && !searchBar &&
             <span className='NavBarUserBar'>
               <NavLink className='NavBarBottomLink' to='/saved-recipes' exact={true} activeClassName='active'>
-                <i class="fa-solid fa-bookmark"></i>
+                <i id='NavBarIcon' class="fa-solid fa-bookmark"></i>
               </NavLink>
-              <i class="fa-solid fa-circle-user">
+              <i id='NavBarIcon' class="fa-solid fa-circle-user">
               <span className='NavBarHelloUser'>hello, {sessionUser.first_name}</span>
               </i>
-              <i class="fas fa-chevron-circle-right"><LogoutButton /></i>
+              <i id='NavBarIcon' class="fas fa-chevron-circle-right"><LogoutButton /></i>
             </span>
           }
         </div>

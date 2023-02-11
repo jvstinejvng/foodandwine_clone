@@ -1,10 +1,10 @@
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom';
+import { getRecipesThunk } from '../store/recipe'
 
 import RecipeCard from  './Recipes/RecipeCard'
 import FeaturedRecipe from './HomepageRecipe'
-import { getRecipesThunk } from '../store/recipe'
 import bannerdefault from '../images/homepagedefault.jpg'
 
 import './CSS/Homepage.css'
