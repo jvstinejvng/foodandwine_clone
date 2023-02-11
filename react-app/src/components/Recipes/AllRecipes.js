@@ -33,11 +33,10 @@ function AllRecipes() {
             </div>
             <div className='AllRecipeCardContainer'>
                 <div className='AllRecipeCardGrid'>
-                        {recipes_order &&
-                            Object.values(recipes_order).map(recipe => (
-                                    <RecipeCard key={recipe.id} recipe={recipe} />
-                        ))
-                        }
+                    {recipes_order &&
+                        Object.values(recipes_order).map(recipe => (
+                        <RecipeCard  key={recipe.id} recipe={recipe} />
+                    ))}
                 </div>
             </div>
         </div>

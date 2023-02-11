@@ -9,7 +9,7 @@ function RecipeCard( {recipe} ) {
     if(!recipe) return null
 
     return (
-        <Link to={`/recipes/${recipe.id}`} style={{'textDecoration': 'none'}}>
+        <Link to={`/recipes/${recipe.id}`} target={"_blank"} style={{'textDecoration': 'none'}}>
 
             <div className='RecipeCardDiv'
                  onMouseEnter={() => setHover(true)}

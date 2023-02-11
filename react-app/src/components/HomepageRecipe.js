@@ -4,9 +4,11 @@ import './CSS/FeatureRecipe.css'
 
 function FeaturedRecipe( {recipe} ) {
 
+
     if(!recipe) return null
     
     return (
+        <>
         <Link to={`/recipes/${recipe.id}`}  style={{textDecoration: 'none'}}>
             <div className='FeaturedRecipeDiv'>
                 <div className='FeaturedRecipeCard'>
@@ -22,12 +24,13 @@ function FeaturedRecipe( {recipe} ) {
                             <div className='FeaturedRecipeDescriptiontext'>{recipe.description}</div>
                         </div>
                         <div className='FeaturedRecipeUser'>
-                            <div className='FeaturedRecipeUsertext'>By {recipe.user.username}</div>
+                            <div className='FeaturedRecipeUsertext'>By {recipe.user.first_name}  {recipe.user.last_name}</div>
                         </div>
                     </div>
                 </div>
             </div>
         </Link>
+        </>
     )
 }
 

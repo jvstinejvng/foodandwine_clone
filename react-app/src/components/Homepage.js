@@ -13,7 +13,7 @@ function Homepage() {
     
     const dispatch = useDispatch()
     const sessionUser = useSelector(state => state.session.user)
-    
+
     const newestRecipe = useSelector(state => Object.values(state.recipes).slice(-1))
     const bannerRecipes = Object.values(useSelector(state => state.recipes))
     const randomRecipe = Math.floor(Math.random() * bannerRecipes.length)
@@ -25,7 +25,6 @@ function Homepage() {
         }
         searchRecipes().catch(console.error)
     }, [dispatch])
-
 
     const month = ["January","February","March","April","May","June","July","August","September","October","November","December"]; 
     const current = new Date();
@@ -90,8 +89,6 @@ function Homepage() {
                                 )}
                         </div>
                 </div>
-                        <div>
-                        </div>
         </div>
     )
 }
