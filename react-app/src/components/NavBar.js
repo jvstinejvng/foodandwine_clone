@@ -24,9 +24,7 @@ const NavBar = () => {
     return <Redirect to='/' />
   }
 
-  const searchbutton = () => {
-    setSearchBar(!searchBar)
-  }
+  const searchbutton = () => { setSearchBar(!searchBar) }
 
   return (
     <div className='NavBarMainDiv'>
