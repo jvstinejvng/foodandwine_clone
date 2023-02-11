@@ -15,16 +15,22 @@ function SearchResults( {setSearchBar} ) {
     const recipes = useSelector(state => state.recipes)
     const AllRecipeSearch = Object.values(useSelector(state => state.recipes))
     const randomRecipe = Math.floor(Math.random() * AllRecipeSearch.length)
-
+    
     const [searchTerm, setSearchTerm] = useState(term.slice(6))
+    const [isLoaded, setIsloaded] = useState(false)
     const updateSearchTerm = (e) => setSearchTerm(e.target.value)
    
+    // useEffect(() => {
+    //     const searchRecipes = async () => {
+    //         await dispatch(getRecipesThunk())
+    //     }
+    //     searchRecipes().catch(console.error)
+    // }, [dispatch])
+
     useEffect(() => {
-        const searchRecipes = async () => {
-            await dispatch(getRecipesThunk())
-        }
-        searchRecipes().catch(console.error)
-    }, [dispatch])
+        dispatch(getRecipesThunk()).then(() => setIsloaded(true));
+      }, [dispatch]);
+    
 
     let searchResults
     if (recipes) {
@@ -37,6 +43,7 @@ function SearchResults( {setSearchBar} ) {
         history.push(`/recipes/search/title=${searchTerm}`)
         setSearchTerm('')
         setSearchBar(false)
+        setIsloaded(false)
         e.preventDefault()
     }
 
@@ -57,7 +64,8 @@ function SearchResults( {setSearchBar} ) {
                             value={searchTerm}
                             onChange={updateSearchTerm}
                             placeholder='Search'/>
-                    </form>
+                            
+                    </form> 
                     { searchTerm ? 
                         <i id='SPXMark' 
                             className="fa-solid fa-xmark" 
@@ -69,16 +77,18 @@ function SearchResults( {setSearchBar} ) {
                     }
             </div>
             </div>
+            {( isLoaded &&
             <div className='SearchBarResultContainer'> 
-                { searchTerm.length > 0 &&
+                { searchTerm.length > 0 && 
                     <div className='SearchBarPageResult'>
                         { searchResults.map(recipe => (
                             <RecipeCard key={recipe.id} recipe={recipe} />
                         ))}
                     </div>
+    
                 }
 
-                {!searchTerm &&  
+                { !searchTerm &&  
                     <div className="SearchResultPageBlank">
                         <h2 className="SearchAllRecipeh2">Search All Recipes</h2>
                         <div className="RandomRecipeGenerator">Don't know what to cook? 
@@ -89,7 +99,7 @@ function SearchResults( {setSearchBar} ) {
                     </div> 
                 }   
 
-                {!searchResults.length && 
+                { !searchResults.length && 
                     <div className="SearchResultText" >
                         Uh oh. We didn't find the search term "{searchTerm}" that you were looking for.
                         <p className="SearchResultSub" >Please try another search term</p>
@@ -107,8 +117,10 @@ function SearchResults( {setSearchBar} ) {
                         <p>Please try another search term</p>
                     </div>
             } */}   
-            </div>    
+            </div>  
+            )}  
         </div>
+        
         </>
     )
 }

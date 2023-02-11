@@ -44,6 +44,7 @@ const NavBar = () => {
                   class="fa-solid fa-magnifying-glass" 
                   onClick={searchbutton}
                   title='search'
+                  style={{color:'gray'}}
                 ></i>
               }
           </span>

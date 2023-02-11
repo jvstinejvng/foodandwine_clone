@@ -15,6 +15,7 @@
     font-family: Arial, Helvetica, sans-serif;
     padding-right: 8px;
     font-weight: bold;
+    cursor: default;
 }
 
 .SearchBarInput {
@@ -40,6 +41,21 @@
     color: black;
 }
 
+.MagnifyingGlassSearchButton {
+    border: none;
+    background-color: black;
+    color: white;
+    border: 1px solid black;
+    font-size: 16px;
+    padding: 12px;
+    cursor: pointer
+}
+
+#SearchXmark {
+    padding: 15px;
+    font-size: 25px;
+    color: grey;
+}
 
 /* Search Page */
 .SearchPageResultHeaderDiv {
