@@ -4,7 +4,6 @@ import './CSS/FeatureRecipe.css'
 
 function FeaturedRecipe( {recipe} ) {
 
-
     if(!recipe) return null
     
     return (
