@@ -34,14 +34,17 @@ const NavBar = () => {
             {searchBar && sessionUser && ( <SearchBar setShowSearch={setSearchBar}/> )}  
             {searchBar && !sessionUser && ( <SearchBar setShowSearch={setSearchBar}/> )} 
               {searchBar ?
-                <i id='NavBarIcon'
+                <i id='NavBarIconSearch'
                   class="fa-solid fa-mark"
                   alt='Search'
                   onClick={searchbutton}
                 ></i>
                 :
-                <i id='NavBarIcon' class="fa-solid fa-magnifying-glass" onClick={searchbutton}
-                title='search'></i>
+                <i id='NavBarIconSearch' 
+                  class="fa-solid fa-magnifying-glass" 
+                  onClick={searchbutton}
+                  title='search'
+                ></i>
               }
           </span>
           {!sessionUser && !searchBar &&
@@ -54,7 +57,7 @@ const NavBar = () => {
                 <i id='NavBarIcon' class="fas fa-plus-circle"></i>
                 Sign Up 
               </NavLink>
-              <button className='NavBarUserDemo' onClick={demoLogin}>
+              <button className='NavBarUserLogLinks' onClick={demoLogin}>
                 <i id='NavBarIcon' class="fas fa-adjust"></i>
                 Demo User
               </button>  
@@ -62,7 +65,7 @@ const NavBar = () => {
           }
           {sessionUser && !searchBar &&
             <span className='NavBarUserBar'>
-              <NavLink className='NavBarBottomLink' to='/saved-recipes' exact={true} activeClassName='active'>
+              <NavLink className='NavBarUserLogLinks' to='/saved-recipes' exact={true} activeClassName='active'>
                 <i id='NavBarIcon' class="fa-solid fa-bookmark"></i>
               </NavLink>
               <i id='NavBarIcon' class="fa-solid fa-circle-user">
