@@ -16,6 +16,7 @@
     padding-right: 8px;
     font-weight: bold;
     cursor: default;
+    font-size: 16px;
 }
 
 .SearchBarInput {
@@ -28,9 +29,19 @@
 .SearchBarResultDiv {
     display: flex;
     flex-direction: column;
-    padding: 0px 18%;
+    padding: 0px 16%;
     position: absolute;
     margin: 12% 0;
+    text-decoration: none;
+}
+
+.SearchBarResultDiv a:link {
+    text-decoration: none;
+}
+
+.SearchBarResultDiv a:hover {
+    font-weight: bold;
+    font-size: 22px;
 }
 
 .SearchBarResultDisplay {
@@ -39,7 +50,10 @@
     font-family: Arial, Helvetica, sans-serif;
     background-color: white;
     color: black;
+    font-size: 16px;
+    padding: 6px;
 }
+
 
 .MagnifyingGlassSearchButton {
     border: none;
@@ -101,13 +115,11 @@
     font-size: 16px;
 }
 
-
 #SPMagnifyingGlass {
     padding: 5px;
     margin-left: 5px;
 }
 
- /* clear search function */
 #SPXMark {
     display: flex;
     justify-content: flex-end;
@@ -120,13 +132,14 @@
     padding-left: 5px;
 }
 
-/* recipe results */
 .SearchBarResultContainer {
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     top: 175px;
+    margin: 0% 10% 10% 10%;
+
 }
 
 .SearchBarPageResult {
@@ -134,7 +147,17 @@
     grid-template-columns: repeat(4, 1fr);
     column-gap: 30px;
     row-gap: 30px;
-    padding: 10px;
+    padding-top: 10px;
+}
+
+.ResultForText {    
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
+
+.ResultForTerm {
+    font-weight: bolder;
+
 }
 
 .SearchResultPageBlank {
@@ -142,25 +165,61 @@
 }
 
 .SearchAllRecipeh2 {
-    margin: 0px 10% 15px 10%;
-    font-size: 50px;
+    margin: 0px 10% 0px 10%;
+    font-size: 45px;
 }
 
 .RandomRecipeGenerator {
-    margin: 10px 10% 10px 10%;
+    margin: 25px 10% 10px 10%;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    line-height: 1.65rem;
+    letter-spacing: 0.5px;
+    overflow-wrap: break-word;
+}
+
+.RandomRecipeGenerator a:link {
+    text-decoration: none;
+}
+
+.RandomRecipeGeneratorButton {
+    font-size: 15px;
+    line-height: 1.25rem;
+    letter-spacing: 0.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-underline-offset: 0.25rem;
+    background-color: black;
+    border: none;
+    color:white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    padding: 6px 6px 6px 6px;
+    width: 200px;
 }
 
 .SearchResultText {
-    font-size: 50px;
-    margin-bottom: 40px;
-    font-weight: 600;
+    font-size: 24px;
     font-family: Georgia, 'Times New Roman', Times, serif;
     line-height: 3rem;
-    margin: 0px 10% 15px 10%;
+    margin: 0px 10% 0px 10%;
 }
 
 .SearchResultSub {
-    font-size: 22px;
-    padding-bottom: 20px; 
+    font-size: 18px;
+    line-height: 1rem;
+    margin: 0px 10% 15px 10%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: italic
+}
+
+.SearchTerm {
+    text-decoration: underline;
+    font-weight: 600;
+
 }
 

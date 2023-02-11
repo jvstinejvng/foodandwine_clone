@@ -45,6 +45,7 @@ function SearchResults( {setSearchBar} ) {
         setSearchBar(false)
         setIsloaded(false)
         e.preventDefault()
+
     }
 
     const clearInput = () => {
@@ -63,8 +64,7 @@ function SearchResults( {setSearchBar} ) {
                             type='text'
                             value={searchTerm}
                             onChange={updateSearchTerm}
-                            placeholder='Search'/>
-                            
+                            placeholder='Search'/>                      
                     </form> 
                     { searchTerm ? 
                         <i id='SPXMark' 
@@ -79,30 +79,32 @@ function SearchResults( {setSearchBar} ) {
             </div>
             {( isLoaded &&
             <div className='SearchBarResultContainer'> 
-                { searchTerm.length > 0 && 
+                { searchTerm.length > 0 && searchResults.length > 0 &&
+                    <div className="ResultForText">Results for <span className="ResultForTerm">{searchTerm}</span> 
                     <div className='SearchBarPageResult'>
                         { searchResults.map(recipe => (
                             <RecipeCard key={recipe.id} recipe={recipe} />
                         ))}
                     </div>
-    
+                    </div>
                 }
 
                 { !searchTerm &&  
                     <div className="SearchResultPageBlank">
                         <h2 className="SearchAllRecipeh2">Search All Recipes</h2>
-                        <div className="RandomRecipeGenerator">Don't know what to cook? 
+                        <div className="RandomRecipeGenerator">Want to try something new? 
                             <Link to={AllRecipeSearch.length > 0 && `/recipes/${AllRecipeSearch[randomRecipe].id}`}>
-                            <button>Find Me A Recipe</button>
+                            <button className='RandomRecipeGeneratorButton'>Suprise Me</button>
                             </Link>
                         </div>
                     </div> 
                 }   
 
                 { !searchResults.length && 
-                    <div className="SearchResultText" >
-                        Uh oh. We didn't find the search term "{searchTerm}" that you were looking for.
-                        <p className="SearchResultSub" >Please try another search term</p>
+                    <div className="SearchResultPageBlank">
+                       <h2 className="SearchAllRecipeh2">Uh oh!</h2>  
+                        <div className='SearchResultText'> We didn't find the search term <span className="SearchTerm">{searchTerm}</span> that you were looking for.</div>
+                        <p className="SearchResultSub" >Please try another search term.</p>
                     </div>
                 }
 

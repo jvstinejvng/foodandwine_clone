@@ -152,6 +152,7 @@ button.NavBarUserTopRight {
     background-color: white;
 }
 
+
 .NavBarBottomLink:hover {
     text-decoration: underline;
     text-underline-offset: 0.25rem;

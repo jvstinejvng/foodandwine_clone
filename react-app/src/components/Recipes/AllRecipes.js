@@ -9,7 +9,7 @@ function AllRecipes() {
 
     const dispatch = useDispatch()
     const recipes = useSelector(state => state.recipes)
-
+   
     useEffect(() => {
         const searchRecipes = async () => {
             await dispatch(getRecipesThunk())
@@ -21,6 +21,8 @@ function AllRecipes() {
     if (recipes) {
         recipes_order = Object.values(recipes).sort((a, b) => a.id > b.id ? -1 : 1)
     }
+
+
 
     if (!recipes) return null;
 
