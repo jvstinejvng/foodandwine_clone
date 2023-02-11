@@ -30,7 +30,7 @@ function AllRecipes() {
         <>
         <div className='AllRecipeContainer'>
             <div  className='AllRecipeHeader'>
-                <h1 className='AllRecipeHeaderText'>Recipes</h1>
+                <h1 className='AllRecipeHeaderText'>All Recipes</h1>
                 <p className="AllRecipeSubText">Let us break bread: recipes that bring us together. Embracing the flavors of life while making time for what matters. Like butter spread on bread, spread love, joy, and laughter.</p>
             </div>
             <div className='AllRecipeCardContainer'>

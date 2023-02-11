@@ -79,7 +79,7 @@ function SaveRecipe( {recipe} ) {
                     className={`${hover ? 'fa-solid' : 'fa-regular'} fa-bookmark`}
                     onMouseEnter={() => setHover(true)}
                     onMouseLeave={() => setHover(false)}> 
-                    <span className='NotUserSaveText'>Login to save this Recipe!</span>
+                    <span className='NotUserSaveText'>Log In to save this Recipe!</span>
                 </div>
                 </Link>
             </div>
@@ -96,21 +96,21 @@ function SaveRecipe( {recipe} ) {
   
     return (
         <>
-            { save ?
-                <div
-                    id="BookmarkIcon"
-                    className="fa-solid fa-bookmark"
-                    onClick={handleUnSave}>
-                </div>
-                :
-                <div
-                    id="BookmarkIcon"
-                    className={`${hover ? 'fa-solid' : 'fa-regular'} fa-bookmark`}
-                    onMouseEnter={() => setHover(true)}
-                    onMouseLeave={() => setHover(false)}
-                    onClick={handleSave}> 
-                </div>
-            }
+        { save ?
+            <div
+                id="BookmarkIcon"
+                className="fa-solid fa-bookmark"
+                onClick={handleUnSave}>
+            </div>
+            :
+            <div
+                id="BookmarkIcon"
+                className={`${hover ? 'fa-solid' : 'fa-regular'} fa-bookmark`}
+                onMouseEnter={() => setHover(true)}
+                onMouseLeave={() => setHover(false)}
+                onClick={handleSave}> 
+            </div>
+        }
         </>
     )
 }

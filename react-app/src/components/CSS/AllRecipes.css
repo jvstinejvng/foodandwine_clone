@@ -17,7 +17,8 @@
 
 .AllRecipeHeaderText {
     font-size: 50px;
-    margin-bottom: 20px;
+    margin-bottom: 28px;
+    margin-top: 18px;
     font-weight: 600;
     font-family: Georgia, 'Times New Roman', Times, serif;
     line-height: 1rem;
@@ -26,6 +27,8 @@
 .AllRecipeSubText {
     font-size: 22px;
     padding: 10px 0px 15px 0px ; 
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.75rem;
 }
 
 .AllRecipeCardContainer {

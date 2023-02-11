@@ -1,13 +1,11 @@
-import { useEffect, useState } from "react"
 import { NavLink } from "react-router-dom"
-import { useDispatch, useSelector } from "react-redux"
+import { useSelector } from "react-redux"
 import RecipeCard from './RecipeCard.js'
 
 import '../CSS/SavedRecipe.css'
 
 function AllSavedRecipes() {
 
-    const dispatch = useDispatch()
     const recipes = useSelector(state => state.recipes)
     const sessionUser = useSelector(state => state.session.user)
 
@@ -25,22 +23,34 @@ function AllSavedRecipes() {
 
     return (
         <div className='SaveRecipeGridDiv'>
-             <p className="SaveRecipeSubText">All Saved Recipes</p>
-                <div className='SaveRecipeCardGrid'>
-                    {saved_recipes && saved_recipes.length > 0 ?
+            <div className="SaveRecipeSubText">All Saved Recipes</div>
+            <div className='SaveRecipeCardGrid'>
+                {saved_recipes && saved_recipes.length > 0 &&
                     Object.values(saved_recipes).map(recipe => (
                         <RecipeCard key={recipe.id} recipe={recipe} />
                     ))
-                    :
-                    <h3 id='NoRecipes'>You don't have anything saved yet. Get cooking!</h3>
-                    }
-                </div>
-                <div>
-                    Hungry for More?
-                        <NavLink  to='/recipes'>
-                             <button>Find More Recipes</button>
-                        </NavLink>
-                </div>
+                }
+                
+            </div>
+            <div className='NoRecipes'>
+                {saved_recipes.length === 0 && 
+                   <p>You don't have anything saved yet. Get cooking!</p>
+                }
+            </div>
+
+            <div>
+                {saved_recipes && saved_recipes.length > 0 ? 
+                    <div className='HungryForMore'><span className='HungryForMoreText'>Hungry for More?</span>
+                    <NavLink  to='/recipes'><button className="FindRecipeButton">Find More Recipes</button></NavLink> 
+                    </div>
+                     :
+                     <div>
+                     <NavLink  to='/recipes'><button className="FindRecipeButton">Find Recipes</button></NavLink> 
+                    </div>
+                }
+                
+            </div>
+           
         </div>
     )
 }
