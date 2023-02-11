@@ -54,11 +54,9 @@ const NavBar = () => {
                 Log In
               </NavLink>
               <NavLink className='NavBarUserTopRight' to='/sign-up' exact={true} activeClassName='active'>
-                <i id='NavBarIcon' class="fas fa-plus-circle"></i>
                 Sign Up 
               </NavLink>
               <button className='NavBarUserTopRight' onClick={demoLogin}>
-                <i id='NavBarIcon' class="fas fa-adjust"></i>
                 Demo User
               </button>  
             </span>
@@ -69,15 +67,15 @@ const NavBar = () => {
                 <i id='NavBarBookmark' class="fa-solid fa-bookmark"></i>
               </NavLink>
               <i id='NavBarIcon' class="fa-solid fa-circle-user">
-              <span className='NavBarHelloUser'>hello, {sessionUser.first_name}</span>
+                <span className='NavBarHelloUser'>{sessionUser.first_name}</span>
               </i>
-              <i id='NavBarIcon' class="fas fa-chevron-circle-right"><LogoutButton /></i>
+              <LogoutButton />
             </span>
           }
         </div>
       </div>
         <div className='NavBarBottomContainer'>
-          <div className='NavBarTags'>
+          <div className='NavBarTabs'>
             <NavLink className='NavBarBottomLink' to='/' exact={true} activeClassName='active'>HOME</NavLink>
             <NavLink className='NavBarBottomLink' to='/recipes' exact={true} activeClassName='active'>ALL RECIPES</NavLink>
           {sessionUser &&
