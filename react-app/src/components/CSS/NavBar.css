@@ -43,7 +43,6 @@
     width: auto;
 }
 
-
 /* log in, sign in and demo container */
 .NavBarUserBar {
     display: flex;
@@ -52,7 +51,8 @@
     justify-content: flex-end;
     font-family: Arial, Helvetica, sans-serif;
 }
- .NavBarUserBarSearch {
+
+.NavBarUserBarSearch {
     display: flex;
     align-items: center;
     width: auto;
@@ -149,7 +149,6 @@
     cursor: pointer;
 }  
 
-
 /* home recipes link */
 .NavBarBottomLink {
     margin: 5px;
@@ -160,14 +159,14 @@
     color: #000000F2;
     font-family: Arial, Helvetica, sans-serif;
     text-transform: uppercase;
-
+    display: flex;
+    flex-direction: row;
 }
 
 .NavBarBottomLink:hover {
     text-decoration: underline;
     text-underline-offset: 0.25rem;
 }
-
 
 #NavbarX {
     display: flex;

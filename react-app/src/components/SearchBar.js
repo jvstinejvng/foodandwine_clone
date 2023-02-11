@@ -55,7 +55,7 @@ function SearchBar( {setShowSearch} ) {
                     type='text'
                     value={searchTerm}
                     onChange={handleFilter}
-                    placeholder='Search recipes'/>
+                    placeholder='What are you looking for?'/>
                 <div >  
                     <i className="fa-solid fa-xmark clear-search"
                         onClick={searchTerm.length ? clearInput : () => setShowSearch(false)}
