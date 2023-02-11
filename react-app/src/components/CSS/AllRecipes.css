@@ -4,7 +4,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    top: 175px;
+    top: 200px;
+    margin: 0% 10% 10% 10%;
 }
 
 /* page header container */

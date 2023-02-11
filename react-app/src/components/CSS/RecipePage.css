@@ -1,7 +1,7 @@
 /* recipe entire page */
 .RecipePageContainer {
     position: relative;
-    top: 175px;
+    top: 200px;
     margin: 1% 20% 15% 20%;
     display: flex;
     flex-direction: column;
@@ -246,7 +246,7 @@ ol li:before {
 
 /* 404 page */
 .Recipe404Page{
-    top: 175px;
+    top: 200px;
     margin: 18% 20% 15% 20%;
     display: flex;
     flex-direction: column;

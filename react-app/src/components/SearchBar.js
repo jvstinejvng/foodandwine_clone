@@ -5,7 +5,7 @@ import { getRecipesThunk } from '../store/recipe'
 
 import './CSS/SearchBar.css'
 
-function SearchBar( {setShowSearch} ) {
+function SearchBar( {setSearchBar} ) {
 
     const dispatch = useDispatch()
     const history = useHistory()
@@ -39,11 +39,12 @@ function SearchBar( {setShowSearch} ) {
         setSearchTerm('')
     }
 
-    const handleSubmit = () => {
+    const handleSubmit = async(e) => {
         history.push(`/recipes/search/title=${searchTerm}`)
         setFilteredResults([])
         setSearchTerm('')
-        setShowSearch(false)
+        setSearchBar(false)
+
     }
 
     return (
@@ -55,23 +56,22 @@ function SearchBar( {setShowSearch} ) {
                     value={searchTerm}
                     onChange={handleFilter}
                     placeholder='Search recipes'/>
-                <div >
-                    <div 
-                        onClick={searchTerm.length ? clearInput : () => setShowSearch(false)}
-                        title={searchTerm.length ? 'Clear Search' : 'Close Search'}>
-                    </div>
+                <div >  
+                    <i className="fa-solid fa-xmark clear-search"
+                        onClick={searchTerm.length ? clearInput : () => setSearchBar(false)}
+                        title={searchTerm.length ? 'Clear Search' : 'Close Search'}></i>
                 </div>
             </form>
             {filteredResults.length > 0 && (
                 <div >
                     {filteredResults && (
-                        filteredResults.slice(0, 5).map((result, idx) => (
+                        filteredResults.slice(0,5).map((result, idx) => (
                             <Link
                                 to={`/recipes/${result.id}`}>
                                 <div
                                     key={idx}
                                     className='search-result'
-                                    onClick={() => setShowSearch(false)}>
+                                    onClick={() => setSearchBar(false)}>
                                     {result.title}
                                 </div>
                             </Link>
@@ -79,6 +79,7 @@ function SearchBar( {setShowSearch} ) {
                     )}
                 </div>
             )}
+            
         </div>
     )
 }
