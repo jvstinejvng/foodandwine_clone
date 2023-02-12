@@ -127,21 +127,23 @@ function UserRecipes() {
             </div>      
             }
             { myRecipesState === 3 && 
-            <div className='UserRecipeGridDiv'> The following are reviews you have made.
-            <div className='UserRecipeCardGrid'>
-                {user_reviews && user_reviews.length > 0 ?
-                    Object.values(user_reviews).map((comment)=> (
-                    <Link to={`/recipes/${comment.recipe_id}`}> 
-                        <UserReview key={comment.id} comment={comment}/>
-                    </Link>
-                    ))
-                    :
-                    <div className='UserNoRecipeDiv'>You haven't created any reviews yet.
-                        <NavLink to='/recipes'><button className='UserRecipeButton'>Review A Review</button></NavLink>
-                    </div>
-                }
-            </div>
-            </div>
+                <div className='UserRecipeGridDiv'> The following are reviews you have made.
+                <div className='UserRecipeCardGrid'>
+                    {user_reviews && user_reviews.length > 0 &&
+                        Object.values(user_reviews).map((comment)=> (
+                        <Link to={`/recipes/${comment.recipe_id}`}> 
+                            <UserReview key={comment.id} comment={comment}/>
+                        </Link>
+                        ))
+                    }
+                    {user_reviews.length === 0}
+                    {user_reviews && user_reviews.length > 0}
+                        <div className='UserNoRecipeDiv'>You haven't created any reviews yet.
+                            <NavLink to='/recipes'><button className='UserRecipeButton'>Review A Review</button></NavLink>
+                        </div>
+                    
+                </div>
+                </div>
             }
         </div>        
         </div>
