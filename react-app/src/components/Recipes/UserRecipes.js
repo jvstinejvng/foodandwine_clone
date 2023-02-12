@@ -81,30 +81,48 @@ function UserRecipes() {
             { myRecipesState === 1 && 
                 <div className='UserRecipeGridDiv'>Recipes you've created on Bread & Butter.
                 <div className='UserRecipeCardGrid'>
-                    {recipe_sort && recipe_sort.length > 0 ?
+                {recipe_sort && recipe_sort.length > 0 &&
                         Object.values(recipe_sort).map(recipe => ( 
                             <RecipeCard key={recipe.id} recipe={recipe} />
                         ))
-                        : 
-                        <div className='UserNoRecipeDiv'>You haven't created any recipes yet.
-                            <NavLink to='/new-recipe'><button className='UserRecipeButton'>Add A Recipe</button></NavLink>
-                        </div>
                     }
+                {recipe_sort.length === 0 &&
+                    <div className='UserNoRecipeDiv'>You haven't created any recipes yet.
+                    </div>
+                }
+                {recipe_sort && recipe_sort.length > 0 ?
+                    <div className='HungryForMore'><span className='HungryForMoreText'>Hungry for More?</span>
+                        <NavLink  to='/recipes'><button className="FindRecipeButton">Find More Recipes</button></NavLink> 
+                    </div>
+                    :
+                    <div>
+                        <NavLink to='/new-recipe'><button className='UserRecipeButton'>Add A Recipe</button></NavLink>
+                    </div> 
+                }    
                 </div>
                 </div>
             }
             { myRecipesState === 2 &&
                 <div className='UserRecipeGridDiv'>All your saved recipes! 
                 <div className='UserRecipeCardGrid'>
-                {saved_recipes && saved_recipes.length > 0 ? 
+                {saved_recipes && saved_recipes.length > 0 &&
                    Object.values(saved_recipes).map(recipe => (
                         <RecipeCard key={recipe.id} recipe={recipe} />
                     ))
-                    :
+                }
+                {saved_recipes.length === 0 &&
                     <div className='UserNoRecipeDiv'>You don't have anything saved yet. Get cooking!
-                        <NavLink  to='/recipes'><button className='UserRecipeButton'>Find More Recipes</button></NavLink>
                     </div>
                 }
+                {saved_recipes && saved_recipes.length > 0 ?
+                    <div className='HungryForMore'><span className='HungryForMoreText'>Hungry for More?</span>
+                        <NavLink  to='/recipes'><button className="FindRecipeButton">Find More Recipes</button></NavLink> 
+                    </div>
+                    :
+                    <div>
+                        <NavLink  to='/recipes'><button className="FindRecipeButton">Find Recipes</button></NavLink> 
+                    </div>   
+                }      
             </div>
             </div>      
             }
