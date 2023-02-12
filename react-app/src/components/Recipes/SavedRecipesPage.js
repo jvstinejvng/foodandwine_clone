@@ -30,7 +30,6 @@ function AllSavedRecipes() {
                         <RecipeCard key={recipe.id} recipe={recipe} />
                     ))
                 }
-                
             </div>
             <div className='NoRecipes'>
                 {saved_recipes.length === 0 && 
@@ -48,9 +47,7 @@ function AllSavedRecipes() {
                      <NavLink  to='/recipes'><button className="FindRecipeButton">Find Recipes</button></NavLink> 
                     </div>
                 }
-                
-            </div>
-           
+            </div>     
         </div>
     )
 }

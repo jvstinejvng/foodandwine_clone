@@ -1,78 +1,90 @@
-/* top page space */ 
 .UserRecipeDiv {
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     top: 200px;
-    margin: 0px 5%;
+    margin: 0% 10% 10% 10%;
 }
 
-/* .UserRecipeContainer {
-    display: flex;
-    justify-content: center;
-} */
-
-.UserRecipeHeaderDiv {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    width: 100%;
-
-}
-
-/* page header: Personal recipes */
-.UserRecipeHeaderText {
-    font-size: 50px;
-    margin-bottom: 0px;
-    font-weight: 600;
-    justify-content: flex-start;
-    text-align: center;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-}
-
-/* page subheader: Recipes you have created */
-.UserRecipeSubText {
-    font-size: 22px;
-    margin: 10px; 
-    text-align: center;
-}
-
-/* user recipe grid */
 .UserRecipeCardGrid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     column-gap: 30px;
     row-gap: 30px;
     padding: 10px;
-}
-
-.UserNoRecipes {
-    font-size: 20px;
-    margin-bottom: 0px;
-    font-weight: 600;
-    justify-content: flex-start;
-    text-align: center;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-top: 20px;
 }
 
 .RecipePages {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .RecipePageTexts {
-    margin: 10px;
+    width: 175px;
+    letter-spacing: 1.5px;
+    margin: 0px 20px;
     padding: 10px;
+    font-size: 16px;
+    text-transform: uppercase;
+    text-align: center;
     background-color: black;
     color: white;
+    font-family: Arial, Helvetica, sans-serif;
 }
-
-
 
 .RecipePageTexts:hover {
     text-decoration: underline;
+    cursor: pointer;
+    background-color: white;
+    color: black;
+    border: 0.1875rem solid black;
+    width: 200px;
+    font-size: 18px;
+}
+
+.UserRecipeContainer {
+    margin-top: 30px;
+    display: flex;
+}
+
+.UserRecipeGridDiv {
+    font-size: 30px;
+    padding: 10px 0px 15px 0px ; 
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 600;
+    line-height: 1rem;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.UserNoRecipeDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 100;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 0.5px;
+    padding: 10px 20px 15px 0px ; 
+}   
+
+.UserRecipeButton {
+    cursor: pointer;
+    width: 200px;
+    color: black;
+    border: 0.1875rem solid black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    text-transform: uppercase;
+    background-color: white;
+    letter-spacing: 1px;
+    font-weight: 700;
+    padding: 5px 5px 5px 5px;
+    margin-left: 20px;
 }

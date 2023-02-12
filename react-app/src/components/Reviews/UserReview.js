@@ -37,7 +37,7 @@ function UserReview( {comment} ) {
             <div className='ReviewIndividual'>
             <div className='ReviewDivText'>
                 <div className='ReviewUsernameDiv'>
-                <div className='ReviewUser'>{ comment.user.first_name }</div>
+                <div className='ReviewUser'>{ comment.user.first_name }</div> 
                     <div className='ReviewDivRating'>
                     <div className='ReviewStarRatingDiv'>{ [...Array(comment.rating)].map(star => <FaStar className='ReviewStarRating' />) }</div>
                         <span className='ReviewStarRatingGrayStars'>{ [...Array(5 - comment.rating)].map(star => <FaStar color='#DCDCDC' className='ReviewStarRating'/>) }</span>

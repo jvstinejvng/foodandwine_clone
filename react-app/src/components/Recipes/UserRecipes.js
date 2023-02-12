@@ -67,86 +67,62 @@ function UserRecipes() {
     return (
         <div className='UserRecipeDiv'>
         <div className='RecipePages'>
-            <div className={myRecipesState === 1 ? 'active-tab': 'inactive'}>
-                <h2 className='RecipePageTexts' onClick={() => setMyRecipesState(1)}>Personal Recipes</h2>
+            <div id='MyUserRecipeTab' className={myRecipesState === 1 ? 'active-tab': 'inactive'}>
+                <h2 className='RecipePageTexts' onClick={() => setMyRecipesState(1)}>Your Recipes</h2>
             </div>
-            <div className={myRecipesState === 2 ? 'active-tab': 'inactive'}>
+            <div id='MyUserRecipeTab' className={myRecipesState === 2 ? 'active-tab': 'inactive'}>
                 <h2 className='RecipePageTexts' onClick={() => setMyRecipesState(2)}>Saved Recipes</h2>
             </div>
-            <div className={myRecipesState === 3 ? 'active-tab': 'inactive'}>
-                <h2 className='RecipePageTexts' onClick={() => setMyRecipesState(3)}>Recipe Reviews</h2>
+            <div id='MyUserRecipeTab' className={myRecipesState === 3 ? 'active-tab': 'inactive'}>
+                <h2 className='RecipePageTexts' onClick={() => setMyRecipesState(3)}>Your Reviews</h2>
             </div>
         </div>       
         <div className='UserRecipeContainer'>
             { myRecipesState === 1 && 
-            <div className='UserRecipeGridDiv'> 
-                <p className="UserRecipeSubText">Recipes you have created on Bread & Butter.</p>
+                <div className='UserRecipeGridDiv'>Recipes you've created on Bread & Butter.
                 <div className='UserRecipeCardGrid'>
-                    {recipe_sort && recipe_sort.length > 0 &&
-                        Object.values(recipe_sort).map(recipe => (
+                    {recipe_sort && recipe_sort.length > 0 ?
+                        Object.values(recipe_sort).map(recipe => ( 
                             <RecipeCard key={recipe.id} recipe={recipe} />
                         ))
-                    }
-                </div>
-                <div>
-                    <NavLink to='/new-recipe'> 
-                        <button>Add A Recipe</button>
-                    </NavLink>
-                </div>
-            </div>
-            }
-            { myRecipesState === 1 && 
-                <div className='UserRecipeCardGrid'>
-                    {recipe_sort && !recipe_sort.length  && 
-                        (<div className='UserNoRecipesDiv'>
-                            <div className='UserNoRecipes'>You have no recipes</div>
-                            {/* <div className='UserNoRecipesSubtext'> To add a recipe click the button below </div>
-                                <button className='UserNoRecipesButton'>Add A Recipe</button> */}
+                        : 
+                        <div className='UserNoRecipeDiv'>You haven't created any recipes yet.
+                            <NavLink to='/new-recipe'><button className='UserRecipeButton'>Add A Recipe</button></NavLink>
                         </div>
-                        )   
                     }
+                </div>
                 </div>
             }
             { myRecipesState === 2 &&
-            <div className='UserRecipeGridDiv'> 
-                <p className="UserRecipeSubText">All Saved Recipes</p>
-                    <div className='UserRecipeCardGrid'>
-                    {saved_recipes && saved_recipes.length > 0 ?
-                        Object.values(saved_recipes).map(recipe => (
-                            <RecipeCard key={recipe.id} recipe={recipe} />
-                        ))
-                        :
-                        <h3>You don't have anything saved yet. Get cooking!</h3>
-                    }
+                <div className='UserRecipeGridDiv'>All your saved recipes! 
+                <div className='UserRecipeCardGrid'>
+                {saved_recipes && saved_recipes.length > 0 ? 
+                   Object.values(saved_recipes).map(recipe => (
+                        <RecipeCard key={recipe.id} recipe={recipe} />
+                    ))
+                    :
+                    <div className='UserNoRecipeDiv'>You don't have anything saved yet. Get cooking!
+                        <NavLink  to='/recipes'><button className='UserRecipeButton'>Find More Recipes</button></NavLink>
                     </div>
-                    <div>Hungry for More?
-                        <NavLink  to='/recipes'>
-                            <button>Find More Recipes</button>
-                        </NavLink>
-                    </div>
+                }
+            </div>
             </div>      
             }
             { myRecipesState === 3 && 
-            <div className='UserRecipeGridDiv'> 
-                <p className="UserRecipeSubText">Review</p>
-                <div className='UserRecipeCardGrid'>
-                <div>
-                {user_reviews && user_reviews.length > 0 &&
+            <div className='UserRecipeGridDiv'> The following are reviews you have made.
+            <div className='UserRecipeCardGrid'>
+                {user_reviews && user_reviews.length > 0 ?
                     Object.values(user_reviews).map((comment)=> (
-                    <Link to={`/recipes/${comment.recipe_id}`}>
-                        <div>
+                    <Link to={`/recipes/${comment.recipe_id}`}> 
                         <UserReview key={comment.id} comment={comment}/>
-                        </div>
                     </Link>
                     ))
+                    :
+                    <div className='UserNoRecipeDiv'>You haven't created any reviews yet.
+                        <NavLink to='/recipes'><button className='UserRecipeButton'>Review A Review</button></NavLink>
+                    </div>
                 }
-                </div>
-                </div>
-                <div>
-                    <NavLink to='/new-recipe'>
-                        <button>Add A Recipe</button>
-                    </NavLink>
-                </div>
+            </div>
             </div>
             }
         </div>        

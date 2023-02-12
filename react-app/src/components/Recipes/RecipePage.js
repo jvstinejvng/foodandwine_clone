@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useHistory, useParams, NavLink } from 'react-router-dom'
+import { useHistory, useParams } from 'react-router-dom'
 import { FaStar } from 'react-icons/fa'
 import NotFound from '../NotFound.js'
 
