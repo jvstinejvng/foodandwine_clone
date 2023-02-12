@@ -34,35 +34,34 @@ function UserReview( {comment} ) {
                 setShowEdit={setShowEdit}/>
             :
             <div className='ReviewDiv'>
-                <div className='ReviewIndividual'>
-                        <div className='ReviewDivText'>
-                            <div className='ReviewUsernameDiv'>
-                                 <div className='ReviewUser'>{ comment.user.username }</div>
-                                        <div className='ReviewDivRating'>
-                                            <div className='ReviewStarRatingDiv'>{ [...Array(comment.rating)].map(star => <FaStar className='ReviewStarRating' />) }</div>
-                                            <span className='ReviewStarRatingGrayStars'>{ [...Array(5 - comment.rating)].map(star => <FaStar color='#DCDCDC' className='ReviewStarRating'/>) }</span>
-                                            <span className="ReviewCreated"> {comment.created_at.split(' ').slice(1, 4).join(' ')}</span>
-                    
-                                </div>
-                            </div>
-                        <div className='ReviewUserDiv'>
-                                <div className='ReviewUserDivMessage'>
-                                        <div className='ReviewText'>{ comment.body }</div>
-                                            {sessionUser && sessionUser.id === comment.user.id &&
-                                            <div className='ReviewButtonDiv'>
-                                                        <div onClick={() => setShowEdit(!showEdit)}>
-                                                            <button className='ReviewButton'>edit</button>
-                                                        </div>
-                                                        <div onClick={handleDelete}>
-                                                                 <button className='ReviewButton'>delete</button>
-                                                        </div>
-                                            </div>
-                                            }
-                                </div>
-                        </div>
-                        </div>
+            <div className='ReviewIndividual'>
+            <div className='ReviewDivText'>
+                <div className='ReviewUsernameDiv'>
+                <div className='ReviewUser'>{ comment.user.first_name }</div>
+                    <div className='ReviewDivRating'>
+                    <div className='ReviewStarRatingDiv'>{ [...Array(comment.rating)].map(star => <FaStar className='ReviewStarRating' />) }</div>
+                        <span className='ReviewStarRatingGrayStars'>{ [...Array(5 - comment.rating)].map(star => <FaStar color='#DCDCDC' className='ReviewStarRating'/>) }</span>
+                        <span className="ReviewCreated"> {comment.created_at.split(' ').slice(1, 4).join(' ')}</span>     
                     </div>
                 </div>
+                <div className='ReviewUserDiv'>
+                    <div className='ReviewUserDivMessage'>
+                        <div className='ReviewText'>{ comment.body }</div>
+                            {sessionUser && sessionUser.id === comment.user.id &&
+                                <div className='ReviewButtonDiv'>
+                                <div onClick={() => setShowEdit(!showEdit)}>
+                                    <button className='ReviewButton'>edit</button>
+                                </div>
+                                <div onClick={handleDelete}>
+                                    <button className='ReviewButton'>delete</button>
+                                    </div>
+                                </div>
+                            }
+                    </div>
+                </div>
+            </div>
+            </div>
+            </div>
         )
     )
 }

@@ -22,8 +22,6 @@ function AllRecipes() {
         recipes_order = Object.values(recipes).sort((a, b) => a.id > b.id ? -1 : 1)
     }
 
-
-
     if (!recipes) return null;
 
     return (

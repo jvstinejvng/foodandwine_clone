@@ -13,14 +13,12 @@
     justify-content: center;
 } */
 
-/* page header container */
 .UserRecipeHeaderDiv {
     position: relative;
     display: flex;
     flex-direction: column;
     text-align: center;
     width: 100%;
-    background-color: green;
 
 }
 

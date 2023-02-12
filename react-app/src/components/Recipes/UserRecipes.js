@@ -1,9 +1,12 @@
 import { useState, useEffect } from 'react'
 import { NavLink } from "react-router-dom"
 import { useDispatch, useSelector } from 'react-redux'
+
 import { getRecipesThunk } from '../../store/recipe'
+import { getCommentsThunk } from '../../store/comment'
 
 import RecipeCard from './RecipeCard'
+import UserReview from '../Reviews/UserReview'
 import CreateRecipe from './CreateRecipe'
 
 import '../CSS/UserRecipes.css'
@@ -12,6 +15,7 @@ function UserRecipes() {
     
     const sessionUser = useSelector(state => state.session.user)
     const recipes = useSelector(state => state.recipes)
+    const reviews = useSelector(state => state.comments)
 
     const dispatch = useDispatch()
 
@@ -46,12 +50,27 @@ function UserRecipes() {
         }
     }
 
+    let user_reviews
+    if (reviews && sessionUser) {
+        let my_reviews = Object.values(reviews).filter(comments => {
+            return comments.user.id === sessionUser.id
+        })
+        user_reviews = my_reviews.sort(((a, b) => b.id - a.id))
+        console.log(user_reviews)
+    }
+
+    useEffect(() => {
+        const getUserCommentsThunk = async () => {
+            await dispatch(getCommentsThunk())
+            .then(() => setIsLoaded(true))
+        }
+        getUserCommentsThunk().catch(console.error)
+    }, [dispatch])
+
+
+
     return (
         <div className='UserRecipeDiv'>
-                {/* <div className='UserRecipeHeaderDiv' >
-                    <h1 className='UserRecipeHeaderText'>Personal Recipes</h1>
-                        <p className="UserRecipeSubText">Recipes you have published on Bread & Butter.</p>
-                </div> */}
             <div className='RecipePages'>
                 <div className={myRecipesState === 1 ? 'active-tab': 'inactive'}>
                     <h2 className='RecipePageTexts' onClick={() => setMyRecipesState(1)}>Personal Recipes</h2>
@@ -112,9 +131,34 @@ function UserRecipes() {
                                 <button>Find More Recipes</button>
                             </NavLink>
                         </div>
-                    </div>
-                    
+                    </div>      
                 }
+                  { myRecipesState === 3 && 
+                    <div className='UserRecipeGridDiv'> 
+                        <p className="UserRecipeSubText">Review</p>
+                        <div className='UserRecipeCardGrid'>
+                            {user_reviews && user_reviews.length > 0 &&
+                                Object.values(user_reviews).map(comment => (
+                                    <div>
+                                    <UserReview 
+                                        key={comment.id} 
+                                        comment={comment}
+                                        
+                                    />
+                                    </div>
+                                    
+                                ))
+                            }
+                        </div>
+                        <div>
+                            <NavLink to='/new-recipe'>
+                                <button>Add A Recipe</button>
+                            </NavLink>
+                        </div>
+                    </div>
+                }
+
+                
             </div>        
         </div>
     )
