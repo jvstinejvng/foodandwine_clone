@@ -22,8 +22,6 @@ function ReviewContainer( { recipe })  {
             {recipe.comments.length > 0 ?
                 Object.values(recipe.comments).map(comment => (
                     <UserReview comment={comment} />
-                
-
                 ))
                 :
                 <h3>Be the first to review!</h3>
