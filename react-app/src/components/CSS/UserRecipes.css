@@ -63,15 +63,10 @@
 }
 
 .UserNoRecipeDiv {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    font-size: 20px;
-    font-weight: 100;
     font-family: Arial, Helvetica, sans-serif;
-    letter-spacing: 0.5px;
-    padding: 10px 20px 15px 0px ; 
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 24px;
 }   
 
 .UserRecipeButton {
@@ -88,3 +83,19 @@
     padding: 5px 5px 5px 5px;
     margin-left: 20px;
 }
+
+.UserRecipeButtonTextDiv {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    height: auto;
+}
+
+.UserRecipeButtonText {
+    padding-right: 15px;
+}
+

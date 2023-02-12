@@ -80,69 +80,58 @@ function UserRecipes() {
         <div className='UserRecipeContainer'>
             { myRecipesState === 1 && 
                 <div className='UserRecipeGridDiv'>Recipes you've created on Bread & Butter.
-                <div className='UserRecipeCardGrid'>
-                {recipe_sort && recipe_sort.length > 0 &&
-                        Object.values(recipe_sort).map(recipe => ( 
-                            <RecipeCard key={recipe.id} recipe={recipe} />
-                        ))
-                    }
-                {recipe_sort.length === 0 &&
-                    <div className='UserNoRecipeDiv'>You haven't created any recipes yet.
+                    <div className='UserRecipeCardGrid'>
+                    {recipe_sort && recipe_sort.length > 0 &&
+                        Object.values(recipe_sort).map(recipe => ( <RecipeCard key={recipe.id} recipe={recipe} />))}
+                    <div className='UserNoRecipeDiv'>
+                    {recipe_sort.length === 0 && <div className='UserNoRecipe'>You haven't created any recipes yet. </div>}
                     </div>
-                }
-                {recipe_sort && recipe_sort.length > 0 ?
-                    <div className='HungryForMore'><span className='HungryForMoreText'>Hungry for More?</span>
-                        <NavLink  to='/recipes'><button className="FindRecipeButton">Find More Recipes</button></NavLink> 
+                    {recipe_sort && recipe_sort.length > 0 ?
+                        <div className='UserRecipeButtonTextDiv'><span className='UserRecipeButtonText'>Ready to Share More Recipes</span>
+                            <NavLink  to='/recipes'><button className="UserRecipeButton">Add A Recipe</button></NavLink> 
+                        </div>
+                        :
+                        <div><NavLink to='/new-recipe'><button className='UserRecipeButton'>Add A Recipe</button></NavLink></div> 
+                    }    
                     </div>
-                    :
-                    <div>
-                        <NavLink to='/new-recipe'><button className='UserRecipeButton'>Add A Recipe</button></NavLink>
-                    </div> 
-                }    
-                </div>
                 </div>
             }
             { myRecipesState === 2 &&
                 <div className='UserRecipeGridDiv'>All your saved recipes! 
-                <div className='UserRecipeCardGrid'>
-                {saved_recipes && saved_recipes.length > 0 &&
-                   Object.values(saved_recipes).map(recipe => (
-                        <RecipeCard key={recipe.id} recipe={recipe} />
-                    ))
-                }
-                {saved_recipes.length === 0 &&
-                    <div className='UserNoRecipeDiv'>You don't have anything saved yet. Get cooking!
+                    <div className='UserRecipeCardGrid'>
+                    {saved_recipes && saved_recipes.length > 0 &&
+                        Object.values(saved_recipes).map(recipe => ( <RecipeCard key={recipe.id} recipe={recipe} />))}
+                    <div className='UserNoRecipeDiv'>
+                    {saved_recipes.length === 0 && <div className='UserNoRecipe'>You don't have anything saved yet. Get cooking! </div>}
                     </div>
-                }
-                {saved_recipes && saved_recipes.length > 0 ?
-                    <div className='HungryForMore'><span className='HungryForMoreText'>Hungry for More?</span>
-                        <NavLink  to='/recipes'><button className="FindRecipeButton">Find More Recipes</button></NavLink> 
+                    {saved_recipes && saved_recipes.length > 0 ?
+                        <div className='UserRecipeButtonTextDiv'><span className='UserRecipeButtonText'>Hungry for More?</span>
+                            <NavLink  to='/recipes'><button className="UserRecipeButton">Find</button></NavLink> 
+                        </div>
+                        :
+                        <div><NavLink  to='/recipes'><button className="FindRecipeButton">Find Recipes</button></NavLink></div>   
+                    }      
                     </div>
-                    :
-                    <div>
-                        <NavLink  to='/recipes'><button className="FindRecipeButton">Find Recipes</button></NavLink> 
-                    </div>   
-                }      
-            </div>
-            </div>      
+                </div>      
             }
             { myRecipesState === 3 && 
                 <div className='UserRecipeGridDiv'> The following are reviews you have made.
-                <div className='UserRecipeCardGrid'>
-                    {user_reviews && user_reviews.length > 0 &&
-                        Object.values(user_reviews).map((comment)=> (
-                        <Link to={`/recipes/${comment.recipe_id}`}> 
-                            <UserReview key={comment.id} comment={comment}/>
-                        </Link>
-                        ))
-                    }
-                    {user_reviews.length === 0}
-                    {user_reviews && user_reviews.length > 0}
-                        <div className='UserNoRecipeDiv'>You haven't created any reviews yet.
-                            <NavLink to='/recipes'><button className='UserRecipeButton'>Review A Review</button></NavLink>
+                    <div className='UserRecipeCardGrid'>
+                        {user_reviews && user_reviews.length > 0 &&
+                            Object.values(user_reviews).map((comment)=> (
+                            <Link to={`/recipes/${comment.recipe_id}`}><UserReview key={comment.id} comment={comment}/></Link>
+                        ))}
+                        <div className='UserNoRecipeDiv'>
+                        {user_reviews.length === 0 && <div className='UserNoRecipe'>You haven't created any reviews yet.</div> }
                         </div>
-                    
-                </div>
+                        {user_reviews && user_reviews.length > 0 ? 
+                            <div className='UserRecipeButtonTextDiv'><span className='UserRecipeButtonText'>Post More Reviews</span>
+                                <NavLink  to='/recipes'><button className="FindRecipeButton">Review A Reviews</button></NavLink> 
+                            </div>
+                            :
+                            <div><NavLink to='/recipes'><button className='UserRecipeButton'>Review A Review</button></NavLink></div>   
+                        }                    
+                    </div>
                 </div>
             }
         </div>        
