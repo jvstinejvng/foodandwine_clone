@@ -61,6 +61,7 @@ SECRET_KEY=INSERT_SECRET_KEY_HERE
 DATABASE_URL=sqlite:///dev.db
 ```
 
+
 4. Start pipenv, migrate database, seed database, and run Flask app:
 
 ```bash
