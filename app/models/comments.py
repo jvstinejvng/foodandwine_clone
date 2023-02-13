@@ -5,6 +5,7 @@ from .db import db
 class Comment(db.Model):
     __tablename__ = 'comments'
 
+
     id = db.Column(db.Integer, primary_key=True)
     rating = db.Column(db.Integer, nullable=False)
     body = db.Column(db.String(1000), nullable=False)
