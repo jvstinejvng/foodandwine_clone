@@ -3,7 +3,7 @@ from app.models.user import db, User
 
 def seed_users():
     demo = User(
-         username='DemoChef', email='DemoChef@aa.io', first_name='Demo', last_name='User',  password='password')
+         username='DemoChef', email='homechef@aa.io', first_name='Demo', last_name='User',  password='password')
     gordon = User(
         username='MasterChef', email='masterchef@aa.io', first_name='Gordon', last_name='Ramsay', password='password')
     wolfgang = User(
