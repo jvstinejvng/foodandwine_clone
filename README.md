@@ -47,7 +47,7 @@
 ------------
 1. Clone this repository:
 ```bash
-git clone https://github.com/samanthaweglinski/Buzzer.git
+git clone 
 ```
 
 2. Install backend dependencies:
