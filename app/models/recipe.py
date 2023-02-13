@@ -1,13 +1,11 @@
 import datetime
 from sqlalchemy.sql import func
-from .db import db, environment, SCHEMA, add_prefix_for_prod
+from .db import db
 from .user import saved_recipe
 
 class Recipe(db.Model):
     __tablename__ = 'recipes'
     
-    if environment == "production":
-        __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
