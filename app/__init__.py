@@ -4,6 +4,7 @@ from flask_cors import CORS
 from flask_migrate import Migrate
 from flask_wtf.csrf import CSRFProtect, generate_csrf
 from flask_login import LoginManager
+from app.models.db import db, environment, SCHEMA
 
 from .models import db, User
 from .api.user_routes import user_routes
@@ -47,6 +48,7 @@ CORS(app)
 # Therefore, we need to make sure that in production any
 # request made over http is redirected to https.
 # Well.........
+
 @app.before_request
 def https_redirect():
     if os.environ.get('FLASK_ENV') == 'production':
