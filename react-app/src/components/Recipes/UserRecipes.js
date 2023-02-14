@@ -83,6 +83,7 @@ function UserRecipes() {
                     <div className='UserRecipeCardGrid'>
                     {recipe_sort && recipe_sort.length > 0 &&
                         Object.values(recipe_sort).map(recipe => ( <RecipeCard key={recipe.id} recipe={recipe} />))}
+                    </div>
                     <div className='UserNoRecipeDiv'>
                     {recipe_sort.length === 0 && <div className='UserNoRecipe'>You haven't created any recipes yet. </div>}
                     </div>
@@ -93,7 +94,6 @@ function UserRecipes() {
                         :
                         <div><NavLink to='/new-recipe'><button className='UserRecipeButton'>Add A Recipe</button></NavLink></div> 
                     }    
-                    </div>
                 </div>
             }
             { myRecipesState === 2 &&
@@ -101,6 +101,7 @@ function UserRecipes() {
                     <div className='UserRecipeCardGrid'>
                     {saved_recipes && saved_recipes.length > 0 &&
                         Object.values(saved_recipes).map(recipe => ( <RecipeCard key={recipe.id} recipe={recipe} />))}
+                    </div>
                     <div className='UserNoRecipeDiv'>
                     {saved_recipes.length === 0 && <div className='UserNoRecipe'>You don't have anything saved yet. Get cooking! </div>}
                     </div>
@@ -111,7 +112,6 @@ function UserRecipes() {
                         :
                         <div><NavLink  to='/recipes'><button className="FindRecipeButton">Find Recipes</button></NavLink></div>   
                     }      
-                    </div>
                 </div>      
             }
             { myRecipesState === 3 && 
@@ -121,6 +121,8 @@ function UserRecipes() {
                             Object.values(user_reviews).map((comment)=> (
                             <Link to={`/recipes/${comment.recipe_id}`}><UserReview key={comment.id} comment={comment}/></Link>
                         ))}
+                    </div>
+
                         <div className='UserNoRecipeDiv'>
                         {user_reviews.length === 0 && <div className='UserNoRecipe'>You haven't created any reviews yet.</div> }
                         </div>
@@ -131,7 +133,6 @@ function UserRecipes() {
                             :
                             <div><NavLink to='/recipes'><button className='UserRecipeButton'>Review A Review</button></NavLink></div>   
                         }
-                    </div>
                 </div>
             }
         </div>        
