@@ -130,7 +130,7 @@ function UserRecipes() {
                             </div>
                             :
                             <div><NavLink to='/recipes'><button className='UserRecipeButton'>Review A Review</button></NavLink></div>   
-                        }                    
+                        }
                     </div>
                 </div>
             }
