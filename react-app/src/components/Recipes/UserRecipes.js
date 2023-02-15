@@ -119,7 +119,11 @@ function UserRecipes() {
                     <div className='UserRecipeCardGrid'>
                         {user_reviews && user_reviews.length > 0 &&
                             Object.values(user_reviews).map((comment)=> (
-                            <Link to={`/recipes/${comment.recipe_id}`}><UserReview key={comment.id} comment={comment}/></Link>
+                            <Link className="ReviewBox" to={`/recipes/${comment.recipe_id}`}>
+                                <div className="ReviewBoxInside">
+                                <UserReview key={comment.id} comment={comment}/>
+                                </div>
+                            </Link>
                         ))}
                     </div>
 

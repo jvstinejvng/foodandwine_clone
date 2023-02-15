@@ -100,3 +100,13 @@
     padding-right: 15px;
 }
 
+.ReviewBox {
+    border: 1px solid black;
+}
+
+.ReviewBoxInside {
+    margin: 14px;
+    background-color: azure;
+    border: 2px solid green
+    
+}
