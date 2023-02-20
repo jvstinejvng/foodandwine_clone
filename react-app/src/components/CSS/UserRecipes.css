@@ -102,11 +102,28 @@
 
 .ReviewBox {
     border: 1px solid black;
+    width: 450px;
+    height: 300px;
+    overflow-wrap: break-word;
+    text-decoration: none;
+    overflow: scroll;
+    color: black;
+    text-align: left;
+
 }
 
 .ReviewBoxInside {
-    margin: 14px;
-    background-color: azure;
-    border: 2px solid green
+    margin: 20px;
+    
+    
+}
+
+.UserReviewGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 30px;
+    row-gap: 30px;
+    padding: 10px;
+    margin-top: 20px;
     
 }

@@ -116,7 +116,7 @@ function UserRecipes() {
             }
             { myRecipesState === 3 && 
                 <div className='UserRecipeGridDiv'> The following are reviews you have made.
-                    <div className='UserRecipeCardGrid'>
+                    <div className='UserReviewGrid'>
                         {user_reviews && user_reviews.length > 0 &&
                             Object.values(user_reviews).map((comment)=> (
                             <Link className="ReviewBox" to={`/recipes/${comment.recipe_id}`}>
