@@ -8,6 +8,7 @@ function RecipeCard( {recipe} ) {
     const [hover, setHover] = useState(false)
     if(!recipe) return null
 
+    // target={"_blank"}
     return (
         <Link to={`/recipes/${recipe.id}`} style={{'textDecoration': 'none'}}>
 

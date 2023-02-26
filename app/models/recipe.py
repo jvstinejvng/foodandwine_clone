@@ -5,6 +5,7 @@ from .user import saved_recipe
 
 class Recipe(db.Model):
     __tablename__ = 'recipes'
+    
 
     if environment == "production":
         __table_args__ = {'schema': SCHEMA}
