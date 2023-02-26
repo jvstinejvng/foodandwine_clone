@@ -11,6 +11,10 @@ saved_recipe = db.Table(
     db.Column("recipe_id", db.Integer, db.ForeignKey(add_prefix_for_prod("recipes.id")), primary_key=True)
 )
 
+if environment == "production":
+    saved_recipe.schema = SCHEMA
+
+
 class User(db.Model, UserMixin):
     __tablename__ = 'users'
 
