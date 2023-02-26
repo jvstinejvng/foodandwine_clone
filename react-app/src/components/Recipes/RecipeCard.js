@@ -8,8 +8,9 @@ function RecipeCard( {recipe} ) {
     const [hover, setHover] = useState(false)
     if(!recipe) return null
 
+    // target={"_blank"}
     return (
-        <Link to={`/recipes/${recipe.id}`} target={"_blank"} style={{'textDecoration': 'none'}}>
+        <Link to={`/recipes/${recipe.id}`} style={{'textDecoration': 'none'}}>
 
             <div className='RecipeCardDiv'
                  onMouseEnter={() => setHover(true)}

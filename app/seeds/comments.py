@@ -1,6 +1,5 @@
 from app.models import db, Comment
 
-
 def seed_comments():
 
     c1 = Comment(
