@@ -36,7 +36,6 @@ function RecipePage() {
         if(recipe) { directions_step = (recipe.directions).split('.').slice(0,-1)}
 
     const handleDelete = async(e) => {
-
         e.preventDefault()
 
         try {
