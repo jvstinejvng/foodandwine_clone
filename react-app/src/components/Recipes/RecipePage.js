@@ -237,8 +237,7 @@ function RecipePage() {
                         </div>
                 }
                 { instruction_step.map(instruction => (
-                    <div>
-                    <li>
+                  <li className='step' key={instruction.id}>
                     <Direction
                         key={instruction.id}
                         instruction={instruction}
@@ -246,9 +245,10 @@ function RecipePage() {
                         showEditDirection={showEditDirection}
                         setShowEditDirection={setShowEditDirection}
                         currentLength={recipe.instructions.length}
+                        stepIndex={instruction_step.indexOf(instruction)}
                     />
                     </li>
-                    </div>
+              
                 ))}
             </div>
             { showAddDirection &&
