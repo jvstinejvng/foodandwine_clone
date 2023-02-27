@@ -182,7 +182,7 @@ function EditRecipe( {recipe, setShowEditForm} ) {
                             onChange={updateServings}
                         />
                                 <div className='RecipeValidationError'>{validationErrors?.servings}</div>
-                <label className="EditRecipeFormLabel">Ingredients</label>
+                {/* <label className="EditRecipeFormLabel">Ingredients</label>
                         <textarea
                             className="EditRecipetextarea"
                             required
@@ -201,7 +201,7 @@ function EditRecipe( {recipe, setShowEditForm} ) {
                             value={directions}
                             onChange={updateDirections}
                         />
-                            <div className='RecipeValidationError'>{validationErrors?.directions}</div>
+                            <div className='RecipeValidationError'>{validationErrors?.directions}</div> */}
                 <div className='EditButtonDiv'>
                 <button className='EditRecipeButton' 
                         type='submit'

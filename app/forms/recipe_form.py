@@ -9,7 +9,7 @@ class RecipeForm(FlaskForm):
     image_url = StringField("Image")
     total_time = StringField('Total Time', validators=[DataRequired(), Length(min=5, max=50)])
     servings = StringField('Servings', validators=[DataRequired(), Length(min=5, max=50)])
-    ingredients = StringField('Description', validators=[DataRequired(), Length(min=3, max=10000)])
-    directions = StringField('Description', validators=[DataRequired(), Length(min=10, max=10000)])
+    # ingredients = StringField('Description', validators=[DataRequired(), Length(min=3, max=10000)])
+    # directions = StringField('Description', validators=[DataRequired(), Length(min=10, max=10000)])
 
 
