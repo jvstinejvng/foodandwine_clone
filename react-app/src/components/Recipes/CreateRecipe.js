@@ -20,7 +20,6 @@ function CreateRecipe() {
         servings: "",
     });
 
-
     const [title, setTitle] = useState('') 
     const [description, setDescription] = useState('')
     const [image_url, setImage_url] = useState('')
@@ -128,7 +127,6 @@ function CreateRecipe() {
             setValidationErrors(e.errors)
         }
     }
-
 
     return (
         <div className='CreateReviewDiv'>

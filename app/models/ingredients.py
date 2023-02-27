@@ -8,7 +8,7 @@ class Ingredient(db.Model):
 
 
     id = db.Column(db.Integer, primary_key=True)
-    amount = db.Column(db.Float, nullable=True)
+    amount = db.Column(db.Float, nullable=False)
     food_stuff = db.Column(db.String(100), nullable=False)
     measurement_unit_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('measurement_units.id')), nullable=False)
     recipe_id = db.Column(db.Integer, db.ForeignKey('recipes.id'), nullable=False)

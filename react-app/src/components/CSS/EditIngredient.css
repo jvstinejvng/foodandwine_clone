@@ -7,14 +7,14 @@
     align-items: center;
 }
 
-.form-wrapper {
+.EditIngredientDiv {
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%
 }
 
-.ingredient-input-container,
+.IngredientInputDiv,
 .DirectionFormInput {
     /* display: flex; */
     align-items: center;
@@ -22,13 +22,13 @@
     /* width: 140%; */
 }
 
-.ingredient-input-container:first-child {
+.IngredientInputDiv:first-child {
     display: flex;
     /* align-items: center; */
     justify-content: space-between;
 }
 
-.ingredient-input-container div{
+.IngredientInputDiv div{
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
@@ -69,7 +69,7 @@
     margin-top: 10px;
 }
 
-.ingredient-input-container .input-container {
+.IngredientInputDiv .input-container {
     width: fit-content;
     display: flex;
     align-items: center;

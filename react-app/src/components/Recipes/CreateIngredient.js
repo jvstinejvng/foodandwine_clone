@@ -15,21 +15,19 @@ function CreateIngredient({ recipe_id, measurementUnits, edit }) {
     const [ingredients, SetIngredients] = useState([])
 
     useEffect(() => {
-
         let errors = []
-        if (amount <= 0) errors.push('')
-        if (amount > 10000) errors.push('')
         if (food_stuff.length < 2) errors.push('')
         if (food_stuff.length > 50) errors.push('')
 
         setValidationErrors(errors)
-    }, [amount, unit, food_stuff])
+    }, [ unit, food_stuff])
 
     const handleSubmit = async(e) => {
         e.preventDefault()
 
         setHasSubmitted(true)
         if (validationErrors.length) return
+
         const payload = {
             amount,
             food_stuff,
@@ -42,9 +40,7 @@ function CreateIngredient({ recipe_id, measurementUnits, edit }) {
         try {
             const res = await fetch('/api/recipes/ingredients', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload)
             })
 
@@ -67,70 +63,69 @@ function CreateIngredient({ recipe_id, measurementUnits, edit }) {
         <>
         <h3>Add Ingredients!</h3>
         { hasSubmitted && validationErrors.length > 0 &&
-                <ul className='errors'>
+                <ul className=''>
                     {validationErrors.map(error => (
-                        <li className='error' key={error}>{error}</li>
+                        <li className='' key={error}>{error}</li>
                     ))}
                 </ul>
         }
-            {!edit && ingredients.length > 0 ?
+        { !edit && ingredients.length > 0 ?
             <ul>
-                {Object.values(ingredients).map(ingredient => (
+                { Object.values(ingredients).map(ingredient => (
                     <li key={ingredient.id}>
-                        <p>{ingredient.amount} {ingredient.measurement_unit.unit} {ingredient.food_stuff}</p>
+                        <p> {ingredient.amount} {ingredient.measurement_unit.unit} {ingredient.food_stuff}</p>
                     </li>
                 ))}
             </ul>
             :
             null
-            }
-            <form className="RecipeInfoForm" onSubmit={handleSubmit}>
-                <div className='add-ingredient-input-container'>
-                    <div className="input-container">
-                        <input
-                            type="number"
-                            placeholder="0"
-                            required
-                            value={amount}
-                            onChange={(e) => setAmount(e.target.value)}
-                            />
-                        <label>Amount:</label>
-                    </div>
-                    <div className="input-container">
-                        <select
-                            type="number"
-                            placeholder="0"
-                            required
-                            value={unit}
-                            onChange={(e) => setUnit(e.target.value)}
-                            >
-                        {measurementUnits && (
-                            Object.values(measurementUnits).map(unit => (
-                                <option key={unit.id} value={unit.id}>{unit.unit}</option>
-                                ))
-                                )}
-                        </select>
-                        <label>Unit:</label>
-                    </div>
-                    <div className="input-container">
-                        <input
-                            type="text"
-                            placeholder="Flour, Water, etc."
-                            required
-                            value={food_stuff}
-                            onChange={(e) => setFood_stuff(e.target.value)}
-                        />
-                        <label>Ingredient:</label>
-                    </div>
+        }
+        <form className="RecipeInfoForm" onSubmit={handleSubmit}>
+            <div className='add-IngredientInputDiv'>
+            <div className="">
+                <input
+                    type="number"
+                    placeholder="0"
+                    value={amount}
+                    onChange={(e) => setAmount(e.target.value)}
+                />
+                <label>quality</label>
+            </div>
+            <div className="">
+                <select
+                    type="number"
+                    placeholder="0"
+                    required
+                    value={unit}
+                    onChange={(e) => setUnit(e.target.value)}
+                >
+                    { measurementUnits && (
+                        Object.values(measurementUnits).map(unit => (
+                        <option key={unit.id} value={unit.id}>{unit.unit}</option>
+                        ))
+                    )}
+                </select>
+                <label>Unit:</label>
+            </div>
+            <div className="">
+                <input
+                    type="text"
+                    placeholder=""
+                    required
+                    value={food_stuff}
+                    onChange={(e) => setFood_stuff(e.target.value)}
+                />
+                <label>Ingredient</label>
+            </div>
+            </div>
+            <div className='AddButton'>
+                <div className='next-button-container add-button'>
+                    <h3 className=''>Add</h3>
+                    <button className=''>
+                        <i className="fa-solid fa-plus add"></i>
+                    </button>
                 </div>
-                <div className='AddButton'>
-                    <div className='next-button-container add-button'>
-                        <h3 className='small-submit'>Add</h3>
-                        <button className='arrow-button'>
-                            <i className="fa-solid fa-plus add"></i>
-                        </button>
-                    </div>
-                </div>
+             </div>
             </form>
         </>
     )

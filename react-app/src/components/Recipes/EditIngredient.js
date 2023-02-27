@@ -4,10 +4,11 @@ import { getRecipesThunk } from '../../store/recipe'
 
 
 function EditIngredient({ ingredient, measurementUnits, recipe_id, showEdit, setShowEdit}) {
+
     const dispatch = useDispatch()
+
     const [amount, setAmount] = useState(ingredient.amount)
     const [unit, setUnit] = useState(ingredient.measurement_unit.id)
-
     const [food_stuff, setFood_stuff] = useState(ingredient.food_stuff)
     const [hasSubmitted, setHasSubmitted] = useState(false)
     const [validationErrors, setValidationErrors] = useState([])
@@ -15,10 +16,9 @@ function EditIngredient({ ingredient, measurementUnits, recipe_id, showEdit, set
     useEffect(() => {
         let errors = []
 
-        if (amount <= 0) errors.push('Looks like you tried to enter a negative amount or zero. Not likely, I think.')
-        if (amount > 10000) errors.push('Looks like you tried to enter an amount over 10,000. Consider scaling your recipe down.')
+        if (amount > 10000) errors.push('')
 
-        if (food_stuff.length < 2) errors.push('Please enter more than 1 character into ingredient name.')
+        if (food_stuff.length < 2) errors.push('')
         if (food_stuff.length > 50) errors.push('Please enter less than 50 characters into ingeredient name.')
 
         setValidationErrors(errors)
@@ -71,39 +71,29 @@ function EditIngredient({ ingredient, measurementUnits, recipe_id, showEdit, set
         }
     }
 
-    // if (!showEditIngredient) setShowEdit(!showEdit)
     return (
-        <div className='edit-ingredients-wrapper'>
-            {/* <p>{ingredient.amount} {ingredient.measurement_unit.unit} {ingredient.food_stuff} </p> */}
-            {validationErrors.length > 0 &&
-                <ul className='errors'>
-                    {validationErrors.map(error => (
-                        <li className='error' key={error}>{error}</li>
-                    ))}
-                </ul>
-            }
-            {/* <div> */}
-                <form className="form-container"
-                    onSubmit={handleSubmit}
-                    style={{ 'backgroundColor': 'pink', 'padding': '10px' }}>
-                    {/* {ingredient} */}
-                    <div className='form-wrapper'>
-                        <div className='ingredient-input-container'>
-                            <div className="input-container">
-                                <div>
-                                    <input
-                                        type="number"
-                                        placeholder="0"
-                                        required
-                                        value={amount}
-                                        onChange={(e) => setAmount(e.target.value)}
-                                        />
-                                        <label>Amount:</label>
-                                </div>
-                            </div>
-                            <div className="input-container">
-                                <div>
-                                    <select
+        <div>
+        { validationErrors.length > 0 &&
+            <ul className=''>
+                { validationErrors.map(error => (
+                    <li className='' key={error}>{error}</li>
+                ))}
+            </ul>
+        }
+        <form className="" onSubmit={handleSubmit}>
+        <div className='EditIngredientDiv'>
+            <div className='IngredientInputDiv'>
+            <div className="">
+                    <input
+                        type="number"
+                        placeholder=" "
+                        value={amount}
+                        onChange={(e) => setAmount(e.target.value)}
+                    />
+                    <label>quantity</label>
+            </div>
+            <div className=""> 
+                <select
                                         type="number"
                                         placeholder={ingredient.measurement_unit}
                                         required
@@ -117,8 +107,7 @@ function EditIngredient({ ingredient, measurementUnits, recipe_id, showEdit, set
                                     )}
                                     </select>
                                     <label>Unit:</label>
-                                </div>
-                            </div>
+            </div>
                             <div className="input-container unit">
                                 {/* <div> */}
                                     <input
@@ -138,7 +127,6 @@ function EditIngredient({ ingredient, measurementUnits, recipe_id, showEdit, set
                         </div>
                     </div>
                 </form>
-            {/* </div> */}
         </div>
     )
 }
