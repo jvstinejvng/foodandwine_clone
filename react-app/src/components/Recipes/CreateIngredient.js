@@ -15,6 +15,7 @@ function CreateIngredient({ recipe_id, measurementUnits, edit }) {
     const [ingredients, SetIngredients] = useState([])
 
     useEffect(() => {
+
         let errors = []
         if (amount <= 0) errors.push('')
         if (amount > 10000) errors.push('')
@@ -64,14 +65,14 @@ function CreateIngredient({ recipe_id, measurementUnits, edit }) {
 
     return (
         <>
-            <h3>Add Ingredients!</h3>
-            {hasSubmitted && validationErrors.length > 0 &&
+        <h3>Add Ingredients!</h3>
+        { hasSubmitted && validationErrors.length > 0 &&
                 <ul className='errors'>
                     {validationErrors.map(error => (
                         <li className='error' key={error}>{error}</li>
                     ))}
                 </ul>
-            }
+        }
             {!edit && ingredients.length > 0 ?
             <ul>
                 {Object.values(ingredients).map(ingredient => (
@@ -83,7 +84,7 @@ function CreateIngredient({ recipe_id, measurementUnits, edit }) {
             :
             null
             }
-            <form className="ingredient-form" onSubmit={handleSubmit}>
+            <form className="RecipeInfoForm" onSubmit={handleSubmit}>
                 <div className='add-ingredient-input-container'>
                     <div className="input-container">
                         <input
@@ -122,7 +123,7 @@ function CreateIngredient({ recipe_id, measurementUnits, edit }) {
                         <label>Ingredient:</label>
                     </div>
                 </div>
-                <div className='add-button-wrapper'>
+                <div className='AddButton'>
                     <div className='next-button-container add-button'>
                         <h3 className='small-submit'>Add</h3>
                         <button className='arrow-button'>

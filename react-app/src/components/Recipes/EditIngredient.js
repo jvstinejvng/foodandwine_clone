@@ -132,7 +132,7 @@ function EditIngredient({ ingredient, measurementUnits, recipe_id, showEdit, set
                                 {/* </div> */}
                             </div>
                             <div className='edit-button-container ingredient'>
-                                <span onClick={() => setShowEdit(!showEdit)} className='cancel-button'>Cancel</span>
+                                <span onClick={() => setShowEdit(!showEdit)} className='CancelButton'>Cancel</span>
                                 <button type='submit' className='ing submit'>Save</button>
                             </div>
                         </div>

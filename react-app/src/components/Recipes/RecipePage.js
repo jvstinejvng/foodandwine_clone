@@ -8,7 +8,7 @@ import EditRecipe from './EditRecipe'
 import CreateIngredient from './CreateIngredient'
 import CreateDirection from './CreateDirection'
 import Ingredient from './Ingredient'
-import Instruction from './Direction'
+import Direction from './Direction'
 import ReviewContainer from '../Reviews/ReviewContainer'
 import NotFound from '../NotFound.js'
 import '../CSS/RecipePage.css'
@@ -237,7 +237,7 @@ function RecipePage() {
                         </div>
                     }
                     { instruction_step.map(instruction => (
-                        <Instruction
+                        <Direction
                             key={instruction.id}
                             instruction={instruction}
                             recipe_id={recipe.id}
@@ -251,7 +251,7 @@ function RecipePage() {
                         <div>
                         < CreateDirection
                             recipe_id={recipe.id}
-                            existing_list_order={recipe.instructions.length}
+                            existing_order={recipe.instructions.length}
                             edit={true}/>
                         </div>
                     }

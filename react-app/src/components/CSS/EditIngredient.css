@@ -1,5 +1,5 @@
 .edit-ingredient-container,
- .edit-instruction-container,
+ .EditDirectionDiv,
  .edit-recipe-form {
     /* background-color: var(--pale-blue); */
     display: flex;
@@ -15,7 +15,7 @@
 }
 
 .ingredient-input-container,
-.instruction-input-container {
+.DirectionFormInput {
     /* display: flex; */
     align-items: center;
     /* justify-content: space-between; */
@@ -87,7 +87,7 @@
     color: var(--dark-blue)
 }
 
-.cancel-button:hover {
+.CancelButton:hover {
     cursor: pointer;
     color: red;
 }

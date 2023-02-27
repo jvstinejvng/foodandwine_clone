@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from "react-redux"
+import { useDispatch } from "react-redux"
+
 import { getRecipesThunk } from '../../store/recipe'
 
-function CreateDirection({ recipe_id, existing_list_order, edit }) {
+function CreateDirection({ recipe_id, existing_order, edit }) {
     
     const dispatch = useDispatch()
-    const [list_order, setList_order] = useState(!existing_list_order ? 1 : existing_list_order + 1)
+
+    const [list_order, setList_order] = useState(!existing_order ? 1 : existing_order + 1)
     const [specification, setSpecification] = useState('')
     const [hasSubmitted, setHasSubmitted] = useState(false)
     const [validationErrors, setValidationErrors] = useState([])
@@ -14,16 +16,16 @@ function CreateDirection({ recipe_id, existing_list_order, edit }) {
     useEffect(() => {
         let errors = []
 
-        if (!specification) errors.push('Please enter an instruction for this step.')
-        if (specification.length < 4) errors.push('Please enter more than 3 characters for your instruction.')
-        if (specification.length > 1000) errors.push('Looks like you tried to enter over 1000 characters for this step.')
+        if (!specification) errors.push('')
+        if (specification.length < 4) errors.push('')
+        if (specification.length > 1000) errors.push('')
 
         setValidationErrors(errors)
     }, [specification])
 
     const handleSubmit = async(e) => {
-        e.preventDefault()
 
+        e.preventDefault()
         setHasSubmitted(true)
         if (validationErrors.length) return
 
@@ -58,15 +60,15 @@ function CreateDirection({ recipe_id, existing_list_order, edit }) {
 
     return (
         <>
-            <h3>Add Instructions!</h3>
-            {hasSubmitted && validationErrors.length > 0 &&
-                <ul className='errors'>
-                    {validationErrors.map(error => (
-                        <li className='error' key={error}>{error}</li>
-                    ))}
-                </ul>
-            }
-            {!edit && instructions.length > 0 ?
+        <h3>Add Directions!</h3>
+        { hasSubmitted && validationErrors.length > 0 &&
+            <ul className=''>
+                { validationErrors.map(error => (
+                <li className='' key={error}>{error}</li>
+                ))}
+            </ul>
+        }
+        { !edit && instructions.length > 0 ?
             <ol>
                 {Object.values(instructions).map(instruction => (
                     <li key={instruction.id}>
@@ -76,29 +78,29 @@ function CreateDirection({ recipe_id, existing_list_order, edit }) {
             </ol>
             :
             null
-            }
-            <form onSubmit={handleSubmit} className="ingredient-form" >
-                <div className="instruction-input-container">
-                    <div className="input-container">
-                        <textarea
-                            placeholder="Step 1. Make the loaf, Step 2. Profit ?"
-                            required
-                            value={specification}
-                            onChange={(e)=> setSpecification(e.target.value)}
-                            >
-                        </textarea>
-                        <label>Step {list_order}.</label>
-                    </div>
-                </div>
-                <div className='add-button-wrapper'>
-                    <div className='next-button-container add-button'>
-                        <h3 className='small-submit'>Add</h3>
-                        <button className='arrow-button'>
-                            <i className="fa-solid fa-plus add"></i>
-                        </button>
-                    </div>
-                </div>
-            </form>
+        }
+        <form onSubmit={handleSubmit} className="RecipeInfoForm" >
+        <div className="DirectionFormInput">
+            <div className="">
+                <textarea
+                    placeholder=""
+                    required
+                    value={specification}
+                    onChange={(e)=> setSpecification(e.target.value)}
+                >
+                </textarea>
+                <label>Step {list_order}.</label>
+            </div>
+        </div>
+        <div className='AddButton'>
+            <div className=''>
+                <h3 className='small-submit'>Add</h3>
+                <button className=''>
+                    <i className="fa-solid fa-plus add"></i>
+                </button>
+            </div>
+        </div>
+        </form>
         </>
     )
 }
