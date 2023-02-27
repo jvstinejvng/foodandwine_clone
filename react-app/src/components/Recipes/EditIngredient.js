@@ -1,26 +1,20 @@
 import { useEffect, useState } from 'react'
 import { useDispatch} from "react-redux"
-import { getRecipesThunk } from '../../../../store/recipe'
-// import NewIngredientForm from '../NewIngredientForm/NewIngredientForm'
-import './EditIngredientForm.css'
+import { getRecipesThunk } from '../../store/recipe'
 
 
-function EditIngredientForm({ ingredient, measurementUnits, recipe_id, showEdit, setShowEdit, showEditIng, setShowEditIng}) {
+function EditIngredient({ ingredient, measurementUnits, recipe_id, showEdit, setShowEdit}) {
     const dispatch = useDispatch()
     const [amount, setAmount] = useState(ingredient.amount)
     const [unit, setUnit] = useState(ingredient.measurement_unit.id)
-    // console.log(unit)
 
     const [food_stuff, setFood_stuff] = useState(ingredient.food_stuff)
     const [hasSubmitted, setHasSubmitted] = useState(false)
-    // const [isDone, setIsDone] = useState(false)
     const [validationErrors, setValidationErrors] = useState([])
-    // const [showAddForm, setShowAddForm] = useState(false)
 
     useEffect(() => {
         let errors = []
 
-        // if (!amount) errors.push('Looks like you forgot to enter an amount!')
         if (amount <= 0) errors.push('Looks like you tried to enter a negative amount or zero. Not likely, I think.')
         if (amount > 10000) errors.push('Looks like you tried to enter an amount over 10,000. Consider scaling your recipe down.')
 
@@ -77,7 +71,7 @@ function EditIngredientForm({ ingredient, measurementUnits, recipe_id, showEdit,
         }
     }
 
-    // if (!showEditIng) setShowEdit(!showEdit)
+    // if (!showEditIngredient) setShowEdit(!showEdit)
     return (
         <div className='edit-ingredients-wrapper'>
             {/* <p>{ingredient.amount} {ingredient.measurement_unit.unit} {ingredient.food_stuff} </p> */}
@@ -149,4 +143,4 @@ function EditIngredientForm({ ingredient, measurementUnits, recipe_id, showEdit,
     )
 }
 
-export default EditIngredientForm
+export default EditIngredient

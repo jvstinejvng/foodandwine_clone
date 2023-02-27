@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import { useDispatch} from "react-redux"
-import { getRecipesThunk } from '../../../../store/recipe'
+
+import { getRecipesThunk } from '../../store/recipe'
+import '../CSS/CreateIngredient.css'
 
 function CreateIngredient({ recipe_id, measurementUnits, edit }) {
     const dispatch = useDispatch()

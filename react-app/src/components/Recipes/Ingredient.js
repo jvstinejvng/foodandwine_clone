@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react'
 import { useDispatch} from "react-redux"
-import { getRecipesThunk } from '../../store/recipe'
-import EditIngredientForm from '../Recipes/RecipeForms/EditIngredientForm/EditIngredientForm'
 
-function Ingredient({ recipe, ingredient, showEditIng, wsetShoEditIng, measurementUnits }) {
+import { getRecipesThunk } from '../../store/recipe'
+import EditIngredient from './EditIngredient'
+
+function Ingredient({ recipe, ingredient, showEditIngredientredient, measurementUnits }) {
+
     const dispatch = useDispatch()
-    // const sessionUser = useSelector(state => state.session.user)
-    const [showEdit, setShowEdit] = useState()
+    const [showEdit1, setShowEdit1] = useState()
 
     const handleDelete = async(e) => {
         e.preventDefault()
@@ -23,22 +24,20 @@ function Ingredient({ recipe, ingredient, showEditIng, wsetShoEditIng, measureme
     }
 
     return (
-        (showEditIng && showEdit ?
-        <EditIngredientForm
+        (showEditIngredientredient && showEdit1 ?
+        <EditIngredient
             ingredient={ingredient}
             measurementUnits={measurementUnits}
             recipe_id={recipe.id}
-            showEdit={showEdit}
-            setShowEdit={setShowEdit}
-            // showEditIng={showEditIng}
-            // setShowEditIng={setShowEditIng}
+            showEdit1={showEdit1}
+            setShowEdit1={setShowEdit1}
             />
         :
-        showEditIng ?
+        showEditIngredientredient ?
             <div className='ingredient-container'>
                 <p>{ingredient.amount} {ingredient.measurement_unit.unit} {ingredient.food_stuff}</p>
                 <div>
-                    <div onClick={() => setShowEdit(!showEdit)}><span>edit</span></div>
+                    <div onClick={() => setShowEdit1(!showEdit1)}><span>edit</span></div>
                     <div onClick={handleDelete}><span>delete</span></div>
                 </div>
             </div>
@@ -46,8 +45,6 @@ function Ingredient({ recipe, ingredient, showEditIng, wsetShoEditIng, measureme
             <div className='header-button-container-ing'>
                 <p>{ingredient.amount} {ingredient.measurement_unit.unit} {ingredient.food_stuff}</p>
             </div>)
-        // ingredient, measurementUnits, recipe_id, showEdit, setShowEdit
-        // <EditIngredientForm ingredient={ingredient} measurementUnits={measurementUnits} recipe_id={recipe.id} showEdit={showEdit} setShowEdit={setShowEdit} />
     )
 }
 

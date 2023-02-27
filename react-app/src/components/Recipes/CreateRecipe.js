@@ -3,9 +3,8 @@ import { useDispatch, useSelector } from "react-redux"
 import { useHistory } from "react-router-dom"
 
 import { postRecipeThunk } from '../../store/recipe'
-// import { getRecipesThunk } from '../../store/recipe'
+import { getRecipesThunk } from '../../store/recipe'
 
-// import exclamation from '../../images/exclamation.svg'
 import '../CSS/CreateRecipe.css'
 
 function CreateRecipe() {
@@ -19,8 +18,6 @@ function CreateRecipe() {
         image_url: "",
         total_time: "",
         servings: "",
-        ingredients: "",
-        directions: "",
     });
 
 
@@ -29,11 +26,9 @@ function CreateRecipe() {
     const [image_url, setImage_url] = useState('')
     const [total_time, setTotal_time] = useState('')
     const [servings, setServings] = useState('')
-    const [ingredients, setIngredients] = useState('')
-    const [directions, setDirections] = useState('')
 
+    const [measurementUnits, setMeasurementUnits] = useState('')
     const [recipe_id, setRecipe_id] = useState('')
-
     const [submitted, setSubmitted] = useState(false)
     const [hasCreated, setHasCreated] = useState(false)
 
@@ -42,8 +37,6 @@ function CreateRecipe() {
     const updateImageUrl = (e) => setImage_url(e.target.value);
     const updateTotalTime = (e) => setTotal_time(e.target.value);
     const updateServings = (e) => setServings(e.target.value);
-    const updateIngredients = (e) => setIngredients(e.target.value);
-    const updateDirections = (e) => setDirections(e.target.value);
 
     const isValidImageUrl = (string) => {
         const ValidImage = [".jpg", ".jpeg", ".png", ".tiff"];
@@ -55,6 +48,22 @@ function CreateRecipe() {
         }
         return false;
     };
+
+    useEffect(() => {
+        async function fetchUnits() {
+            const res = await fetch('/api/recipes/units')
+            const data = await res.json()
+            setMeasurementUnits(data.units)
+        }
+        fetchUnits()
+    }, [])
+
+    useEffect(() => {
+        const fetchRecipes = async () => {
+            await dispatch(getRecipesThunk())
+        }
+        fetchRecipes().catch(console.error)
+    }, [dispatch])
 
    
     useEffect(() => {
@@ -82,31 +91,8 @@ function CreateRecipe() {
         } else if (servings.length > 50) {
             newErrors["servings"] = "❗ Uh oh, you have exceeded the 50 character limit.";
         }
-        if (ingredients.length <= 1) {
-            newErrors["ingredients"] = "❗ What ingredients do you need for this recipe? Please separate each ingredient with a comma. e.g. 1 cup flour, 1/3 cup sugar";
-        } else if (ingredients.length <= 3) {
-            newErrors["ingredients"] = "❗ Your ingredeints input must be more than 3 characters.";
-        } else if (ingredients.indexOf(',') <= 1) {
-            newErrors["ingredients"] = "❗ Please include a comma after your ingredient.";
-        } else if (ingredients.length > 10000) {
-            newErrors["ingredients"] = "❗ Uh oh, you have exceeded the 10,000 character limit.";
-        } else if (ingredients.endsWith(',') <= 0) {
-            newErrors["ingredients"] = "❗ Finished with adding all your recipe's ingredients? Please add a comma to the end of your input.";
-        }
-        if (directions.length <= 1) {
-            newErrors["directions"] = "❗ What are the steps for making this recipe? Please end every step with a period. e.g. Preheat oven to 350 degrees fahrenheit. Mix the flour and sugar together.";
-        } else if (directions.length <= 10) {
-            newErrors["directions"] = "❗ Your directions input must be more than 10 characters.";
-        } else if (directions.indexOf('.') <= 1){
-            newErrors["directions"] = "❗ Please include a period after your instructional step.";
-        } else if (directions.length > 10000) {
-            newErrors["directions"] = "❗ Uh oh, you have exceeded the 10,000 character limit.";
-        }
-        else if (directions.endsWith('.') <= 0){
-            newErrors["directions"] = "❗ Finished with adding all your directions for your recipe? Please add a period to the end of your input.";
-        }
         setValidationErrors(newErrors);
-      }, [title, description, image_url, total_time, servings, ingredients, directions, validationErrors.length]);
+      }, [title, description, image_url, total_time, servings, validationErrors.length]);
 
 
     const handleSubmit = async(e) => {
@@ -122,8 +108,7 @@ function CreateRecipe() {
             description,
             total_time,
             servings,
-            ingredients,
-            directions
+  
         }
 
         try {
@@ -136,8 +121,6 @@ function CreateRecipe() {
                 setImage_url('')
                 setTotal_time('')
                 setServings('')
-                setIngredients('')
-                setDirections('')
                 setSubmitted(false)
                 history.push(`/recipes/${data.id}`)
             }
@@ -211,27 +194,6 @@ function CreateRecipe() {
                     />
                 <div className="CreateRecipeError">{validationErrors?.servings}</div>
                 <div className='CreateFormGap'></div>
-                <label>Ingredients</label>
-                    <textarea
-                    className="CreateRecipeFormInputDiv"
-                    type="string"
-                    placeholder="e.g. 2 tablespoon soften butter, 4 cups sifted flour"
-                    required
-                    value={ingredients}
-                    onChange={updateIngredients}
-                    />
-                <div className="CreateRecipeError">{validationErrors?.ingredients}</div>
-                <div className='CreateFormGap'></div>
-                <label>Directions</label>
-                    <textarea
-                    className="CreateRecipeFormInputDiv"
-                    type="string"
-                    placeholder="e.g. Combine all dry ingredients in a large bowl. Mix soften butter into the large bowl."
-                    required
-                    value={directions}
-                    onChange={updateDirections}
-                    />
-                <div className="CreateRecipeError">{validationErrors?.directions}</div>
                 <div className='CreateFormGap'></div>
                 <div className='AddARecipeButtonDiv'>
                 <button

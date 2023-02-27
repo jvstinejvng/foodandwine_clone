@@ -1,12 +1,16 @@
-from .db import db
+from .db import db, environment, SCHEMA, add_prefix_for_prod
 
 class Ingredient(db.Model):
     __tablename__ = 'ingredients'
 
+    if environment == "production":
+        __table_args__ = {'schema': SCHEMA}
+
+
     id = db.Column(db.Integer, primary_key=True)
     amount = db.Column(db.Float, nullable=True)
     food_stuff = db.Column(db.String(100), nullable=False)
-    measurement_unit_id = db.Column(db.Integer, db.ForeignKey('measurement_units.id'), nullable=True)
+    measurement_unit_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('measurement_units.id')), nullable=True)
     recipe_id = db.Column(db.Integer, db.ForeignKey('recipes.id'), nullable=False)
 
     #relationships

@@ -1,0 +1,97 @@
+.edit-ingredient-container,
+ .edit-instruction-container,
+ .edit-recipe-form {
+    /* background-color: var(--pale-blue); */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%
+}
+
+.ingredient-input-container,
+.instruction-input-container {
+    /* display: flex; */
+    align-items: center;
+    /* justify-content: space-between; */
+    /* width: 140%; */
+}
+
+.ingredient-input-container:first-child {
+    display: flex;
+    /* align-items: center; */
+    justify-content: space-between;
+}
+
+.ingredient-input-container div{
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    /* justify-content: space-between; */
+    width: 100%;
+}
+
+.submit-edit-button-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding-top: 10px
+}
+
+.submit-edit-button-container .arrow-button{
+    margin-left: 15px;
+}
+
+.delete-ing-button-container {
+    display: flex;
+    width: 90%;
+    align-items: center;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    padding:0
+}
+
+.delete-ing-button-container div{
+    margin-left: 2%;
+}
+
+.edit-button-container.ingredient {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.ingredient-input-container .input-container {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.ing.submit {
+    background-color: transparent;
+    border: none;
+
+}
+
+.ing.submit:hover {
+    cursor: pointer;
+    color: var(--dark-blue)
+}
+
+.cancel-button:hover {
+    cursor: pointer;
+    color: red;
+}
+
+.edit-ingredients-container li {
+    list-style: none;
+}

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from "react-redux"
-import { getRecipesThunk } from '../../../../store/recipe'
+import { getRecipesThunk } from '../../store/recipe'
+import '../CSS/CreateInstruction.css'
 
 function CreateInstruction({ recipe_id, existing_list_order, edit }) {
     // console.log(existing_list_order)

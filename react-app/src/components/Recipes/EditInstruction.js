@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from "react-redux"
-import { getRecipesThunk } from '../../../../store/recipe'
+import { getRecipesThunk } from '../../store/recipe'
 
 function EditInstruction({ instruction, recipe_id, showEdit2, setShowEdit2 }) {
     const dispatch = useDispatch()

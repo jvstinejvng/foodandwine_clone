@@ -26,8 +26,6 @@ def post_recipe():
             image_url = form.data['image_url'],
             total_time = form.data['total_time'],
             servings = form.data['servings'],
-            # ingredients = form.data['ingredients'],
-            # directions = form.data['directions']
         )
 
         db.session.add(recipe)
@@ -90,9 +88,7 @@ def edit_recipe(recipe_id):
         recipe.image_url = form.data['image_url'],
         recipe.total_time = form.data['total_time'],
         recipe.servings = form.data['servings'],
-        # recipe.ingredients = form.data['ingredients'],
-        # recipe.directions = form.data['directions']
-
+        
         db.session.commit()
         return recipe.to_dict()
 
@@ -171,7 +167,6 @@ def delete_instruction(inst_id):
 def get_measurement_units():
     units = MeasurementUnit.query.all()
     return {"units": [unit.to_dict() for unit in units]}
-
 
 #SAVES
 # save a recipe

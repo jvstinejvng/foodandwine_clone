@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react'
 import { useDispatch} from "react-redux"
-import { getRecipesThunk } from '../../store/recipe'
-import EditInstructionForm from '../Recipes/RecipeForms/EditInstructionForm/EditInstructionForm'
 
-function Instruction({ instruction, recipe_id, showEditInst, setShowEditInst, currentLength }) {
+import { getRecipesThunk } from '../../store/recipe'
+import EditInstruction from './EditInstruction'
+
+function Instruction({ instruction, recipe_id, showEditInstruction, currentLength }) {
+
     const dispatch = useDispatch()
-    //2 to avoid conflicts with ingredients edit
+
     const [showEdit2, setShowEdit2] = useState()
 
     const handleDelete = async(e) => {
@@ -16,7 +18,6 @@ function Instruction({ instruction, recipe_id, showEditInst, setShowEditInst, cu
                 method: 'DELETE'
             })
             if (res.ok) {
-                // if()
                 const data = await res.json()
             }
             await dispatch(getRecipesThunk())
@@ -26,16 +27,15 @@ function Instruction({ instruction, recipe_id, showEditInst, setShowEditInst, cu
     }
 
     return (
-        (showEditInst && showEdit2 ?
-            <EditInstructionForm
+        (showEditInstruction && showEdit2 ?
+            <EditInstruction
                 instruction={instruction}
                 showEdit2={showEdit2}
                 setShowEdit2={setShowEdit2}
-                // currentLength={currentLength}
                 recipe_id={recipe_id}
                 />
         :
-        showEditInst ?
+        showEditInstruction ?
             <div className='instruction-container'>
                 <p key={instruction.id} className='instruction'>
                     {instruction.list_order}. {instruction.specification}

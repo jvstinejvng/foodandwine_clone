@@ -16,8 +16,6 @@ class Recipe(db.Model):
     description = db.Column(db.String(2000), nullable=False)
     total_time = db.Column(db.String(50), nullable=False)
     servings = db.Column(db.String(50), nullable=False)
-    # ingredients = db.Column(db.String(10000), nullable=False)
-    # directions = db.Column(db.String(10000), nullable=False)
 
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.datetime.utcnow)
     updated_at = db.Column(db.DateTime, nullable=False, default=datetime.datetime.utcnow, onupdate=func.now())
@@ -50,8 +48,6 @@ class Recipe(db.Model):
             'description': self.description,
             'total_time': self.total_time,
             'servings': self.servings,
-            # 'ingredients': self.ingredients,
-            # 'directions': self.directions,
             'created_at': self.created_at,
             'updated_at': self.updated_at,
             
