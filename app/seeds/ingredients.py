@@ -3,73 +3,73 @@ from app.models import db, Ingredient, measurement_units
 def seed_ingredients():
     ing1 = Ingredient(
         recipe_id = 1,
-        amount = 6,
+        amount = '6',
         measurement_unit_id = 7,
         food_stuff = 'soft silken drained tofu',
         )
     ing2 = Ingredient(
         recipe_id = 1,
-        amount = 1.5,
+        amount = '1 1/2',
         measurement_unit_id = 10,
         food_stuff = 'extra-virgin olive oil',
         )
     ing3 = Ingredient(
         recipe_id = 1,
-        amount = 1.5,
+        amount = '1 1/2',
         measurement_unit_id = 10,
         food_stuff = 'fresh lemon juice',
         )
     ing4 = Ingredient(
         recipe_id = 1,
-        amount = 1.5,
+        amount = '1 1/2',
         measurement_unit_id = 10,
         food_stuff = 'freshly grated Parmigiano-Reggiano cheese plus more for serving',
         )
     ing5 = Ingredient(
         recipe_id = 1,
-        amount = 1,
+        amount = '1',
         measurement_unit_id = 1,
         food_stuff = 'oil-packed anchovy drained fillet',
         )
     ing6 = Ingredient(
         recipe_id = 1,
-        amount = 1,
+        amount = '1',
         measurement_unit_id = 30,
         food_stuff = 'garlic clove',
         )
     ing7 = Ingredient(
         recipe_id = 1,
-        amount = 0.5,
+        amount = '1/2',
         measurement_unit_id = 9,
         food_stuff = 'Worcestershire sauce',
         )
     ing8 = Ingredient(
         recipe_id = 1,
-        amount = 0.5,
+        amount = '1/2',
         measurement_unit_id = 9,
         food_stuff = 'Dijon mustard',
         )
     ing9 = Ingredient(
         recipe_id = 1,
-        amount = 0,
+        amount = '',
         measurement_unit_id = 1,
         food_stuff = 'Salt and freshly ground pepper',
         )
     ing10 = Ingredient(
         recipe_id = 1,
-        amount = 14,
+        amount = '14',
         measurement_unit_id = 7,
         food_stuff = 'package firm drained tofu cut into 3/4-inch cubes',
         )
     ing11 = Ingredient(
         recipe_id = 1,
-        amount = 0,
+        amount = '',
         measurement_unit_id = 1, 
         food_stuff = 'Vegetable oil for frying' ,
         )
     ing12 = Ingredient(
         recipe_id = 1,
-        amount = 0.5,
+        amount = '1/2',
         measurement_unit_id = 2 ,
         food_stuff = 'cornstarch',
         )

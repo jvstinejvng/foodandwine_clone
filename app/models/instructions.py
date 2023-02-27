@@ -8,9 +8,9 @@ class Instruction(db.Model):
 
 
     id = db.Column(db.Integer, primary_key=True)
-    list_order = db.Column(db.Integer, nullable=False)
-    specification = db.Column(db.String(1000), nullable=False)
     recipe_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('recipes.id')), nullable=False)
+    specification = db.Column(db.String(10000), nullable=False)
+
 
     #relationships
     recipe = db.relationship('Recipe', back_populates='instructions')
@@ -18,6 +18,5 @@ class Instruction(db.Model):
     def to_dict(self):
         return {
             'id': self.id,
-            'list_order': self.list_order,
             'specification': self.specification,
         }

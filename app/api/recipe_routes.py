@@ -60,7 +60,6 @@ def post_instruction():
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         instruction = Instruction(
-            list_order = form.data['list_order'],
             specification = form.data['specification'],
             recipe_id = form.data['recipe_id']
         )
@@ -125,11 +124,9 @@ def edit_instruction(inst_id):
     form = InstructionForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
-        list_order = form.data['list_order'],
         specification = form.data['specification'],
         recipe_id = form.data['recipe_id']
 
-        instruction.list_order = list_order
         instruction.specification = specification
         instruction.recipe_id = recipe_id
 
