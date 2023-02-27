@@ -6,7 +6,6 @@ class MeasurementUnit(db.Model):
     if environment == "production":
         __table_args__ = {'schema': SCHEMA}
 
-
     id = db.Column(db.Integer, primary_key=True)
     unit = db.Column(db.String(50), nullable=False)
 

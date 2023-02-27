@@ -4,7 +4,7 @@ from app.models import db, MeasurementUnit
 def seed_measurement_units():
 
     none1 = MeasurementUnit(
-        unit=' '
+        unit='none'
         )
     c2 = MeasurementUnit(
         unit='cup (C.)'
@@ -133,6 +133,7 @@ def seed_measurement_units():
     db.session.commit(sprig31)
     db.session.commit(stalk32)
 
+    db.session.commit()
 
 # Uses a raw SQL query to TRUNCATE the users table.
 # SQLAlchemy doesn't have a built in function to do this

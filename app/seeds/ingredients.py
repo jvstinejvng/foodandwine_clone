@@ -1,4 +1,4 @@
-from app.models import db, Ingredient, measurement_units
+from app.models import db, Ingredient
 
 def seed_ingredients():
     ing1 = Ingredient(
@@ -80,9 +80,7 @@ def seed_ingredients():
     #     food_stuff = ,
     #     )
 
-    
-    
-    
+
 
     db.session.add(ing1)
     db.session.add(ing2)
@@ -92,6 +90,11 @@ def seed_ingredients():
     db.session.add(ing6)
     db.session.add(ing7)
     db.session.add(ing8)
+    db.session.add(ing9)
+    db.session.add(ing10)
+    db.session.add(ing11)
+    db.session.add(ing12)
+    
 
     db.session.commit()
 
