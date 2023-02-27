@@ -4,7 +4,7 @@ import { useDispatch} from "react-redux"
 import { getRecipesThunk } from '../../store/recipe'
 import EditIngredient from './EditIngredient'
 
-function Ingredient({ recipe, ingredient, showEditIngredientredient, measurementUnits }) {
+function Ingredient({ recipe, ingredient, showEditIngredient, measurementUnits }) {
 
     const dispatch = useDispatch()
     const [showEdit1, setShowEdit1] = useState()
@@ -16,7 +16,6 @@ function Ingredient({ recipe, ingredient, showEditIngredientredient, measurement
             const res = await fetch(`/api/recipes/ingredients/${ingredient.id}`, {
                 method: 'DELETE'
             })
-
             await dispatch(getRecipesThunk())
         } catch (e) {
             console.log('delete ingredient failed! ' + e)
@@ -24,7 +23,7 @@ function Ingredient({ recipe, ingredient, showEditIngredientredient, measurement
     }
 
     return (
-        ( showEditIngredientredient && showEdit1 ?
+        ( showEditIngredient && showEdit1 ?
         <EditIngredient
             ingredient={ingredient}
             measurementUnits={measurementUnits}
@@ -33,12 +32,16 @@ function Ingredient({ recipe, ingredient, showEditIngredientredient, measurement
             setShowEdit1={setShowEdit1}
             />
         :
-        showEditIngredientredient ?
+        showEditIngredient ?
             <div className=''>
                 <div>{ingredient.amount} {ingredient.measurement_unit.unit} {ingredient.food_stuff}</div>
                 <div>
-                    <div onClick={() => setShowEdit1(!showEdit1)}><div>edit</div></div>
-                    <div onClick={handleDelete}><div>delete</div></div>
+                    <div onClick={() => setShowEdit1(!showEdit1)}>
+                        <div>edit</div>
+                    </div>
+                    <div onClick={handleDelete}>
+                        <div>delete</div>
+                    </div>
                 </div>
             </div>
             :

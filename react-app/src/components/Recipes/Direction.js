@@ -4,10 +4,9 @@ import { useDispatch} from "react-redux"
 import { getRecipesThunk } from '../../store/recipe'
 import EditDirection from './EditDirection'
 
-function Instruction({ instruction, recipe_id, showEditDirection, currentLength }) {
+function Direction({ instruction, recipe_id, showEditDirection, currentLength }) {
 
     const dispatch = useDispatch()
-
     const [showEdit2, setShowEdit2] = useState()
 
     const handleDelete = async(e) => {
@@ -18,6 +17,7 @@ function Instruction({ instruction, recipe_id, showEditDirection, currentLength 
                 method: 'DELETE'
             })
             if (res.ok) {
+                // if()
                 const data = await res.json()
             }
             await dispatch(getRecipesThunk())
@@ -33,24 +33,32 @@ function Instruction({ instruction, recipe_id, showEditDirection, currentLength 
                 showEdit2={showEdit2}
                 setShowEdit2={setShowEdit2}
                 recipe_id={recipe_id}
-                />
+            />
         :
         showEditDirection ?
-            <div className=''>
-                <div key={instruction.id} className=''>
-                    {instruction.list_order}. {instruction.specification}
+            <div className='DirectionDiv'>
+                <div key={instruction.id} className='Direction'>
+                { instruction.list_order }. { instruction.specification }
                 </div>
-                <div>
-                    <div onClick={() => setShowEdit2(!showEdit2)}><div>edit</div></div>
-                    {instruction.list_order === currentLength && <div onClick={handleDelete}><div>delete</div></div>}
+                <div onClick={() => setShowEdit2(!showEdit2)}>
+                    <div>edit</div>
                 </div>
+                <div onClick={handleDelete}>
+                        <div>delete</div>
+                </div>
+                {/* { instruction.list_order === currentLength && 
+                    <div onClick={handleDelete}>
+                        <div>delete</div>
+                    </div>
+                } */}
             </div>
             :
-            <div className=''>
-                <div key={instruction.id}>{instruction.list_order}. {instruction.specification}</div>
+            <div className='DirectionContainer'> 
+                <div key={instruction.id}> Step {instruction.list_order} </div>
+                <div>{instruction.specification}</div>
             </div>
         )
     )
 }
 
-export default Instruction
+export default Direction

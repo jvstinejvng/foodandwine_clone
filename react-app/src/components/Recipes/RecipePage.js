@@ -24,9 +24,9 @@ function RecipePage() {
 
     const [showEdit, setShowEdit] = useState(false)
     const [showAddIngredient, setShowAddIngredient] = useState(false)
-    const [showAddDirection, setshowAddDirection] = useState(false)
-    const [showEditIngredientredient, setshowEditIngredientredient] = useState(false)
-    const [showEditDirection, setshowEditDirection] = useState(false)
+    const [showAddDirection, setShowAddDirection] = useState(false)
+    const [showEditIngredientredient, setShowEditIngredientredient] = useState(false)
+    const [showEditDirection, setShowEditDirection] = useState(false)
     const [measurementUnits, setMeasurementUnits] = useState('')
 
     const average_rating = (recipe) => {
@@ -139,13 +139,13 @@ function RecipePage() {
                             <>
                             {showEditIngredientredient ?
                                 <span 
-                                    onClick={() => setshowEditIngredientredient(!showEditIngredientredient)}
+                                    onClick={() => setShowEditIngredientredient(!showEditIngredientredient)}
                                     className=''>Done Editing
                                 </span>
                                 :
                                 <div
-                                    onClick={() => setshowEditIngredientredient(!showEditIngredientredient)}
-                                    className='edit-pen'
+                                    onClick={() => setShowEditIngredientredient(!showEditIngredientredient)}
+                                    className=''
                                     title='Edit Ingredients'>
                                     <i className="fa-solid fa-pen"></i>
                                 </div>
@@ -178,7 +178,7 @@ function RecipePage() {
                                 ingredient={ingredient}
                                 recipe={recipe}
                                 showEditIngredient={showEditIngredientredient}
-                                setshowEditIngredient={setshowEditIngredientredient}
+                                setshowEditIngredient={setShowEditIngredientredient}
                                 measurementUnits={measurementUnits}
                             />
                         </li>
@@ -202,25 +202,25 @@ function RecipePage() {
                         { recipe.instructions.length > 0 &&
                         <>
                         { showEditDirection ?
-                        <span
-                            onClick={() => setshowEditDirection(!showEditDirection)}
-                            className=''>Done editing
-                        </span>
-                        :
-                        <div
-                            onClick={() => setshowEditDirection(!showEditDirection)}
-                            title='Edit Directions'>
-                            <i className="fa-solid fa-pen"></i>
-                        </div>
+                            <span
+                                onClick={() => setShowEditDirection(!showEditDirection)}
+                                className=''>Done editing
+                            </span>
+                            :
+                            <div
+                                onClick={() => setShowEditDirection(!showEditDirection)}
+                                title='Edit Directions'>
+                                <i className="fa-solid fa-pen"></i>
+                            </div>
                         }
                         { showAddDirection ?
                         <span 
-                            onClick={() => setshowAddDirection(!showAddDirection)} 
+                            onClick={() => setShowAddDirection(!showAddDirection)} 
                             className=''>Done Adding
                         </span>
                         :
                         <div
-                            onClick={() => setshowAddDirection(!showAddDirection)}
+                            onClick={() => setShowAddDirection(!showAddDirection)}
                             title='Add Direction'>
                             <i className="fa-solid fa-plus"></i>
                         </div>
@@ -231,23 +231,25 @@ function RecipePage() {
                     }
             </div>
             <div>
-            { sessionUser && sessionUser.id === recipe.user.id && !recipe.instructions.length && !showAddDirection &&
-                    <div className='' onClick={() => setshowAddDirection(!showAddDirection)}>
-                    <h2>Click here to add Directions to your recipe!</h2>
+                { sessionUser && sessionUser.id === recipe.user.id && !recipe.instructions.length && !showAddDirection &&
+                        <div className='' onClick={() => setShowAddDirection(!showAddDirection)}>
+                        <h2>Click here to add Directions to your recipe!</h2>
+                        </div>
+                }
+                { instruction_step.map(instruction => (
+                    <div>
+                    <li>
+                    <Direction
+                        key={instruction.id}
+                        instruction={instruction}
+                        recipe_id={recipe.id}
+                        showEditDirection={showEditDirection}
+                        setShowEditDirection={setShowEditDirection}
+                        currentLength={recipe.instructions.length}
+                    />
+                    </li>
                     </div>
-            }
-            { instruction_step.map(direction => (
-                <div>
-                <Direction
-                    key={direction.id}
-                    instruction={direction}
-                    recipe_id={recipe.id}
-                    showEditInst={showEditDirection}
-                    setShowEditInst={setshowEditDirection}
-                    currentLength={recipe.instructions.length}
-                />
-                </div>
-            ))}
+                ))}
             </div>
             { showAddDirection &&
                 <div>

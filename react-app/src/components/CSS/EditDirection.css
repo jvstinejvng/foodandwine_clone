@@ -1,23 +1,32 @@
-.DirectionFormInput {
-    margin-top: 15px;
+.EditDirectionDiv {
+    background-color: aqua;
 }
 
-.DirectionFormInput div:not(.submit-edit-button-container){
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: flex-start;
-    justify-content: center;
-    width: 100%;
+.EditDirectionForm {
+    background-color: aqua;
+}
+
+.EditDirectionFormInput {
+    background-color: aqua;
 }
 
 .EditDirectionButton {
-    display: flex;
-    width: 100%;
-    margin-top: 10px;
-    align-items: center;
-    /* justify-content: flex-end; */
+    cursor: pointer;
+    width: 100px;
+    color: black;
+    border: 0.1875rem solid black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    text-transform: uppercase;
+    background-color: white;
+    letter-spacing: 1px;
+    font-weight: 700;
+    margin-left: 20px;
+    padding: 5px 5px 5px 5px;
+    margin-top: 20px;
 }
 
-.EditDirectionButton .CancelButton {
-    margin-top: 1px;
+.EditDirectionContainer {
+    background-color: aqua;
 }
+

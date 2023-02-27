@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useDispatch } from "react-redux"
 
 import { getRecipesThunk } from '../../store/recipe'
+import '../CSS/EditDirection.css'
 
 function EditDirection({ instruction, recipe_id, showEdit2, setShowEdit2 }) {
 
@@ -21,7 +22,6 @@ function EditDirection({ instruction, recipe_id, showEdit2, setShowEdit2 }) {
 
         setValidationErrors(errors)
     }, [specification])
-
 
     const handleSubmit = async(e) => {
         e.preventDefault()
@@ -64,9 +64,9 @@ function EditDirection({ instruction, recipe_id, showEdit2, setShowEdit2 }) {
             </ul>
         }
         <div className='EditDirectionDiv'>
-        <form className='' onSubmit={handleSubmit}>
-            <div className="DirectionFormInput">
-            <div className="">
+        <form className='EditDirectionForm' onSubmit={handleSubmit}>
+            <div className="EditDirectionFormInput">
+            <div className="EditDirectionContainer">
                 <div>
                     <textarea
                         placeholder=""
@@ -78,9 +78,9 @@ function EditDirection({ instruction, recipe_id, showEdit2, setShowEdit2 }) {
                     <label>Step {list_order}</label>
                 </div>
             </div>
-            <div className='EditDirectionButton'>
-                <span onClick={() => setShowEdit2(!showEdit2)} className='CancelButton'>Cancel</span>
-                <button type='' className=''>Save</button>
+            <div className='EditDirectionButtonDiv'>
+                <span onClick={() => setShowEdit2(!showEdit2)} className=''>Cancel</span>
+                <button type='submit' className='EditDirectionButton'>Save</button>
             </div>
             </div>
         </form>

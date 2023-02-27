@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react'
 import { useDispatch} from "react-redux"
+
 import { getRecipesThunk } from '../../store/recipe'
+import '../CSS/EditIngredient.css'
 
-
-function EditIngredient({ ingredient, measurementUnits, recipe_id, showEdit, setShowEdit}) {
+function EditIngredient({ ingredient, measurementUnits, recipe_id, showEdit1, setShowEdit1}) {
 
     const dispatch = useDispatch()
 
@@ -24,19 +25,6 @@ function EditIngredient({ ingredient, measurementUnits, recipe_id, showEdit, set
         setValidationErrors(errors)
     }, [amount, unit, food_stuff])
 
-    const handleDelete = async(e) => {
-        e.preventDefault()
-
-        try {
-            const res = await fetch(`/api/recipes/ingredients/${ingredient.id}`, {
-                method: 'DELETE'
-            })
-
-            await dispatch(getRecipesThunk())
-        } catch (e) {
-            setValidationErrors(e.errors)
-        }
-    }
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -61,9 +49,7 @@ function EditIngredient({ ingredient, measurementUnits, recipe_id, showEdit, set
             })
             if (res.ok) {
                 const data = await res.json()
-                setShowEdit(!showEdit)
-                // setIsDone(true)
-            }
+                setShowEdit1(!showEdit1)            }
 
             await dispatch(getRecipesThunk())
         } catch (e) {
@@ -118,7 +104,7 @@ function EditIngredient({ ingredient, measurementUnits, recipe_id, showEdit, set
                 <label>Ingredient:</label>
             </div>
             <div className=''>
-                <span onClick={() => setShowEdit(!showEdit)} className='CancelButton'>Cancel</span>
+                <span onClick={() => setShowEdit1(!showEdit1)} className='CancelButton'>Cancel</span>
                     <button type='submit' className='ing submit'>Save</button>
             </div>
             </div>
