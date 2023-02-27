@@ -1244,9 +1244,7 @@ def seed_instructions():
     db.session.add(in205)
     db.session.add(in206)
 
-
     db.session.commit()
-
 
 # Uses a raw SQL query to TRUNCATE the users table.
 # SQLAlchemy doesn't have a built in function to do this

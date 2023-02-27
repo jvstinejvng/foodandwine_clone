@@ -4,9 +4,9 @@ class Ingredient(db.Model):
     __tablename__ = 'ingredients'
 
     id = db.Column(db.Integer, primary_key=True)
-    amount = db.Column(db.Float, nullable=False)
-    food_stuff = db.Column(db.String(50), nullable=False)
-    measurement_unit_id = db.Column(db.Integer, db.ForeignKey('measurement_units.id'), nullable=False)
+    amount = db.Column(db.Float, nullable=True)
+    food_stuff = db.Column(db.String(100), nullable=False)
+    measurement_unit_id = db.Column(db.Integer, db.ForeignKey('measurement_units.id'), nullable=True)
     recipe_id = db.Column(db.Integer, db.ForeignKey('recipes.id'), nullable=False)
 
     #relationships
