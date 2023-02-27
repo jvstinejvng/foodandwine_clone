@@ -20,7 +20,7 @@ function CreateIngredient({ recipe_id, measurementUnits, edit }) {
         if (food_stuff.length > 50) errors.push('')
 
         setValidationErrors(errors)
-    }, [ unit, food_stuff])
+    }, [ amount, unit, food_stuff])
 
     const handleSubmit = async(e) => {
         e.preventDefault()
@@ -85,9 +85,12 @@ function CreateIngredient({ recipe_id, measurementUnits, edit }) {
             <div className="">
                 <input
                     type="number"
-                    placeholder="0"
+                    placeholder=""
                     value={amount}
                     onChange={(e) => setAmount(e.target.value)}
+                    min={undefined}
+                    max="1000"
+
                 />
                 <label>quality</label>
             </div>
