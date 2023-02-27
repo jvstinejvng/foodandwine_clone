@@ -94,7 +94,7 @@ function CreateDirection({ recipe_id, existing_order, edit }) {
         </div>
         <div className='AddButton'>
             <div className=''>
-                <h3 className='small-submit'>Add</h3>
+                <h3 className='small-submit'></h3>
                 <button className=''>
                     <i className="fa-solid fa-plus add"></i>
                 </button>

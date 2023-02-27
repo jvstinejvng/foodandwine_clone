@@ -24,9 +24,9 @@ function RecipePage() {
 
     const [showEdit, setShowEdit] = useState(false)
     const [showAddIngredient, setShowAddIngredient] = useState(false)
-    const [showAddInstruction, setShowAddInstruction] = useState(false)
+    const [showAddDirection, setshowAddDirection] = useState(false)
     const [showEditIngredientredient, setshowEditIngredientredient] = useState(false)
-    const [showEditInstruction, setShowEditInstruction] = useState(false)
+    const [showEditDirection, setshowEditDirection] = useState(false)
     const [measurementUnits, setMeasurementUnits] = useState('')
 
     const average_rating = (recipe) => {
@@ -131,16 +131,16 @@ function RecipePage() {
                     </div>
                 }
             <div>
-                <div className='header-button-container-ing'>
-                    <h3 id='ingredients' className='straight-underline'>Ingredients</h3>
+                <div className=''>
+                <h3 id='' className=''>Ingredients</h3>
                     { sessionUser && sessionUser.id === recipe.user.id &&
-                        <div className='edit-button-container'>
+                        <div className=''>
                             { recipe.ingredients.length > 0 &&
                             <>
                             {showEditIngredientredient ?
                                 <span 
                                     onClick={() => setshowEditIngredientredient(!showEditIngredientredient)}
-                                    className='done'>Done Editing
+                                    className=''>Done Editing
                                 </span>
                                 :
                                 <div
@@ -153,7 +153,7 @@ function RecipePage() {
                             {showAddIngredient ?
                                 <span
                                     onClick={() => setShowAddIngredient(!showAddIngredient)}
-                                    className='done'>Done Adding</span>
+                                    className=''>Done Adding</span>
                                 :
                                 <div
                                     onClick={() => setShowAddIngredient(!showAddIngredient)}
@@ -167,22 +167,22 @@ function RecipePage() {
                 </div>
                 <div>
                     { sessionUser && sessionUser.id === recipe.user.id && !recipe.ingredients.length && !showAddIngredient &&
-                        <div className='add-info' onClick={() => setShowAddIngredient(!showAddIngredient)}>
+                        <div className='' onClick={() => setShowAddIngredient(!showAddIngredient)}>
                             <h2>Click here to add Ingredients to your recipe!</h2>
                         </div>
                     }
                     <ul>
-                        {ingredient_list.map(ingredient => (
-                            <li key={ingredient.id}>
-                                <Ingredient
-                                    ingredient={ingredient}
-                                    recipe={recipe}
-                                    showEditIngredient={showEditIngredientredient}
-                                    setshowEditIngredient={setshowEditIngredientredient}
-                                    measurementUnits={measurementUnits}
-                                />
-                            </li>
-                        ))}
+                    { ingredient_list.map(ingredient => (
+                        <li key={ingredient.id}>
+                            <Ingredient
+                                ingredient={ingredient}
+                                recipe={recipe}
+                                showEditIngredient={showEditIngredientredient}
+                                setshowEditIngredient={setshowEditIngredientredient}
+                                measurementUnits={measurementUnits}
+                            />
+                        </li>
+                    ))}
                     </ul>
                 </div>
                 { showAddIngredient &&
@@ -195,71 +195,73 @@ function RecipePage() {
                 }
             </div>
             <div>
-                <div className='header-button-container inst'>
-                    <h3 id='instructions' className='straight-underline'>Instructions</h3>
+            <div className=''>
+                <h3 id='' className=''>Directions</h3>
                     { sessionUser && sessionUser.id === recipe.user.id &&
-                        <div className='edit-button-container'>
-                            { recipe.instructions.length > 0 &&
-                                <>
-                                { showEditInstruction ?
-                                    <span
-                                        onClick={() => setShowEditInstruction(!showEditInstruction)}
-                                        className='done'>Done editing
-                                    </span>
-                                    :
-                                    <div
-                                        onClick={() => setShowEditInstruction(!showEditInstruction)}
-                                        title='Edit Instructions'>
-                                        <i className="fa-solid fa-pen"></i>
-                                    </div>
-                                }
-                                { showAddInstruction ?
-                                    <span 
-                                        onClick={() => setShowAddInstruction(!showAddInstruction)} 
-                                        className='done'>Done Adding
-                                    </span>
-                                    :
-                                    <div
-                                        onClick={() => setShowAddInstruction(!showAddInstruction)}
-                                        title='Add Instructions'>
-                                        <i className="fa-solid fa-plus"></i>
-                                    </div>
-                                }
-                                </>
-                            }
+                        <div className='e'>
+                        { recipe.instructions.length > 0 &&
+                        <>
+                        { showEditDirection ?
+                        <span
+                            onClick={() => setshowEditDirection(!showEditDirection)}
+                            className=''>Done editing
+                        </span>
+                        :
+                        <div
+                            onClick={() => setshowEditDirection(!showEditDirection)}
+                            title='Edit Directions'>
+                            <i className="fa-solid fa-pen"></i>
                         </div>
-                    }
-                    </div>
-                    <div>
-                    { sessionUser && sessionUser.id === recipe.user.id && !recipe.instructions.length && !showAddInstruction &&
-                        <div className='add-info' onClick={() => setShowAddInstruction(!showAddInstruction)}>
-                            <h2>Click here to add Instructions to your recipe!</h2>
+                        }
+                        { showAddDirection ?
+                        <span 
+                            onClick={() => setshowAddDirection(!showAddDirection)} 
+                            className=''>Done Adding
+                        </span>
+                        :
+                        <div
+                            onClick={() => setshowAddDirection(!showAddDirection)}
+                            title='Add Direction'>
+                            <i className="fa-solid fa-plus"></i>
                         </div>
-                    }
-                    { instruction_step.map(instruction => (
-                        <Direction
-                            key={instruction.id}
-                            instruction={instruction}
-                            recipe_id={recipe.id}
-                            showEditInst={showEditInstruction}
-                            setShowEditInst={setShowEditInstruction}
-                            urrentLength={recipe.instructions.length}
-                            />
-                    ))}
-                    </div>
-                    { showAddInstruction &&
-                        <div>
-                        < CreateDirection
-                            recipe_id={recipe.id}
-                            existing_order={recipe.instructions.length}
-                            edit={true}/>
+                        }
+                        </>
+                        }
                         </div>
                     }
             </div>
+            <div>
+            { sessionUser && sessionUser.id === recipe.user.id && !recipe.instructions.length && !showAddDirection &&
+                    <div className='' onClick={() => setshowAddDirection(!showAddDirection)}>
+                    <h2>Click here to add Directions to your recipe!</h2>
+                    </div>
+            }
+            { instruction_step.map(direction => (
+                <div>
+                <Direction
+                    key={direction.id}
+                    instruction={direction}
+                    recipe_id={recipe.id}
+                    showEditInst={showEditDirection}
+                    setShowEditInst={setshowEditDirection}
+                    currentLength={recipe.instructions.length}
+                />
+                </div>
+            ))}
             </div>
-            <div className='ScrollToReview' ref={scrollToReview}></div>
-            <div className='RecipePageBottom'>
-                <ReviewContainer recipe={recipe} />
+            { showAddDirection &&
+                <div>
+                <CreateDirection
+                    recipe_id={recipe.id}
+                    existing_order={recipe.instructions.length}
+                    edit={true}/>
+                </div>
+            }
+            </div>
+            </div>
+            <div className='' ref={scrollToReview}></div>
+                <div className='RecipePageBottom'>
+                    <ReviewContainer recipe={recipe} />
             </div>
         </>    
         }                         

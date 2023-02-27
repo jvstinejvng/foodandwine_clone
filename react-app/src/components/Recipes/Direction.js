@@ -4,7 +4,7 @@ import { useDispatch} from "react-redux"
 import { getRecipesThunk } from '../../store/recipe'
 import EditDirection from './EditDirection'
 
-function Instruction({ instruction, recipe_id, showEditInstruction, currentLength }) {
+function Instruction({ instruction, recipe_id, showEditDirection, currentLength }) {
 
     const dispatch = useDispatch()
 
@@ -27,7 +27,7 @@ function Instruction({ instruction, recipe_id, showEditInstruction, currentLengt
     }
 
     return (
-        (showEditInstruction && showEdit2 ?
+        ( showEditDirection && showEdit2 ?
             <EditDirection
                 instruction={instruction}
                 showEdit2={showEdit2}
@@ -35,19 +35,19 @@ function Instruction({ instruction, recipe_id, showEditInstruction, currentLengt
                 recipe_id={recipe_id}
                 />
         :
-        showEditInstruction ?
-            <div className='instruction-container'>
-                <p key={instruction.id} className='instruction'>
+        showEditDirection ?
+            <div className=''>
+                <div key={instruction.id} className=''>
                     {instruction.list_order}. {instruction.specification}
-                </p>
+                </div>
                 <div>
-                    <div onClick={() => setShowEdit2(!showEdit2)}><span>edit</span></div>
-                    {instruction.list_order === currentLength && <div onClick={handleDelete}><span>delete</span></div>}
+                    <div onClick={() => setShowEdit2(!showEdit2)}><div>edit</div></div>
+                    {instruction.list_order === currentLength && <div onClick={handleDelete}><div>delete</div></div>}
                 </div>
             </div>
             :
-            <div className='header-button-container'>
-                <p key={instruction.id}>{instruction.list_order}. {instruction.specification}</p>
+            <div className=''>
+                <div key={instruction.id}>{instruction.list_order}. {instruction.specification}</div>
             </div>
         )
     )

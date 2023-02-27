@@ -1,6 +1,4 @@
-.edit-ingredient-container,
- .EditDirectionDiv,
- .edit-recipe-form {
+.EditDirectionDiv {
     /* background-color: var(--pale-blue); */
     display: flex;
     flex-direction: column;
@@ -16,16 +14,7 @@
 
 .IngredientInputDiv,
 .DirectionFormInput {
-    /* display: flex; */
     align-items: center;
-    /* justify-content: space-between; */
-    /* width: 140%; */
-}
-
-.IngredientInputDiv:first-child {
-    display: flex;
-    /* align-items: center; */
-    justify-content: space-between;
 }
 
 .IngredientInputDiv div{
@@ -36,62 +25,8 @@
     width: 100%;
 }
 
-.submit-edit-button-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    padding-top: 10px
-}
-
-.submit-edit-button-container .arrow-button{
-    margin-left: 15px;
-}
-
-.delete-ing-button-container {
-    display: flex;
-    width: 90%;
-    align-items: center;
-    justify-content: flex-start;
-    box-sizing: border-box;
-    padding:0
-}
-
-.delete-ing-button-container div{
-    margin-left: 2%;
-}
-
-.edit-button-container.ingredient {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 10px;
-}
-
-.IngredientInputDiv .input-container {
-    width: fit-content;
-    display: flex;
-    align-items: center;
-    margin-right: 10px;
-}
-
-.ing.submit {
-    background-color: transparent;
-    border: none;
-
-}
-
-.ing.submit:hover {
-    cursor: pointer;
-    color: var(--dark-blue)
-}
-
 .CancelButton:hover {
     cursor: pointer;
     color: red;
 }
 
-.edit-ingredients-container li {
-    list-style: none;
-}

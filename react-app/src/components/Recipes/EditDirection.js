@@ -75,12 +75,12 @@ function EditDirection({ instruction, recipe_id, showEdit2, setShowEdit2 }) {
                         onChange={(e)=> setSpecification(e.target.value)}
                         >
                     </textarea>
-                    <label>Step {list_order}.</label>
+                    <label>Step {list_order}</label>
                 </div>
             </div>
             <div className='EditDirectionButton'>
                 <span onClick={() => setShowEdit2(!showEdit2)} className='CancelButton'>Cancel</span>
-                <button type='submit' className=''>Save</button>
+                <button type='' className=''>Save</button>
             </div>
             </div>
         </form>

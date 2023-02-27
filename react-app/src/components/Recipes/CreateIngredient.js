@@ -123,7 +123,7 @@ function CreateIngredient({ recipe_id, measurementUnits, edit }) {
             </div>
             <div className='AddButton'>
                 <div className='next-button-container add-button'>
-                    <h3 className=''>Add</h3>
+                    <h3 className=''></h3>
                     <button className=''>
                         <i className="fa-solid fa-plus add"></i>
                     </button>

@@ -24,7 +24,7 @@ function Ingredient({ recipe, ingredient, showEditIngredientredient, measurement
     }
 
     return (
-        (showEditIngredientredient && showEdit1 ?
+        ( showEditIngredientredient && showEdit1 ?
         <EditIngredient
             ingredient={ingredient}
             measurementUnits={measurementUnits}
@@ -34,17 +34,18 @@ function Ingredient({ recipe, ingredient, showEditIngredientredient, measurement
             />
         :
         showEditIngredientredient ?
-            <div className='ingredient-container'>
-                <p>{ingredient.amount} {ingredient.measurement_unit.unit} {ingredient.food_stuff}</p>
+            <div className=''>
+                <div>{ingredient.amount} {ingredient.measurement_unit.unit} {ingredient.food_stuff}</div>
                 <div>
-                    <div onClick={() => setShowEdit1(!showEdit1)}><span>edit</span></div>
-                    <div onClick={handleDelete}><span>delete</span></div>
+                    <div onClick={() => setShowEdit1(!showEdit1)}><div>edit</div></div>
+                    <div onClick={handleDelete}><div>delete</div></div>
                 </div>
             </div>
             :
-            <div className='header-button-container-ing'>
-                <p>{ingredient.amount} {ingredient.measurement_unit.unit} {ingredient.food_stuff}</p>
-            </div>)
+            <div className=''>
+                <div>{ingredient.amount} {ingredient.measurement_unit.unit} {ingredient.food_stuff}</div>
+            </div>
+        )
     )
 }
 
