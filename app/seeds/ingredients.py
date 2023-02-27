@@ -1,4 +1,4 @@
-from app.models import db, Ingredient
+from app.models import db, Ingredient, measurement_units
 
 def seed_ingredients():
     ing1 = Ingredient(

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { useDispatch} from "react-redux"
 
 import { getRecipesThunk } from '../../store/recipe'
-import EditInstruction from './EditInstruction'
+import EditDirection from './EditDirection'
 
 function Instruction({ instruction, recipe_id, showEditInstruction, currentLength }) {
 
@@ -28,7 +28,7 @@ function Instruction({ instruction, recipe_id, showEditInstruction, currentLengt
 
     return (
         (showEditInstruction && showEdit2 ?
-            <EditInstruction
+            <EditDirection
                 instruction={instruction}
                 showEdit2={showEdit2}
                 setShowEdit2={setShowEdit2}

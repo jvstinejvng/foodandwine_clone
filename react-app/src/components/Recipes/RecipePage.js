@@ -6,9 +6,9 @@ import { FaStar } from 'react-icons/fa'
 import { deleteRecipeThunk } from '../../store/recipe'
 import EditRecipe from './EditRecipe'
 import CreateIngredient from './CreateIngredient'
-import CreateInstruction from './CreateInstruction'
+import CreateDirection from './CreateDirection'
 import Ingredient from './Ingredient'
-import Instruction from './Instruction'
+import Instruction from './Direction'
 import ReviewContainer from '../Reviews/ReviewContainer'
 import NotFound from '../NotFound.js'
 import '../CSS/RecipePage.css'
@@ -249,7 +249,7 @@ function RecipePage() {
                     </div>
                     { showAddInstruction &&
                         <div>
-                        < CreateInstruction
+                        < CreateDirection
                             recipe_id={recipe.id}
                             existing_list_order={recipe.instructions.length}
                             edit={true}/>

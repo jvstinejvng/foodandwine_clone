@@ -2,27 +2,24 @@ import { useEffect, useState } from 'react'
 import { useDispatch} from "react-redux"
 
 import { getRecipesThunk } from '../../store/recipe'
-import '../CSS/CreateIngredient.css'
+import '../CSS/CreateRecipeInfo.css'
 
 function CreateIngredient({ recipe_id, measurementUnits, edit }) {
+
     const dispatch = useDispatch()
     const [amount, setAmount] = useState('')
     const [unit, setUnit] = useState(1)
     const [food_stuff, setFood_stuff] = useState('')
-    // const [measurementUnits, setMeasurementUnits] = useState('')
     const [hasSubmitted, setHasSubmitted] = useState(false)
     const [validationErrors, setValidationErrors] = useState([])
     const [ingredients, SetIngredients] = useState([])
 
     useEffect(() => {
         let errors = []
-
-        // if (!amount) errors.push('Looks like you forgot to enter an amount!')
-        if (amount <= 0) errors.push('Looks like you tried to enter a negative amount or zero. Not likely, I think.')
-        if (amount > 10000) errors.push('Looks like you tried to enter an amount over 10,000. Consider scaling your recipe down.')
-
-        if (food_stuff.length < 2) errors.push('Please enter more than 1 character into ingredient name.')
-        if (food_stuff.length > 50) errors.push('Please enter less than 50 characters into ingeredient name.')
+        if (amount <= 0) errors.push('')
+        if (amount > 10000) errors.push('')
+        if (food_stuff.length < 2) errors.push('')
+        if (food_stuff.length > 50) errors.push('')
 
         setValidationErrors(errors)
     }, [amount, unit, food_stuff])
@@ -32,8 +29,6 @@ function CreateIngredient({ recipe_id, measurementUnits, edit }) {
 
         setHasSubmitted(true)
         if (validationErrors.length) return
-
-
         const payload = {
             amount,
             food_stuff,
@@ -65,7 +60,6 @@ function CreateIngredient({ recipe_id, measurementUnits, edit }) {
         } catch (e) {
             setValidationErrors(e.errors)
         }
-
     }
 
     return (

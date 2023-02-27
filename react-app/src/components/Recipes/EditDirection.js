@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from "react-redux"
 import { getRecipesThunk } from '../../store/recipe'
 
-function EditInstruction({ instruction, recipe_id, showEdit2, setShowEdit2 }) {
+function EditDirection({ instruction, recipe_id, showEdit2, setShowEdit2 }) {
     const dispatch = useDispatch()
     const [list_order, setList_order] = useState(instruction.list_order)
     const [specification, setSpecification] = useState(instruction.specification)
@@ -92,4 +92,4 @@ function EditInstruction({ instruction, recipe_id, showEdit2, setShowEdit2 }) {
     )
 }
 
-export default EditInstruction
+export default EditDirection
