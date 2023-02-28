@@ -107,7 +107,6 @@ function CreateRecipe() {
             description,
             total_time,
             servings,
-  
         }
 
         try {

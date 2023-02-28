@@ -90,12 +90,12 @@ function CreateDirection({ recipe_id, existing_order, edit }) {
                     onChange={(e)=> setSpecification(e.target.value)}
                 >
                 </textarea>
-                <label>Step {list_order}.</label>
+                <label></label>
             </div>
         </div>
         <div className='AddButton'>
             <div className=''>
-                <h3 className='small-submit'></h3>
+                <h3 className=''></h3>
                 <button className=''>
                     <i className="fa-solid fa-plus add"></i>
                 </button>

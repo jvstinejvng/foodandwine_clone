@@ -4,7 +4,7 @@ import { useDispatch} from "react-redux"
 import { getRecipesThunk } from '../../store/recipe'
 import EditDirection from './EditDirection'
 
-function Direction({ instruction, recipe_id, showEditDirection, currentLength, stepIndex }) {
+function Direction({ instruction, recipe_id, showEditDirection, directionStep }) {
 
     const dispatch = useDispatch()
     const [showEdit2, setShowEdit2] = useState()
@@ -46,15 +46,10 @@ function Direction({ instruction, recipe_id, showEditDirection, currentLength, s
                 <div onClick={handleDelete}>
                         <div>delete</div>
                 </div>
-                {/* { instruction.list_order === currentLength && 
-                    <div onClick={handleDelete}>
-                        <div>delete</div>
-                    </div>
-                } */}
             </div>
             :
             <div className='DirectionContainer'> 
-                <div key={instruction.id}> Step&nbsp;{stepIndex + 1} </div>
+                <div key={instruction.id}> Step&nbsp;{directionStep + 1} </div>
                 <div>{instruction.specification}</div>
             </div>
         )

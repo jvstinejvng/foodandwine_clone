@@ -49,9 +49,9 @@ function RecipePage() {
         ingredient_list = Object.values(recipe.ingredients).sort((a, b) => (a.id > b.id ? 1: -1))
     }
 
-    let instruction_step
+    let directional_step
     if (recipe) {
-        instruction_step = Object.values(recipe.instructions).sort((a, b) => (a.list_order > b.list_order ? 1: -1))
+        directional_step = Object.values(recipe.instructions).sort((a, b) => (a.id > b.id ? 1: -1))
     }
 
     const handleDelete = async(e) => {
@@ -236,8 +236,8 @@ function RecipePage() {
                         <h2>Click here to add Directions to your recipe!</h2>
                         </div>
                 }
-                { instruction_step.map(instruction => (
-                  <li className='step' key={instruction.id}>
+                { directional_step.map(instruction => (
+                    <div className='' key={instruction.id}>
                     <Direction
                         key={instruction.id}
                         instruction={instruction}
@@ -245,9 +245,9 @@ function RecipePage() {
                         showEditDirection={showEditDirection}
                         setShowEditDirection={setShowEditDirection}
                         currentLength={recipe.instructions.length}
-                        stepIndex={instruction_step.indexOf(instruction)}
+                        directionStep={directional_step.indexOf(instruction)}
                     />
-                    </li>
+                    </div>
               
                 ))}
             </div>
