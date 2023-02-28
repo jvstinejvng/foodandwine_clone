@@ -84,11 +84,11 @@ function CreateIngredient({ recipe_id, measurementUnits, edit }) {
             <div className='add-IngredientInputDiv'>
             <div className="">
                 <input
-                    type="number"
+                    type="text"
+                    pattern="^[0-9 /]*$" 
                     placeholder=""
                     value={amount}
                     onChange={(e) => setAmount(e.target.value)}
-                    min={undefined}
                     max="1000"
 
                 />

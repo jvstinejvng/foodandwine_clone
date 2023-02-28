@@ -71,7 +71,8 @@ function EditIngredient({ ingredient, measurementUnits, recipe_id, showEdit1, se
             <div className='IngredientInputDiv'>
             <div className="">
                     <input
-                        type="number"
+                        type="text"
+                        pattern="[0-9/]*"
                         placeholder=" "
                         value={amount}
                         onChange={(e) => setAmount(e.target.value)}

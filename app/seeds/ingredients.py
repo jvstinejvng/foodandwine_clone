@@ -73,6 +73,189 @@ def seed_ingredients():
         measurement_unit_id = 2 ,
         food_stuff = 'cornstarch',
         )
+    
+    # ing13 = Ingredient(
+    #     recipe_id = ,
+    #     amount = ,
+    #     measurement_unit_id = ,
+    #     food_stuff = ,
+    #     )
+    # ing14 = Ingredient(
+    #     recipe_id = ,
+    #     amount = ,
+    #     measurement_unit_id = ,
+    #     food_stuff = ,
+    #     )
+    # ing15 = Ingredient(
+    #     recipe_id = ,
+    #     amount = ,
+    #     measurement_unit_id = ,
+    #     food_stuff = ,
+    #     )
+    # ing16 = Ingredient(
+    #     recipe_id = ,
+    #     amount = ,
+    #     measurement_unit_id = ,
+    #     food_stuff = ,
+    #     )
+    # ing17 = Ingredient(
+    #     recipe_id = ,
+    #     amount = ,
+    #     measurement_unit_id = ,
+    #     food_stuff = ,
+    #     )
+    # ing19 = Ingredient(
+    #     recipe_id = ,
+    #     amount = ,
+    #     measurement_unit_id = ,
+    #     food_stuff = ,
+    #     )
+    # ing = Ingredient(
+    #     recipe_id = ,
+    #     amount = ,
+    #     measurement_unit_id = ,
+    #     food_stuff = ,
+    #     )
+    # ing = Ingredient(
+    #     recipe_id = ,
+    #     amount = ,
+    #     measurement_unit_id = ,
+    #     food_stuff = ,
+    #     )
+    # ing = Ingredient(
+    #     recipe_id = ,
+    #     amount = ,
+    #     measurement_unit_id = ,
+    #     food_stuff = ,
+    #     )
+    # ing = Ingredient(
+    #     recipe_id = ,
+    #     amount = ,
+    #     measurement_unit_id = ,
+    #     food_stuff = ,
+    #     )
+    # ing = Ingredient(
+    #     recipe_id = ,
+    #     amount = ,
+    #     measurement_unit_id = ,
+    #     food_stuff = ,
+    #     )
+    # ing = Ingredient(
+    #     recipe_id = ,
+    #     amount = ,
+    #     measurement_unit_id = ,
+    #     food_stuff = ,
+    #     )
+    # ing = Ingredient(
+    #     recipe_id = ,
+    #     amount = ,
+    #     measurement_unit_id = ,
+    #     food_stuff = ,
+    #     )
+    # ing = Ingredient(
+    #     recipe_id = ,
+    #     amount = ,
+    #     measurement_unit_id = ,
+    #     food_stuff = ,
+    #     )
+    # ing = Ingredient(
+    #     recipe_id = ,
+    #     amount = ,
+    #     measurement_unit_id = ,
+    #     food_stuff = ,
+    #     )
+    # ing = Ingredient(
+    #     recipe_id = ,
+    #     amount = ,
+    #     measurement_unit_id = ,
+    #     food_stuff = ,
+    #     )
+    # ing = Ingredient(
+    #     recipe_id = ,
+    #     amount = ,
+    #     measurement_unit_id = ,
+    #     food_stuff = ,
+    #     )
+    # ing = Ingredient(
+    #     recipe_id = ,
+    #     amount = ,
+    #     measurement_unit_id = ,
+    #     food_stuff = ,
+    #     )
+    # ing = Ingredient(
+    #     recipe_id = ,
+    #     amount = ,
+    #     measurement_unit_id = ,
+    #     food_stuff = ,
+    #     )
+    # ing = Ingredient(
+    #     recipe_id = ,
+    #     amount = ,
+    #     measurement_unit_id = ,
+    #     food_stuff = ,
+    #     )
+    # ing = Ingredient(
+    #     recipe_id = ,
+    #     amount = ,
+    #     measurement_unit_id = ,
+    #     food_stuff = ,
+    #     )
+    # ing = Ingredient(
+    #     recipe_id = ,
+    #     amount = ,
+    #     measurement_unit_id = ,
+    #     food_stuff = ,
+    #     )
+    # ing = Ingredient(
+    #     recipe_id = ,
+    #     amount = ,
+    #     measurement_unit_id = ,
+    #     food_stuff = ,
+    #     )
+    # ing = Ingredient(
+    #     recipe_id = ,
+    #     amount = ,
+    #     measurement_unit_id = ,
+    #     food_stuff = ,
+    #     )
+    # ing = Ingredient(
+    #     recipe_id = ,
+    #     amount = ,
+    #     measurement_unit_id = ,
+    #     food_stuff = ,
+    #     )
+    # ing = Ingredient(
+    #     recipe_id = ,
+    #     amount = ,
+    #     measurement_unit_id = ,
+    #     food_stuff = ,
+    #     )
+    # ing = Ingredient(
+    #     recipe_id = ,
+    #     amount = ,
+    #     measurement_unit_id = ,
+    #     food_stuff = ,
+    #     )
+    # ing = Ingredient(
+    #     recipe_id = ,
+    #     amount = ,
+    #     measurement_unit_id = ,
+    #     food_stuff = ,
+    #     )
+    # ing = Ingredient(
+    #     recipe_id = ,
+    #     amount = ,
+    #     measurement_unit_id = ,
+    #     food_stuff = ,
+    #     )
+    # ing = Ingredient(
+    #     recipe_id = ,
+    #     amount = ,
+    #     measurement_unit_id = ,
+    #     food_stuff = ,
+    #     )
+
+    
     # ing = Ingredient(
     #     recipe_id = ,
     #     amount = ,
