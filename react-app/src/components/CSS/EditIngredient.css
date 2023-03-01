@@ -16,3 +16,13 @@
     padding-left: 5px;
 
 }
+
+.IngredientBullet {
+    color: aquamarine;
+}
+
+.IngredientBullet::before {
+    content: "•"; 
+    color: red
+}
+

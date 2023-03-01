@@ -174,6 +174,7 @@ function RecipePage() {
             </>
         }
         </span>
+        <div className='RecipePageIngredientListBox'>
         <ul className='RecipeBodyList'>
             { ingredient_list.map(ingredient => (
                 <li className='RecipeBodyText' key={ingredient.id}>
@@ -187,6 +188,7 @@ function RecipePage() {
                 </li>
             ))}
         </ul>
+        </div>
         { !sessionUser && recipe.id && !recipe.ingredients.length &&
             <div className='RecipeBodyEmpty'>The owner of this recipe has not yet added the ingredients to this recipe.</div>
         }

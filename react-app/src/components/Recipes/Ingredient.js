@@ -25,7 +25,6 @@ function Ingredient({ recipe, ingredient, showEditIngredient, measurementUnits }
 
     return (
         ( showEditIngredient && showEdit1 ?
-         
             <EditIngredient
                 ingredient={ingredient}
                 measurementUnits={measurementUnits}
@@ -37,7 +36,7 @@ function Ingredient({ recipe, ingredient, showEditIngredient, measurementUnits }
             :
             showEditIngredient ?
             <div>
-                <span>{ingredient.amount} {ingredient.measurement_unit.unit} {ingredient.food_stuff}</span>
+                <span > {ingredient.amount} {ingredient.measurement_unit.unit} {ingredient.food_stuff}</span>
                 <div className='IngredientEditButton'>
                     <span  className="IngredientStepText" onClick={() => setShowEdit1(!showEdit1)}>
                         <i class="fa-solid fa-pen-to-square"></i>
