@@ -58,7 +58,7 @@ function EditIngredient({ ingredient, measurementUnits, recipe_id, showEdit1, se
     }
 
     return (
-        <div>
+    <div>
         { validationErrors.length > 0 &&
             <ul className=''>
                 { validationErrors.map(error => (
@@ -66,52 +66,50 @@ function EditIngredient({ ingredient, measurementUnits, recipe_id, showEdit1, se
                 ))}
             </ul>
         }
-        <form className="" onSubmit={handleSubmit}>
+    <form className="" onSubmit={handleSubmit}>
         <div className='EditIngredientDiv'>
-            <div className='IngredientInputDiv'>
-            <div className="">
-                    <input
-                        type="text"
-                        pattern="[0-9/]*"
-                        placeholder=" "
-                        value={amount}
-                        onChange={(e) => setAmount(e.target.value)}
-                    />
-                    <label>quantity</label>
-            </div>
-            <div className=""> 
-                <select
-                    type="number"
-                    placeholder={ingredient.measurement_unit}
-                    required
-                    value={unit}
-                    onChange={(e) => setUnit(e.target.value)}
-                >
-                    {measurementUnits && (
-                        Object.values(measurementUnits).map(unit => (
-                            <option key={unit.id} value={unit.id}>{unit.unit}</option>
-                    )))}
-                </select>
-                <label>Unit:</label>
-            </div>
-            <div className="">
-                <input
-                    type="text"
-                    placeholder=""
-                    required
-                    value={food_stuff}
-                    onChange={(e) => setFood_stuff(e.target.value)}
+        <div className="">
+            <input
+                type="text"
+                pattern="[0-9/]*"
+                placeholder=" "
+                value={amount}
+                onChange={(e) => setAmount(e.target.value)}
                 />
-                <label>Ingredient:</label>
-            </div>
-            <div className=''>
-                <span onClick={() => setShowEdit1(!showEdit1)} className='CancelButton'>Cancel</span>
-                    <button type='submit' className='ing submit'>Save</button>
-            </div>
-            </div>
+            <label>Quantity</label>
+        </div>
+        <div className=""> 
+            <select
+                type="number"
+                placeholder={ingredient.measurement_unit}
+                required
+                value={unit}
+                onChange={(e) => setUnit(e.target.value)}
+            >
+            {measurementUnits && (
+                Object.values(measurementUnits).map(unit => (
+                    <option key={unit.id} value={unit.id}>{unit.unit}</option>
+                )))}
+            </select>
+            <label>Unit</label>
+        </div>
+        <div className="">
+            <input
+                type="text"
+                placeholder=""
+                required
+                value={food_stuff}
+                onChange={(e) => setFood_stuff(e.target.value)}
+            />
+            <label>Ingredient</label>
+        </div>
+        <div className=''>
+            <span onClick={() => setShowEdit1(!showEdit1)} className=''>Cancel</span>
+                <button type='submit' className=''>Save</button>
+        </div>
         </div>
         </form>
-        </div>
+    </div>
     )
 }
 

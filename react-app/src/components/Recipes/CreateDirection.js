@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import { useDispatch } from "react-redux"
 
 import { getRecipesThunk } from '../../store/recipe'
-import '../CSS/CreateRecipeInfo.css'
 
 function CreateDirection({ recipe_id, existing_order, edit }) {
     
@@ -25,8 +24,8 @@ function CreateDirection({ recipe_id, existing_order, edit }) {
     }, [specification])
 
     const handleSubmit = async(e) => {
-
         e.preventDefault()
+
         setHasSubmitted(true)
         if (validationErrors.length) return
 

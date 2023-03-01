@@ -1,6 +1,7 @@
+/* single recipe page container */
 .RecipePageContainer {
     position: relative;
-    top: 200px;
+    top: 190px;
     margin: 1% 20% 15% 20%;
     display: flex;
     flex-direction: column;
@@ -8,12 +9,13 @@
     width: auto;
 }
 
+/* single recipe header */
 .RecipePageHeaderText {
-    font-size: 48px;
+    font-size: 45px;
     margin-bottom: 1rem;
     font-family: Georgia, 'Times New Roman', Times, serif;    
     font-weight: 600;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.25px;
     color: black;
     overflow-wrap: break-word;
 }
@@ -21,7 +23,7 @@
 .RecipePageAverageRatingDiv {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
-    line-height: 1.50rem;
+    line-height: 1.75rem;
     font-weight: 700;
 }
 
@@ -100,7 +102,6 @@
     width: 100%;
 }
 
-/* recipe edit and delete div */
 .RecipePageRecipeCardButtonDiv {
     display: flex;
     flex-direction: row;
@@ -110,7 +111,6 @@
     cursor: pointer;
 }
 
-/* recipe edit and delete button */
 .RecipePageRecipeCardButton {
     cursor: pointer;
     margin-top: 10px;
@@ -133,7 +133,6 @@
     color: white;
 }
 
-/* recipe image */
 .RecipePageImage {
     width: 100%;
     height: 600px;
@@ -141,7 +140,6 @@
     aspect-ratio: auto 2000 / 2000;
 }
 
-/* total time and servings div */
 .TimeServingDiv {
     margin-right: 50px;
     font-size: 22px;
@@ -153,7 +151,6 @@
     font-weight: 100;
 }
 
-/* total time and serving header */
 .TimeServingHeader {
     font-size: 24px;
     margin-bottom: 8px;
@@ -163,7 +160,6 @@
     font-family: Georgia, 'Times New Roman', Times, serif;    font-weight: 700;
 }
 
-/* recipe ingredients */
 .RecipePageIngredients {
     font-size: 40px;
     font-weight: 700;
@@ -172,13 +168,11 @@
     letter-spacing: 0.5px;
 }
 
-/* removes the bullet point */
 ul.RecipeIngredientList {
     list-style: none; 
     padding-left: 0;
 }
 
-/* red bullet points */
 ul li.RecipePageIngredientsText::before {
     content: "\2022"; 
     color: red; 
@@ -187,7 +181,6 @@ ul li.RecipePageIngredientsText::before {
     width: 1em; 
   }
 
-/* ingredient text */
 .RecipePageIngredientsText {
     font-size: 22px;
     padding-bottom: 15px;
@@ -197,7 +190,6 @@ ul li.RecipePageIngredientsText::before {
     font-weight: 100;
 }
 
-/* recipe direction title */
 .RecipePageDirections {
     font-size: 40px;
     font-weight: 700;
@@ -207,7 +199,6 @@ ul li.RecipePageIngredientsText::before {
     letter-spacing: 0.5px;
 }
 
-/* adding word step to each item  */
 ol.RecipePageDirectionContainer {
     list-style-type: none;
     counter-reset: elementcounter;
@@ -222,7 +213,6 @@ ol li:before {
     letter-spacing: 0.5px;
 }
 
-/* direction order text */
 .RecipePageDirectionsStep {
     font-size: 22px;
     padding-bottom: 5px;
@@ -232,7 +222,6 @@ ol li:before {
 
 }
 
-/* 404 page */
 .Recipe404Page{
     top: 200px;
     margin: 18% 20% 15% 20%;
@@ -246,7 +235,6 @@ ol li:before {
 
 }
 
-/* this recipe was sent back to the kitchen */
 .Recipe404Text {
     font-family: Georgia, 'Times New Roman', Times, serif;    
     font-weight: 700;
@@ -257,19 +245,16 @@ ol li:before {
     padding-left: 10%;
 }
 
-/* recipe 404 image container */
 .RecipePageImg {
     display: flex;
     justify-content: end;
 }
 
-/* recipe bird image */
 .ReceipePage404img {
     object-fit: cover;
     width: 60%;
 }
 
-/* The page you're looking for is unavailable. */
 .RecipePage404SubText {
     display: flex;
     justify-content: center;
@@ -279,7 +264,6 @@ ol li:before {
     padding-bottom: 2%;
 }
 
-/* recipe 404 back home button */
 .BackHomeButtonDiv {
     display: flex;
     justify-content: center;
@@ -310,19 +294,15 @@ ol li:before {
     position: absolute;
 }
 
-/* recipe page divs */
-/* header, review, description, user, and publish div */
 .RecipePageHeader {
     width: 100%;
     margin: 1rem 0;
 }
 
-/* image div */
 .RecipePageImageDiv {
     width: 70%;
 }
 
-/* total time and serving div */
 .RecipePageServing {
     width: 70%;
     background-color: #eeeef0;
@@ -332,18 +312,15 @@ ol li:before {
     margin: 3rem 0;
 }
 
-/* ingredients and direction div */
 .RecipePageIngredientsDirections {
     width: 70%;
     margin: 3rem 0;
 }
 
-/* create review form and user reviews div */
 .RecipePageBottom {
     width: 70%;
     margin: 3rem 0;
 }
-
 
 .LeaveAReview {
     font-size: 26px;

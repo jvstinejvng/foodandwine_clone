@@ -24,30 +24,26 @@ function Ingredient({ recipe, ingredient, showEditIngredient, measurementUnits }
 
     return (
         ( showEditIngredient && showEdit1 ?
-        <EditIngredient
-            ingredient={ingredient}
-            measurementUnits={measurementUnits}
-            recipe_id={recipe.id}
-            showEdit1={showEdit1}
-            setShowEdit1={setShowEdit1}
+            <EditIngredient
+                ingredient={ingredient}
+                measurementUnits={measurementUnits}
+                recipe_id={recipe.id}
+                showEdit1={showEdit1}
+                setShowEdit1={setShowEdit1}
             />
         :
         showEditIngredient ?
-            <div className=''>
-                <div>{ingredient.amount} {ingredient.measurement_unit.unit} {ingredient.food_stuff}</div>
+            <div>
+            <div>{ingredient.amount} {ingredient.measurement_unit.unit} {ingredient.food_stuff}</div>
                 <div>
-                    <div onClick={() => setShowEdit1(!showEdit1)}>
-                        <div>edit</div>
-                    </div>
-                    <div onClick={handleDelete}>
-                        <div>delete</div>
-                    </div>
+                    <button onClick={() => setShowEdit1(!showEdit1)}>edit</button>
+                    <button onClick={handleDelete}>delete</button>
                 </div>
             </div>
-            :
-            <div className=''>
-                <div>{ingredient.amount} {ingredient.measurement_unit.unit} {ingredient.food_stuff}</div>
-            </div>
+        :
+        <div>
+            <div>{ingredient.amount} {ingredient.measurement_unit.unit} {ingredient.food_stuff}</div>
+        </div>
         )
     )
 }

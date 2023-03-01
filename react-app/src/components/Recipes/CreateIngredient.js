@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import { useDispatch} from "react-redux"
 
 import { getRecipesThunk } from '../../store/recipe'
-import '../CSS/CreateRecipeInfo.css'
 
 function CreateIngredient({ recipe_id, measurementUnits, edit }) {
 
@@ -81,7 +80,7 @@ function CreateIngredient({ recipe_id, measurementUnits, edit }) {
             null
         }
         <form className="RecipeInfoForm" onSubmit={handleSubmit}>
-            <div className='add-IngredientInputDiv'>
+            <div className='           '>
             <div className="">
                 <input
                     type="text"
@@ -92,7 +91,7 @@ function CreateIngredient({ recipe_id, measurementUnits, edit }) {
                     max="1000"
 
                 />
-                <label>quality</label>
+                <label>Quality</label>
             </div>
             <div className="">
                 <select
@@ -108,7 +107,7 @@ function CreateIngredient({ recipe_id, measurementUnits, edit }) {
                         ))
                     )}
                 </select>
-                <label>Unit:</label>
+                <label>Unit</label>
             </div>
             <div className="">
                 <input
@@ -121,8 +120,8 @@ function CreateIngredient({ recipe_id, measurementUnits, edit }) {
                 <label>Ingredient</label>
             </div>
             </div>
-            <div className='AddButton'>
-                <div className='next-button-container add-button'>
+            <div className=''>
+                <div className=''>
                     <h3 className=''></h3>
                     <button className=''>
                         <i className="fa-solid fa-plus add"></i>

@@ -55,7 +55,7 @@ function EditDirection({ instruction, recipe_id, showEdit2, setShowEdit2 }) {
     }
 
     return (
-        <div>
+    <div>
         { validationErrors.length > 0 &&
             <ul className=''>
                 { validationErrors.map(error => (
@@ -63,29 +63,26 @@ function EditDirection({ instruction, recipe_id, showEdit2, setShowEdit2 }) {
                 ))}
             </ul>
         }
-        <div className='EditDirectionDiv'>
-        <form className='EditDirectionForm' onSubmit={handleSubmit}>
-            <div className="EditDirectionFormInput">
-            <div className="EditDirectionContainer">
-                <div>
-                    <textarea
-                        placeholder=""
-                        required
-                        value={specification}
-                        onChange={(e)=> setSpecification(e.target.value)}
-                        >
-                    </textarea>
-                    <label>Step {list_order}</label>
-                </div>
+    <div className='EditDirectionDiv'>
+    <form className='EditDirectionForm' onSubmit={handleSubmit}>
+        <div className="EditDirectionContainer">
+            <div>
+                <textarea
+                    placeholder=""
+                    required
+                    value={specification}
+                    onChange={(e)=> setSpecification(e.target.value)}
+                >
+                </textarea>
             </div>
-            <div className='EditDirectionButtonDiv'>
-                <span onClick={() => setShowEdit2(!showEdit2)} className=''>Cancel</span>
-                <button type='submit' className='EditDirectionButton'>Save</button>
-            </div>
-            </div>
-        </form>
         </div>
+        <div className='EditDirectionButtonDiv'>
+            <button onClick={() => setShowEdit2(!showEdit2)} className=''>Cancel</button>
+            <button type='submit' className='EditDirectionButton'>Save</button>
         </div>
+    </form>
+     </div>
+    </div>
     )
 }
 

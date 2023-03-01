@@ -159,7 +159,8 @@ function EditRecipe( {recipe, setShowEditForm} ) {
                         disabled={
                             Object.values(validationErrors).every((x) => x === "") ? false : true
                         }
-                >Submit Recipe</button> 
+                >Submit Recipe
+                </button> 
                 </div> 
                 </form>
             </div>

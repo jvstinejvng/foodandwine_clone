@@ -17,7 +17,6 @@ function Direction({ instruction, recipe_id, showEditDirection, directionStep })
                 method: 'DELETE'
             })
             if (res.ok) {
-                // if()
                 const data = await res.json()
             }
             await dispatch(getRecipesThunk())
@@ -28,24 +27,20 @@ function Direction({ instruction, recipe_id, showEditDirection, directionStep })
 
     return (
         ( showEditDirection && showEdit2 ?
-            <EditDirection
-                instruction={instruction}
-                showEdit2={showEdit2}
-                setShowEdit2={setShowEdit2}
-                recipe_id={recipe_id}
-            />
+        <EditDirection
+            instruction={instruction}
+            showEdit2={showEdit2}
+            setShowEdit2={setShowEdit2}
+            recipe_id={recipe_id}
+        />
         :
         showEditDirection ?
             <div className='DirectionDiv'>
                 <div key={instruction.id} className='Direction'>
-                { instruction.list_order }. { instruction.specification }
+                    { instruction.list_order } { instruction.specification }
                 </div>
-                <div onClick={() => setShowEdit2(!showEdit2)}>
-                    <div>edit</div>
-                </div>
-                <div onClick={handleDelete}>
-                        <div>delete</div>
-                </div>
+                <button onClick={() => setShowEdit2(!showEdit2)}>edit</button>
+                <button onClick={handleDelete}>delete</button>
             </div>
             :
             <div className='DirectionContainer'> 
