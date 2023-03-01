@@ -200,6 +200,15 @@ li.RecipeBodyText {
     font-weight: 100;
     padding-top: 10px;
     text-transform: lowercase;
+    
+}
+
+ul li.RecipeBodyText::before {
+    content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
+    color: red; /* Change the color */
+    display: inline-block; /* Needed to add space between the bullet and the text */
+    background-color: aquamarine;
+
 }
 
 .RecipeDirectionText {
@@ -211,10 +220,10 @@ li.RecipeBodyText {
     padding-top: 10px;
 }
 
-
 ul.RecipeBodyList {
     list-style-type: none;
 }
+
 .RecipeBodyList {
     width: 70%;
 }
