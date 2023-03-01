@@ -67,101 +67,106 @@ function RecipePage() {
         }
     }
 
+
+
     return (
     <div className='RecipePageContainer' >
-        <div className='RecipePageDiv'>
         { recipe &&
         <>
-        <div className='RecipePageHeader'>
-        <h1 className='RecipePageHeaderText'>{recipe.title}</h1>
-            <div className='RecipePageAverageRatingDiv'>
-                <div className='RecipePageAverageRating'>
-                    { isNaN(average_rating(recipe)) ?
-                    <div className='RecipePageNoReview'
+            <h1 className='RecipePageHeaderText'>{recipe.title}</h1>
+            <div className='RecipePageSubHeaderDiv'>
+                { isNaN(average_rating(recipe)) ?
+                <div>
+                    <span className='RecipePageSubHeaderBar'
                         onClick={() => scrollToReview.current.scrollIntoView({ behavior: 'smooth' })}>
-                            Be the first to rate & review!
-                    </div>
-                    :
-                    <div className='RecipePageWithReview'>
-                        <span><FaStar/></span>
-                            {average_rating(recipe)} 
-                        <span className='RecipePageDividerChar'> | </span>
-                        <span
-                            onClick={() => scrollToReview.current.scrollIntoView({ behavior: 'smooth' })}>
-                            {recipe.comments.length} reviews 
-                        </span>
-                        <span className='RecipePageDividerChar'> | </span>
-                        <span classname='' onClick={() => scrollToRecipe.current.scrollIntoView({ behavior: 'smooth' })}> 
-                        {recipe.ingredient} Scroll to Recipe
-                        </span>
-                    </div>
-                    
-                    }
+                        Be the first to rate & review!
+                    </span>
+                    <span className='RecipePageDividerChar'> | </span>
+                    <span onClick={() => scrollToRecipe.current.scrollIntoView({ behavior: 'smooth' })}> 
+                    {recipe.ingredient} 
+                    <span className='RecipePageRecipeScroll'>Scroll to Recipe</span>
+                    </span>
                 </div>
+                :
+                <div className='RecipePageWithReview'>
+                    <span><FaStar/></span>
+                    <span className='RecipePageAverageRatingNumber'>{average_rating(recipe)}</span>
+                    <span className='RecipePageDividerChar'> | </span>
+                    <span className='RecipePageReviews' OnClick={() => scrollToReview.current.scrollIntoView({ behavior: 'smooth' })}>
+                        {recipe.comments.length} reviews 
+                    </span>
+                    <span className='RecipePageDividerChar'> | </span>
+                    <span onClick={() => scrollToRecipe.current.scrollIntoView({ behavior: 'smooth' })}> 
+                        {recipe.ingredient} 
+                        <span className='RecipePageRecipeScroll'>Scroll to Recipe</span>
+                    </span>
+                </div>      
+                }        
             </div>
             <p className='RecipePageDescription'>{recipe.description}</p>
             <div className='RecipePageUser'>
                 By <div className='RecipePageUserName'>{recipe.user.first_name} {recipe.user.last_name}</div>
                 <span className='RecipePageDividerChar2'> | </span>
                 { recipe.created_at === recipe.updated_at ?
-                    <span className='RecipePageCreateAt'>Published on {recipe.created_at.split(' ').slice(1, 4).join(' ')}</span>
-                    :
-                    <span className='RecipePageCreateAt'>Updated on {recipe.updated_at.split(' ').slice(1, 4).join(' ')}</span>
+                <span className='RecipePageDate'>Published on {recipe.created_at.split(' ').slice(1, 4).join(' ')}</span>
+
+                :
+                <span className='RecipePageDate'>Updated on {recipe.updated_at.split(' ').slice(1, 4).join(' ')}</span>
                 }
             </div>
-        </div>
-        <div className='RecipePageBody'>
             { !showEdit ?
-            <div className='RecipePageRecipeCard'>
+                <>
                 { sessionUser && sessionUser.id === recipe.user.id ?
-                    <div className='RecipePageRecipeCardButtonDiv'>
-                        <button className='RecipePageRecipeCardButton' onClick={() => setShowEdit(!showEdit)} title='Edit Recipe'>Edit</button>
-                        <button className='RecipePageRecipeCardButton' onClick={handleDelete} title='Delete Recipe'>Delete</button>
-                    </div>
-                    :
+                <div className='RecipePageRecipeCardButtonDiv'>
+                    <button className='RecipePageRecipeCardButton' onClick={() => setShowEdit(!showEdit)} title='Edit Recipe'>Edit</button>
+                    <button className='RecipePageRecipeCardButton' onClick={handleDelete} title='Delete Recipe'>Delete</button>
+                </div>
+                :
                     <div>
                         <SaveRecipe recipe={recipe}/>
                     </div>
                 }
-            <div className='RecipePageImageDiv'>
                 <img className='RecipePageImage' src={recipe.image_url} onError={({ currentTarget }) => {
-                        currentTarget.onerror = null;
-                        currentTarget.src ='../../../../../static/breadbutterimage.png'
+                    currentTarget.onerror = null;
+                    currentTarget.src ='../../../../../static/breadbutterimage.png'
                 }} alt={`recipe-${recipe.id}`} />
-            </div>
-            <div className='' ref={scrollToRecipe}></div>
-            <div className='RecipePageServing'>
-                <div className='TimeServingDiv'>
-                    <div className='TimeServingHeader'>Total Time:</div>{recipe?.total_time}
-                </div>
+                <div ref={scrollToRecipe}></div>
+                <div className='RecipePageServingDiv'>
+                    <div className='TimeServingDiv'>
+                    <   div className='TimeServingHeader'>Total Time:</div>{recipe?.total_time}
+                    </div>
                 <div className='TimeServingDiv'>
                     <div className='TimeServingHeader'>Yield:</div>{recipe?.servings}
                 </div>
-            </div> 
-            </div>
+                </div> 
+                </>
             :
-            <div className='RecipePageEditRecipe'>
                 <EditRecipe
                     recipe={recipe}
                     setShowEditForm={setShowEdit}
                 />           
-            </div>
             }
-        <div className=''>
-            <h3 id='' className=''>Ingredients</h3>
-            <ul>
-            { ingredient_list.map(ingredient => (
-                <li key={ingredient.id}>
-                <Ingredient
-                    ingredient={ingredient}
-                    recipe={recipe}
-                    showEditIngredient={showEditIngredient}
-                    setshowEditIngredient={setShowEditIngredient}
-                    measurementUnits={measurementUnits}
-                />
-                </li>
-            ))}
-            </ul>
+            <>
+            <h2 className='RecipeIngredientHeader'>Ingredients</h2>
+            { ingredient_list.length === 0 ?
+                <div className='RecipeIngredientEmpty'> 
+                   The owner of this recipe has not yet added the ingredients to this recipe.
+                </div>
+            :
+                <ul className='RecipeIngredientList'>
+                { ingredient_list.map(ingredient => (
+                    <li key={ingredient.id}>
+                        <Ingredient
+                            ingredient={ingredient}
+                            recipe={recipe}
+                            showEditIngredient={showEditIngredient}
+                            setshowEditIngredient={setShowEditIngredient}
+                            measurementUnits={measurementUnits}
+                        />
+                    </li>
+                ))}
+                </ul>
+            }   
             { sessionUser && sessionUser.id === recipe.user.id &&
             <div className=''>
                 { recipe.ingredients.length > 0 &&
@@ -196,7 +201,6 @@ function RecipePage() {
                 }
             </div>
             }
-        </div>
         <div>
             { sessionUser && sessionUser.id === recipe.user.id && !recipe.ingredients.length && !showAddIngredient &&
                 <div className='' onClick={() => setShowAddIngredient(!showAddIngredient)}>
@@ -261,12 +265,11 @@ function RecipePage() {
                         </div>
             }
         </div>
-        </div>
+        </>
         <div className='' ref={scrollToReview}></div>
             <div className='RecipePageBottom'><ReviewContainer recipe={recipe} /></div>
         </>    
         }                         
-        </div>
     </div>
     )
 }
