@@ -47,7 +47,7 @@ function Direction({ instruction, recipe_id, showEditDirection, directionStep })
                     </span>
                     <span className="DirectionStepEdit" onClick={handleDelete}>
                         <i class="fa-solid fa-trash-can"></i>
-                        <span>delete</span>
+                        <span className="DirectionStepEditText">delete</span>
                     </span>
                     <div>
                     <span key={instruction.id} className='Direction'>
@@ -55,7 +55,7 @@ function Direction({ instruction, recipe_id, showEditDirection, directionStep })
                     </span>
                     <span className="DirectionStepEdit" onClick={() => setShowEdit2(!showEdit2)}>
                         <i class="fa-solid fa-pen-to-square"></i>
-                        <span>edit</span>
+                        <span className="DirectionStepEditText">edit</span>
                     </span>
                     </div>
                 

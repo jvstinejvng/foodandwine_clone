@@ -3,6 +3,7 @@ import { useDispatch} from "react-redux"
 
 import { getRecipesThunk } from '../../store/recipe'
 import EditIngredient from './EditIngredient'
+import '../CSS/EditIngredient.css'
 
 function Ingredient({ recipe, ingredient, showEditIngredient, measurementUnits }) {
 
@@ -24,6 +25,7 @@ function Ingredient({ recipe, ingredient, showEditIngredient, measurementUnits }
 
     return (
         ( showEditIngredient && showEdit1 ?
+         
             <EditIngredient
                 ingredient={ingredient}
                 measurementUnits={measurementUnits}
@@ -31,19 +33,26 @@ function Ingredient({ recipe, ingredient, showEditIngredient, measurementUnits }
                 showEdit1={showEdit1}
                 setShowEdit1={setShowEdit1}
             />
-        :
-        showEditIngredient ?
+       
+            :
+            showEditIngredient ?
             <div>
-            <div>{ingredient.amount} {ingredient.measurement_unit.unit} {ingredient.food_stuff}</div>
-                <div>
-                    <button onClick={() => setShowEdit1(!showEdit1)}>edit</button>
-                    <button onClick={handleDelete}>delete</button>
+                <span>{ingredient.amount} {ingredient.measurement_unit.unit} {ingredient.food_stuff}</span>
+                <div className='IngredientEditButton'>
+                    <span  className="IngredientStepText" onClick={() => setShowEdit1(!showEdit1)}>
+                        <i class="fa-solid fa-pen-to-square"></i>
+                        <span className="IngredientStepEditText">edit</span>
+                    </span>
+                    <span className="IngredientStepText" onClick={handleDelete}>
+                        <i class="fa-solid fa-trash-can"></i>
+                        <span className="IngredientStepEditText">delete</span>
+                    </span>
                 </div>
             </div>
-        :
-        <div>
-            <div>{ingredient.amount} {ingredient.measurement_unit.unit} {ingredient.food_stuff}</div>
-        </div>
+            :
+            <div>
+                <div>{ingredient.amount} {ingredient.measurement_unit.unit} {ingredient.food_stuff}</div>
+            </div>
         )
     )
 }

@@ -8,17 +8,27 @@
     padding-right: 5px
 }
 
+
+/* display: inline-block;
+width: 70%; 
+align-items: last baseline;
+overflow-wrap: break-word; */
+
 .DirectionStepText { 
     padding-right: 10px; 
 }
 
 .DirectionStepEdit {
     cursor: pointer;
-    font-size: 14px;
+    font-size: 12px;
     font-family: Arial, Helvetica, sans-serif;
     letter-spacing: 0.5px;
     padding-left: 10px;
     text-transform: capitalize;
+}
+
+.DirectionStepEditText {
+    padding-left: 5px;
 }
 
 .DirectionStepEdit:hover {
