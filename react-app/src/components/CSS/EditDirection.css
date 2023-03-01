@@ -1,28 +1,94 @@
-.EditDirectionDiv {
+/* direction step */
+.DirectionStepTextDiv {
+    font-family: Georgia, 'Times New Roman', Times, serif;    
+    font-weight: 700;
+    line-height: 1.75rem;
+    letter-spacing: 0.5px;
+    font-size: 20px;
+    padding-right: 5px
 }
 
-.EditDirectionForm {
+.DirectionStepText { 
+    padding-right: 10px; 
 }
 
-.EditDirectionFormInput {
+.DirectionStepEdit {
+    cursor: pointer;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 0.5px;
+    padding-left: 10px;
+    text-transform: capitalize;
+}
+
+.DirectionStepEdit:hover {
+    text-decoration-line: underline;
+    text-decoration-thickness: 2px; 
+}
+
+/* edit direction box */
+.EditDirectionDiv{
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #eeeef0;
+    margin-bottom: 1rem;
+}
+
+.EditDirectionTextArea {
+    resize: none;
+    overflow-y: auto;
+    padding: 10px;
+    width: 95%;
+    min-height: 120px;
+    letter-spacing: 0.5px;
+    border: 1px solid black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    line-height: 1.50rem;
+    cursor: text;
+    margin-top: 5px;
+}
+
+.EditDirectionButtonDiv {
+    display: flex;
+    justify-content: flex-end;
+    width: 97%;
+    padding: 10px 10px;
 }
 
 .EditDirectionButton {
-    cursor: pointer;
-    width: 100px;
-    color: black;
-    border: 0.1875rem solid black;
-    font-family: Arial, Helvetica, sans-serif;
     font-size: 12px;
-    text-transform: uppercase;
-    background-color: white;
+    line-height: 1.25rem;
     letter-spacing: 1px;
     font-weight: 700;
-    margin-left: 20px;
+    text-transform: uppercase;
+    text-underline-offset: 0.25rem;
+    background-color: black;
+    border: none;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
     padding: 5px 5px 5px 5px;
-    margin-top: 20px;
+    width: 100px;
 }
 
-.EditDirectionContainer {
+.EditDirectionButtonCancel {
+    font-size: 12px;
+    line-height: 1.25rem;
+    letter-spacing: 1px;
+    font-weight: 700;
+    text-transform: uppercase;
+    border: none;
+    color: black;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    padding: 5px 5px 5px 5px;
+    width: 100px
 }
-

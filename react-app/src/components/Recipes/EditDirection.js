@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux"
 import { getRecipesThunk } from '../../store/recipe'
 import '../CSS/EditDirection.css'
 
-function EditDirection({ instruction, recipe_id, showEdit2, setShowEdit2 }) {
+function EditDirection({ instruction, recipe_id, showEdit2, setShowEdit2, directionStep }) {
 
     const dispatch = useDispatch()
 
@@ -55,33 +55,30 @@ function EditDirection({ instruction, recipe_id, showEdit2, setShowEdit2 }) {
     }
 
     return (
-    <div>
-        { validationErrors.length > 0 &&
-            <ul className=''>
-                { validationErrors.map(error => (
-                    <li className='' key={error}>{error}</li>
-                ))}
-            </ul>
-        }
     <div className='EditDirectionDiv'>
-    <form className='EditDirectionForm' onSubmit={handleSubmit}>
-        <div className="EditDirectionContainer">
-            <div>
-                <textarea
-                    placeholder=""
-                    required
-                    value={specification}
-                    onChange={(e)=> setSpecification(e.target.value)}
-                >
-                </textarea>
+        <div>
+            { validationErrors.length > 0 &&
+                <ul className=''>
+                    { validationErrors.map(error => (
+                        <li key={error}>{error}</li>
+                    ))}
+                </ul>
+            }
+        </div>
+        <form onSubmit={handleSubmit}>
+            <textarea
+                className='EditDirectionTextArea'
+                placeholder=""
+                required
+                value={specification}
+                onChange={(e)=> setSpecification(e.target.value)}
+            >
+            </textarea>
+            <div className='EditDirectionButtonDiv'>
+                <button className='EditDirectionButtonCancel' onClick={() => setShowEdit2(!showEdit2)}>Cancel</button>
+                <button className='EditDirectionButton' type='submit' >Save</button>
             </div>
-        </div>
-        <div className='EditDirectionButtonDiv'>
-            <button onClick={() => setShowEdit2(!showEdit2)} className=''>Cancel</button>
-            <button type='submit' className='EditDirectionButton'>Save</button>
-        </div>
-    </form>
-     </div>
+        </form>
     </div>
     )
 }

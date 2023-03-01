@@ -27,26 +27,45 @@ function Direction({ instruction, recipe_id, showEditDirection, directionStep })
 
     return (
         ( showEditDirection && showEdit2 ?
-        <EditDirection
-            instruction={instruction}
-            showEdit2={showEdit2}
-            setShowEdit2={setShowEdit2}
-            recipe_id={recipe_id}
-        />
-        :
-        showEditDirection ?
-            <div className='DirectionDiv'>
-                <div key={instruction.id} className='Direction'>
-                    { instruction.list_order } { instruction.specification }
-                </div>
-                <button onClick={() => setShowEdit2(!showEdit2)}>edit</button>
-                <button onClick={handleDelete}>delete</button>
+            <> 
+            <div className="DirectionStepTextDiv" key={instruction.id}> 
+                <span className="DirectionStepText">Step&nbsp;{directionStep + 1}</span>
+                <i class="fa-solid fa-pen-to-square"></i>
             </div>
+                <EditDirection
+                instruction={instruction}
+                showEdit2={showEdit2}
+                setShowEdit2={setShowEdit2}
+                recipe_id={recipe_id}
+                />
+            </>
             :
-            <div className='DirectionContainer'> 
-                <div key={instruction.id}> Step&nbsp;{directionStep + 1} </div>
-                <div>{instruction.specification}</div>
-            </div>
+            (showEditDirection ?
+                <div>
+                    <span className="DirectionStepTextDiv" key={instruction.id}> 
+                        Step&nbsp;{directionStep + 1} 
+                    </span>
+                    <span className="DirectionStepEdit" onClick={handleDelete}>
+                        <i class="fa-solid fa-trash-can"></i>
+                        <span>delete</span>
+                    </span>
+                    <div>
+                    <span key={instruction.id} className='Direction'>
+                    { instruction.list_order } { instruction.specification }
+                    </span>
+                    <span className="DirectionStepEdit" onClick={() => setShowEdit2(!showEdit2)}>
+                        <i class="fa-solid fa-pen-to-square"></i>
+                        <span>edit</span>
+                    </span>
+                    </div>
+                
+                </div>
+                :
+                <div className='DirectionContainer'> 
+                    <div className="DirectionStepTextDiv" key={instruction.id}> Step&nbsp;{directionStep + 1} </div>
+                    <div>{instruction.specification}</div>
+                </div>
+            )
         )
     )
 }

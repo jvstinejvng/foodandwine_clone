@@ -41,7 +41,6 @@
     letter-spacing: 0.5px;
     padding-left: 10px;
     text-transform: capitalize;
-    padding: 10px;
 }
 
 .RecipePageEditDelete:hover {
@@ -216,6 +215,9 @@ li.RecipeBodyText {
 ul.RecipeBodyList {
     list-style-type: none;
 }
+.RecipeBodyList {
+    width: 70%;
+}
 
 .Recipe404Page{
     top: 200px;
@@ -367,6 +369,7 @@ ul.RecipeBodyList {
     cursor: pointer;
     padding: 10px;
     white-space: nowrap;
+    
 }
 
 /* recipe ingredient and direction add button box */

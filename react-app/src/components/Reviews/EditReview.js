@@ -91,7 +91,7 @@ function EditCommentForm({ comment, showEdit, setShowEdit }) {
                         </div>
                     </div>
                     <div className='EditReviewButtonDiv'>
-                        <button onClick={() => setShowEdit(!showEdit)} className='EditReviewButton'>Cancel</button>
+                        <button onClick={() => setShowEdit(!showEdit)} className='EditReviewButtonCancel'>Cancel</button>
                         <button 
                          className='EditReviewButton'
                          disabled={
