@@ -71,14 +71,13 @@ function RecipePage() {
 
     return (
     <div className='RecipePageContainer' >
-        { recipe &&
+    { recipe &&
         <>
-            <h1 className='RecipePageHeaderText'>{recipe.title}</h1>
-            <div className='RecipePageSubHeaderDiv'>
-                { isNaN(average_rating(recipe)) ?
+        <h1 className='RecipePageHeaderText'>{recipe.title}</h1>
+        <div className='RecipePageSubHeaderDiv'>
+            { isNaN(average_rating(recipe)) ?
                 <div>
-                    <span className='RecipePageSubHeaderBar'
-                        onClick={() => scrollToReview.current.scrollIntoView({ behavior: 'smooth' })}>
+                    <span className='RecipePageSubHeaderBar'onClick={() => scrollToReview.current.scrollIntoView({ behavior: 'smooth' })}>
                         Be the first to rate & review!
                     </span>
                     <span className='RecipePageDividerChar'> | </span>
@@ -101,27 +100,26 @@ function RecipePage() {
                         <span className='RecipePageRecipeScroll'>Scroll to Recipe</span>
                     </span>
                 </div>      
-                }        
-            </div>
-            <p className='RecipePageDescription'>{recipe.description}</p>
-            <div className='RecipePageUser'>
-                By <div className='RecipePageUserName'>{recipe.user.first_name} {recipe.user.last_name}</div>
-                <span className='RecipePageDividerChar2'> | </span>
-                { recipe.created_at === recipe.updated_at ?
+            }        
+        </div>
+        <p className='RecipePageDescription'>{recipe.description}</p>
+        <div className='RecipePageUser'>
+            By <div className='RecipePageUserName'>{recipe.user.first_name} {recipe.user.last_name}</div>
+            <span className='RecipePageDividerChar2'> | </span>
+            { recipe.created_at === recipe.updated_at ?
                 <span className='RecipePageDate'>Published on {recipe.created_at.split(' ').slice(1, 4).join(' ')}</span>
-
                 :
                 <span className='RecipePageDate'>Updated on {recipe.updated_at.split(' ').slice(1, 4).join(' ')}</span>
-                }
-            </div>
+            }
+        </div>
             { !showEdit ?
                 <>
                 { sessionUser && sessionUser.id === recipe.user.id ?
-                <div className='RecipePageRecipeCardButtonDiv'>
-                    <button className='RecipePageRecipeCardButton' onClick={() => setShowEdit(!showEdit)} title='Edit Recipe'>Edit</button>
-                    <button className='RecipePageRecipeCardButton' onClick={handleDelete} title='Delete Recipe'>Delete</button>
-                </div>
-                :
+                    <div className='RecipePageRecipeCardButtonDiv'>
+                        <button className='RecipePageRecipeCardButton' onClick={() => setShowEdit(!showEdit)} title='Edit Recipe'>Edit</button>
+                        <button className='RecipePageRecipeCardButton' onClick={handleDelete} title='Delete Recipe'>Delete</button>
+                    </div>
+                    :
                     <div>
                         <SaveRecipe recipe={recipe}/>
                     </div>
@@ -133,11 +131,11 @@ function RecipePage() {
                 <div ref={scrollToRecipe}></div>
                 <div className='RecipePageServingDiv'>
                     <div className='TimeServingDiv'>
-                    <   div className='TimeServingHeader'>Total Time:</div>{recipe?.total_time}
+                        <div className='TimeServingHeader'>Total Time:</div>{recipe?.total_time}
                     </div>
-                <div className='TimeServingDiv'>
-                    <div className='TimeServingHeader'>Yield:</div>{recipe?.servings}
-                </div>
+                    <div className='TimeServingDiv'>
+                        <div className='TimeServingHeader'>Yield:</div>{recipe?.servings}
+                    </div>
                 </div> 
                 </>
                 :
@@ -148,95 +146,77 @@ function RecipePage() {
             }
             <>
             <h2 className='RecipeIngredientHeader'>Ingredients</h2>
-  
             <span>
             { sessionUser && sessionUser.id === recipe.user.id &&
-            <div className=''>
-               { recipe.ingredients.length > 0 &&
-                <>
+                <div className=''>
+                { recipe.ingredients.length > 0 &&
+                    <>
                     { showEditIngredient ?
-                            <div onClick={() => setShowEditIngredient(!showEditIngredient)} className=''>Save</div>
+                        <div onClick={() => setShowEditIngredient(!showEditIngredient)} className=''>Save</div>
                         : 
-                            <div onClick={() => setShowEditIngredient(!showEditIngredient)} className=''>Edit</div>
-                    }
+                        <div onClick={() => setShowEditIngredient(!showEditIngredient)} className=''>Edit</div>
+                    }   
+                    </>
+                }
+                </div>
+            }
+            </span>
+            <ul className='RecipeIngredientList'>
+                { ingredient_list.map(ingredient => (
+                    <li className='RecipeIngredientListText' key={ingredient.id}>
+                        <Ingredient
+                            ingredient={ingredient}
+                            recipe={recipe}
+                            showEditIngredient={showEditIngredient}
+                            setshowEditIngredient={setShowEditIngredient}
+                            measurementUnits={measurementUnits}
+                        /> 
+                    </li>
+                ))}
+            </ul>
+            { sessionUser && sessionUser.id !== recipe.user.id && !ingredient_list.length ?
+                <div className='RecipeIngredientEmpty'>The owner of this recipe has not yet added the ingredients to this recipe.</div>
+                :
+                <div className='RecipeIngredientEmpty'>The owner of this recipe has not yet added the ingredients to this recipe.</div>
+            }   
+            { sessionUser && sessionUser.id === recipe.user.id &&
+                <div className=''>
+                { recipe.ingredients.length > 0 &&
+                    <>
                     { showAddIngredient &&
-                        <div>
                         <CreateIngredient
                             recipe_id={recipe.id}
                             measurementUnits={measurementUnits}
                             edit={true}/>
-                        </div>
                     }
                     { showAddIngredient ?
-                        <div>
-                            <button onClick={() => setShowAddIngredient(!showAddIngredient)} className=''>Save</button>
-                        </div>
+                        <button onClick={() => setShowAddIngredient(!showAddIngredient)} className=''>Save</button>
                         :
-                        <div>
-                            <button onClick={() => setShowAddIngredient(!showAddIngredient)} title='Add Ingredients'><i className="fa-solid fa-plus"></i>Add Ingredient</button>
-                        </div>                   
-                    }
-                    
-                </>
+                        <button onClick={() => setShowAddIngredient(!showAddIngredient)} title='Add Ingredients'><i className="fa-solid fa-plus"></i>Add Ingredient</button>
+                    }    
+                    </>
                 }
-            </div>
-            }
-            <ul className='RecipeIngredientList'>
-                    { ingredient_list.map(ingredient => (
-                        <li className='RecipeIngredientListText' key={ingredient.id}>
-                             <Ingredient
-                                ingredient={ingredient}
-                                recipe={recipe}
-                                showEditIngredient={showEditIngredient}
-                                setshowEditIngredient={setShowEditIngredient}
-                                measurementUnits={measurementUnits}
-                        /> 
-                        </li>
-                    ))}
-                </ul>
-            </span>
-                      { ingredient_list.length === 0 &&
-                <div className='RecipeIngredientEmpty'> 
-                   The owner of this recipe has not yet added the ingredients to this recipe.
-                </div>
-                
-            }   
-
-{ sessionUser && sessionUser.id === recipe.user.id &&
- <div className=''>
- { recipe.ingredients.length > 0 &&
-  <>
-      { showAddIngredient &&
-          <div>
-          <CreateIngredient
-              recipe_id={recipe.id}
-              measurementUnits={measurementUnits}
-              edit={true}/>
-          </div>
-      }
-      { showAddIngredient ?
-          <div>
-              <button onClick={() => setShowAddIngredient(!showAddIngredient)} className=''>Save</button>
-          </div>
-          :
-          <div>
-              <button onClick={() => setShowAddIngredient(!showAddIngredient)} title='Add Ingredients'><i className="fa-solid fa-plus"></i>Add Ingredient</button>
-          </div>                   
-      }
-      
-  </>
-  }
-</div>
-
-
-}
-        <div>
-            { sessionUser && sessionUser.id === recipe.user.id && !recipe.ingredients.length && !showAddIngredient &&
-                <div className='' onClick={() => setShowAddIngredient(!showAddIngredient)}>
-                    <h2>Add Ingredients to your Recipe</h2>
                 </div>
             }
-        </div>     
+            { sessionUser && sessionUser.id === recipe.user.id &&
+                <div className=''>
+                    { recipe.ingredients.length === 0 &&
+                        <>
+                        { showAddIngredient &&
+                         <CreateIngredient
+                            recipe_id={recipe.id}
+                            measurementUnits={measurementUnits}
+                            edit={true}/>
+                        }
+                        { showAddIngredient ?
+                            <button onClick={() => setShowAddIngredient(!showAddIngredient)} className=''>Save</button>
+                             :
+                            <button onClick={() => setShowAddIngredient(!showAddIngredient)} title='Add Ingredients'><i className="fa-solid fa-plus"></i>Add Ingredient</button>
+                        }    
+                        </>
+                    }
+                </div>
+            }
         <div className=''>
             <h3 id='' className=''>Directions</h3>
             { directional_step.map(instruction => (
