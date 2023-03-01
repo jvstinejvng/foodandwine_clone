@@ -208,40 +208,27 @@
 
 .RecipeIngredientList {
     font-size: 18px;
-    line-height: 1.625rem;
     padding-bottom: 15px;
     line-height: 1.65rem;
-    font-size: 18px;
-    line-height: 1.625rem;
     letter-spacing: 0.5px;
     font-weight: 100;
+    list-style-position: inside;
+
 }
 
 ul.RecipeIngredientList {
-    list-style: none; 
-    padding-left: 0;
+    
 }
-
 /* red bullet points */
-ul li.RecipePageIngredientsText::before {
+li.RecipeIngredientList::before {
     content: "\2022"; 
     color: red; 
     font-weight: bold; 
     display: inline-block; 
     width: 1em; 
+    list-style-position: inside;
+
   }
-
-.RecipePageIngredientsText {
-    font-size: 18px;
-    line-height: 1.625rem;
-    padding-bottom: 15px;
-    line-height: 1.65rem;
-    font-size: 18px;
-    line-height: 1.625rem;
-    letter-spacing: 0.5px;
-    font-weight: 100;
-}
-
 
 
 .Recipe404Page{

@@ -153,10 +153,10 @@ function RecipePage() {
                    The owner of this recipe has not yet added the ingredients to this recipe.
                 </div>
             :
-                <ul className='RecipeIngredientList'>
+            <ul className='RecipeIngredientList'>
                 { ingredient_list.map(ingredient => (
-                    <li  className="RecipePageIngredientsText" key={ingredient.id}>
-                        <div className="RecipePageIngredientsText" >
+                    <li className='RecipeIngredientList' key={ingredient.id}> 
+                    <span>
                         <Ingredient
                             ingredient={ingredient}
                             recipe={recipe}
@@ -164,10 +164,10 @@ function RecipePage() {
                             setshowEditIngredient={setShowEditIngredient}
                             measurementUnits={measurementUnits}
                         />
-                        </div>
+                        </span>
                     </li>
                 ))}
-                </ul>
+            </ul>
             }   
             { sessionUser && sessionUser.id === recipe.user.id &&
             <div className=''>
