@@ -88,7 +88,7 @@
 }
 
 .RecipePageDescription {
-    font-size: 1.125rem;
+    font-size: 18px;
     font-family: Georgia, 'Times New Roman', Times, serif;    
     line-height: 1.5rem;
     margin: 1rem 0;
@@ -177,7 +177,7 @@
 /* recipe total time and yield */
 .TimeServingDiv {
     margin-right: 50px;
-    font-size: 1.125rem;
+    font-size: 18px;
     font-family: Arial, Helvetica, sans-serif;
     padding: 1.5rem;
     line-height: 1.5rem;
@@ -186,7 +186,7 @@
 }
 
 .TimeServingHeader {
-    font-size: 1.125rem;
+    font-size: 18px;
     line-height: 1.5rem;
     letter-spacing: 0.5px;
     font-family: Georgia, 'Times New Roman', Times, serif;   
@@ -202,21 +202,45 @@
 
 .RecipeIngredientEmpty {
     font-family: Georgia, 'Times New Roman', Times, serif;   
-    font-size: 1.125rem;
+    font-size: 18px;
     line-height: 1.625rem;
 }
 
 .RecipeIngredientList {
-    font-size: 1.125rem;
+    font-size: 18px;
     line-height: 1.625rem;
+    padding-bottom: 15px;
+    line-height: 1.65rem;
+    font-size: 18px;
+    line-height: 1.625rem;
+    letter-spacing: 0.5px;
+    font-weight: 100;
 }
 
 ul.RecipeIngredientList {
     list-style: none; 
     padding-left: 0;
-    
 }
 
+/* red bullet points */
+ul li.RecipePageIngredientsText::before {
+    content: "\2022"; 
+    color: red; 
+    font-weight: bold; 
+    display: inline-block; 
+    width: 1em; 
+  }
+
+.RecipePageIngredientsText {
+    font-size: 18px;
+    line-height: 1.625rem;
+    padding-bottom: 15px;
+    line-height: 1.65rem;
+    font-size: 18px;
+    line-height: 1.625rem;
+    letter-spacing: 0.5px;
+    font-weight: 100;
+}
 
 
 

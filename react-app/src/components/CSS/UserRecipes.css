@@ -43,7 +43,7 @@
     color: black;
     border: 0.1875rem solid black;
     width: 200px;
-    font-size: 1.125rem;
+    font-size: 18px;
 }
 
 .UserRecipeContainer {
@@ -89,7 +89,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    font-size: 1.125rem;
+    font-size: 18px;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 700;
     letter-spacing: 0.5px;

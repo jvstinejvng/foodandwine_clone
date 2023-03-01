@@ -155,7 +155,8 @@ function RecipePage() {
             :
                 <ul className='RecipeIngredientList'>
                 { ingredient_list.map(ingredient => (
-                    <li key={ingredient.id}>
+                    <li  className="RecipePageIngredientsText" key={ingredient.id}>
+                        <div className="RecipePageIngredientsText" >
                         <Ingredient
                             ingredient={ingredient}
                             recipe={recipe}
@@ -163,6 +164,7 @@ function RecipePage() {
                             setshowEditIngredient={setShowEditIngredient}
                             measurementUnits={measurementUnits}
                         />
+                        </div>
                     </li>
                 ))}
                 </ul>
