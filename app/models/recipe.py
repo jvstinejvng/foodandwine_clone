@@ -6,7 +6,10 @@ from .user import saved_recipe
 class Recipe(db.Model):
     __tablename__ = 'recipes'
     
+<<<<<<< HEAD
 
+=======
+>>>>>>> newform
     if environment == "production":
         __table_args__ = {'schema': SCHEMA}
     
@@ -17,13 +20,13 @@ class Recipe(db.Model):
     description = db.Column(db.String(2000), nullable=False)
     total_time = db.Column(db.String(50), nullable=False)
     servings = db.Column(db.String(50), nullable=False)
-    ingredients = db.Column(db.String(10000), nullable=False)
-    directions = db.Column(db.String(10000), nullable=False)
 
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.datetime.utcnow)
     updated_at = db.Column(db.DateTime, nullable=False, default=datetime.datetime.utcnow, onupdate=func.now())
 
     user = db.relationship('User', back_populates='recipes', foreign_keys=[user_id])
+    instructions = db.relationship('Instruction', back_populates='recipe', cascade="all, delete")
+    ingredients = db.relationship('Ingredient', back_populates='recipe', cascade="all, delete")
     comments = db.relationship('Comment', back_populates='recipe', cascade="all, delete")
 
     saves = db.relationship('User', secondary=saved_recipe, back_populates='saved_recipes', cascade="all, delete")
@@ -49,11 +52,11 @@ class Recipe(db.Model):
             'description': self.description,
             'total_time': self.total_time,
             'servings': self.servings,
-            'ingredients': self.ingredients,
-            'directions': self.directions,
             'created_at': self.created_at,
             'updated_at': self.updated_at,
-    
+            
+            'instructions': [instruction.to_dict() for instruction in self.instructions],
+            'ingredients': [ingredient.to_dict() for ingredient in self.ingredients],
             'comments': [comment.to_dict() for comment in self.comments],
             'saves': [user.to_dict() for user in self.saves]
         }

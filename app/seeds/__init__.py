@@ -3,7 +3,10 @@ from app.models.db import db, environment, SCHEMA
 
 from flask.cli import AppGroup
 from .users import seed_users, undo_users
+from .measurement_units import seed_measurement_units, undo_measurement_units
 from .recipes import seed_recipes, undo_recipes
+from .ingredients import seed_ingredients, undo_ingredients
+from .instructions import seed_instructions, undo_instructions
 from .comments import seed_comments, undo_comments
 
 # Creates a seed group to hold our commands
@@ -19,8 +22,12 @@ def seed():
         # Add a truncate command here for every table that will be seeded.
         db.session.commit()
     seed_users()
+    seed_measurement_units()
     seed_recipes()
+    seed_ingredients()
+    seed_instructions()
     seed_comments()
+    
     # Add other seed functions here
 
 
@@ -28,6 +35,9 @@ def seed():
 @seed_commands.command('undo')
 def undo():
     undo_users()
+    undo_measurement_units()
     undo_recipes()
+    undo_ingredients()
+    undo_instructions()
     undo_comments()
     # Add other undo functions here

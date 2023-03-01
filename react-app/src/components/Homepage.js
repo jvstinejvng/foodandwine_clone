@@ -34,14 +34,14 @@ function Homepage() {
         <div className='HomepageContainer'>
             { !sessionUser && 
                 <div className="HomepageSessionUser">
-                    <div className='HomepageHeaderText' >Bread, butter and everything after.</div>
-                    <div className="HomepageSessionUserSub">Recipes for the chef in  us</div>
+                    <div className='HomepageHeaderText' >Unleash your inner chef and spice up your life - with our recipes, culinary adventures are always in sight!</div>
+                    <div className="HomepageSessionUserSub">Discover, cook, and share your favorite recipes with our community of food lovers.</div>
                 </div>
             }
             { sessionUser && 
                 <div className="HomepageSessionUser">
                     <div className='HomepageHeaderText'>Today is {date}</div>
-                    <div className="HomepageSessionUserSub">What’s on the menu?</div>
+                    <div className="HomepageSessionUserSub">Sharing the joy of cooking!</div>
                 </div>
                 }
         <div className='HomepageMainRecipe'>

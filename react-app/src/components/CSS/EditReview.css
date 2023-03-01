@@ -20,18 +20,17 @@
 .EditReviewBox {
     background-color: #eeeef0;
     margin: 10px 0px;
-    padding: 35px;
+     padding: 30px;
 }
 
 .EditReviewInputDiv {
     display: flex;
     flex-direction: column;
     margin: 10px 0px ;
-
 }
 
 .ReviewUserName {
-    font-size: 18px;
+    font-size: 20px;
     font-family: Arial, Helvetica, sans-serif;
     line-height: 1.65rem;
     letter-spacing: 0.5px;
@@ -93,9 +92,9 @@
 }
 
 .EditReviewButton {
-    font-size: 14px;
+    font-size: 12px;
     line-height: 1.25rem;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
     font-weight: 700;
     text-transform: uppercase;
     text-underline-offset: 0.25rem;
@@ -110,6 +109,23 @@
     padding: 5px 5px 5px 5px;
     width: 100px;
     margin-left: 10px
+}
+
+.EditReviewButtonCancel {
+    font-size: 12px;
+    line-height: 1.25rem;
+    letter-spacing: 0.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-underline-offset: 0.25rem;
+    border: none;
+    color:black;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    padding: 5px 5px 5px 5px;
 }
 
 .EditReviewButton:disabled{

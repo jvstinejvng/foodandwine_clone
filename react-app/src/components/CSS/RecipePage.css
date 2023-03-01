@@ -1,238 +1,226 @@
+/* single recipe container */
 .RecipePageContainer {
     position: relative;
     top: 200px;
-    margin: 1% 20% 15% 20%;
+    margin: 0% 20% 0% 20%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     width: auto;
 }
 
-.RecipePageHeaderText {
-    font-size: 48px;
-    margin-bottom: 1rem;
-    font-family: Georgia, 'Times New Roman', Times, serif;    
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    color: black;
+/* recipe header containter */
+.RecipePageHeader {
+    display: inline-block;
+    width: 70%; 
+    align-items: last baseline;
     overflow-wrap: break-word;
 }
 
-.RecipePageAverageRatingDiv {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 16px;
-    line-height: 1.50rem;
-    font-weight: 700;
-}
-
-.RecipePageNoReview {
+/* recipe header */
+.RecipePageHeaderText {
+    font-size: 45px;
     margin-bottom: 1rem;
-    text-underline-offset: 0.1875rem;
-    letter-spacing: 0.5px;
-    cursor: pointer;
+    font-family: Georgia, 'Times New Roman', Times, serif;    
+    font-weight: 600;
+    letter-spacing: 0.25px;
+    color: black;
+    overflow-wrap: break-word;
+    width: 70%;
 }
 
-.RecipePageNoReview:hover {
+/* recipe edit and delete */
+.RecipePageEditDeleteDiv{
+    white-space: nowrap
+}
+
+.RecipePageEditDelete {
+    cursor: pointer;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 0.5px;
+    padding-left: 10px;
+    text-transform: capitalize;
+}
+
+.RecipePageEditDelete:hover {
     text-decoration-line: underline;
     text-decoration-thickness: 2px; 
 }
 
-.RecipePageWithReview {
-    margin-bottom: 1rem;
+/* recipe's rating and scroll to recipe */
+.RecipePageSubHeaderDiv {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 1.5rem;
     font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
+    width: 70%;
 }
 
+/* Be the first to rate & review! */
+.RecipePageSubHeaderBar {
+    width: 70%;
+    text-underline-offset: 0.2rem;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    font-weight: 100;
+    font-size: 14px;
+    text-decoration-line: underline;
+}
+
+.RecipePageSubHeaderBar:hover {
+    text-decoration-line: underline;
+    text-decoration-thickness: 2px; 
+}
+
+/* recipe with reviews */
+.RecipePageReviewBox {
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.75px;
+    margin-top: 1rem;
+}
+
+/* recipe review text */
+.RecipePageReviews:hover {
+    text-decoration-line: underline;
+    text-decoration-thickness: 1px; 
+    text-underline-offset: 0.2rem;
+    cursor: pointer;
+}
+
+.RecipePageAverageRatingNumber {
+    padding-left: 5px;
+}
+
+/* recipe page | character  */
 .RecipePageDividerChar {
-    color: #eeeef0;
-    font-weight: normal;
+    color: rgba(0,0,0,.15);
+    font-weight: 100;
     padding: 0.2rem;
+    font-size: 16px;
+}
+
+/* scroll to recipe */
+.RecipePageRecipeScroll {
+    color: rgb(192, 192, 192);
+    font-weight: 100;
+}
+
+.RecipePageRecipeScroll:hover {
+    text-decoration-line: underline;
+    text-decoration-thickness: 1px; 
+    text-underline-offset: 0.2rem;
+    cursor: pointer;
 }
 
 .RecipePageDescription {
-    font-size: 22px;
+    font-size: 20px;
     font-family: Georgia, 'Times New Roman', Times, serif;    
-    font-weight: 400;
-    line-height: 1.65rem;
+    line-height: 1.5rem;
     margin: 1rem 0;
     letter-spacing: 0.5px;
+    width: 70%;
     overflow-wrap: break-word;
 }
 
 .RecipePageUser {
     display: flex;    
     flex-direction: row;
-    font-size: 16px;
+    font-size: 14px;
     font-family: Arial, Helvetica, sans-serif;
     line-height: 1.5rem;
     letter-spacing: 0.5px;
+    width: 70%;
+    margin-bottom: 1rem;
 }
 
 .RecipePageUserName{
-    margin-left: 5px;
-    margin-right: 10px;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 700;
     font-family: Arial, Helvetica, sans-serif;
-    margin-bottom: 0.5rem;
+    margin: 0 10px 1rem 5px;
     line-height: 1.5rem;
 }
 
 .RecipePageDividerChar2 {
-    color: #eeeef0;
     font-weight: normal;
     font-size: 16px;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
     line-height: 1.5rem;
+    color: rgba(0,0,0,.15);
 }
 
-.RecipePageCreateAt {
+/* recipe create and update */
+.RecipePageDate {
     margin-left: 10px;
-    margin-bottom: 0.5rem;
     line-height: 1.5rem;
     font-weight: 200;
     color: rgb(192, 192, 192);
     letter-spacing: 0.5px;
 }
 
-.RecipePageBody {
-    width: 100%;
-}
-
-/* recipe edit and delete div */
-.RecipePageRecipeCardButtonDiv {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin-bottom: 30px;
-    width: 100%;
-    cursor: pointer;
-}
-
-/* recipe edit and delete button */
-.RecipePageRecipeCardButton {
-    cursor: pointer;
-    margin-top: 10px;
-    width: 200px;
-    height: 40px;
-    color: black;
-    border: 0.1875rem solid black;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 16px;
-    text-transform: uppercase;
-    background-color: white;
-    padding: 0.6875rem 0;
-    letter-spacing: 1px;
-    font-weight: 700;
-    margin-right: 20px;
-}
-
-.RecipePageRecipeCardButton:hover {
-    background-color: black;
-    color: white;
-}
-
-/* recipe image */
 .RecipePageImage {
-    width: 100%;
-    height: 600px;
+    width: 70%;
+    height: 500px;
     object-fit: cover;
-    aspect-ratio: auto 2000 / 2000;
+    aspect-ratio: auto;
 }
 
-/* total time and servings div */
+/* recipe total time and yield */
 .TimeServingDiv {
     margin-right: 50px;
-    font-size: 22px;
+    font-size: 20px;
     font-family: Arial, Helvetica, sans-serif;
     padding: 1.5rem;
-    line-height: 1.65rem;
-
+    line-height: 1.5rem;
     letter-spacing: 0.5px;
     font-weight: 100;
 }
 
-/* total time and serving header */
 .TimeServingHeader {
-    font-size: 24px;
-    margin-bottom: 8px;
-    line-height: 1.65rem;
-
+    font-size: 20px;
+    line-height: 1.5rem;
     letter-spacing: 0.5px;
-    font-family: Georgia, 'Times New Roman', Times, serif;    font-weight: 700;
-}
-
-/* recipe ingredients */
-.RecipePageIngredients {
-    font-size: 40px;
+    font-family: Georgia, 'Times New Roman', Times, serif;   
     font-weight: 700;
-    margin-bottom: 2rem;
-    line-height: 2.75rem;
-    letter-spacing: 0.5px;
 }
 
-/* removes the bullet point */
-ul.RecipeIngredientList {
-    list-style: none; 
-    padding-left: 0;
+.RecipeBodyEmpty {
+    font-family: Georgia, 'Times New Roman', Times, serif;   
+    font-size: 20px;
+    line-height: 1.625rem;
 }
 
-/* red bullet points */
-ul li.RecipePageIngredientsText::before {
-    content: "\2022"; 
-    color: red; 
-    font-weight: bold; 
-    display: inline-block; 
-    width: 1em; 
-  }
-
-/* ingredient text */
-.RecipePageIngredientsText {
-    font-size: 22px;
-    padding-bottom: 15px;
-    line-height: 1.65rem;
-
+.RecipeBodyText {
+    font-size: 20px;
+    line-height: 1.5rem;
     letter-spacing: 0.5px;
     font-weight: 100;
+    padding-top: 10px;
+    text-transform: lowercase;
 }
 
-/* recipe direction title */
-.RecipePageDirections {
-    font-size: 40px;
-    font-weight: 700;
-    margin-top: 3rem;
-    margin-bottom: 2rem;
-    line-height: 2.75rem;
+
+.RecipeDirectionText {
+    width: 70%;
+    font-size: 20px;
+    line-height: 1.5rem;
     letter-spacing: 0.5px;
+    font-weight: 100;
+    padding-top: 10px;
 }
 
-/* adding word step to each item  */
-ol.RecipePageDirectionContainer {
-    list-style-type: none;
-    counter-reset: elementcounter;
-    padding-left: 0;
+ul.RecipeBodyList {
+    width: 70%;
 }
 
-ol li:before {
-    content: "Step " counter(elementcounter);
-    counter-increment: elementcounter;
-    font-weight: 700;
-    text-underline-offset: 0.25rem;
-    letter-spacing: 0.5px;
+.RecipePageIngredientListBox {
+    width: 70%;
+    margin-left: 20px;
 }
 
-/* direction order text */
-.RecipePageDirectionsStep {
-    font-size: 22px;
-    padding-bottom: 5px;
-    margin-bottom: 2rem;
-    letter-spacing: 0.5px;
-    line-height: 1.65rem;
-
-}
-
-/* 404 page */
 .Recipe404Page{
     top: 200px;
     margin: 18% 20% 15% 20%;
@@ -246,7 +234,6 @@ ol li:before {
 
 }
 
-/* this recipe was sent back to the kitchen */
 .Recipe404Text {
     font-family: Georgia, 'Times New Roman', Times, serif;    
     font-weight: 700;
@@ -257,19 +244,16 @@ ol li:before {
     padding-left: 10%;
 }
 
-/* recipe 404 image container */
 .RecipePageImg {
     display: flex;
     justify-content: end;
 }
 
-/* recipe bird image */
 .ReceipePage404img {
     object-fit: cover;
     width: 60%;
 }
 
-/* The page you're looking for is unavailable. */
 .RecipePage404SubText {
     display: flex;
     justify-content: center;
@@ -279,7 +263,6 @@ ol li:before {
     padding-bottom: 2%;
 }
 
-/* recipe 404 back home button */
 .BackHomeButtonDiv {
     display: flex;
     justify-content: center;
@@ -306,48 +289,23 @@ ol li:before {
     flex-direction: column; 
 }
 
-.RecipeReviewCreateReview {
-    position: absolute;
-}
-
-/* recipe page divs */
-/* header, review, description, user, and publish div */
-.RecipePageHeader {
-    width: 100%;
-    margin: 1rem 0;
-}
-
-/* image div */
-.RecipePageImageDiv {
-    width: 70%;
-}
-
-/* total time and serving div */
-.RecipePageServing {
+/* recipe servings */
+.RecipePageServingDiv {
     width: 70%;
     background-color: #eeeef0;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    margin: 3rem 0;
+    margin: 2rem 0 1rem 0;
 }
 
-/* ingredients and direction div */
-.RecipePageIngredientsDirections {
-    width: 70%;
-    margin: 3rem 0;
-}
-
-/* create review form and user reviews div */
 .RecipePageBottom {
     width: 70%;
     margin: 3rem 0;
 }
 
-
 .LeaveAReview {
     font-size: 26px;
-    margin-bottom: 30px;
     font-weight: 600;
     line-height: 1rem;
     letter-spacing: 0.5px;
@@ -355,9 +313,80 @@ ol li:before {
     text-align: flex-start;
     font-family: Georgia, 'Times New Roman', Times, serif;
     border: 24px solid #eeeef0;
-    margin-bottom: 30px;
-    margin-top: 30px;
     padding: 30px;
-
+    margin: 3rem 0 ;
 }
 
+/* recipe ingredient and direction header box */
+.RecipeBodySpanBox {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    margin-top: 2rem;
+    width: 70%;
+}
+
+/* recipe ingredient and direction header text */
+.RecipeBodyHeader {
+    font-size: 2.25rem;
+    font-weight: 700;
+    line-height: 2.75rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;  
+}
+
+
+/* recipe ingredient and direction edit button */
+.RecipeBodyEdit {
+    padding-left: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 0.5px;
+    padding-left: 10px;
+    white-space: nowrap
+}
+
+.RecipeBodyEdit:hover {
+    text-decoration-line: underline;
+    text-decoration-thickness: 2px; 
+}
+
+.RecipePageIconText {
+    padding-left: 3px;
+}
+
+/* recipe ingredient and direction add button */
+#RecipePageBodyAddButton {
+    font-size: 12px;
+    line-height: 1.25rem;
+    letter-spacing: 1px;
+    font-weight: 700;
+    text-transform: uppercase;
+    background-color: black;
+    border: none;
+    color:white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px;
+    white-space: nowrap;
+    
+}
+
+/* recipe ingredient and direction add button box */
+.RecipePageAddButtonDiv {
+    width: 70%;
+}
+
+.RecipePageAddFormDiv {
+    padding: 1rem 0;
+}
+
+.RecipePageBodyTextEmpty {
+    font-size: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;    
+    line-height: 1.5rem;
+    letter-spacing: 0.5px;
+    margin: 1rem 0;
+}

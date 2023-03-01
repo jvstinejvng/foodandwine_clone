@@ -83,7 +83,7 @@
 
 /* your rating */
 .CreateReviewStarDivText {
-    font-size: 18px;
+    font-size: 20px;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 700;
     line-height: 1.65rem;
@@ -118,7 +118,7 @@
 }
 
 .ReviewCommentText {
-    font-size: 18px;
+    font-size: 20px;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 700;
     line-height: 1.65rem;

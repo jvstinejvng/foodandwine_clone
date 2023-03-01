@@ -1,0 +1,28 @@
+.IngredientEditButton {
+    white-space: nowrap;
+
+}
+
+.IngredientStepText {
+    cursor: pointer;
+    font-size: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 0.5px;
+    padding-right: 10px;
+    text-transform: capitalize;
+}
+
+.IngredientStepEditText {
+    padding-left: 5px;
+
+}
+
+.IngredientBullet {
+    color: aquamarine;
+}
+
+.IngredientBullet::before {
+    content: "•"; 
+    color: red
+}
+
