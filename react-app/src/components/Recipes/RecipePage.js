@@ -153,21 +153,19 @@ function RecipePage() {
                    The owner of this recipe has not yet added the ingredients to this recipe.
                 </div>
             :
-            <ul className='RecipeIngredientList'>
-                { ingredient_list.map(ingredient => (
-                    <li className='RecipeIngredientList' key={ingredient.id}> 
-                    <span>
-                        <Ingredient
-                            ingredient={ingredient}
-                            recipe={recipe}
-                            showEditIngredient={showEditIngredient}
-                            setshowEditIngredient={setShowEditIngredient}
-                            measurementUnits={measurementUnits}
-                        />
-                        </span>
-                    </li>
-                ))}
-            </ul>
+                <ul className='RecipeIngredientList'>
+                    { ingredient_list.map(ingredient => (
+                        <li className='RecipeIngredientListText' key={ingredient.id}>
+                            <Ingredient
+                                ingredient={ingredient}
+                                recipe={recipe}
+                                showEditIngredient={showEditIngredient}
+                                setshowEditIngredient={setShowEditIngredient}
+                                measurementUnits={measurementUnits}
+                        /> 
+                        </li>
+                    ))}
+                </ul>
             }   
             { sessionUser && sessionUser.id === recipe.user.id &&
             <div className=''>
