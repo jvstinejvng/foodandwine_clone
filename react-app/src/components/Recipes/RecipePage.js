@@ -140,7 +140,7 @@ function RecipePage() {
                 </div>
                 </div> 
                 </>
-            :
+                :
                 <EditRecipe
                     recipe={recipe}
                     setShowEditForm={setShowEdit}
@@ -148,37 +148,16 @@ function RecipePage() {
             }
             <>
             <h2 className='RecipeIngredientHeader'>Ingredients</h2>
-            { ingredient_list.length === 0 ?
-                <div className='RecipeIngredientEmpty'> 
-                   The owner of this recipe has not yet added the ingredients to this recipe.
-                </div>
-            :
-                <ul className='RecipeIngredientList'>
-                    { ingredient_list.map(ingredient => (
-                        <li className='RecipeIngredientListText' key={ingredient.id}>
-                            <Ingredient
-                                ingredient={ingredient}
-                                recipe={recipe}
-                                showEditIngredient={showEditIngredient}
-                                setshowEditIngredient={setShowEditIngredient}
-                                measurementUnits={measurementUnits}
-                        /> 
-                        </li>
-                    ))}
-                </ul>
-            }   
+  
+            <span>
             { sessionUser && sessionUser.id === recipe.user.id &&
             <div className=''>
-                { recipe.ingredients.length > 0 &&
+               { recipe.ingredients.length > 0 &&
                 <>
                     { showEditIngredient ?
-                        <div>
-                            <button onClick={() => setShowEditIngredient(!showEditIngredient)} className=''>Save</button>
-                        </div>
+                            <div onClick={() => setShowEditIngredient(!showEditIngredient)} className=''>Save</div>
                         : 
-                        <div>
-                            <button onClick={() => setShowEditIngredient(!showEditIngredient)} className=''>Edit</button>
-                        </div>
+                            <div onClick={() => setShowEditIngredient(!showEditIngredient)} className=''>Edit</div>
                     }
                     { showAddIngredient &&
                         <div>
@@ -197,10 +176,60 @@ function RecipePage() {
                             <button onClick={() => setShowAddIngredient(!showAddIngredient)} title='Add Ingredients'><i className="fa-solid fa-plus"></i>Add Ingredient</button>
                         </div>                   
                     }
+                    
                 </>
                 }
             </div>
             }
+            <ul className='RecipeIngredientList'>
+                    { ingredient_list.map(ingredient => (
+                        <li className='RecipeIngredientListText' key={ingredient.id}>
+                             <Ingredient
+                                ingredient={ingredient}
+                                recipe={recipe}
+                                showEditIngredient={showEditIngredient}
+                                setshowEditIngredient={setShowEditIngredient}
+                                measurementUnits={measurementUnits}
+                        /> 
+                        </li>
+                    ))}
+                </ul>
+            </span>
+                      { ingredient_list.length === 0 &&
+                <div className='RecipeIngredientEmpty'> 
+                   The owner of this recipe has not yet added the ingredients to this recipe.
+                </div>
+                
+            }   
+
+{ sessionUser && sessionUser.id === recipe.user.id &&
+ <div className=''>
+ { recipe.ingredients.length > 0 &&
+  <>
+      { showAddIngredient &&
+          <div>
+          <CreateIngredient
+              recipe_id={recipe.id}
+              measurementUnits={measurementUnits}
+              edit={true}/>
+          </div>
+      }
+      { showAddIngredient ?
+          <div>
+              <button onClick={() => setShowAddIngredient(!showAddIngredient)} className=''>Save</button>
+          </div>
+          :
+          <div>
+              <button onClick={() => setShowAddIngredient(!showAddIngredient)} title='Add Ingredients'><i className="fa-solid fa-plus"></i>Add Ingredient</button>
+          </div>                   
+      }
+      
+  </>
+  }
+</div>
+
+
+}
         <div>
             { sessionUser && sessionUser.id === recipe.user.id && !recipe.ingredients.length && !showAddIngredient &&
                 <div className='' onClick={() => setShowAddIngredient(!showAddIngredient)}>
