@@ -9,9 +9,17 @@
     width: auto;
 }
 
-/* single recipe header */
+/* recipe header containter */
+.RecipePageHeader {
+    display: inline-block;
+    width: 70%; 
+    align-items: last baseline;
+    overflow-wrap: break-word;
+}
+
+/* recipe header */
 .RecipePageHeaderText {
-    font-size: 3rem;
+    font-size: 45px;
     margin-bottom: 1rem;
     font-family: Georgia, 'Times New Roman', Times, serif;    
     font-weight: 600;
@@ -19,6 +27,26 @@
     color: black;
     overflow-wrap: break-word;
     width: 70%;
+}
+
+/* recipe edit and delete */
+.RecipePageEditDeleteDiv{
+    white-space: nowrap
+}
+
+.RecipePageEditDelete {
+    cursor: pointer;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 0.5px;
+    padding-left: 10px;
+    text-transform: capitalize;
+    padding: 10px;
+}
+
+.RecipePageEditDelete:hover {
+    text-decoration-line: underline;
+    text-decoration-thickness: 2px; 
 }
 
 /* recipe's rating and scroll to recipe */
@@ -47,11 +75,12 @@
 }
 
 /* recipe with reviews */
-.RecipePageWithReview {
+.RecipePageReviewBox {
     font-weight: 700;
     font-size: 14px;
     text-transform: uppercase;
     letter-spacing: 0.75px;
+    margin-top: 0.5rem;
 }
 
 /* recipe review text */
@@ -88,7 +117,7 @@
 }
 
 .RecipePageDescription {
-    font-size: 20px;
+    font-size: 18px;
     font-family: Georgia, 'Times New Roman', Times, serif;    
     line-height: 1.5rem;
     margin: 1rem 0;
@@ -105,6 +134,7 @@
     line-height: 1.5rem;
     letter-spacing: 0.5px;
     width: 70%;
+    margin-bottom: 1rem;
 }
 
 .RecipePageUserName{
@@ -119,11 +149,10 @@
 
 .RecipePageDividerChar2 {
     font-weight: normal;
-    font-size: 15px;
+    font-size: 16px;
     margin-bottom: 0.5rem;
     line-height: 1.5rem;
     color: rgba(0,0,0,.15);
-    font-size: 14px;
 }
 
 /* recipe create and update */
@@ -136,37 +165,6 @@
     letter-spacing: 0.5px;
 }
 
-/* recipe edit and delete container */
-.RecipePageRecipeCardButtonDiv {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin-bottom: 30px;
-    width: 70%;
-}
-
-/* recipe edit and delete buttons */
-.RecipePageRecipeCardButton {
-    cursor: pointer;
-    margin-top: 10px;
-    width: 125px;
-    height: 30px;
-    color: black;
-    border: 0.1875rem solid black;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 14px;
-    text-transform: uppercase;
-    background-color: white;
-    letter-spacing: 1px;
-    font-weight: 700;
-    margin-right: 20px;
-}
-
-.RecipePageRecipeCardButton:hover {
-    background-color: black;
-    color: white;
-}
-
 .RecipePageImage {
     width: 70%;
     height: 500px;
@@ -177,7 +175,7 @@
 /* recipe total time and yield */
 .TimeServingDiv {
     margin-right: 50px;
-    font-size: 20px;
+    font-size: 18px;
     font-family: Arial, Helvetica, sans-serif;
     padding: 1.5rem;
     line-height: 1.5rem;
@@ -186,7 +184,7 @@
 }
 
 .TimeServingHeader {
-    font-size: 20px;
+    font-size: 18px;
     line-height: 1.5rem;
     letter-spacing: 0.5px;
     font-family: Georgia, 'Times New Roman', Times, serif;   
@@ -200,15 +198,14 @@
     font-family: Georgia, 'Times New Roman', Times, serif;   
 }
 
-.RecipeIngredientEmpty {
+.RecipeBodyEmpty {
     font-family: Georgia, 'Times New Roman', Times, serif;   
-    font-size: 20px;
+    font-size: 18px;
     line-height: 1.625rem;
 }
 
-
-li.RecipeIngredientList {
-    font-size: 20px;
+li.RecipeBodyList {
+    font-size: 18px;
     line-height: 1.5rem;
     letter-spacing: 0.5px;
     font-weight: 100;
@@ -216,11 +213,9 @@ li.RecipeIngredientList {
     white-space:nowrap
 }
 
-
-ul.RecipeIngredientList {
+ul.RecipeBodyList {
     list-style-type: none;
 }
-
 
 .Recipe404Page{
     top: 200px;
@@ -321,3 +316,30 @@ ul.RecipeIngredientList {
 
 }
 
+.RecipeBodySpanBox {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+}
+
+.RecipeBodyEdit {
+    padding-left: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 0.5px;
+    padding-left: 10px;
+    text-transform: capitalize;
+    white-space: nowrap
+
+}
+
+.RecipeBodyEdit:hover {
+    text-decoration-line: underline;
+    text-decoration-thickness: 2px; 
+}
+
+
+.RecipePageIconText {
+    padding-left: 3px;
+}

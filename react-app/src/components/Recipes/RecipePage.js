@@ -20,6 +20,7 @@ function RecipePage() {
     const history = useHistory()
     const { id } = useParams()
     const scrollToReview = useRef()
+    const scrollToReviews = useRef()
     const scrollToRecipe = useRef()
     const sessionUser = useSelector(state => state.session.user)
     const recipe = useSelector(state => state.recipes[id])
@@ -73,10 +74,26 @@ function RecipePage() {
     <div className='RecipePageContainer' >
     { recipe &&
         <>
-        <h1 className='RecipePageHeaderText'>{recipe.title}</h1>
-        <div className='RecipePageSubHeaderDiv'>
+        { !showEdit ?
+            <div>
+            <span className='RecipePageHeader'>
+            <span className='RecipePageHeaderText'>{recipe.title}</span> 
+            { sessionUser && sessionUser.id === recipe.user.id &&
+                <span className='RecipePageEditDeleteDiv'>
+                <span className='RecipePageEditDelete' onClick={() => setShowEdit(!showEdit)}>
+                    <i class="fa-solid fa-pen-to-square"></i>
+                    <span className='RecipePageIconText'>Edit</span>
+                </span>
+                <span className='RecipePageEditDelete' onClick={handleDelete}>
+                    <i class="fa-solid fa-trash-can"></i>
+                    <span className='RecipePageIconText'>Delete</span>
+                </span>
+                </span>    
+            }
+            </span>
+            <div className='RecipePageSubHeaderDiv'>
             { isNaN(average_rating(recipe)) ?
-                <div>
+                <div className='RecipePageReviewBox'>
                     <span className='RecipePageSubHeaderBar'onClick={() => scrollToReview.current.scrollIntoView({ behavior: 'smooth' })}>
                         Be the first to rate & review!
                     </span>
@@ -87,11 +104,11 @@ function RecipePage() {
                     </span>
                 </div>
                 :
-                <div className='RecipePageWithReview'>
+                <div className='RecipePageReviewBox'>
                     <span><FaStar/></span>
                     <span className='RecipePageAverageRatingNumber'>{average_rating(recipe)}</span>
                     <span className='RecipePageDividerChar'> | </span>
-                    <span className='RecipePageReviews' OnClick={() => scrollToReview.current.scrollIntoView({ behavior: 'smooth' })}>
+                    <span className='RecipePageReviews' onClick={() => scrollToReviews.current.scrollIntoView({ behavior: 'smooth' })}>
                         {recipe.comments.length} reviews 
                     </span>
                     <span className='RecipePageDividerChar'> | </span>
@@ -101,29 +118,18 @@ function RecipePage() {
                     </span>
                 </div>      
             }        
-        </div>
-        <p className='RecipePageDescription'>{recipe.description}</p>
-        <div className='RecipePageUser'>
-            By <div className='RecipePageUserName'>{recipe.user.first_name} {recipe.user.last_name}</div>
-            <span className='RecipePageDividerChar2'> | </span>
-            { recipe.created_at === recipe.updated_at ?
-                <span className='RecipePageDate'>Published on {recipe.created_at.split(' ').slice(1, 4).join(' ')}</span>
-                :
-                <span className='RecipePageDate'>Updated on {recipe.updated_at.split(' ').slice(1, 4).join(' ')}</span>
-            }
-        </div>
-            { !showEdit ?
-                <>
-                { sessionUser && sessionUser.id === recipe.user.id ?
-                    <div className='RecipePageRecipeCardButtonDiv'>
-                        <button className='RecipePageRecipeCardButton' onClick={() => setShowEdit(!showEdit)} title='Edit Recipe'>Edit</button>
-                        <button className='RecipePageRecipeCardButton' onClick={handleDelete} title='Delete Recipe'>Delete</button>
-                    </div>
+            </div>
+            <p className='RecipePageDescription'>{recipe.description}</p>
+            <div className='RecipePageUser'>
+                By <div className='RecipePageUserName'>{recipe.user.first_name} {recipe.user.last_name}</div>
+                <span className='RecipePageDividerChar2'> | </span>
+                { recipe.created_at === recipe.updated_at ?
+                    <span className='RecipePageDate'>Published on {recipe.created_at.split(' ').slice(1, 4).join(' ')}</span>
                     :
-                    <div>
-                        <SaveRecipe recipe={recipe}/>
-                    </div>
+                    <span className='RecipePageDate'>Updated on {recipe.updated_at.split(' ').slice(1, 4).join(' ')}</span>
                 }
+            </div>
+            <div>
                 <img className='RecipePageImage' src={recipe.image_url} onError={({ currentTarget }) => {
                     currentTarget.onerror = null;
                     currentTarget.src ='../../../../../static/breadbutterimage.png'
@@ -131,39 +137,46 @@ function RecipePage() {
                 <div ref={scrollToRecipe}></div>
                 <div className='RecipePageServingDiv'>
                     <div className='TimeServingDiv'>
-                        <div className='TimeServingHeader'>Total Time:</div>{recipe?.total_time}
+                    <div className='TimeServingHeader'>Total Time:</div>{recipe?.total_time}
                     </div>
                     <div className='TimeServingDiv'>
                         <div className='TimeServingHeader'>Yield:</div>{recipe?.servings}
                     </div>
                 </div> 
-                </>
-                :
-                <EditRecipe
-                    recipe={recipe}
-                    setShowEditForm={setShowEdit}
-                />           
-            }
-            <>
-        <span>
+            </div>
+            </div>
+            :
+            <EditRecipe
+                recipe={recipe}
+                setShowEditForm={setShowEdit}
+            />           
+        }
+        <>
+        <span className='RecipeBodySpanBox'>
         <h2 className='RecipeIngredientHeader'>Ingredients</h2>
             { sessionUser && sessionUser.id === recipe.user.id &&
-                <div className=''>
+                <>
                 { recipe.ingredients.length > 0 &&
                     <>
                     { showEditIngredient ?
-                        <div onClick={() => setShowEditIngredient(!showEditIngredient)} className=''>Save</div>
+                        <span className='RecipeBodyEdit' onClick={() => setShowEditIngredient(!showEditIngredient)} >
+                            <i class="fa-solid fa-list-ul"></i>
+                            <span className='RecipePageIconText'>Save</span>
+                        </span>
                         : 
-                        <div onClick={() => setShowEditIngredient(!showEditIngredient)} className=''>Edit</div>
+                        <span className='RecipeBodyEdit' onClick={() => setShowEditIngredient(!showEditIngredient)}>
+                            <i class="fa-solid fa-pen-to-square"></i>
+                            <span className='RecipePageIconText'>Edit</span>
+                        </span>
                     }   
                     </>
                 }
-                </div>
+                </>
             }
         </span>
-        <ul className='RecipeIngredientList'>
+        <ul className='RecipeBodyList'>
             { ingredient_list.map(ingredient => (
-                <li className='RecipeIngredientListText' key={ingredient.id}>
+                <li className='RecipeBodyText' key={ingredient.id}>
                     <Ingredient
                         ingredient={ingredient}
                         recipe={recipe}
@@ -176,10 +189,10 @@ function RecipePage() {
         </ul>
     
             { !sessionUser && recipe.id && !recipe.ingredients.length &&
-             <div className='RecipeIngredientEmpty'>The owner of this recipe has not yet added the ingredients to this recipe.</div>
+             <div className='RecipeBodyEmpty'>The owner of this recipe has not yet added the ingredients to this recipe.</div>
             }
             {  sessionUser && sessionUser.id !== recipe.user.id && !recipe.ingredients.length &&
-             <div className='RecipeIngredientEmpty'>The owner of this recipe has not yet added the ingredients to this recipe.</div>
+             <div className='RecipeBodyEmpty'>The owner of this recipe has not yet added the ingredients to this recipe.</div>
             }
             { sessionUser && sessionUser.id === recipe.user.id &&
                 <div className=''>
@@ -249,10 +262,10 @@ function RecipePage() {
                 </div>   
             ))}
             { !sessionUser && recipe.id && !recipe.instructions.length &&
-                <div className='RecipeIngredientEmpty'>The owner of this recipe has not yet added the directions to this recipe.</div>
+                <div className='RecipeBodyEmpty'>The owner of this recipe has not yet added the directions to this recipe.</div>
             }
             {  sessionUser && sessionUser.id !== recipe.user.id && !recipe.instructions.length &&
-                <div className='RecipeIngredientEmpty'>The owner of this recipe has not yet added the directions to this recipe.</div>
+                <div className='RecipeBodyEmpty'>The owner of this recipe has not yet added the directions to this recipe.</div>
             }
             { sessionUser && sessionUser.id === recipe.user.id &&
                 <div className=''>
@@ -293,7 +306,8 @@ function RecipePage() {
                 </div>
             }
         </>
-        <div className='' ref={scrollToReview}></div>
+        <div ref={scrollToReview}></div>
+        <div ref={scrollToReviews}></div>
         <div className='RecipePageBottom'><ReviewContainer recipe={recipe} /></div>
     </>    
     }                         
