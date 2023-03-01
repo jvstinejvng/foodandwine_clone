@@ -367,6 +367,21 @@ ul.RecipeBodyList {
     cursor: pointer;
     padding: 10px;
     white-space: nowrap;
-    margin: 1rem 0;
 }
 
+/* recipe ingredient and direction add button box */
+.RecipePageAddButtonDiv {
+    width: 70%;
+}
+
+.RecipePageAddFormDiv {
+    padding: 1rem 0;
+}
+
+.RecipePageBodyTextEmpty {
+    font-size: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;    
+    line-height: 1.5rem;
+    letter-spacing: 0.5px;
+    margin: 1rem 0;
+}

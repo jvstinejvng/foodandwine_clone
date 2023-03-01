@@ -194,15 +194,17 @@ function RecipePage() {
              <div className='RecipeBodyEmpty'>The owner of this recipe has not yet added the ingredients to this recipe.</div>
         }
         { sessionUser && sessionUser.id === recipe.user.id &&
-            <div className='RecipeBodyCreateDiv'>
+            <div className='RecipePageAddButtonDiv'>
             { recipe.ingredients.length > 0 &&
                 <>
+                <div className='RecipePageAddFormDiv'>
                 { showAddIngredient &&
                     <CreateIngredient
                         recipe_id={recipe.id}
                         measurementUnits={measurementUnits}
                         edit={true}/>
                 }
+                </div>
                 { showAddIngredient ?
                     <button id='RecipePageBodyAddButton'onClick={() => setShowAddIngredient(!showAddIngredient)}>
                          <i class="fa-solid fa-x"></i>
@@ -220,16 +222,18 @@ function RecipePage() {
         }
         { sessionUser && sessionUser.id === recipe.user.id &&
             <>
-            <div>
+            <div className='RecipePageAddButtonDiv'>
             { recipe.ingredients.length === 0 &&
                 <>
-                <div>Please Add Ingredients</div>
+                <div className='RecipePageBodyTextEmpty'>Enter one ingredient per line. Include the quantity (i.e. cups, tablespoons) and any special preparation (i.e. sifted, softened, chopped).</div>
+                <div className='RecipePageAddFormDiv'>
                 { showAddIngredient &&
                     <CreateIngredient
                         recipe_id={recipe.id}
                         measurementUnits={measurementUnits}
                         edit={true}/>
                 }
+                </div>
                 { showAddIngredient ?
                     <button id='RecipePageBodyAddButton' onClick={() => setShowAddIngredient(!showAddIngredient)} className=''>
                         <i class="fa-solid fa-x"></i>
@@ -288,15 +292,17 @@ function RecipePage() {
             <div className='RecipeBodyEmpty'>The owner of this recipe has not yet added the directions to this recipe.</div>
         }
         { sessionUser && sessionUser.id === recipe.user.id &&
-            <div>
+            <div className='RecipePageAddButtonDiv'>
             { recipe.instructions.length > 0 &&
                 <>
+                <div className='RecipePageAddFormDiv'>
                 { showAddDirection &&
                     <CreateDirection
                         recipe_id={recipe.id}
                         existing_order={recipe.instructions.length}
                         edit={true}/>
                 }
+                </div>
                 { showAddDirection ?
                     <button id='RecipePageBodyAddButton' onClick={() => setShowAddDirection(!showAddDirection)}>
                         <i class="fa-solid fa-x"></i>
@@ -314,15 +320,17 @@ function RecipePage() {
         }
         { sessionUser && sessionUser.id === recipe.user.id &&
             <>
-            <div> 
+            <div className='RecipePageAddButtonDiv'>
             { recipe.instructions.length === 0 &&
                 <>
-                <div>Please Add Direction</div>
+                <div className='RecipePageBodyTextEmpty'>Explain how to make your recipe, including oven temperatures, baking or cooking times, and pan sizes, etc. </div>
                 { showAddDirection &&
+                    <div className='RecipePageAddFormDiv'>
                     <CreateDirection
                         recipe_id={recipe.id}
                         existing_order={recipe.instructions.length}
                         edit={true}/>
+                    </div>
                 }
                 { showAddDirection ?
                     <button id='RecipePageBodyAddButton' onClick={() => setShowAddDirection(!showAddDirection)}>
