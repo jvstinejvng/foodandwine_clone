@@ -64,12 +64,6 @@ def upgrade():
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
-<<<<<<< HEAD:migrations/versions/20221010_041805_initial_migration.py
-
-    if environment == "production":
-        op.execute(f"ALTER TABLE <table_name> SET SCHEMA {SCHEMA};")
-
-=======
     op.create_table('ingredients',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('amount', sa.Float(), nullable=True),
@@ -94,7 +88,6 @@ def upgrade():
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('user_id', 'recipe_id')
     )
->>>>>>> newform:migrations/versions/20230226_205615_.py
     # ### end Alembic commands ###
 
     if environment == "production":
