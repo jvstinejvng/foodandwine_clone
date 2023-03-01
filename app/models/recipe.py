@@ -6,10 +6,6 @@ from .user import saved_recipe
 class Recipe(db.Model):
     __tablename__ = 'recipes'
     
-<<<<<<< HEAD
-
-=======
->>>>>>> newform
     if environment == "production":
         __table_args__ = {'schema': SCHEMA}
     
