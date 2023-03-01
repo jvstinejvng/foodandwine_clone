@@ -209,8 +209,14 @@
 .RecipeIngredientList {
     font-size: 1.125rem;
     line-height: 1.625rem;
+}
+
+ul.RecipeIngredientList {
+    list-style: none; 
+    padding-left: 0;
     
 }
+
 
 
 
