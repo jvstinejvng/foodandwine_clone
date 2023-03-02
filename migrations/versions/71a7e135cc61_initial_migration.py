@@ -89,6 +89,7 @@ def upgrade():
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('user_id', 'recipe_id')
     )
+    
 
     if environment == "production":
         op.execute(f"ALTER TABLE <table_name> SET SCHEMA {SCHEMA};")
