@@ -9,7 +9,7 @@ function AllSavedRecipes() {
     const recipes = useSelector(state => state.recipes)
     const sessionUser = useSelector(state => state.session.user)
 
-    let user_id
+    let user_id;
     if (sessionUser) { user_id = sessionUser.id }
 
     let saved_recipes = []

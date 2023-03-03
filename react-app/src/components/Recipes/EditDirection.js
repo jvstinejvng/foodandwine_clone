@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux"
 import { getRecipesThunk } from '../../store/recipe'
 import '../CSS/EditDirection.css'
 
-function EditDirection({ instruction, recipe_id, showEdit2, setShowEdit2, directionStep }) {
+function EditDirection({ instruction, recipe_id, showEdit2, setShowEdit2 }) {
 
     const dispatch = useDispatch()
 

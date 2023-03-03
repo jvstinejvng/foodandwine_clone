@@ -14,7 +14,7 @@ function SaveRecipe( {recipe} ) {
     const [hover, setHover] = useState(false)
     const [save, setSave] = useState(false)
 
-    let user_id
+    let user_id;
     if (sessionUser) { user_id = sessionUser.id }
 
     useEffect(() => {

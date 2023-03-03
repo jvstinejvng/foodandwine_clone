@@ -7,7 +7,7 @@ import { getCommentsThunk } from '../../store/comment'
 
 import RecipeCard from './RecipeCard'
 import UserReview from '../Reviews/UserReview'
-import CreateRecipe from './CreateRecipe'
+// import CreateRecipe from './CreateRecipe'
 
 import '../CSS/UserRecipes.css'
 

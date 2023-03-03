@@ -30,7 +30,7 @@ function EditCommentForm({ comment, showEdit, setShowEdit }) {
             newErrors["rating"] = "❗ Please rate the recipe.";
         } 
         if (body.length  > 1000) {
-            newErrors["body"] = "❗You\'ve exceeded the 1000 character limit.";
+            newErrors["body"] = "❗You've exceeded the 1000 character limit.";
         } 
         setValidError(newErrors);
     }, [rating, body, validError.length]);

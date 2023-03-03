@@ -4,9 +4,10 @@ import { useDispatch} from "react-redux"
 import { getRecipesThunk } from '../../store/recipe'
 import '../CSS/CreateIngredient.css'
 
-function CreateIngredient({ recipe_id, measurementUnits, edit }) {
+function CreateIngredient({ recipe_id, measurementUnits }) {
 
     const dispatch = useDispatch()
+    
     const [amount, setAmount] = useState('')
     const [unit, setUnit] = useState(1)
     const [food_stuff, setFood_stuff] = useState('')
@@ -70,8 +71,9 @@ function CreateIngredient({ recipe_id, measurementUnits, edit }) {
                 </ul>
         }
         <form className="create-ingredient-form" onSubmit={handleSubmit}>
-            <span className="ingredient-form-input">
+            <span className="ingredient-form-span">
                 <input
+                    className="ingredient-form-input"
                     type="text"
                     pattern="^[0-9 /]*$" 
                     placeholder=""
@@ -82,8 +84,9 @@ function CreateIngredient({ recipe_id, measurementUnits, edit }) {
                 />
                 <label className="ingredient-form-label">Quality</label>
             </span>
-            <span className="ingredient-form-input">
+            <span className="ingredient-form-span">
                 <select
+                    className="ingredient-form-input"
                     type="number"
                     placeholder="0"
                     required
@@ -98,8 +101,9 @@ function CreateIngredient({ recipe_id, measurementUnits, edit }) {
                 </select>
                 <label className="ingredient-form-label">Unit</label>
             </span>
-            <span className="ingredient-form-input">
+            <span className="ingredient-form-span">
                 <input
+                    className="ingredient-form-input"
                     type="text"
                     placeholder=""
                     required

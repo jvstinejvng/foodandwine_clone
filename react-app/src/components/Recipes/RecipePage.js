@@ -10,8 +10,8 @@ import CreateDirection from './CreateDirection'
 import Ingredient from './Ingredient'
 import Direction from './Direction'
 import ReviewContainer from '../Reviews/ReviewContainer'
-import SaveRecipe from './SaveRecipe'
-import NotFound from '../NotFound.js'
+// import SaveRecipe from './SaveRecipe'
+// import NotFound from '../NotFound.js'
 import '../CSS/RecipePage.css'
 
 function RecipePage() {
