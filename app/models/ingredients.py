@@ -11,7 +11,7 @@ class Ingredient(db.Model):
     amount = db.Column(db.String, nullable=False)
     food_stuff = db.Column(db.String(100), nullable=False)
     measurement_unit_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('measurement_units.id')), nullable=False)
-    recipe_id = db.Column(db.Integer, db.ForeignKey('recipes.id'), nullable=False)
+    recipe_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('recipes.id')), nullable=False)
 
     #relationships
     recipe = db.relationship('Recipe', back_populates='ingredients')
