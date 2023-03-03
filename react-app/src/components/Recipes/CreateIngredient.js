@@ -68,19 +68,7 @@ function CreateIngredient({ recipe_id, measurementUnits, edit }) {
                     ))}
                 </ul>
         }
-        { !edit && ingredients.length > 0 ?
-            <ul>
-                { Object.values(ingredients).map(ingredient => (
-                    <li key={ingredient.id}>
-                        <p> {ingredient.amount} {ingredient.measurement_unit.unit} {ingredient.food_stuff}</p>
-                    </li>
-                ))}
-            </ul>
-            :
-            null
-        }
-        <form className="RecipeInfoForm" onSubmit={handleSubmit}>
-            <div className='           '>
+        <form className="" onSubmit={handleSubmit}>
             <div className="">
                 <input
                     type="text"
@@ -119,14 +107,10 @@ function CreateIngredient({ recipe_id, measurementUnits, edit }) {
                 />
                 <label>Ingredient</label>
             </div>
-            </div>
-            <div className=''>
-                <div className=''>
-                    <h3 className=''></h3>
-                    <button className=''>
-                        <i className="fa-solid fa-plus add"></i>
-                    </button>
-                </div>
+            <div className=''>     
+                <button className=''>
+                    <i className="fa-solid fa-plus add"></i>
+                 </button>
              </div>
             </form>
         </>

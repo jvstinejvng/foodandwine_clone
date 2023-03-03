@@ -28,7 +28,7 @@ function Direction({ instruction, recipe_id, showEditDirection, directionStep })
     return (
         ( showEditDirection && showEdit2 ?
             <> 
-            <div className="DirectionStepTextDiv" key={instruction.id}> 
+            <div className="direction-step-text-div" key={instruction.id}> 
                 <span className="DirectionStepText">Step&nbsp;{directionStep + 1}</span>
                 <i class="fa-solid fa-pen-to-square"></i>
             </div>
@@ -42,7 +42,7 @@ function Direction({ instruction, recipe_id, showEditDirection, directionStep })
             :
             (showEditDirection ?
                 <div>
-                    <span className="DirectionStepTextDiv" key={instruction.id}> 
+                    <span className="direction-step-text-div" key={instruction.id}> 
                         Step&nbsp;{directionStep + 1} 
                     </span>
                     <span className="DirectionStepEdit" onClick={handleDelete}>
@@ -62,7 +62,7 @@ function Direction({ instruction, recipe_id, showEditDirection, directionStep })
                 </div>
                 :
                 <div className='DirectionContainer'> 
-                    <div className="DirectionStepTextDiv" key={instruction.id}> Step&nbsp;{directionStep + 1} </div>
+                    <div className="direction-step-text-div" key={instruction.id}> Step&nbsp;{directionStep + 1} </div>
                     <div>{instruction.specification}</div>
                 </div>
             )

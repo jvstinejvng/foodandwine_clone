@@ -7,7 +7,6 @@ function CreateDirection({ recipe_id, existing_order, edit }) {
     
     const dispatch = useDispatch()
     
-
     const [list_order, setList_order] = useState(!existing_order ? 1 : existing_order + 1)
     const [specification, setSpecification] = useState('')
     const [hasSubmitted, setHasSubmitted] = useState(false)
@@ -68,17 +67,6 @@ function CreateDirection({ recipe_id, existing_order, edit }) {
                 <li className='' key={error}>{error}</li>
                 ))}
             </ul>
-        }
-        { !edit && instructions.length > 0 ?
-            <ol>
-                {Object.values(instructions).map(instruction => (
-                    <li key={instruction.id}>
-                        <p>{instruction.specification}</p>
-                    </li>
-                ))}
-            </ol>
-            :
-            null
         }
         <form onSubmit={handleSubmit} className="RecipeInfoForm" >
         <div className="DirectionFormInput">
