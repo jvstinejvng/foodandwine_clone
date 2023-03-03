@@ -13,6 +13,7 @@ class Ingredient(db.Model):
     measurement_unit_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('measurement_units.id')), nullable=False)
     recipe_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('recipes.id')), nullable=False)
 
+
     #relationships
     recipe = db.relationship('Recipe', back_populates='ingredients')
     unit = db.relationship('MeasurementUnit', back_populates='ingredient')
