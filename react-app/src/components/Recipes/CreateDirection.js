@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useDispatch } from "react-redux"
 
 import { getRecipesThunk } from '../../store/recipe'
+import '../CSS//CreateDirection.css'
 
 function CreateDirection({ recipe_id, existing_order, edit }) {
     
@@ -59,8 +60,8 @@ function CreateDirection({ recipe_id, existing_order, edit }) {
     }
 
     return (
-        <>
-        <h3>Add Directions!</h3>
+    <>
+        <div className='create-direction-title'>Enter Directions Below</div>
         { hasSubmitted && validationErrors.length > 0 &&
             <ul className=''>
                 { validationErrors.map(error => (
@@ -68,9 +69,8 @@ function CreateDirection({ recipe_id, existing_order, edit }) {
                 ))}
             </ul>
         }
-        <form onSubmit={handleSubmit} className="RecipeInfoForm" >
-        <div className="DirectionFormInput">
-            <div className="">
+        <form className='create-direction-form' onSubmit={handleSubmit} >
+            <div className="create-direction-textbox">
                 <textarea
                     placeholder=""
                     required
@@ -78,17 +78,11 @@ function CreateDirection({ recipe_id, existing_order, edit }) {
                     onChange={(e)=> setSpecification(e.target.value)}
                 >
                 </textarea>
-                <label></label>
             </div>
-        </div>
-        <div className='AddButton'>
-            <div className=''>
-                <h3 className=''></h3>
-                <button className=''>
-                    <i className="fa-solid fa-plus add"></i>
-                </button>
-            </div>
-        </div>
+            <button className='create-direction-add-button'>
+                <i className="fa-solid fa-plus add"></i>
+                <span className='add-step-text'>add step</span>
+            </button>
         </form>
         </>
     )

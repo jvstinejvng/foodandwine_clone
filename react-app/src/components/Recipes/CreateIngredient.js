@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useDispatch} from "react-redux"
 
 import { getRecipesThunk } from '../../store/recipe'
+import '../CSS/CreateIngredient.css'
 
 function CreateIngredient({ recipe_id, measurementUnits, edit }) {
 
@@ -60,7 +61,7 @@ function CreateIngredient({ recipe_id, measurementUnits, edit }) {
 
     return (
         <>
-        <h3>Add Ingredients!</h3>
+        <div className='create-ingredient-title'>Enter Ingredients Below</div>
         { hasSubmitted && validationErrors.length > 0 &&
                 <ul className=''>
                     {validationErrors.map(error => (
@@ -68,8 +69,8 @@ function CreateIngredient({ recipe_id, measurementUnits, edit }) {
                     ))}
                 </ul>
         }
-        <form className="" onSubmit={handleSubmit}>
-            <div className="">
+        <form className="create-ingredient-form" onSubmit={handleSubmit}>
+            <span className="ingredient-form-input">
                 <input
                     type="text"
                     pattern="^[0-9 /]*$" 
@@ -79,9 +80,9 @@ function CreateIngredient({ recipe_id, measurementUnits, edit }) {
                     max="1000"
 
                 />
-                <label>Quality</label>
-            </div>
-            <div className="">
+                <label className="ingredient-form-label">Quality</label>
+            </span>
+            <span className="ingredient-form-input">
                 <select
                     type="number"
                     placeholder="0"
@@ -95,9 +96,9 @@ function CreateIngredient({ recipe_id, measurementUnits, edit }) {
                         ))
                     )}
                 </select>
-                <label>Unit</label>
-            </div>
-            <div className="">
+                <label className="ingredient-form-label">Unit</label>
+            </span>
+            <span className="ingredient-form-input">
                 <input
                     type="text"
                     placeholder=""
@@ -105,14 +106,16 @@ function CreateIngredient({ recipe_id, measurementUnits, edit }) {
                     value={food_stuff}
                     onChange={(e) => setFood_stuff(e.target.value)}
                 />
-                <label>Ingredient</label>
-            </div>
-            <div className=''>     
-                <button className=''>
+                <label className="ingredient-form-label">Ingredient</label>
+            </span>
+            <div>
+                <button className='create-ingredient-add-button'>
                     <i className="fa-solid fa-plus add"></i>
-                 </button>
-             </div>
+                    <span className='add-ingredient-text'>add ingredient</span>
+                </button>
+            </div>
             </form>
+            
         </>
     )
 }

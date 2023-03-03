@@ -1,5 +1,5 @@
 /* single recipe container */
-.RecipePageContainer {
+.recipe-page-container {
     position: relative;
     top: 200px;
     margin: 0% 20% 0% 20%;
@@ -356,7 +356,7 @@ ul.RecipeBodyList {
 }
 
 /* recipe ingredient and direction add button */
-#RecipePageBodyAddButton {
+#recipe-page-body-add-button {
     font-size: 12px;
     line-height: 1.25rem;
     letter-spacing: 1px;
