@@ -62,7 +62,7 @@ function CreateIngredient({ recipe_id, measurementUnits }) {
 
     return (
         <>
-        <div className='create-ingredient-title'>Enter Ingredients Below</div>
+        <h3 className='create-ingredient-title'>Enter Ingredients Below</h3>
         { hasSubmitted && validationErrors.length > 0 &&
                 <ul className=''>
                     {validationErrors.map(error => (

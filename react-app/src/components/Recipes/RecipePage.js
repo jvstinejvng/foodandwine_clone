@@ -77,7 +77,7 @@ function RecipePage() {
             { !showEdit ?
                 <div>
                 <span className='RecipePageHeader'>
-                <span className='RecipePageHeaderText'>{recipe.title}</span> 
+                <h1 className='RecipePageHeaderText'>{recipe.title}</h1> 
                 { sessionUser && sessionUser.id === recipe.user.id &&
                     <span className='RecipePageEditDeleteDiv'>
                     <span className='RecipePageEditDelete' onClick={() => setShowEdit(!showEdit)}>
@@ -153,26 +153,26 @@ function RecipePage() {
             }
             <>
             <span className='RecipeBodySpanBox'>
-            <h2 className='RecipeBodyHeader'>Ingredients</h2>
-            { sessionUser && sessionUser.id === recipe.user.id &&
-                <>
-                { recipe.ingredients.length > 0 &&
+            <h2 className='RecipeBodyHeader'>Ingredients</h2> 
+                { sessionUser && sessionUser.id === recipe.user.id &&
                     <>
-                    { showEditIngredient ?
-                        <span className='RecipeBodyEdit' onClick={() => setShowEditIngredient(!showEditIngredient)} >
-                            <i class="fa-solid fa-list-ul"></i>
-                            <span className='RecipePageIconText'>Save</span>
-                        </span>
-                        : 
-                        <span className='RecipeBodyEdit' onClick={() => setShowEditIngredient(!showEditIngredient)}>
-                            <i class="fa-solid fa-pen-to-square"></i>
-                            <span className='RecipePageIconText'>Edit</span>
-                        </span>
-                    }   
+                    { recipe.ingredients.length > 0 &&
+                        <>
+                        { showEditIngredient ?
+                            <span className='RecipeBodyEdit' onClick={() => setShowEditIngredient(!showEditIngredient)} >
+                                <i class="fa-solid fa-list-ul"></i>
+                                <span className='RecipePageIconText'>Save</span>
+                            </span>
+                            : 
+                            <span className='RecipeBodyEdit' onClick={() => setShowEditIngredient(!showEditIngredient)}>
+                                <i class="fa-solid fa-pen-to-square"></i>
+                                <span className='RecipePageIconText'>Edit</span>
+                            </span>
+                        }   
+                        </>
+                    }
                     </>
                 }
-                </>
-            }
             </span>
             <div className='RecipePageIngredientListBox'>
             <ul className='RecipeBodyList'>

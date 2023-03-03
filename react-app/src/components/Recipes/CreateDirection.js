@@ -61,7 +61,7 @@ function CreateDirection({ recipe_id, existing_order }) {
 
     return (
     <>
-        <div className='create-direction-title'>Enter Directions Below</div>
+        <h3 className='create-direction-title'>Enter Directions Below</h3>
         { hasSubmitted && validationErrors.length > 0 &&
             <ul className=''>
                 { validationErrors.map(error => (
@@ -70,8 +70,9 @@ function CreateDirection({ recipe_id, existing_order }) {
             </ul>
         }
         <form className='create-direction-form' onSubmit={handleSubmit} >
-            <div className="create-direction-textbox">
+            <div>
                 <textarea
+                    className="create-direction-textbox"
                     placeholder=""
                     required
                     value={specification}

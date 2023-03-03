@@ -58,58 +58,62 @@ function EditIngredient({ ingredient, measurementUnits, recipe_id, showEdit1, se
     }
 
     return (
-    <div>
-        { validationErrors.length > 0 &&
-            <ul className=''>
-                { validationErrors.map(error => (
-                    <li className='' key={error}>{error}</li>
-                ))}
-            </ul>
-        }
-    <form className="" onSubmit={handleSubmit}>
-        <div className='EditIngredientDiv'>
-        <div className="">
-            <input
-                type="text"
-                pattern="[0-9/]*"
-                placeholder=" "
-                value={amount}
-                onChange={(e) => setAmount(e.target.value)}
+        <>
+            { validationErrors.length > 0 &&
+                <ul className=''>
+                    { validationErrors.map(error => (
+                        <li className='' key={error}>{error}</li>
+                    ))}
+                </ul>
+            }
+        <form className="edit-ingdredient-form" onSubmit={handleSubmit}>
+            <span>
+            <span className="edit-ingredient-form-span">
+                <input
+                    className="edit-ingredient-form-input"
+                    type="text"
+                    pattern="[0-9/]*"
+                    placeholder=" "
+                    value={amount}
+                    onChange={(e) => setAmount(e.target.value)}
                 />
-            <label>Quantity</label>
-        </div>
-        <div className=""> 
-            <select
-                type="number"
-                placeholder={ingredient.measurement_unit}
-                required
-                value={unit}
-                onChange={(e) => setUnit(e.target.value)}
-            >
-            {measurementUnits && (
-                Object.values(measurementUnits).map(unit => (
-                    <option key={unit.id} value={unit.id}>{unit.unit}</option>
-                )))}
-            </select>
-            <label>Unit</label>
-        </div>
-        <div className="">
-            <input
-                type="text"
-                placeholder=""
-                required
-                value={food_stuff}
-                onChange={(e) => setFood_stuff(e.target.value)}
-            />
-            <label>Ingredient</label>
-        </div>
-        <div className=''>
-            <span onClick={() => setShowEdit1(!showEdit1)} className=''>Cancel</span>
-                <button type='submit' className=''>Submit</button>
-        </div>
-        </div>
-        </form>
-    </div>
+            <label className='edit-ingredient-form-label'>Quantity</label>
+            </span>
+            <span className="edit-ingredient-form-span"> 
+                <select
+                    className="edit-ingredient-form-input"
+                    type="number"
+                    placeholder={ingredient.measurement_unit}
+                    required
+                    value={unit}
+                    onChange={(e) => setUnit(e.target.value)}
+                >
+                    {measurementUnits && (
+                        Object.values(measurementUnits).map(unit => (
+                            <option key={unit.id} value={unit.id}>{unit.unit}</option>
+                        )))}
+                </select>
+                <label className='edit-ingredient-form-label'>Unit</label>
+            </span>
+            <span className="edit-ingredient-form-span">
+                <input
+                    className="edit-ingredient-form-input"
+                    type="text"
+                    placeholder=""
+                    required
+                    value={food_stuff}
+                    onChange={(e) => setFood_stuff(e.target.value)}
+                />
+                <label className='edit-ingredient-form-label'>Ingredient</label>
+            </span>
+            </span>
+            <div  className='edit-ingredient-button-div'>
+                    <button className='edit-ingredient-save-button-cancel' onClick={() => setShowEdit1(!showEdit1)}>Cancel</button>
+                    <button className='edit-ingredient-save-button' type='submit' >save</button>
+            </div>
+        
+            </form>
+        </>
     )
 }
 
