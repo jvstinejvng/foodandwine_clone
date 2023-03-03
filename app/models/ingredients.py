@@ -23,5 +23,5 @@ class Ingredient(db.Model):
             'id': self.id,
             'amount': self.amount,
             'food_stuff': self.food_stuff,
-            'measurement_unit_id': self.unit.to_dict(),
+            'measurement_unit': self.unit.to_dict(),
         }
