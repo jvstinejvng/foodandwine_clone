@@ -7,7 +7,7 @@ class MeasurementUnit(db.Model):
         __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
-    unit = db.Column(db.String(50), nullable=False)
+    unit = db.Column(db.String(50), nullable=True)
 
     #relationships
     ingredient = db.relationship('Ingredient', back_populates='unit')
