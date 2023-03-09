@@ -58,7 +58,7 @@ const NavBar = () => {
                 Sign Up 
               </NavLink>
               <button className='NavBarUserTopRight' onClick={demoLogin}>
-                Demo User
+                Demo Account
               </button>  
             </span>
           }
