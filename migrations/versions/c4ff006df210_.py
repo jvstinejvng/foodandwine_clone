@@ -21,8 +21,5 @@ depends_on = None
 def upgrade():
     pass
 
-    if environment == "production":
-        op.execute(f"ALTER TABLE <table_name> SET SCHEMA {SCHEMA};")
-
 def downgrade():
     pass
