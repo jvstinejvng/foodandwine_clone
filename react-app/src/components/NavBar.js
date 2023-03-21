@@ -5,7 +5,7 @@ import { useState } from 'react'
 
 import LogoutButton from './auth/LogoutButton';
 import SearchBar from './SearchBar';
-import breadandbutter from '../images//breadandbutterlogo.svg'
+import breadandbutter from '../images/breadandbutterlogo.svg'
 
 import './CSS/NavBar.css'
 

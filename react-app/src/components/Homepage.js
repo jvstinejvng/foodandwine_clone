@@ -36,16 +36,16 @@ function Homepage() {
         <div className='HomepageContainer'>
             { !sessionUser && 
                 <div className="HomepageSessionUser">
-                    <div className='HomepageHeaderText' >Unleash your inner chef and spice up your life - with our recipes, culinary adventures are always in sight!</div>
-                    <div className="HomepageSessionUserSub">Discover, cook, and share your favorite recipes with our community of food lovers.</div>
+                    <div className='HomepageHeaderText' >Sharing the joy of cooking! </div>
+                    <div className="HomepageMainText">Discover, cook, and share your favorite recipes with our community of food lovers.</div>
                 </div>
             }
             { sessionUser && 
                 <div className="HomepageSessionUser">
                     <div className='HomepageHeaderText'>Today is {date}</div>
-                    <div className="HomepageSessionUserSub">Sharing the joy of cooking!</div>
+                    <div className="HomepageMainText">Unleash your inner chef and spice up your life - with our recipes, culinary adventures are always in sight!</div>
                 </div>
-                }
+            }
         <div className='HomepageMainRecipe'>
             <div className='HomepageFirstDiv'>
                 <div className='HomepageNewRecipeAlert'>Our newest recipe</div>
