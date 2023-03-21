@@ -11,7 +11,7 @@ function Footer() {
         <div className='footer-div'>
             <span className='footer-container-left'>
                 <Link to='/'><img className='footer-logo' alt="bread and butter logo" src={breadandbutter} /></Link>
-                <div className='footer-connect'>Connect & Contact</div>  
+                <div className='footer-connect'>Connect with me</div>  
                 <div className='footer-icons'>
                     <a className="footer-link" href="mailto:justinejang415@gmail.com"><i class="fa-solid fa-envelope"></i></a>
                     <a href="https://github.com/jvstinejvng" className="footer-link" target="_blank">
