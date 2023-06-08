@@ -11,8 +11,9 @@ import Ingredient from './Ingredient'
 import Direction from './Direction'
 import ReviewContainer from '../Reviews/ReviewContainer'
 // import SaveRecipe from './SaveRecipe'
-// import NotFound from '../NotFound.js'
+import NotFound from '../NotFound.js'
 import '../CSS/RecipePage.css'
+
 
 function RecipePage() {
 
@@ -355,7 +356,8 @@ function RecipePage() {
             <div ref={scrollToReviews}></div>
             <div className='RecipePageBottom'><ReviewContainer recipe={recipe} /></div>
         </>    
-        }                         
+        } 
+        < NotFound/>                        
         </div>
     )
 }
