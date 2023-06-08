@@ -71,8 +71,6 @@ flask seed all
 flask run
 ```
 
-
-
 5. Install frontend dependencies:
 
 ```bash
