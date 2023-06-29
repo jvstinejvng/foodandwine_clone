@@ -357,7 +357,9 @@ function RecipePage() {
             <div className='RecipePageBottom'><ReviewContainer recipe={recipe} /></div>
         </>    
         } 
-        < NotFound/>                        
+        {/* { !recipe && 
+             < NotFound/>   
+        } */}
         </div>
     )
 }
