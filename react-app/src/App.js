@@ -22,6 +22,8 @@ import { getRecipesThunk } from './store/recipe';
 import SearchBarResults from './components/SearchBarResults';
 import NotFound from './components/NotFound.js';
 import Footer from './components/Footer.js';
+import ScrollToTop from "./components/ScrollToTop";
+
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -38,12 +40,18 @@ function App() {
     searchRecipes().catch(console.error)
   }, [dispatch]);
 
+  useEffect(() => {
+    window.history.scrollRestoration = 'manual'
+  }, []);
+
+
   if (!loaded) {
     return null;
   }
 
   return (
-    <BrowserRouter>
+    <BrowserRouter>       
+      <ScrollToTop />
       <NavBar />
           <Switch>
             <Route path='/log-in' exact={true}>
