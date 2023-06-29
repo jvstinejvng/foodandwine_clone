@@ -44,7 +44,6 @@ function App() {
     window.history.scrollRestoration = 'manual'
   }, []);
 
-
   if (!loaded) {
     return null;
   }
