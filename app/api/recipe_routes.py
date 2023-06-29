@@ -100,6 +100,7 @@ def edit_ingredient(ing_id):
 
     form = IngredientForm()
     form['csrf_token'].data = request.cookies['csrf_token']
+    
     if form.validate_on_submit():
         amount = form.data['amount'],
         food_stuff = form.data['food_stuff'],
