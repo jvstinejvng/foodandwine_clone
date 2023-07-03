@@ -1,34 +1,44 @@
-/* direction step */
-.direction-step-text-div {
+/* found in direction.js */
+.direction-numbered-steps-div {
     font-family: Georgia, 'Times New Roman', Times, serif;    
     font-weight: 700;
-    line-height: 1.75rem;
+    font-size: 1.5rem;
+    line-height: 3rem;
     letter-spacing: 0.5px;
-    font-size: 1.125rem;
-    padding-right: 5px
 }
 
-.DirectionStepText { 
-    padding-right: 10px; 
-}
-
-.DirectionStepEdit {
-    cursor: pointer;
-    font-size: 12px;
+.edit-direction-steps {
+    padding: 0 8px 0 8px;
+    font-size: 14px;
     font-family: Arial, Helvetica, sans-serif;
+    font-style: italic;
     letter-spacing: 0.5px;
-    padding-left: 10px;
-    text-transform: capitalize;
+    cursor: pointer;
+    white-space: nowrap;
 }
 
-.DirectionStepEditText {
-    padding-left: 5px;
+.edit-direction-steps i {
+    padding-right: 4px
 }
 
-.DirectionStepEdit:hover {
-    text-decoration-line: underline;
-    text-decoration-thickness: 2px; 
+.edit-direction-steps-trash:hover{
+    font-weight: 600;
+    font-size: 16px;
+    color: red
 }
+
+.edit-direction-steps-edit:hover {
+    font-weight: 600;
+    font-size: 16px;
+    color: green
+}
+
+.edit-direction-button-span {
+    padding-left: 10px
+}
+
+
+
 
 /* edit direction box */
 .EditDirectionDiv{

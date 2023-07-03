@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useDispatch} from "react-redux"
 import { getRecipesThunk } from '../../store/recipe'
 import EditDirection from './EditDirection'
+import '../CSS/EditDirection.css'
 
 function Direction({ instruction, recipe_id, showEditDirection, directionStep }) {
 
@@ -27,9 +28,8 @@ function Direction({ instruction, recipe_id, showEditDirection, directionStep })
     return (
         ( showEditDirection && showEdit2 ?
             <> 
-            <div className="direction-step-text-div" key={instruction.id}> 
-                <span className="DirectionStepText">Step&nbsp;{directionStep + 1}</span>
-                <i class="fa-solid fa-pen-to-square"></i>
+            <div className="direction-numbered-steps-div" key={instruction.id}> 
+                Step&nbsp;{directionStep + 1}
             </div>
                 <EditDirection
                 instruction={instruction}
@@ -40,30 +40,39 @@ function Direction({ instruction, recipe_id, showEditDirection, directionStep })
             </>
             :
             (showEditDirection ?
-                <div>
-                    <span className="direction-step-text-div" key={instruction.id}> 
+                <>
+                    <span className="direction-numbered-steps-div" key={instruction.id}> 
                         Step&nbsp;{directionStep + 1} 
                     </span>
-                    <span className="DirectionStepEdit" onClick={handleDelete}>
-                        <i class="fa-solid fa-trash-can"></i>
-                        <span className="DirectionStepEditText">delete</span>
+                    <span className='edit-direction-button-span'>
+                        <span className="edit-direction-steps" onClick={handleDelete}>
+                            <span className="edit-direction-steps-trash">
+                                <i class="fa-solid fa-trash-can"></i>
+                                delete
+                            </span>
+                        </span>
                     </span>
                     <div>
-                    <span key={instruction.id} className='Direction'>
-                    { instruction.list_order } { instruction.specification }
-                    </span>
-                    <span className="DirectionStepEdit" onClick={() => setShowEdit2(!showEdit2)}>
-                        <i class="fa-solid fa-pen-to-square"></i>
-                        <span className="DirectionStepEditText">edit</span>
-                    </span>
+                        <span key={instruction.id}>
+                            { instruction.list_order } { instruction.specification }
+                        </span>
+                        <span className='edit-direction-button-span'>
+                            <span className="edit-direction-steps" onClick={() => setShowEdit2(!showEdit2)}>
+                                <span className="edit-direction-steps-edit">
+                                    <i class="fa-solid fa-pen-to-square"></i>
+                                    edit
+                                </span>
+                            </span>
+                        </span>
                     </div>
-                
-                </div>
+                </>
                 :
-                <div className='DirectionContainer'> 
-                    <div className="direction-step-text-div" key={instruction.id}> Step&nbsp;{directionStep + 1} </div>
-                    <div>{instruction.specification}</div>
-                </div>
+                <> 
+                    <div className="direction-numbered-steps-div" key={instruction.id}> 
+                        Step&nbsp;{directionStep + 1} 
+                    </div>
+                    {instruction.specification}
+                </>
             )
         )
     )
