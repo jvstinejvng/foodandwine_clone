@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import { useDispatch} from "react-redux"
-
 import { getRecipesThunk } from '../../store/recipe'
 import '../CSS/CreateIngredient.css'
 
@@ -31,7 +30,7 @@ function CreateIngredient({ recipe_id, measurementUnits }) {
 
         const payload = {
             amount,
-            food_stuff,
+            food_item: food_stuff,
             measurement_unit_id: unit,
             recipe_id
         }
@@ -64,7 +63,7 @@ function CreateIngredient({ recipe_id, measurementUnits }) {
         <>
         <h3 className='create-ingredient-title'>Enter Ingredients Below</h3>
         { hasSubmitted && validationErrors.length > 0 &&
-                <ul className=''>
+                <ul className='create-ingredient-errors'>
                     {validationErrors.map(error => (
                         <li className='' key={error}>{error}</li>
                     ))}
@@ -93,7 +92,8 @@ function CreateIngredient({ recipe_id, measurementUnits }) {
                     value={unit}
                     onChange={(e) => setUnit(e.target.value)}
                 >
-                    { measurementUnits && (
+
+                 { measurementUnits && (
                         Object.values(measurementUnits).map(unit => (
                         <option key={unit.id} value={unit.id}>{unit.unit}</option>
                         ))

@@ -35,23 +35,23 @@ function Ingredient({ recipe, ingredient, showEditIngredient, measurementUnits }
        
             :
             showEditIngredient ?
-            <div>
+            <span>
                 <span > {ingredient.amount} {ingredient.measurement_unit.unit} {ingredient.food_stuff}</span>
-                <div className='IngredientEditButton'>
+                <span className='IngredientEditButton'>
                     <span  className="IngredientStepText" onClick={() => setShowEdit1(!showEdit1)}>
                         <i class="fa-solid fa-pen-to-square"></i>
-                        <span className="IngredientStepEditText">edit</span>
+                        <span className="ingredient-step-edit-text">edit</span>
                     </span>
                     <span className="IngredientStepText" onClick={handleDelete}>
                         <i class="fa-solid fa-trash-can"></i>
-                        <span className="IngredientStepEditText">delete</span>
+                        <span className="ingredient-step-edit-text">delete</span>
                     </span>
-                </div>
-            </div>
+                </span>
+            </span>
             :
-            <div>
-                <div>{ingredient.amount} {ingredient.measurement_unit.unit} {ingredient.food_stuff}</div>
-            </div>
+            <span>
+                <span>{ingredient.amount} {ingredient.measurement_unit.unit} {ingredient.food_stuff}</span>
+            </span>
         )
     )
 }

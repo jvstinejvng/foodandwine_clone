@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import { useDispatch} from "react-redux"
-
 import { getRecipesThunk } from '../../store/recipe'
 import '../CSS/EditIngredient.css'
 
@@ -67,7 +66,6 @@ function EditIngredient({ ingredient, measurementUnits, recipe_id, showEdit1, se
                 </ul>
             }
         <form className="edit-ingdredient-form" onSubmit={handleSubmit}>
-            <span>
             <span className="edit-ingredient-form-span">
                 <input
                     className="edit-ingredient-form-input"
@@ -105,7 +103,6 @@ function EditIngredient({ ingredient, measurementUnits, recipe_id, showEdit1, se
                     onChange={(e) => setFood_stuff(e.target.value)}
                 />
                 <label className='edit-ingredient-form-label'>Ingredient</label>
-            </span>
             </span>
             <div  className='edit-ingredient-button-div'>
                     <button className='edit-ingredient-save-button-cancel' onClick={() => setShowEdit1(!showEdit1)}>Cancel</button>
