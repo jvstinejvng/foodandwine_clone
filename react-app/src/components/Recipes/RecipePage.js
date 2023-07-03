@@ -10,10 +10,9 @@ import Ingredient from './Ingredient'
 import Direction from './Direction'
 import ReviewContainer from '../Reviews/ReviewContainer'
 // import SaveRecipe from './SaveRecipe'
-import NotFound from '../NotFound.js'
-import Loading from '../Loading'
+// import NotFound from '../NotFound.js'
+// import Loading from '../Loading'
 import '../CSS/RecipePage.css'
-
 
 function RecipePage() {
 
@@ -25,7 +24,6 @@ function RecipePage() {
     const scrollToRecipe = useRef()
     const sessionUser = useSelector(state => state.session.user)
     const recipe = useSelector(state => state.recipes[id])
-
     const [showEdit, setShowEdit] = useState(false)
     const [showAddIngredient, setShowAddIngredient] = useState(false)
     const [showAddDirection, setShowAddDirection] = useState(false)
@@ -68,8 +66,6 @@ function RecipePage() {
             return window.alert('Fail to delete recipe. Please Try Again!')
         }
     }
-
-
 
     return (
         <div className='recipe-page-container' >

@@ -59,27 +59,41 @@
 }
 
 
+
 .edit-ingredient-button-div {
     display: flex;
     padding: 10px 10px;
 }
 
-.ingredient-step-edit-text{
-    cursor: pointer;
-    font-size: 12px;
+
+/* located on ingredient.js page */
+
+.edit-ingredient-button-span {
+    padding-left: 10px
+}
+
+.edit-ingredient-button {
+    padding: 0 8px 0 8px;
+    font-size: 14px;
     font-family: Arial, Helvetica, sans-serif;
+    font-style: italic;
     letter-spacing: 0.5px;
-    padding-left: 10px;
-    text-transform: capitalize;
+    cursor: pointer;
+    white-space: nowrap;
 }
 
-
-
-.IngredientStepText {
-    padding-right: 10px; 
-
+.edit-ingredient-button i {
+    padding-right: 4px
 }
 
-.IngredientEditButton {
-    padding-left: 1rem
+.edit-ingredient-edit:hover {
+    font-weight: 600;
+    font-size: 16px;
+    color: green
+}
+
+.edit-ingredient-delete:hover{
+    font-weight: 600;
+    font-size: 16px;
+    color: red
 }

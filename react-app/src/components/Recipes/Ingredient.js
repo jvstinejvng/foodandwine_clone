@@ -31,26 +31,29 @@ function Ingredient({ recipe, ingredient, showEditIngredient, measurementUnits }
                 showEdit1={showEdit1}
                 setShowEdit1={setShowEdit1}
             />
-       
             :
             showEditIngredient ?
-            <span>
-                <span > {ingredient.amount} {ingredient.measurement_unit.unit} {ingredient.food_stuff}</span>
-                <span className='IngredientEditButton'>
-                    <span  className="IngredientStepText" onClick={() => setShowEdit1(!showEdit1)}>
-                        <i class="fa-solid fa-pen-to-square"></i>
-                        <span className="ingredient-step-edit-text">edit</span>
+            <>
+                {ingredient.amount} {ingredient.measurement_unit.unit} {ingredient.food_stuff}
+                <span className='edit-ingredient-button-span'>
+                    <span  className="edit-ingredient-button" onClick={() => setShowEdit1(!showEdit1)}>
+                        <span className="edit-ingredient-edit">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                            Edit
+                        </span>
                     </span>
-                    <span className="IngredientStepText" onClick={handleDelete}>
-                        <i class="fa-solid fa-trash-can"></i>
-                        <span className="ingredient-step-edit-text">delete</span>
+                    <span className="edit-ingredient-button" onClick={handleDelete}> 
+                        <span className='edit-ingredient-delete'>
+                            <i className="fa-solid fa-trash-can"></i>
+                            Delete
+                        </span>
                     </span>
                 </span>
-            </span>
+            </>
             :
-            <span>
-                <span>{ingredient.amount} {ingredient.measurement_unit.unit} {ingredient.food_stuff}</span>
-            </span>
+            <>
+                {ingredient.amount} {ingredient.measurement_unit.unit} {ingredient.food_stuff}
+            </>
         )
     )
 }
