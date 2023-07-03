@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams, useHistory } from 'react-router-dom'
 import { getRecipesThunk } from '../store/recipe'
 import RecipeCard from "./Recipes/RecipeCard";
-
 import './CSS/SearchBar.css'
 
 function SearchResults( {setSearchBar} ) {

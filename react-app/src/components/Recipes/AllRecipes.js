@@ -1,6 +1,5 @@
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-
 import RecipeCard from './RecipeCard'
 import { getRecipesThunk } from '../../store/recipe'
 import '../CSS/AllRecipes.css'

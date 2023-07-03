@@ -2,7 +2,6 @@ import { useSelector, useDispatch } from 'react-redux'
 import { Link, NavLink,Redirect } from 'react-router-dom';
 import * as sessionaction from '../store/session';
 import { useState } from 'react'
-
 import LogoutButton from './auth/LogoutButton';
 import SearchBar from './SearchBar';
 import breadandbutter from '../images/breadandbutterlogo.svg'

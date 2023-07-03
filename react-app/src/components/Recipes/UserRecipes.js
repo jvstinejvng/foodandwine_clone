@@ -1,14 +1,11 @@
 import { useState, useEffect } from 'react'
 import { NavLink, Link } from "react-router-dom"
 import { useDispatch, useSelector } from 'react-redux'
-
 import { getRecipesThunk } from '../../store/recipe'
 import { getCommentsThunk } from '../../store/comment'
-
 import RecipeCard from './RecipeCard'
 import UserReview from '../Reviews/UserReview'
 // import CreateRecipe from './CreateRecipe'
-
 import '../CSS/UserRecipes.css'
 
 function UserRecipes() {

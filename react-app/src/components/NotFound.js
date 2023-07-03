@@ -1,5 +1,4 @@
 import { NavLink } from "react-router-dom"
-
 import "./CSS/RecipePage.css"
 import breadcumbs from '../images/breadcrumb.png'
 

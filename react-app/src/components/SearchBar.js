@@ -2,7 +2,6 @@ import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom'
 import { getRecipesThunk } from '../store/recipe'
-
 import './CSS/SearchBar.css'
 
 function SearchBar( {setShowSearch} ) {

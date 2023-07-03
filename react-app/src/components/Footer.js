@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import React from "react";
-
 import './CSS/Footer.css'
 import breadandbutter from '../images/bread-butter-footer.png'
 

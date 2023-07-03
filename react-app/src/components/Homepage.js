@@ -2,7 +2,6 @@ import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom';
 import { getRecipesThunk } from '../store/recipe'
-
 import RecipeCard from  './Recipes/RecipeCard'
 import FeaturedRecipe from './HomepageRecipe'
 import bannerdefault from '../images/homepagedefault.jpg'
@@ -25,8 +24,6 @@ function Homepage() {
         }
         searchRecipes().catch(console.error)
     }, [dispatch])
-
-    
     
     const month = ["January","February","March","April","May","June","July","August","September","October","November","December"]; 
     const current = new Date();

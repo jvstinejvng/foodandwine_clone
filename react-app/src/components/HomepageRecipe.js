@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom'
-
 import './CSS/FeatureRecipe.css'
 
 function FeaturedRecipe( {recipe} ) {
