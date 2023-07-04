@@ -30,7 +30,7 @@ function CreateIngredient({ recipe_id, measurementUnits }) {
 
         const payload = {
             amount,
-            food_item: food_stuff,
+            food_stuff,
             measurement_unit_id: unit,
             recipe_id
         }
